@@ -6,10 +6,13 @@ body {
     background-repeat:no-repeat;
     background-size: 100%;
 }
+html,body{  
+    height: 110%;  
+    width: 100%;  
+}
 
-#head {
-    height: 60px;
-    width: 100%;
+#header {
+    height: 8%;
     background-color: black;
     filter: alpha(opacity : 70);
     opacity:0.7;
@@ -17,32 +20,47 @@ body {
     -khtml-opacity:0.7;
 }
 
-
-.title {
-    margin-left: 10px;
-    font-size: 20px;
+*.title {
+   float: right;
+    list-style-type :none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-size: 1.5em;
     color:whitesmoke;
-    height:60px;
-    line-height: 60px;
+    display: table;
+    
 }
 
+*.title li {
+    vertical-align:middle;
+    display:table-cell;
+    height: 100%;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+li span {
+    vertical-align: middle;
+}
 #mid {
-    height: 600px;
+   
+    height: 80%;
     filter: alpha(opacity : 50);
     opacity:0.5;
     -moz-opacity: 0.5;
     -khtml-opacity:0.5;
     background-color: bisque;
-}
+} 
 
 #name {
-    width: 300px;
-    height: 100px;
-    
-    font-size: 45px;
+    width: 50%;
+    height: 20%;
+    font-size: 5em;
     font-style: inherit;
     border-radius: 50%;
-    
+    color:black;
     text-align: center;
     background-color:bisque;
     margin-left: auto;
@@ -52,13 +70,16 @@ body {
     transform: translateY(-50%);
 }
 
-#name span {
-    line-height: 100px;
-    padding: 10px;
-}
-
 #name:hover {
     cursor: pointer;
-    background-color: rgb(63, 63, 63);
+}
+
+#bottom {
+    height: 12%;
     color: whitesmoke;
+    background-color: rgb(32, 32, 32);
+    filter: alpha(opacity : 70);
+    opacity:0.7;
+    -moz-opacity: 0.7;
+    -khtml-opacity:0.7;
 }
