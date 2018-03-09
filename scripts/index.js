@@ -1,9 +1,9 @@
 void function() {
-    var app5 = new Vue({
-        el: '#blogname',
+    var name = new Vue({
+        el: '#name',
         methods: {
           jumpList: function () {
-            window.location.href="htmls/list.html"
+            window.location.href="./htmls/list.html"
           }
         }
       })
