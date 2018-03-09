@@ -1,4 +1,4 @@
-window.onload(void function(){
+void function() {
     var app5 = new Vue({
         el: '#blogname',
         methods: {
@@ -7,4 +7,4 @@ window.onload(void function(){
           }
         }
       })
-})
+}    
