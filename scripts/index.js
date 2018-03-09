@@ -1,4 +1,4 @@
-void function() {
+
     var name = new Vue({
         el: '#name',
         methods: {
@@ -7,4 +7,3 @@ void function() {
           }
         }
       })
-}    
