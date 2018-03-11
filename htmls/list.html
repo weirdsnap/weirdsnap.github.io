@@ -17,15 +17,11 @@
         </ul>
     </div>
     <div id="contents" class="opacity90" >
-        <div id="blogs">
-            <ul>
-                <li v-for="blog in blogs" v-html="blog.iframe" >
-                    {{ blog.iframe }}
-                </li>
-                <!-- <li><iframe src="../htmls/blogs/001.html" frameborder="0" scrolling="no" class="opacity90"></iframe></li> -->
-                <!-- <li><iframe src="../htmls/blogs/002.html" frameborder="0" scrolling="no" class="opacity90"></iframe></li> -->
-            </ul>
-        </div>
+        <ul id="blogs">
+            <li v-for="blog in blogs" class="opacity90" @click="jumpBlog(blog)" >
+                {{ blog.title }}
+            </li>
+        </ul>
     </div>
     <div id="bottom" class="opacity70">
         <span>2018-2018</span>

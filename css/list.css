@@ -1,21 +1,23 @@
-#blog {
+#blogs {
     width: 80%;
     height: 60%;
 }
 
 ul {
-    margin :0;
+    margin :auto;
     padding: 0;
 }
 
-ul li {
-    height: 300px;
+#blogs li {
+    font-size: 2em;
+    list-style-type: none;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;  
+    background-color: #fff;
 }
 
-iframe {
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
-    height: 100%;   
-    background-color: #fff;
+li:hover {
+    cursor: pointer;
 }

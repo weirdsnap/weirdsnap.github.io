@@ -2,13 +2,15 @@ var app4 = new Vue({
     el: '#blogs',
     data: {
       blogs: [
-        { iframe: '<iframe src="../htmls/blogs/001.html" frameborder="0" scrolling="no" class="opacity90" @click="jumpBlog"></iframe>' ,name: '../htmls/blogs/001.html'},
-        { iframe: '<iframe src="../htmls/blogs/002.html" frameborder="0" scrolling="no" class="opacity90" @click="jumpBlog"></iframe>' ,name: '../htmls/blogs/002.html'}
+        { title: '刚开始写python遇到了很迷的bug' ,name: '../htmls/blogs/001.html'},
+        { title: '如何攥写一片高质量的数学建模论文' ,name: '../htmls/blogs/002.html'},
+        { title: '数学建模比赛基础了解' ,name: '../htmls/blogs/003.html'}
       ]
     },
     methods: {
-        jumpBlog : function() {
-            window.location.href= this.name
+        jumpBlog : function(blog) {
+            // alert(this)
+            window.location.href= blog.name
         }
     }
 })
