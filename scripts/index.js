@@ -9,3 +9,15 @@ var name = new Vue({
         }
     }
 })
+
+var header = new Vue({
+    el: '#header',
+    methods: {
+        home : function() {
+            window.location.href='https://weirdsnap.github.io'
+        },
+        github : function() {
+            window.location.href='https://github.com/weirdsnap'
+        }
+    }
+})
