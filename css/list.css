@@ -1,6 +1,6 @@
 #blog {
     width: 80%;
-    height: 80%;
+    height: 60%;
 }
 
 ul {
@@ -9,13 +9,13 @@ ul {
 }
 
 ul li {
-    height: 500px;
+    height: 300px;
 }
 
 iframe {
     margin-left: 10%;
     margin-right: 10%;
     width: 80%;
-    height: 60%;   
+    height: 100%;   
     background-color: #fff;
 }
