@@ -6,7 +6,8 @@ var app4 = new Vue({
         { title: '如何攥写一片高质量的数学建模论文' ,name: '../htmls/blogs/002.html'},
         { title: '数学建模比赛基础了解' ,name: '../htmls/blogs/003.html'},
         { title: '系统分析与设计(1)' ,name: '../htmls/blogs/004.html'},
-        { title: 'vue学习' ,name: '../htmls/blogs/005.html'}
+        { title: 'vue学习' ,name: '../htmls/blogs/005.html'},
+        { title: '系统分析与设计(2)' ,name: '../htmls/blogs/006.html'}
       ]
     },
     methods: {
