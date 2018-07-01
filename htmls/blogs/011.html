@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>前端面试准备</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///C:\Users\Administrator\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.5\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <style> 
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+ 
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview   ">
+      <h1 class="mume-header" id="%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E5%A4%8D%E4%B9%A0">前端知识复习</h1>
+
+<h2 class="mume-header" id="session-%E4%B8%8E-cookie">session 与 cookie</h2>
+
+<p>session：服务端要为特定的用户创建了特定的Session，用于标识这个用户，并且跟踪用户，这样才知道这个用户购物车里面有几本书等等。这个Session是保存在服务端的，有一个唯一标识，用来记录用户的状态。</p>
+<p>cookie：是客户端保存用户信息的一种机制，用来记录用户的一些信息，也是实现Session的一种方式（使用cookie记录sessionID）。用户发送请求时会将cookie发给服务器，所以服务器知道了这个用户对应的session。</p>
+<p>对比、区别：</p>
+<blockquote>
+<p>1，session 在服务器端，cookie 在客户端（浏览器）<br>
+2，session 默认被存在在服务器的一个文件里（不是内存）<br>
+3，session 的运行依赖 session id，而 session id 是存在 cookie 中的，也就是说，如果浏览器禁用了 cookie ，同时 session 也会失效（但是可以通过其它方式实现，比如在 url 中传递 session_id）<br>
+4，session 可以放在 文件、数据库、或内存中都可以。<br>
+5，用户验证这种场合一般会用 session 因此，维持一个会话的核心就是客户端的唯一标识，即 session id<br>
+作者：冯特罗<br>
+链接：<a href="https://www.zhihu.com/question/19786827/answer/21643186">https://www.zhihu.com/question/19786827/answer/21643186</a><br>
+来源：知乎<br>
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</blockquote>
+<h2 class="mume-header" id="jsonp-%E8%B7%A8%E5%9F%9F">JSONP 跨域</h2>
+
+<p>问题：Ajax不能解决跨域请求（同源错误）。即：</p>
+<blockquote>
+<p>比如a.com下的一个页面，其中的ajax请求是不允许访问<br>
+b.com这样一个页面的</p>
+</blockquote>
+<p><strong>同源</strong>：域名，协议，端口相同</p>
+<p>解决方法<br>
+添加script标签，src属性</p>
+<h2 class="mume-header" id="js%E7%9A%84%E6%95%B0%E6%8D%AE">js的数据</h2>
+
+<h3 class="mume-header" id="%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B">基础类型</h3>
+
+<p>所有的数字都是双精度浮点的存在，64位，8字节</p>
+<h2 class="mume-header" id="js%E8%AF%AD%E6%B3%95">js语法</h2>
+
+<h3 class="mume-header" id="%E9%97%AD%E5%8C%85">闭包</h3>
+
+<p>作用：闭包可以用在许多地方。它的最大用处有两个，一个是可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。</p>
+<h3 class="mume-header" id="%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C">数组操作</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">pop()</td>
+<td style="text-align:center">删除最后一个元素并返回这个被删除的元素</td>
+</tr>
+<tr>
+<td style="text-align:center">splice()</td>
+<td style="text-align:center">可以删除已存在的元素，也可以添加元素到数组里</td>
+</tr>
+<tr>
+<td style="text-align:center">sort()</td>
+<td style="text-align:center">排序，默认按照Unicode码排序</td>
+</tr>
+<tr>
+<td style="text-align:center">concat()</td>
+<td style="text-align:center">连接两个或者多个数组，返回一个被连接数组的副本</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h3 class="mume-header" id="%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F">严格模式</h3>
+
+<ul>
+<li>消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;</li>
+<li>消除代码运行的一些不安全之处，保证代码运行的安全；</li>
+<li>提高编译器效率，增加运行速度；</li>
+<li>为未来新版本的Javascript做好铺垫</li>
+</ul>
+<h2 class="mume-header" id="%E5%88%A4%E6%96%AD">判断 ===</h2>
+
+<p>null的类型是对象这个bug是js的特性了，所以判断是不是对象之前，最好加上判断是不是null</p>
+<pre data-role="codeBlock" data-info="lang=js" class="language-lang=js"><code>typeof null === &apos;object&apos;
+true
+</code></pre><h2 class="mume-header" id="json-vs-xml">JSON vs XML</h2>
+
+<ul>
+<li>可读性方面：基本相同，XML的可读性比较好；</li>
+<li>可扩展性方面：都具有良好的扩展性；</li>
+<li>编码难度方面：相对而言，JSON的编码比较容易；</li>
+<li>解码难度：JSON的解码难度基本为零，XML需要考虑子节点和父节点；</li>
+<li>数据体积方面：JSON相对于XML来讲，数据体积小，传递的速度比较快；</li>
+<li>数据交互方面：JSON与javascript的交互更加方便，更容易解析处理，更好的数据交互；</li>
+<li>数据描述方面：XML对数据描述性比较好；</li>
+<li>传输速度方面：JSON的速度远远快于XML。</li>
+</ul>
+<h2 class="mume-header" id="%E6%95%88%E7%8E%87">效率</h2>
+
+<p>createDocumentFragment方法会创建一个文档片段，它的变化不会引起DOM树的重新渲染，从而不会导致性能问题。最后将创建的文档片段添加到DOM树中即可仅发生一次渲染就实现目标</p>
+<h2 class="mume-header" id="%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3">浏览器相关</h2>
+
+<h3 class="mume-header" id="dom%E6%93%8D%E4%BD%9C">dom操作</h3>
+
+<p>自己实现一个elementcreate函数</p>
+<pre data-role="codeBlock" data-info="lang = js" class="language-lang"><code>dom = function(name, attrs = {}, ... childs) {
+    let el = document.createElement(name)
+    for (prop of Object.keys(attrs)) {
+        el.setAttribute(prop,attrs[prop])
+    }
+    for (child of childs ) {
+        if (Object.prototype.toString.call(child) == &apos;[object String]&apos;) {
+            el.innerHTML += child
+        } else {
+            el.appendChild(child)
+        }
+    }
+    return el
+}
+</code></pre><h3 class="mume-header" id="%E5%BC%95%E6%93%8E">引擎</h3>
+
+<h3 class="mume-header" id="reflow">reflow</h3>
+
+<p>浏览器倒回去把已经渲染过的元素重新渲染一遍，这个回退的过程叫reflow。<br>
+引起reflow<br>
+1.改变窗囗大小<br>
+2.改变文字大小<br>
+3.添加/删除样式表<br>
+4.脚本操作DOM<br>
+5.设置style属性</p>
+<h2 class="mume-header" id="css">CSS</h2>
+
+<h3 class="mume-header" id="%E7%9B%B8%E5%AF%B9">相对</h3>
+
+<p>设置为相对定位的元素框会<strong>偏移</strong>某个距离。元素仍然保持其未定位前的形状，它原本所占的空间仍保留。</p>
+<h3 class="mume-header" id="%E7%BB%9D%E5%AF%B9">绝对</h3>
+
+<p>设置为绝对定位的元素框从文档流完全删除，并<strong>相对于其包含块定位</strong>，包含块可能是文档中的另一个元素或者是初始包含块。元素原先在正常文档流中所占的空间会关闭，就好像该元素原来不存在一样。元素定位后生成一个块级框，而不论原来它在正常流中生成何种类型的框。</p>
+<h2 class="mume-header" id="%E7%9C%9F%E9%A2%98">真题</h2>
+
+<h3 class="mume-header" id="sum%E5%87%BD%E6%95%B0">sum函数</h3>
+
+<p>要求：能接受任意数量的数字作为参数，能接受字符，能接受小数（去尾法），能接受数组（以及嵌套数组）</p>
+<p>我的答案，思路是递归</p>
+<pre data-role="codeBlock" data-info="lang =js" class="language-lang"><code>sum = function(...number) {
+    let s = 0
+    for ( n of number) {
+        if (Object.prototype.toString.call(n) == &apos;[object Array]&apos;) {
+            for (m of n) {
+                s += sum(m)
+                }
+            } else {
+                s += parseInt(n)
+            }
+        }
+    return s
+}
+
+</code></pre>
+      </div>
+      
+      
+    </body>
+    
+    
+    
+    
+    
+    
+    
+  </html>
