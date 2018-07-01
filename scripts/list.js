@@ -10,7 +10,8 @@ var app4 = new Vue({
         { title: '系统分析与设计(2)' ,name: '../htmls/blogs/006.html'},
         { title: '系统分析与设计(3)' ,name: '../htmls/blogs/007.html'},
         { title: '系统分析与设计(4)' ,name: '../htmls/blogs/008.html'},
-        { title: '系统分析与设计(7)' ,name: '../htmls/blogs/010.html'}        
+        { title: '系统分析与设计(7)' ,name: '../htmls/blogs/010.html'},        
+        { title: '前端知识复习' ,name: '../htmls/blogs/011.html'}        
       ]
     },
     methods: {
