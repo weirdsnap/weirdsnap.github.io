@@ -1,23 +1,25 @@
-var name = new Vue({
-    el: '#name',
-    data: {
-        massage : "Snap's Blog"
+const { createApp } = Vue;
+
+createApp({
+    data() {
+        return {
+            massage: "Snap's Blog"
+        }
     },
     methods: {
-        jumpList: function () {
-            window.location.href='./htmls/list.html'
+        jumpList() {
+            window.location.href = './htmls/list.html'
         }
     }
-})
+}).mount('#name');
 
-var header = new Vue({
-    el: '#header',
+createApp({
     methods: {
-        home : function() {
-            window.location.href='https://weirdsnap.github.io'
+        home() {
+            window.location.href = 'https://weirdsnap.github.io'
         },
-        github : function() {
-            window.location.href='https://github.com/weirdsnap'
+        github() {
+            window.location.href = 'https://github.com/weirdsnap'
         }
     }
-})
+}).mount('#header');
