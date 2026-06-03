@@ -1,8 +1,10 @@
+// Get post filename from URL query, e.g., ?post=001.md
 function getPostParam() {
     var params = new URLSearchParams(window.location.search);
     return params.get('post') || '';
 }
 
+// Configure marked for better rendering
 marked.setOptions({
     breaks: true,
     gfm: true,
@@ -11,31 +13,37 @@ marked.setOptions({
 });
 
 Vue.createApp({
+    template: '<article v-html="renderedContent"></article>',
     data: function() {
         return {
             renderedContent: '<p>Loading...</p>'
         };
     },
     mounted: function() {
-        var self = this;
         var post = getPostParam();
         if (!post) {
-            self.renderedContent = '<p>No post specified.</p>';
+            this.renderedContent = '<p>No post specified.</p>';
             return;
         }
 
-        if (!post.endsWith('.md') || post.indexOf('..') !== -1 || post.charAt(0) === '/' || post.indexOf('//') !== -1) {
-            self.renderedContent = '<p>Invalid post parameter.</p>';
+        // Security: only allow .md files with safe path
+        if (!post.endsWith('.md') || post.indexOf('..') >= 0 || post.charAt(0) === '/' || post.indexOf('//') >= 0) {
+            this.renderedContent = '<p>Invalid post parameter.</p>';
             return;
         }
 
+        var self = this;
         fetch('../posts/' + post)
             .then(function(res) {
                 if (!res.ok) throw new Error('Post not found');
                 return res.text();
             })
             .then(function(md) {
-                self.renderedContent = marked.parse(md);
+                console.log('md loaded, length=' + md.length);
+                var html = marked.parse(md, { async: false });
+                console.log('html type=' + typeof html + ', length=' + (html ? html.length : 0));
+                self.renderedContent = html;
+                // Highlight code blocks after DOM update
                 self.$nextTick(function() {
                     document.querySelectorAll('pre code').forEach(function(block) {
                         hljs.highlightElement(block);
@@ -43,6 +51,7 @@ Vue.createApp({
                 });
             })
             .catch(function(err) {
+                console.error('ERROR:', err);
                 self.renderedContent = '<p>Error loading post: ' + err.message + '</p>';
             });
     },
