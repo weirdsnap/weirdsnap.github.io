@@ -114,9 +114,12 @@ li span {
 }
 
 #bottom {
-    height: 12%;
+    height: 50px;
+    line-height: 50px;
     color: whitesmoke;
     background-color: rgb(32, 32, 32);
+    text-align: center;
+    font-size: 0.9em;
 }
 
 .opacity70 {
