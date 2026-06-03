@@ -19,11 +19,13 @@
         <div id="contents" class="opacity50">
             <div id="categories">
                 <p v-if="loading" style="color:#333;font-size:1.5em;">加载中...</p>
+                <p v-if="error" style="color:#c00;font-size:1.2em;">{{ error }}</p>
                 <div v-for="cat in categories" :key="cat.id" class="category-card" @click="jumpCategory(cat)">
                     <h2>{{ cat.label }}</h2>
-                    <p>{{ cat.articles.length + cat.subs.reduce((s,sub)=>s+sub.articles.length,0) }} 篇文章</p>
+                    <p>{{ articleCount(cat) }} 篇文章</p>
                 </div>
             </div>
+            <div id="debug" style="position:fixed;bottom:10px;left:10px;background:rgba(0,0,0,0.8);color:#0f0;padding:10px;font-family:monospace;z-index:9999;"></div>
         </div>
         <div id="bottom" class="opacity70">
             <span>2018-2026</span>
