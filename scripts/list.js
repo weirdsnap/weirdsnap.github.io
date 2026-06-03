@@ -1,36 +1,85 @@
 const { createApp } = Vue;
 
+function getCategoryParam() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('category') || '';
+}
+
 createApp({
     data() {
         return {
-            blogs: [
-                { title: '刚开始写python遇到了很迷的bug', post: '001.md' },
-                { title: '如何攥写一片高质量的数学建模论文', post: '002.md' },
-                { title: '数学建模比赛基础了解', post: '003.md' },
-                { title: '系统分析与设计(1)', post: '004.md' },
-                { title: 'vue学习', post: '005.md' },
-                { title: '系统分析与设计(2)', post: '006.md' },
-                { title: '系统分析与设计(3)', post: '007.md' },
-                { title: '系统分析与设计(4)', post: '008.md' },
-                { title: '系统分析与设计(7)', post: '010.md' },
-                { title: '前端知识复习', post: '011.md' }
-            ]
+            categoryId: getCategoryParam(),
+            categoryLabel: '',
+            articles: [],
+            subs: [],
+            loading: true
+        };
+    },
+    computed: {
+        pageTitle() {
+            return this.categoryLabel || 'Blog List';
         }
     },
+    watch: {
+        pageTitle(newVal) {
+            document.title = newVal;
+        }
+    },
+    mounted() {
+        fetch('../posts/index.json')
+            .then(res => res.json())
+            .then(data => {
+                const cat = (data.categories || []).find(c => c.id === this.categoryId);
+                if (cat) {
+                    this.categoryLabel = cat.label;
+                    this.articles = cat.articles || [];
+                    this.subs = cat.subs || [];
+                } else {
+                    this.categoryLabel = '未找到分类';
+                }
+                this.loading = false;
+            })
+            .catch(err => {
+                console.error('Failed to load index:', err);
+                this.loading = false;
+            });
+    },
     methods: {
-        jumpBlog(blog) {
-            window.location.href = `./blog.html?post=${encodeURIComponent(blog.post)}`
+        jumpBlog(article) {
+            window.location.href = `./blog.html?post=${encodeURIComponent(article.path)}`;
         }
     }
 }).mount('#blogs');
 
 createApp({
+    data() {
+        return {
+            categoryId: getCategoryParam(),
+            categoryLabel: ''
+        };
+    },
+    computed: {
+        pageTitle() {
+            return this.categoryLabel || 'Blog List';
+        }
+    },
+    mounted() {
+        fetch('../posts/index.json')
+            .then(res => res.json())
+            .then(data => {
+                const cat = (data.categories || []).find(c => c.id === this.categoryId);
+                if (cat) this.categoryLabel = cat.label;
+            });
+    }
+}).mount('#category-title');
+
+createApp({
     methods: {
         home() {
-            window.location.href = 'https://weirdsnap.github.io'
+            window.location.href = 'https://weirdsnap.github.io';
         },
         github() {
-            window.location.href = 'https://github.com/weirdsnap'
+            window.location.href = 'https://github.com/weirdsnap';
         }
     }
 }).mount('#header');

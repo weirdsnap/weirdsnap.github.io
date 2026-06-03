@@ -17,8 +17,12 @@
             </ul>
         </div>
         <div id="contents" class="opacity50">
-            <div id="name" >
-                <span v-on:click="jumpList" > {{ massage }} </span>
+            <div id="categories">
+                <p v-if="loading" style="color:#333;font-size:1.5em;">加载中...</p>
+                <div v-for="cat in categories" :key="cat.id" class="category-card" @click="jumpCategory(cat)">
+                    <h2>{{ cat.label }}</h2>
+                    <p>{{ cat.articles.length + cat.subs.reduce((s,sub)=>s+sub.articles.length,0) }} 篇文章</p>
+                </div>
             </div>
         </div>
         <div id="bottom" class="opacity70">

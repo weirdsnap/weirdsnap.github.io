@@ -12,7 +12,28 @@ ul {
     padding: 0;
 }
 
-#blogs li {
+#category-title {
+    text-align: center;
+    margin: 0.5em 0 0.3em 0;
+    font-size: 2.5em;
+    color: #333;
+    font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+}
+
+.sub-category h2 {
+    text-align: center;
+    margin: 1em 0 0.5em 0;
+    font-size: 1.8em;
+    color: #555;
+    font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+}
+
+.article-list {
+    margin: 0;
+    padding: 0;
+}
+
+.article-list li {
     font-size: 2em;
     list-style-type: none;
     font-style: normal;
@@ -20,12 +41,20 @@ ul {
     line-height: 100px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 0.5em;
     width: 80%;
     background-color: #fff;    
     text-align: center;
     font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu ;
 }
 
-li:hover {
+.article-list li:hover {
     cursor: pointer;
+}
+
+.empty {
+    text-align: center;
+    font-size: 1.5em;
+    color: #666;
+    margin-top: 2em;
 }

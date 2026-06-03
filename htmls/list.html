@@ -17,11 +17,27 @@
         </ul>
     </div>
     <div id="contents" class="opacity90" >
-        <ul id="blogs">
-            <li v-for="blog in blogs" class="opacity90" @click="jumpBlog(blog)" >
-                {{ blog.title }}
-            </li>
-        </ul>
+        <h1 id="category-title">{{ pageTitle }}</h1>
+        <div id="blogs">
+            <!-- 一级文章 -->
+            <ul v-if="articles.length > 0" class="article-list">
+                <li v-for="article in articles" class="opacity90" @click="jumpBlog(article)">
+                    {{ article.title }}
+                </li>
+            </ul>
+            <!-- 子分类 -->
+            <div v-for="sub in subs" :key="sub.id" class="sub-category">
+                <h2>{{ sub.label }}</h2>
+                <ul class="article-list">
+                    <li v-for="article in sub.articles" class="opacity90" @click="jumpBlog(article)">
+                        {{ article.title }}
+                    </li>
+                </ul>
+            </div>
+            <p v-if="!loading && articles.length === 0 && subs.length === 0" class="empty">
+                暂无文章
+            </p>
+        </div>
     </div>
     <div id="bottom" class="opacity70">
         <span>2018-2026</span>

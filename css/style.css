@@ -69,6 +69,47 @@ li span {
     cursor: pointer;
 }
 
+#categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    height: 100%;
+    padding: 0 2em;
+}
+
+.category-card {
+    width: 280px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.category-card h2 {
+    margin: 0 0 0.3em 0;
+    font-size: 2em;
+    color: #333;
+}
+
+.category-card p {
+    margin: 0;
+    font-size: 1em;
+    color: #666;
+}
+
 #bottom {
     height: 12%;
     color: whitesmoke;

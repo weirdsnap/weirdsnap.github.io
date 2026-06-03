@@ -3,23 +3,36 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            massage: "Snap's Blog"
-        }
+            categories: [],
+            loading: true
+        };
+    },
+    mounted() {
+        fetch('./posts/index.json')
+            .then(res => res.json())
+            .then(data => {
+                this.categories = data.categories || [];
+                this.loading = false;
+            })
+            .catch(err => {
+                console.error('Failed to load index:', err);
+                this.loading = false;
+            });
     },
     methods: {
-        jumpList() {
-            window.location.href = './htmls/list.html'
+        jumpCategory(cat) {
+            window.location.href = `./htmls/list.html?category=${encodeURIComponent(cat.id)}`;
         }
     }
-}).mount('#name');
+}).mount('#categories');
 
 createApp({
     methods: {
         home() {
-            window.location.href = 'https://weirdsnap.github.io'
+            window.location.href = 'https://weirdsnap.github.io';
         },
         github() {
-            window.location.href = 'https://github.com/weirdsnap'
+            window.location.href = 'https://github.com/weirdsnap';
         }
     }
 }).mount('#header');

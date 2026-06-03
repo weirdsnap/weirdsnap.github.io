@@ -27,8 +27,8 @@ createApp({
             return;
         }
 
-        // Security: only allow .md files
-        if (!post.endsWith('.md') || post.includes('..') || post.includes('/')) {
+        // Security: only allow .md files with safe path
+        if (!post.endsWith('.md') || post.includes('..') || post.startsWith('/') || post.includes('//')) {
             this.renderedContent = '<p>Invalid post parameter.</p>';
             return;
         }
