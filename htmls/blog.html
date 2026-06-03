@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blog</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    <!-- Vue 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Markdown renderer -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Code highlight -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body>
+    <div id="header" class="opacity70">
+        <ul class="title">
+            <li @click="home">Snap</li>
+            <li @click="list">Blogs</li>
+            <li @click="github">Github</li>
+        </ul>
+    </div>
+    <div id="contents" class="opacity90">
+        <article id="blog-post" v-html="renderedContent"></article>
+    </div>
+    <div id="bottom" class="opacity70">
+        <span>2018-2026</span>
+    </div>
+    <script src="../scripts/blog.js"></script>
+</body>
+</html>
