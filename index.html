@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Snap Here</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
      
 </head>
 <body>
@@ -16,7 +16,7 @@
                 <li v-on:click="github">Github</li>
             </ul>
         </div>
-        <div id="contents" class="opacity50">
+        <div id="contents" style="background-color: rgba(255,228,196,0.85);">
             <div id="categories">
                 <p v-if="loading" style="color:#333;font-size:1.5em;">加载中...</p>
                 <p v-if="error" style="color:#c00;font-size:1.2em;">{{ error }}</p>

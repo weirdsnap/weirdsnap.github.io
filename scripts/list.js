@@ -1,12 +1,11 @@
-const { createApp } = Vue;
-
 function getCategoryParam() {
     const params = new URLSearchParams(window.location.search);
     return params.get('category') || '';
 }
 
-createApp({
-    data() {
+Vue.createApp({
+    data: function() {
+        console.log('data() called');
         return {
             categoryId: getCategoryParam(),
             categoryLabel: '',
@@ -16,69 +15,73 @@ createApp({
         };
     },
     computed: {
-        pageTitle() {
+        pageTitle: function() {
             return this.categoryLabel || 'Blog List';
         }
     },
     watch: {
-        pageTitle(newVal) {
+        pageTitle: function(newVal) {
             document.title = newVal;
         }
     },
-    mounted() {
+    mounted: function() {
+        console.log('mounted, categoryId=' + this.categoryId);
+        var self = this;
         fetch('../posts/index.json')
-            .then(res => res.json())
-            .then(data => {
-                const cat = (data.categories || []).find(c => c.id === this.categoryId);
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                var cat = (data.categories || []).find(function(c) { return c.id === self.categoryId; });
                 if (cat) {
-                    this.categoryLabel = cat.label;
-                    this.articles = cat.articles || [];
-                    this.subs = cat.subs || [];
+                    self.categoryLabel = cat.label;
+                    self.articles = cat.articles || [];
+                    self.subs = cat.subs || [];
+                    console.log('loaded ' + self.articles.length + ' articles');
                 } else {
-                    this.categoryLabel = '未找到分类';
+                    self.categoryLabel = '未找到分类';
                 }
-                this.loading = false;
+                self.loading = false;
             })
-            .catch(err => {
+            .catch(function(err) {
                 console.error('Failed to load index:', err);
-                this.loading = false;
+                self.loading = false;
             });
     },
     methods: {
-        jumpBlog(article) {
-            window.location.href = `./blog.html?post=${encodeURIComponent(article.path)}`;
+        jumpBlog: function(article) {
+            window.location.href = './blog.html?post=' + encodeURIComponent(article.path);
         }
     }
 }).mount('#blogs');
 
-createApp({
-    data() {
+Vue.createApp({
+    data: function() {
         return {
             categoryId: getCategoryParam(),
             categoryLabel: ''
         };
     },
     computed: {
-        pageTitle() {
+        pageTitle: function() {
             return this.categoryLabel || 'Blog List';
         }
     },
-    mounted() {
+    mounted: function() {
+        var self = this;
         fetch('../posts/index.json')
-            .then(res => res.json())
-            .then(data => {
-                const cat = (data.categories || []).find(c => c.id === this.categoryId);
-                if (cat) this.categoryLabel = cat.label;
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                var cat = (data.categories || []).find(function(c) { return c.id === self.categoryId; });
+                if (cat) self.categoryLabel = cat.label;
             });
     }
 }).mount('#category-title');
 
-createApp({
+Vue.createApp({
     methods: {
-        home() {
+        home: function() {
             window.location.href = 'https://weirdsnap.github.io';
         },
-        github() {
+        github: function() {
             window.location.href = 'https://github.com/weirdsnap';
         }
     }

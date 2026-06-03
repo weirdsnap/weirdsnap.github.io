@@ -7,7 +7,7 @@
     <title>Blog List</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/list.css">
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
     <div id="header" class="opacity70">
@@ -16,27 +16,14 @@
             <li v-on:click="github">Github</li>
         </ul>
     </div>
-    <div id="contents" class="opacity90" >
-        <h1 id="category-title">{{ pageTitle }}</h1>
+    <div id="contents" class="opacity90" style="padding:1em;">
+        <h1 id="category-title" style="text-align:center;font-size:2em;">{{ pageTitle }}</h1>
         <div id="blogs">
-            <!-- 一级文章 -->
-            <ul v-if="articles.length > 0" class="article-list">
+            <ul class="article-list">
                 <li v-for="article in articles" class="opacity90" @click="jumpBlog(article)">
                     {{ article.title }}
                 </li>
             </ul>
-            <!-- 子分类 -->
-            <div v-for="sub in subs" :key="sub.id" class="sub-category">
-                <h2>{{ sub.label }}</h2>
-                <ul class="article-list">
-                    <li v-for="article in sub.articles" class="opacity90" @click="jumpBlog(article)">
-                        {{ article.title }}
-                    </li>
-                </ul>
-            </div>
-            <p v-if="!loading && articles.length === 0 && subs.length === 0" class="empty">
-                暂无文章
-            </p>
         </div>
     </div>
     <div id="bottom" class="opacity70">
