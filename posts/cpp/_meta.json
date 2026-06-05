@@ -1,4 +1,5 @@
 {
   "label": "CPP 知识",
-  "order": 2
+  "order": 2,
+  "type": "folder"
 }

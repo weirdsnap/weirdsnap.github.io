@@ -1,4 +1,5 @@
 {
   "label": "杂文",
-  "order": 1
+  "order": 1,
+  "type": "list"
 }

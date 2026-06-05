@@ -19,11 +19,29 @@
     <div id="contents" class="opacity90" style="padding:1em;">
         <h1 id="category-title" style="text-align:center;font-size:2em;">{{ pageTitle }}</h1>
         <div id="blogs">
-            <ul class="article-list">
-                <li v-for="article in articles" class="opacity90" @click="jumpBlog(article)">
+            <!-- 返回按钮（子分类内） -->
+            <div v-if="subId" style="text-align:center;margin-bottom:1em;">
+                <button @click="goBack" style="padding:0.5em 1.5em;font-size:1em;cursor:pointer;border-radius:6px;border:1px solid #ccc;background:#fff;">← 返回 {{ categoryLabel }}</button>
+            </div>
+
+            <!-- 文件夹模式：显示子分类列表（如 cpp） -->
+            <div v-if="isFolderView && !subId">
+                <div v-for="sub in subs" :key="sub.id" class="sub-category-card" @click="jumpSub(sub)">
+                    <h3>{{ sub.label }}</h3>
+                    <p>{{ sub.articles.length }} 篇知识点</p>
+                </div>
+            </div>
+
+            <!-- 列表模式：直接显示文章（如 essays 或子分类内） -->
+            <ul v-if="articles.length > 0" class="article-list">
+                <li v-for="article in articles" :key="article.path" class="opacity90" @click="jumpBlog(article)">
                     {{ article.title }}
                 </li>
             </ul>
+
+            <p v-if="!loading && articles.length === 0 && subs.length === 0" class="empty">
+                暂无文章
+            </p>
         </div>
     </div>
     <div id="bottom" class="opacity70">

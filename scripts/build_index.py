@@ -30,11 +30,11 @@ def read_meta(dir_path: Path) -> dict:
 
 
 def scan_articles(dir_path: Path) -> list:
-    """Scan a directory for ch*.md files, return sorted article list."""
+    """Scan a directory for all .md files, return sorted article list."""
     articles = []
-    for md_file in sorted(dir_path.glob("ch*.md")):
-        # Extract order number from filename like ch01.md → 1
-        match = re.match(r"ch(\d+)", md_file.stem)
+    for md_file in sorted(dir_path.glob("*.md")):
+        # Extract order number from filename like 01.md → 1, ch01.md → 1
+        match = re.match(r"(\d+)", md_file.stem)
         order = int(match.group(1)) if match else 999
         articles.append({
             "title": extract_title(md_file),
@@ -60,6 +60,7 @@ def scan_category(dir_path: Path) -> dict:
                     "id": sub_dir.name,
                     "label": sub_meta.get("label", sub_dir.name.capitalize()),
                     "order": sub_meta.get("order", 999),
+                    "type": sub_meta.get("type", "list"),
                     "articles": sub_articles
                 })
 
@@ -67,6 +68,7 @@ def scan_category(dir_path: Path) -> dict:
         "id": dir_path.name,
         "label": meta.get("label", dir_path.name.capitalize()),
         "order": meta.get("order", 999),
+        "type": meta.get("type", "list"),
         "articles": articles,
         "subs": subs
     }

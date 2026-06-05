@@ -113,6 +113,30 @@ posts/
 
 ---
 
+## 2026-06-03 第六次重构：CPP 知识卡片拆分
+
+### 目标
+- 每章长文章拆分为多个独立知识点短文章（知识卡片级别）
+- 每章 = 子文件夹，每个知识点 = 单独 `.md` 文件
+
+### 修改内容
+1. **创建拆分脚本**：`scripts/split_cpp.py`
+   - 读取 `posts/cpp/ch*.md`
+   - 正则匹配 `### 数字. 标题` 分隔知识点
+   - 生成 `posts/cpp/ch{序号}/{知识点序号}.md`
+   - 为每章子文件夹生成 `_meta.json`
+2. **执行拆分**：10 章 → 103 篇知识点卡片
+3. **修改 `build_index.py`**：`scan_articles()` 从只扫 `ch*.md` 改为扫描**所有 `.md` 文件**
+4. **修改 `list.html`**：恢复子分类（`subs`）显示，兼容 essays 的一级文章 + cpp 的二级子分类
+
+### 文件变更
+- 新增：`scripts/split_cpp.py`
+- 删除：`posts/cpp/ch01.md` ~ `ch10.md`
+- 新增：`posts/cpp/ch01/` ~ `ch10/` 共 103 篇知识点文章
+- 修改：`scripts/build_index.py`、`htmls/list.html`
+
+---
+
 ## 2026-06-03 第五次重构：Live Reload 开发服务器
 
 ### 目标
