@@ -681,6 +681,20 @@
         }
       ],
       "subs": []
+    },
+    {
+      "id": "leetcode",
+      "label": "LeetCode",
+      "order": 4,
+      "type": "list",
+      "articles": [
+        {
+          "title": "接雨水",
+          "path": "leetcode/ch01.md",
+          "order": 999
+        }
+      ],
+      "subs": []
     }
   ]
 }
