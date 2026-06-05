@@ -60,6 +60,9 @@ if (typeof Vue === 'undefined') {
                 home() {
                     window.location.href = 'https://weirdsnap.github.io';
                 },
+                leetcode() {
+                    window.location.href = 'https://leetcode.cn/u/snap-1/';
+                },
                 github() {
                     window.location.href = 'https://github.com/weirdsnap';
                 }

@@ -8,14 +8,21 @@ body {
     background-size: 100%;
 }
 
-html,body{  
-    height: 110%;
-    width: 100%;  
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
 }
 
 #header {
-    height: 8%;
+    height: 50px;
     background-color: black;
+    flex-shrink: 0;
 }
 
 
@@ -45,8 +52,9 @@ li span {
 }
 
 #contents {
-    height: 80%;
+    flex: 1;
     background-color: bisque;
+    overflow: auto;
 } 
 
 #name {

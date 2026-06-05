@@ -48,6 +48,16 @@ def get_max_mtime():
 
 
 class LiveReloadHandler(http.server.SimpleHTTPRequestHandler):
+    def _inject_reload(self, path):
+        """Read HTML file, inject reload script, return modified bytes."""
+        with open(path, 'rb') as f:
+            content = f.read()
+        if b'</body>' in content:
+            content = content.replace(b'</body>', RELOAD_SCRIPT + b'</body>')
+        else:
+            content += RELOAD_SCRIPT
+        return content
+
     def do_GET(self):
         if self.path == '/__live_reload__':
             self.send_response(200)
@@ -56,24 +66,39 @@ class LiveReloadHandler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(str(get_max_mtime()).encode())
             return
+
+        path = self.translate_path(self.path)
+        if path.endswith(('.html', '.htm')) and os.path.isfile(path):
+            content = self._inject_reload(path)
+            self.send_response(200)
+            self.send_header('Content-Type', 'text/html; charset=utf-8')
+            self.send_header('Content-Length', str(len(content)))
+            self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate')
+            self.end_headers()
+            self.wfile.write(content)
+            return
+
         super().do_GET()
 
-    def copyfile(self, source, outputfile):
-        """Intercept HTML responses to inject the live-reload script."""
-        path = self.translate_path(self.path)
-        if path.endswith(('.html', '.htm')):
-            content = source.read()
-            if b'</body>' in content:
-                content = content.replace(b'</body>', RELOAD_SCRIPT + b'</body>')
-            else:
-                content += RELOAD_SCRIPT
-            outputfile.write(content)
-        else:
-            super().copyfile(source, outputfile)
+    def do_HEAD(self):
+        if self.path == '/__live_reload__':
+            self.send_response(200)
+            self.send_header('Content-Type', 'text/plain')
+            self.send_header('Cache-Control', 'no-store')
+            self.end_headers()
+            return
 
-    def end_headers(self):
-        self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate')
-        super().end_headers()
+        path = self.translate_path(self.path)
+        if path.endswith(('.html', '.htm')) and os.path.isfile(path):
+            content = self._inject_reload(path)
+            self.send_response(200)
+            self.send_header('Content-Type', 'text/html; charset=utf-8')
+            self.send_header('Content-Length', str(len(content)))
+            self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate')
+            self.end_headers()
+            return
+
+        super().do_HEAD()
 
 
 def run():

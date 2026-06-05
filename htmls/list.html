@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Blog List</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/list.css">
@@ -17,31 +16,21 @@
         </ul>
     </div>
     <div id="contents" class="opacity90" style="padding:1em;">
-        <h1 id="category-title" style="text-align:center;font-size:2em;">{{ pageTitle }}</h1>
         <div id="blogs">
-            <!-- 返回按钮（子分类内） -->
-            <div v-if="subId" style="text-align:center;margin-bottom:1em;">
-                <button @click="goBack" style="padding:0.5em 1.5em;font-size:1em;cursor:pointer;border-radius:6px;border:1px solid #ccc;background:#fff;">← 返回 {{ categoryLabel }}</button>
-            </div>
-
-            <!-- 文件夹模式：显示子分类列表（如 cpp） -->
-            <div v-if="isFolderView && !subId">
-                <div v-for="sub in subs" :key="sub.id" class="sub-category-card" @click="jumpSub(sub)">
+            <h1 style="text-align:center;font-size:2em;margin:0.5em 0;">{{ pageTitle }}</h1>
+            <!-- 子分类列表（folder 模式） -->
+            <div v-if="showSubs">
+                <div v-for="sub in subs" :key="sub.id" class="sub-category-card" @click="goSub(sub)">
                     <h3>{{ sub.label }}</h3>
-                    <p>{{ sub.articles.length }} 篇知识点</p>
+                    <p>{{ sub.articles.length }} 篇</p>
                 </div>
             </div>
-
-            <!-- 列表模式：直接显示文章（如 essays 或子分类内） -->
-            <ul v-if="articles.length > 0" class="article-list">
-                <li v-for="article in articles" :key="article.path" class="opacity90" @click="jumpBlog(article)">
+            <!-- 文章列表 -->
+            <ul v-if="showArticles" class="article-list">
+                <li v-for="article in articles" :key="article.path" class="opacity90" @click="goArticle(article)">
                     {{ article.title }}
                 </li>
             </ul>
-
-            <p v-if="!loading && articles.length === 0 && subs.length === 0" class="empty">
-                暂无文章
-            </p>
         </div>
     </div>
     <div id="bottom" class="opacity70">
