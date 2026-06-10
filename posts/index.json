@@ -78,28 +78,28 @@
               "order": 1
             },
             {
-              "title": "数据竞争（基础）",
-              "path": "cpp/ch01/02.md",
+              "title": "`char` 的符号性",
+              "path": "cpp/ch01/09.md",
               "order": 2
             },
             {
-              "title": "声明、定义与初始化",
-              "path": "cpp/ch01/03.md",
+              "title": "字面量的默认类型",
+              "path": "cpp/ch01/20.md",
               "order": 3
             },
             {
-              "title": "构造与析构顺序",
-              "path": "cpp/ch01/04.md",
+              "title": "字符串字面量的默认类型",
+              "path": "cpp/ch01/08.md",
               "order": 4
             },
             {
-              "title": "返回局部/临时变量的指针/引用",
-              "path": "cpp/ch01/05.md",
+              "title": "隐式转换 `bool` / `operator bool`",
+              "path": "cpp/ch01/15.md",
               "order": 5
             },
             {
-              "title": "流异常处理",
-              "path": "cpp/ch01/06.md",
+              "title": "`auto` 的类型推导",
+              "path": "cpp/ch01/16.md",
               "order": 6
             },
             {
@@ -108,79 +108,89 @@
               "order": 7
             },
             {
-              "title": "字符串字面量的默认类型",
-              "path": "cpp/ch01/08.md",
-              "order": 8
-            },
-            {
-              "title": "`char` 的符号性",
-              "path": "cpp/ch01/09.md",
-              "order": 9
-            },
-            {
-              "title": "静态类型与动态类型",
-              "path": "cpp/ch01/10.md",
-              "order": 10
-            },
-            {
-              "title": "函数指针与仿函数",
-              "path": "cpp/ch01/11.md",
-              "order": 11
-            },
-            {
-              "title": "Lambda 按值捕获的 `const` 性",
-              "path": "cpp/ch01/12.md",
-              "order": 12
-            },
-            {
-              "title": "`std::variant`",
-              "path": "cpp/ch01/13.md",
-              "order": 13
-            },
-            {
-              "title": "`std::max`/`min` 返回引用",
-              "path": "cpp/ch01/14.md",
-              "order": 14
-            },
-            {
-              "title": "隐式转换 `bool` / `operator bool`",
-              "path": "cpp/ch01/15.md",
-              "order": 15
-            },
-            {
-              "title": "`auto` 的类型推导",
-              "path": "cpp/ch01/16.md",
-              "order": 16
-            },
-            {
               "title": "`decltype(auto)`",
               "path": "cpp/ch01/17.md",
-              "order": 17
-            },
-            {
-              "title": "`const` 引用绑定与临时对象",
-              "path": "cpp/ch01/18.md",
-              "order": 18
+              "order": 8
             },
             {
               "title": "表达式中的类型退化",
               "path": "cpp/ch01/19.md",
-              "order": 19
+              "order": 9
             },
             {
-              "title": "字面量的默认类型",
-              "path": "cpp/ch01/20.md",
-              "order": 20
+              "title": "`const` 引用绑定与临时对象",
+              "path": "cpp/ch01/18.md",
+              "order": 10
+            },
+            {
+              "title": "`std::max`/`min` 返回引用",
+              "path": "cpp/ch01/14.md",
+              "order": 11
+            },
+            {
+              "title": "静态类型与动态类型",
+              "path": "cpp/ch01/10.md",
+              "order": 12
+            },
+            {
+              "title": "构造与析构顺序",
+              "path": "cpp/ch01/04.md",
+              "order": 13
+            },
+            {
+              "title": "声明、定义与初始化",
+              "path": "cpp/ch01/03.md",
+              "order": 14
+            },
+            {
+              "title": "返回局部/临时变量的指针/引用",
+              "path": "cpp/ch01/05.md",
+              "order": 15
+            },
+            {
+              "title": "函数指针与仿函数",
+              "path": "cpp/ch01/11.md",
+              "order": 16
+            },
+            {
+              "title": "Lambda 按值捕获的 `const` 性",
+              "path": "cpp/ch01/12.md",
+              "order": 17
             },
             {
               "title": "函数参数求值顺序未指定",
               "path": "cpp/ch01/21.md",
-              "order": 21
+              "order": 18
             },
             {
               "title": "花括号列表 vs 圆括号参数求值顺序",
               "path": "cpp/ch01/22.md",
+              "order": 19
+            },
+            {
+              "title": "`std::variant`",
+              "path": "cpp/ch01/13.md",
+              "order": 20
+            },
+            {
+              "title": "右值引用与转发引用",
+              "path": "cpp/ch01/23.md",
+              "order": 21
+            },
+            {
+              "title": "`std::optional`",
+              "path": "cpp/ch01/24.md",
               "order": 22
+            },
+            {
+              "title": "`enum class` vs `enum`",
+              "path": "cpp/ch01/25.md",
+              "order": 23
+            },
+            {
+              "title": "对象切片（Object Slicing）",
+              "path": "cpp/ch01/26.md",
+              "order": 24
             }
           ]
         },
@@ -561,6 +571,11 @@
               "title": "`std::atomic` 内存序",
               "path": "cpp/ch06/90.md",
               "order": 90
+            },
+            {
+              "title": "数据竞争（基础）",
+              "path": "cpp/ch06/105.md",
+              "order": 91
             }
           ]
         },
@@ -589,6 +604,11 @@
               "title": "常见的未定义行为（UB）",
               "path": "cpp/ch07/94.md",
               "order": 94
+            },
+            {
+              "title": "流异常处理",
+              "path": "cpp/ch07/106.md",
+              "order": 95
             }
           ]
         },
