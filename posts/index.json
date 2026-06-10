@@ -73,6 +73,11 @@
           "type": "list",
           "articles": [
             {
+              "title": "C++ 语言基础与类型系统（总览）",
+              "path": "cpp/ch01/00.md",
+              "order": 0
+            },
+            {
               "title": "无符号整型回绕",
               "path": "cpp/ch01/01.md",
               "order": 1
