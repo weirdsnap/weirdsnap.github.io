@@ -10,7 +10,7 @@
 
 **核心思路**：用文件夹组织文章，Python 脚本生成目录索引，Vue 3 前端动态渲染。
 
-```
+```text
 数据流：
 posts/ 文件夹结构  →  build_index.py  →  posts/index.json  →  Vue 前端渲染
 ```
@@ -34,7 +34,7 @@ posts/ 文件夹结构  →  build_index.py  →  posts/index.json  →  Vue 前
 
 ## 目录结构
 
-```
+```text
 posts/                      ← 博客源文件
 ├── index.json              ← 自动生成：目录索引
 ├── essays/                 ← 一级分类
