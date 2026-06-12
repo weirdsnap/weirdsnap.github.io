@@ -84,27 +84,27 @@
             },
             {
               "title": "`char` 的符号性",
-              "path": "cpp/ch01/09.md",
+              "path": "cpp/ch01/02.md",
               "order": 2
             },
             {
               "title": "字面量的默认类型",
-              "path": "cpp/ch01/20.md",
+              "path": "cpp/ch01/03.md",
               "order": 3
             },
             {
               "title": "字符串字面量的默认类型",
-              "path": "cpp/ch01/08.md",
+              "path": "cpp/ch01/04.md",
               "order": 4
             },
             {
               "title": "隐式转换 `bool` / `operator bool`",
-              "path": "cpp/ch01/15.md",
+              "path": "cpp/ch01/05.md",
               "order": 5
             },
             {
               "title": "`auto` 的类型推导",
-              "path": "cpp/ch01/16.md",
+              "path": "cpp/ch01/06.md",
               "order": 6
             },
             {
@@ -114,87 +114,87 @@
             },
             {
               "title": "`decltype(auto)`",
-              "path": "cpp/ch01/17.md",
+              "path": "cpp/ch01/08.md",
               "order": 8
             },
             {
               "title": "表达式中的类型退化",
-              "path": "cpp/ch01/19.md",
+              "path": "cpp/ch01/09.md",
               "order": 9
             },
             {
               "title": "`const` 引用绑定与临时对象",
-              "path": "cpp/ch01/18.md",
+              "path": "cpp/ch01/10.md",
               "order": 10
             },
             {
               "title": "`std::max`/`min` 返回引用",
-              "path": "cpp/ch01/14.md",
+              "path": "cpp/ch01/11.md",
               "order": 11
             },
             {
               "title": "静态类型与动态类型",
-              "path": "cpp/ch01/10.md",
+              "path": "cpp/ch01/12.md",
               "order": 12
             },
             {
               "title": "构造与析构顺序",
-              "path": "cpp/ch01/04.md",
+              "path": "cpp/ch01/13.md",
               "order": 13
             },
             {
               "title": "声明、定义与初始化",
-              "path": "cpp/ch01/03.md",
+              "path": "cpp/ch01/14.md",
               "order": 14
             },
             {
               "title": "返回局部/临时变量的指针/引用",
-              "path": "cpp/ch01/05.md",
+              "path": "cpp/ch01/15.md",
               "order": 15
             },
             {
               "title": "函数指针与仿函数",
-              "path": "cpp/ch01/11.md",
+              "path": "cpp/ch01/16.md",
               "order": 16
             },
             {
               "title": "Lambda 按值捕获的 `const` 性",
-              "path": "cpp/ch01/12.md",
+              "path": "cpp/ch01/17.md",
               "order": 17
             },
             {
               "title": "函数参数求值顺序未指定",
-              "path": "cpp/ch01/21.md",
+              "path": "cpp/ch01/18.md",
               "order": 18
             },
             {
               "title": "花括号列表 vs 圆括号参数求值顺序",
-              "path": "cpp/ch01/22.md",
+              "path": "cpp/ch01/19.md",
               "order": 19
             },
             {
               "title": "`std::variant`",
-              "path": "cpp/ch01/13.md",
+              "path": "cpp/ch01/20.md",
               "order": 20
             },
             {
               "title": "右值引用与转发引用",
-              "path": "cpp/ch01/23.md",
+              "path": "cpp/ch01/21.md",
               "order": 21
             },
             {
               "title": "`std::optional`",
-              "path": "cpp/ch01/24.md",
+              "path": "cpp/ch01/22.md",
               "order": 22
             },
             {
               "title": "`enum class` vs `enum`",
-              "path": "cpp/ch01/25.md",
+              "path": "cpp/ch01/23.md",
               "order": 23
             },
             {
               "title": "对象切片（Object Slicing）",
-              "path": "cpp/ch01/26.md",
+              "path": "cpp/ch01/24.md",
               "order": 24
             }
           ]
@@ -207,102 +207,102 @@
           "articles": [
             {
               "title": "虚函数的底层支持（vtable / vptr）",
-              "path": "cpp/ch02/23.md",
+              "path": "cpp/ch02/01.md",
               "order": 23
             },
             {
               "title": "构造顺序与 vptr 切换",
-              "path": "cpp/ch02/24.md",
+              "path": "cpp/ch02/02.md",
               "order": 24
             },
             {
               "title": "析构顺序与 vptr 回切",
-              "path": "cpp/ch02/25.md",
+              "path": "cpp/ch02/03.md",
               "order": 25
             },
             {
               "title": "构造/析构中调用虚函数",
-              "path": "cpp/ch02/26.md",
+              "path": "cpp/ch02/04.md",
               "order": 26
             },
             {
               "title": "虚函数的默认参数",
-              "path": "cpp/ch02/27.md",
+              "path": "cpp/ch02/05.md",
               "order": 27
             },
             {
               "title": "NVI 惯用法",
-              "path": "cpp/ch02/28.md",
+              "path": "cpp/ch02/06.md",
               "order": 28
             },
             {
               "title": "`vptr` 与 `vbptr` 的区别",
-              "path": "cpp/ch02/29.md",
+              "path": "cpp/ch02/07.md",
               "order": 29
             },
             {
               "title": "同时含 `vptr` 与 `vbptr` 的对象布局",
-              "path": "cpp/ch02/30.md",
+              "path": "cpp/ch02/08.md",
               "order": 30
             },
             {
               "title": "`this` 指针调整（Thunk）",
-              "path": "cpp/ch02/31.md",
+              "path": "cpp/ch02/09.md",
               "order": 31
             },
             {
               "title": "虚继承与菱形继承",
-              "path": "cpp/ch02/32.md",
+              "path": "cpp/ch02/10.md",
               "order": 32
             },
             {
               "title": "虚继承的 `vbptr` 与偏移量表",
-              "path": "cpp/ch02/33.md",
+              "path": "cpp/ch02/11.md",
               "order": 33
             },
             {
               "title": "空类的虚继承大小",
-              "path": "cpp/ch02/34.md",
+              "path": "cpp/ch02/12.md",
               "order": 34
             },
             {
               "title": "成员函数模板不能是虚函数",
-              "path": "cpp/ch02/35.md",
+              "path": "cpp/ch02/13.md",
               "order": 35
             },
             {
               "title": "虚函数内联的去虚拟化",
-              "path": "cpp/ch02/36.md",
+              "path": "cpp/ch02/14.md",
               "order": 36
             },
             {
               "title": "`final` 与编译器优化",
-              "path": "cpp/ch02/37.md",
+              "path": "cpp/ch02/15.md",
               "order": 37
             },
             {
               "title": "Pimpl 惯用法",
-              "path": "cpp/ch02/38.md",
+              "path": "cpp/ch02/16.md",
               "order": 38
             },
             {
               "title": "ABI 与二进制兼容",
-              "path": "cpp/ch02/39.md",
+              "path": "cpp/ch02/17.md",
               "order": 39
             },
             {
               "title": "名字查找的\"找到即停\"",
-              "path": "cpp/ch02/40.md",
+              "path": "cpp/ch02/18.md",
               "order": 40
             },
             {
               "title": "数组参数退化影响函数重载",
-              "path": "cpp/ch02/41.md",
+              "path": "cpp/ch02/19.md",
               "order": 41
             },
             {
               "title": "数组引用 vs 指针重载优先级",
-              "path": "cpp/ch02/42.md",
+              "path": "cpp/ch02/20.md",
               "order": 42
             }
           ]
@@ -315,77 +315,77 @@
           "articles": [
             {
               "title": "`new`/`delete` vs `malloc`/`free`",
-              "path": "cpp/ch03/43.md",
+              "path": "cpp/ch03/01.md",
               "order": 43
             },
             {
               "title": "`shared_ptr`",
-              "path": "cpp/ch03/44.md",
+              "path": "cpp/ch03/02.md",
               "order": 44
             },
             {
               "title": "`weak_ptr`",
-              "path": "cpp/ch03/45.md",
+              "path": "cpp/ch03/03.md",
               "order": 45
             },
             {
               "title": "`unique_ptr` vs `shared_ptr`",
-              "path": "cpp/ch03/46.md",
+              "path": "cpp/ch03/04.md",
               "order": 46
             },
             {
               "title": "拷贝构造 vs 拷贝赋值",
-              "path": "cpp/ch03/47.md",
+              "path": "cpp/ch03/05.md",
               "order": 47
             },
             {
               "title": "三/五/零法则",
-              "path": "cpp/ch03/48.md",
+              "path": "cpp/ch03/06.md",
               "order": 48
             },
             {
               "title": "成员初始化列表顺序",
-              "path": "cpp/ch03/49.md",
+              "path": "cpp/ch03/07.md",
               "order": 49
             },
             {
               "title": "移动语义",
-              "path": "cpp/ch03/50.md",
+              "path": "cpp/ch03/08.md",
               "order": 50
             },
             {
               "title": "RVO 与 NRVO",
-              "path": "cpp/ch03/51.md",
+              "path": "cpp/ch03/09.md",
               "order": 51
             },
             {
               "title": "返回 prvalue 的零拷贝",
-              "path": "cpp/ch03/52.md",
+              "path": "cpp/ch03/10.md",
               "order": 52
             },
             {
               "title": "RAII 代理模式（栈管理堆资源）",
-              "path": "cpp/ch03/53.md",
+              "path": "cpp/ch03/11.md",
               "order": 53
             },
             {
               "title": "模板静态成员 vs 非模板静态成员",
-              "path": "cpp/ch03/54.md",
+              "path": "cpp/ch03/12.md",
               "order": 54
             },
             {
               "title": "特殊成员函数的自动生成规则",
-              "path": "cpp/ch03/55.md",
+              "path": "cpp/ch03/13.md",
               "order": 55
             },
             {
               "title": "用户声明拷贝构造抑制移动（基于题目）",
-              "path": "cpp/ch03/56.md",
+              "path": "cpp/ch03/14.md",
               "order": 56
             },
             {
               "title": "模板实例化延迟",
-              "path": "cpp/ch03/57.md",
+              "path": "cpp/ch03/15.md",
               "order": 57
             }
           ]
@@ -398,122 +398,122 @@
           "articles": [
             {
               "title": "模板参数推导（`int` vs `const int`）",
-              "path": "cpp/ch04/58.md",
+              "path": "cpp/ch04/01.md",
               "order": 58
             },
             {
               "title": "函数入参推导保留顶层 `const`",
-              "path": "cpp/ch04/59.md",
+              "path": "cpp/ch04/02.md",
               "order": 59
             },
             {
               "title": "重载决议的工作流程",
-              "path": "cpp/ch04/60.md",
+              "path": "cpp/ch04/03.md",
               "order": 60
             },
             {
               "title": "隐式转换序列的比较规则",
-              "path": "cpp/ch04/61.md",
+              "path": "cpp/ch04/04.md",
               "order": 61
             },
             {
               "title": "模板全特化 vs 主模板",
-              "path": "cpp/ch04/62.md",
+              "path": "cpp/ch04/05.md",
               "order": 62
             },
             {
               "title": "全特化 vs 偏特化",
-              "path": "cpp/ch04/63.md",
+              "path": "cpp/ch04/06.md",
               "order": 63
             },
             {
               "title": "万能引用",
-              "path": "cpp/ch04/64.md",
+              "path": "cpp/ch04/07.md",
               "order": 64
             },
             {
               "title": "完美转发",
-              "path": "cpp/ch04/65.md",
+              "path": "cpp/ch04/08.md",
               "order": 65
             },
             {
               "title": "模板类基类函数调用",
-              "path": "cpp/ch04/66.md",
+              "path": "cpp/ch04/09.md",
               "order": 66
             },
             {
               "title": "`static_assert`",
-              "path": "cpp/ch04/67.md",
+              "path": "cpp/ch04/10.md",
               "order": 67
             },
             {
               "title": "模板精确匹配 vs 非模板标准转换",
-              "path": "cpp/ch04/68.md",
+              "path": "cpp/ch04/11.md",
               "order": 68
             },
             {
               "title": "显式模板语法 `<>` 强制模板候选",
-              "path": "cpp/ch04/69.md",
+              "path": "cpp/ch04/12.md",
               "order": 69
             },
             {
               "title": "特化 vs 重载的优先级",
-              "path": "cpp/ch04/70.md",
+              "path": "cpp/ch04/13.md",
               "order": 70
             },
             {
               "title": "模板重载决议的三阶段",
-              "path": "cpp/ch04/71.md",
+              "path": "cpp/ch04/14.md",
               "order": 71
             },
             {
               "title": "显式特化的语法伪装",
-              "path": "cpp/ch04/72.md",
+              "path": "cpp/ch04/15.md",
               "order": 72
             },
             {
               "title": "模板推导是模式匹配，不是解方程",
-              "path": "cpp/ch04/73.md",
+              "path": "cpp/ch04/16.md",
               "order": 73
             },
             {
               "title": "可变参数模板",
-              "path": "cpp/ch04/74.md",
+              "path": "cpp/ch04/17.md",
               "order": 74
             },
             {
               "title": "IFNDR 与欺骗性模板",
-              "path": "cpp/ch04/75.md",
+              "path": "cpp/ch04/18.md",
               "order": 75
             },
             {
               "title": "函数参数类型确定的三阶段",
-              "path": "cpp/ch04/76.md",
+              "path": "cpp/ch04/19.md",
               "order": 76
             },
             {
               "title": "`void*` / `nullptr` / `NULL`",
-              "path": "cpp/ch04/77.md",
+              "path": "cpp/ch04/20.md",
               "order": 77
             },
             {
               "title": "`operator void()`",
-              "path": "cpp/ch04/78.md",
+              "path": "cpp/ch04/21.md",
               "order": 78
             },
             {
               "title": "`explicit` 转换运算符",
-              "path": "cpp/ch04/79.md",
+              "path": "cpp/ch04/22.md",
               "order": 79
             },
             {
               "title": "`constexpr` vs `const`",
-              "path": "cpp/ch04/80.md",
+              "path": "cpp/ch04/23.md",
               "order": 80
             },
             {
               "title": "`auto` 的引用剥离（Decay）",
-              "path": "cpp/ch04/81.md",
+              "path": "cpp/ch04/24.md",
               "order": 81
             }
           ]
@@ -526,17 +526,17 @@
           "articles": [
             {
               "title": "`override` 与虚函数重写",
-              "path": "cpp/ch05/82.md",
+              "path": "cpp/ch05/01.md",
               "order": 82
             },
             {
               "title": "`typeid` 与 RTTI",
-              "path": "cpp/ch05/83.md",
+              "path": "cpp/ch05/02.md",
               "order": 83
             },
             {
               "title": "`dynamic_cast`",
-              "path": "cpp/ch05/84.md",
+              "path": "cpp/ch05/03.md",
               "order": 84
             }
           ]
@@ -549,37 +549,37 @@
           "articles": [
             {
               "title": "`mutex`",
-              "path": "cpp/ch06/85.md",
+              "path": "cpp/ch06/01.md",
               "order": 85
             },
             {
               "title": "`lock_guard`",
-              "path": "cpp/ch06/86.md",
+              "path": "cpp/ch06/02.md",
               "order": 86
             },
             {
               "title": "`unique_lock`",
-              "path": "cpp/ch06/87.md",
+              "path": "cpp/ch06/03.md",
               "order": 87
             },
             {
               "title": "三者选择策略",
-              "path": "cpp/ch06/88.md",
+              "path": "cpp/ch06/04.md",
               "order": 88
             },
             {
               "title": "`std::atomic`",
-              "path": "cpp/ch06/89.md",
+              "path": "cpp/ch06/05.md",
               "order": 89
             },
             {
               "title": "`std::atomic` 内存序",
-              "path": "cpp/ch06/90.md",
+              "path": "cpp/ch06/06.md",
               "order": 90
             },
             {
               "title": "数据竞争（基础）",
-              "path": "cpp/ch06/105.md",
+              "path": "cpp/ch06/07.md",
               "order": 91
             }
           ]
@@ -592,78 +592,83 @@
           "articles": [
             {
               "title": "`printf` 家族类型不安全",
-              "path": "cpp/ch07/107.md",
+              "path": "cpp/ch07/01.md",
               "order": 81
             },
             {
               "title": "`perror` 仅限系统错误",
-              "path": "cpp/ch07/108.md",
+              "path": "cpp/ch07/02.md",
               "order": 82
             },
             {
               "title": "`cout` / `cerr` / `clog` 缓冲策略差异",
-              "path": "cpp/ch07/109.md",
+              "path": "cpp/ch07/03.md",
               "order": 83
             },
             {
               "title": "`std::endl` 与 `'\n'` 的本质差异",
-              "path": "cpp/ch07/110.md",
+              "path": "cpp/ch07/04.md",
               "order": 84
             },
             {
               "title": "`std::to_chars` 零分配高性能",
-              "path": "cpp/ch07/111.md",
+              "path": "cpp/ch07/05.md",
               "order": 85
             },
             {
               "title": "`std::format` 类型安全格式化",
-              "path": "cpp/ch07/112.md",
+              "path": "cpp/ch07/06.md",
               "order": 86
             },
             {
               "title": "`std::print` / `std::println` (C++23)",
-              "path": "cpp/ch07/113.md",
+              "path": "cpp/ch07/07.md",
               "order": 87
             },
             {
               "title": "`write()` 系统调用与信号安全",
-              "path": "cpp/ch07/114.md",
+              "path": "cpp/ch07/08.md",
               "order": 88
             },
             {
               "title": "`std::ostringstream` 内存拼接",
-              "path": "cpp/ch07/115.md",
+              "path": "cpp/ch07/09.md",
               "order": 89
             },
             {
               "title": "输出方案选择矩阵",
-              "path": "cpp/ch07/116.md",
+              "path": "cpp/ch07/10.md",
               "order": 90
             },
             {
               "title": "`std::cout` 默认输出类型",
-              "path": "cpp/ch07/91.md",
+              "path": "cpp/ch07/11.md",
               "order": 91
             },
             {
               "title": "`std::function` 类型擦除",
-              "path": "cpp/ch07/92.md",
+              "path": "cpp/ch07/12.md",
               "order": 92
             },
             {
               "title": "`argv[argc]` 的明确定义",
-              "path": "cpp/ch07/93.md",
+              "path": "cpp/ch07/13.md",
               "order": 93
             },
             {
               "title": "常见的未定义行为（UB）",
-              "path": "cpp/ch07/94.md",
+              "path": "cpp/ch07/14.md",
               "order": 94
             },
             {
               "title": "流异常处理",
-              "path": "cpp/ch07/106.md",
+              "path": "cpp/ch07/15.md",
               "order": 95
+            },
+            {
+              "title": "输出运算符与逻辑运算符的优先级陷阱",
+              "path": "cpp/ch07/16.md",
+              "order": 96
             }
           ]
         },
@@ -675,23 +680,28 @@
           "articles": [
             {
               "title": "`noexcept`",
-              "path": "cpp/ch08/95.md",
+              "path": "cpp/ch08/01.md",
               "order": 95
             },
             {
               "title": "`noexcept` 工程实践",
-              "path": "cpp/ch08/96.md",
+              "path": "cpp/ch08/02.md",
               "order": 96
             },
             {
               "title": "析构函数抛出异常与栈展开",
-              "path": "cpp/ch08/97.md",
+              "path": "cpp/ch08/03.md",
               "order": 97
             },
             {
               "title": "`return` 语句析构异常与返回对象销毁",
-              "path": "cpp/ch08/98.md",
+              "path": "cpp/ch08/04.md",
               "order": 98
+            },
+            {
+              "title": "C++ 未定义行为（UB）",
+              "path": "cpp/ch08/05.md",
+              "order": 99
             }
           ]
         },
@@ -703,17 +713,17 @@
           "articles": [
             {
               "title": "placement new 与显式析构",
-              "path": "cpp/ch09/100.md",
+              "path": "cpp/ch09/02.md",
               "order": 100
             },
             {
               "title": "`std::move_only_function` / `function_ref`",
-              "path": "cpp/ch09/101.md",
+              "path": "cpp/ch09/03.md",
               "order": 101
             },
             {
               "title": "拷贝并交换惯用法（Copy-and-Swap）",
-              "path": "cpp/ch09/99.md",
+              "path": "cpp/ch09/01.md",
               "order": 99
             }
           ]
@@ -726,12 +736,12 @@
           "articles": [
             {
               "title": "用户自定义字面量（UDL）",
-              "path": "cpp/ch10/102.md",
+              "path": "cpp/ch10/01.md",
               "order": 102
             },
             {
               "title": "`std::atomic_ref` / `atomic_wait`",
-              "path": "cpp/ch10/103.md",
+              "path": "cpp/ch10/02.md",
               "order": 103
             }
           ]
@@ -766,6 +776,11 @@
         {
           "title": "接雨水",
           "path": "leetcode/ch01.md",
+          "order": 999
+        },
+        {
+          "title": "边权赋值方案数（3558 / 3559）",
+          "path": "leetcode/ch02.md",
           "order": 999
         }
       ],
