@@ -196,6 +196,11 @@
               "title": "对象切片（Object Slicing）",
               "path": "cpp/ch01/24.md",
               "order": 24
+            },
+            {
+              "title": "获取类型的最大/最小值",
+              "path": "cpp/ch01/25.md",
+              "order": 25
             }
           ]
         },
