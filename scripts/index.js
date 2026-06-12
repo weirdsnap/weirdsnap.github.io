@@ -15,8 +15,12 @@ if (typeof Vue === 'undefined') {
             data() {
                 return {
                     categories: [],
+                    allArticles: [],
                     loading: true,
-                    error: ''
+                    error: '',
+                    searchQuery: '',
+                    searchResults: [],
+                    menuOpen: false
                 };
             },
             mounted() {
@@ -29,7 +33,8 @@ if (typeof Vue === 'undefined') {
                     })
                     .then(data => {
                         log('data loaded, categories: ' + (data.categories || []).length);
-                        this.categories = data.categories || [];
+                        this.categories = (data.categories || []).sort((a, b) => (a.order || 0) - (b.order || 0));
+                        this.buildArticleIndex();
                         this.loading = false;
                     })
                     .catch(err => {
@@ -39,23 +44,64 @@ if (typeof Vue === 'undefined') {
                     });
             },
             methods: {
+                buildArticleIndex() {
+                    const articles = [];
+                    for (const cat of this.categories) {
+                        for (const art of (cat.articles || [])) {
+                            articles.push({ ...art, categoryId: cat.id, categoryLabel: cat.label });
+                        }
+                        for (const sub of (cat.subs || [])) {
+                            for (const art of (sub.articles || [])) {
+                                articles.push({
+                                    ...art,
+                                    categoryId: cat.id,
+                                    categoryLabel: cat.label,
+                                    subId: sub.id,
+                                    subLabel: sub.label
+                                });
+                            }
+                        }
+                    }
+                    this.allArticles = articles;
+                },
+                onSearch() {
+                    const q = this.searchQuery.trim().toLowerCase();
+                    if (!q) {
+                        this.searchResults = [];
+                        return;
+                    }
+                    this.searchResults = this.allArticles
+                        .filter(a => a.title && a.title.toLowerCase().includes(q))
+                        .slice(0, 8);
+                },
+                goArticle(article) {
+                    window.location.href = './htmls/blog.html?post=' + encodeURIComponent(article.path);
+                },
                 jumpCategory(cat) {
                     window.location.href = './htmls/list.html?category=' + encodeURIComponent(cat.id);
                 },
                 articleCount(cat) {
-                    var subCount = 0;
+                    let subCount = 0;
                     if (cat.subs) {
-                        for (var i = 0; i < cat.subs.length; i++) {
+                        for (let i = 0; i < cat.subs.length; i++) {
                             subCount += (cat.subs[i].articles || []).length;
                         }
                     }
                     return (cat.articles || []).length + subCount;
+                },
+                toggleMenu() {
+                    this.menuOpen = !this.menuOpen;
                 }
             }
-        }).mount('#categories');
-        log('categories app created');
+        }).mount('#home');
+        log('home app created');
 
         Vue.createApp({
+            data() {
+                return {
+                    menuOpen: false
+                };
+            },
             methods: {
                 home() {
                     window.location.href = 'https://weirdsnap.github.io';
@@ -65,6 +111,9 @@ if (typeof Vue === 'undefined') {
                 },
                 github() {
                     window.location.href = 'https://github.com/weirdsnap';
+                },
+                toggleMenu() {
+                    this.menuOpen = !this.menuOpen;
                 }
             }
         }).mount('#header');

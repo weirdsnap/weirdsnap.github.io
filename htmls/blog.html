@@ -12,19 +12,53 @@
     <!-- Markdown renderer -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <!-- Code highlight -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 <body>
     <div id="header" class="opacity70">
-        <ul class="title">
+        <button class="mobile-menu-btn" @click="toggleMenu">☰</button>
+        <ul class="title" :class="{ 'mobile-open': menuOpen }">
             <li @click="home">Snap</li>
             <li @click="list">Blogs</li>
             <li @click="github">Github</li>
         </ul>
     </div>
     <div id="contents" class="opacity90">
-        <article id="blog-post" v-html="renderedContent"><p>Loading...</p></article>
+        <div id="blog-wrapper">
+            <nav class="toc-sidebar" v-if="toc.length > 0 && !mobile">
+                <div class="toc-title">目录</div>
+                <ul>
+                    <li v-for="item in toc" :key="item.id" :class="'toc-level-' + item.level">
+                        <a :href="'#' + item.id" @click.prevent="scrollTo(item.id)">{{ item.text }}</a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="toc-toggle" v-if="toc.length > 0 && mobile" @click="tocOpen = !tocOpen">
+                目录
+            </button>
+            <nav class="toc-drawer" v-if="toc.length > 0 && mobile" :class="{ open: tocOpen }">
+                <div class="toc-title">
+                    目录
+                    <button class="toc-close" @click="tocOpen = false">×</button>
+                </div>
+                <ul>
+                    <li v-for="item in toc" :key="item.id" :class="'toc-level-' + item.level">
+                        <a :href="'#' + item.id" @click.prevent="scrollTo(item.id)">{{ item.text }}</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="article-column">
+                <article id="blog-post" v-html="renderedContent">
+                    <p>Loading...</p>
+                </article>
+                <div class="article-meta-bar" v-if="meta">
+                    <span>预计阅读 {{ meta.readTime }} 分钟</span>
+                    <span>{{ meta.wordCount }} 字</span>
+                </div>
+            </div>
+            <button class="back-to-top" :class="{ visible: showBackToTop }" @click="backToTop">↑</button>
+        </div>
     </div>
     <div id="bottom" class="opacity70">
         <span>2018-2026</span>

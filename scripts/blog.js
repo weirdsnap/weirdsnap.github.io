@@ -4,6 +4,14 @@ function getPostParam() {
     return params.get('post') || '';
 }
 
+function estimateReadTime(text) {
+    if (!text) return 1;
+    var chinese = (text.match(/[\u4e00-\u9fa5]/g) || []).length;
+    var words = text.trim().split(/\s+/).length;
+    var minutes = Math.max(1, Math.round((chinese + words * 0.5) / 400));
+    return minutes;
+}
+
 // Configure marked for better rendering
 marked.setOptions({
     breaks: true,
@@ -12,14 +20,20 @@ marked.setOptions({
     mangle: false
 });
 
-Vue.createApp({
-    template: '<article v-html="renderedContent"></article>',
+var blogApp = Vue.createApp({
     data: function() {
         return {
-            renderedContent: '<p>Loading...</p>'
+            renderedContent: '<p>Loading...</p>',
+            toc: [],
+            meta: null,
+            showBackToTop: false,
+            mobile: window.innerWidth <= 1100,
+            tocOpen: false,
+            menuOpen: false
         };
     },
     mounted: function() {
+        var self = this;
         var post = getPostParam();
         if (!post) {
             this.renderedContent = '<p>No post specified.</p>';
@@ -32,52 +46,124 @@ Vue.createApp({
             return;
         }
 
-        var self = this;
         fetch('../posts/' + post)
             .then(function(res) {
                 if (!res.ok) throw new Error('Post not found');
                 return res.text();
             })
             .then(function(md) {
-                console.log('md loaded, length=' + md.length);
                 var html = marked.parse(md, { async: false });
-                console.log('html type=' + typeof html + ', length=' + (html ? html.length : 0));
                 self.renderedContent = html;
-                // Highlight code blocks after DOM update
+                self.meta = {
+                    wordCount: md.replace(/\s/g, '').length,
+                    readTime: estimateReadTime(md)
+                };
                 self.$nextTick(function() {
-                    document.querySelectorAll('pre code').forEach(function(block) {
-                        hljs.highlightElement(block);
-                    });
+                    self.buildTOC();
+                    self.addCopyButtons();
+                    self.highlightCode();
+                    self.setupScrollSpy();
                 });
             })
             .catch(function(err) {
                 console.error('ERROR:', err);
                 self.renderedContent = '<p>Error loading post: ' + err.message + '</p>';
             });
+
+        window.addEventListener('resize', function() {
+            self.mobile = window.innerWidth <= 1100;
+        });
+
+        window.addEventListener('scroll', function() {
+            self.showBackToTop = window.scrollY > 400;
+        });
     },
     methods: {
-        home: function() {
-            window.location.href = 'https://weirdsnap.github.io';
+        buildTOC: function() {
+            var headings = document.querySelectorAll('#blog-post h2, #blog-post h3');
+            var toc = [];
+            headings.forEach(function(h) {
+                var id = h.id;
+                if (!id) {
+                    id = 'heading-' + toc.length;
+                    h.id = id;
+                }
+                toc.push({
+                    id: id,
+                    text: h.textContent.trim(),
+                    level: h.tagName === 'H2' ? 2 : 3
+                });
+            });
+            this.toc = toc;
         },
-        list: function() {
-            window.location.href = './list.html';
+        scrollTo: function(id) {
+            var el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                this.tocOpen = false;
+            }
         },
-        github: function() {
-            window.location.href = 'https://github.com/weirdsnap';
+        addCopyButtons: function() {
+            document.querySelectorAll('#blog-post pre').forEach(function(pre) {
+                var code = pre.querySelector('code');
+                if (!code) return;
+                var btn = document.createElement('button');
+                btn.className = 'code-copy-btn';
+                btn.textContent = '复制';
+                btn.addEventListener('click', function() {
+                    var text = code.textContent;
+                    navigator.clipboard.writeText(text).then(function() {
+                        btn.textContent = '已复制';
+                        setTimeout(function() { btn.textContent = '复制'; }, 1500);
+                    }).catch(function() {
+                        btn.textContent = '失败';
+                        setTimeout(function() { btn.textContent = '复制'; }, 1500);
+                    });
+                });
+                pre.appendChild(btn);
+            });
+        },
+        highlightCode: function() {
+            document.querySelectorAll('pre code').forEach(function(block) {
+                hljs.highlightElement(block);
+            });
+        },
+        setupScrollSpy: function() {
+            // Simple scroll spy: update active TOC item on scroll
+            var headings = document.querySelectorAll('#blog-post h2, #blog-post h3');
+            var tocLinks = document.querySelectorAll('.toc-sidebar a, .toc-drawer a');
+            if (!headings.length || !tocLinks.length) return;
+
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        tocLinks.forEach(function(link) {
+                            link.classList.remove('active');
+                        });
+                        var active = document.querySelector('.toc-sidebar a[href="#' + entry.target.id + '"], .toc-drawer a[href="#' + entry.target.id + '"]');
+                        if (active) active.classList.add('active');
+                    }
+                });
+            }, { rootMargin: '-80px 0px -70% 0px' });
+
+            headings.forEach(function(h) { observer.observe(h); });
+        },
+        backToTop: function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }
-}).mount('#blog-post');
+}).mount('#blog-wrapper');
 
 Vue.createApp({
+    data() {
+        return {
+            menuOpen: false
+        };
+    },
     methods: {
-        home: function() {
-            window.location.href = 'https://weirdsnap.github.io';
-        },
-        list: function() {
-            window.location.href = './list.html';
-        },
-        github: function() {
-            window.location.href = 'https://github.com/weirdsnap';
-        }
+        home() { window.location.href = 'https://weirdsnap.github.io'; },
+        list() { window.location.href = './list.html'; },
+        github() { window.location.href = 'https://github.com/weirdsnap'; },
+        toggleMenu() { this.menuOpen = !this.menuOpen; }
     }
 }).mount('#header');

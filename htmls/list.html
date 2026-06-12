@@ -10,27 +10,42 @@
 </head>
 <body>
     <div id="header" class="opacity70">
-        <ul class="title">
-            <li>Snap</li>
-            <li v-on:click="github">Github</li>
+        <button class="mobile-menu-btn" @click="toggleMenu">☰</button>
+        <ul class="title" :class="{ 'mobile-open': menuOpen }">
+            <li @click="home">Snap</li>
+            <li @click="list">Blogs</li>
+            <li @click="github">Github</li>
         </ul>
     </div>
-    <div id="contents" class="opacity90" style="padding:1em;">
+    <div id="contents" class="opacity90">
         <div id="blogs">
-            <h1 style="text-align:center;font-size:2em;margin:0.5em 0;">{{ pageTitle }}</h1>
+            <nav class="breadcrumb" v-if="breadcrumb.length">
+                <span v-for="(crumb, idx) in breadcrumb" :key="idx">
+                    <a v-if="crumb.link" :href="crumb.link">{{ crumb.label }}</a>
+                    <span v-else class="current">{{ crumb.label }}</span>
+                    <span v-if="idx < breadcrumb.length - 1" class="sep">/</span>
+                </span>
+            </nav>
+
+            <h1 class="page-title">{{ pageTitle }}</h1>
+
             <!-- 子分类列表（folder 模式） -->
-            <div v-if="showSubs">
+            <div v-if="showSubs" class="sub-grid">
                 <div v-for="sub in subs" :key="sub.id" class="sub-category-card" @click="goSub(sub)">
                     <h3>{{ sub.label }}</h3>
                     <p>{{ sub.articles.length }} 篇</p>
                 </div>
             </div>
+
             <!-- 文章列表 -->
-            <ul v-if="showArticles" class="article-list">
-                <li v-for="article in articles" :key="article.path" class="opacity90" @click="goArticle(article)">
-                    {{ article.title }}
-                </li>
-            </ul>
+            <div v-if="showArticles" class="article-grid">
+                <div v-for="article in articles" :key="article.path" class="article-card" @click="goArticle(article)">
+                    <h3 class="article-title">{{ article.title }}</h3>
+                    <span class="article-meta" v-if="article.readTime">预计阅读 {{ article.readTime }} 分钟</span>
+                </div>
+            </div>
+
+            <p v-if="!showSubs && !showArticles" class="empty">暂无内容</p>
         </div>
     </div>
     <div id="bottom" class="opacity70">

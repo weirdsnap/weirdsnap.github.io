@@ -3,6 +3,16 @@ function getParam(name) {
     return params.get(name) || '';
 }
 
+function estimateReadTime(title) {
+    // Rough estimate: ~400 Chinese chars or ~600 English words per minute
+    if (!title) return 0;
+    const chineseChars = (title.match(/[\u4e00-\u9fa5]/g) || []).length;
+    const totalChars = title.length;
+    const nonChinese = totalChars - chineseChars;
+    const minutes = Math.max(1, Math.round((chineseChars * 1.5 + nonChinese) / 400));
+    return minutes;
+}
+
 Vue.createApp({
     data: function() {
         return {
@@ -12,7 +22,8 @@ Vue.createApp({
             articles: [],
             subs: [],
             showArticles: false,
-            showSubs: false
+            showSubs: false,
+            breadcrumb: []
         };
     },
     mounted: function() {
@@ -31,19 +42,32 @@ Vue.createApp({
                     var sub = (cat.subs || []).find(function(s) { return s.id === self.subId; });
                     if (sub) {
                         self.pageTitle = sub.label;
-                        self.articles = sub.articles || [];
+                        self.articles = (sub.articles || []).map(function(a) {
+                            return { ...a, readTime: estimateReadTime(a.title) };
+                        });
                         self.showArticles = true;
+                        self.breadcrumb = [
+                            { label: '首页', link: '../index.html' },
+                            { label: cat.label, link: './list.html?category=' + encodeURIComponent(cat.id) },
+                            { label: sub.label }
+                        ];
                     }
                     return;
                 }
 
                 // Category view
                 self.pageTitle = cat.label;
+                self.breadcrumb = [
+                    { label: '首页', link: '../index.html' },
+                    { label: cat.label }
+                ];
                 if (cat.type === 'folder' && cat.subs && cat.subs.length > 0) {
                     self.subs = cat.subs;
                     self.showSubs = true;
                 } else {
-                    self.articles = cat.articles || [];
+                    self.articles = (cat.articles || []).map(function(a) {
+                        return { ...a, readTime: estimateReadTime(a.title) };
+                    });
                     self.showArticles = true;
                 }
             })
@@ -63,8 +87,15 @@ Vue.createApp({
 }).mount('#blogs');
 
 Vue.createApp({
+    data() {
+        return {
+            menuOpen: false
+        };
+    },
     methods: {
-        home: function() { window.location.href = 'https://weirdsnap.github.io'; },
-        github: function() { window.location.href = 'https://github.com/weirdsnap'; }
+        home() { window.location.href = 'https://weirdsnap.github.io'; },
+        list() { window.location.href = './list.html'; },
+        github() { window.location.href = 'https://github.com/weirdsnap'; },
+        toggleMenu() { this.menuOpen = !this.menuOpen; }
     }
 }).mount('#header');

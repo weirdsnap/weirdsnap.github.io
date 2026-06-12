@@ -1,90 +1,144 @@
 #contents {
-overflow: auto;
+    overflow: auto;
+    padding: 2em 0 4em;
 }
 
 #blogs {
-    width: 80%;
+    width: 90%;
+    max-width: var(--content-max-width);
     margin: 0 auto;
 }
 
-ul {
-    margin :auto;
-    padding: 0;
+.breadcrumb {
+    margin-bottom: 1em;
+    font-size: 0.95em;
+    color: var(--text-secondary);
 }
 
-#category-title {
+.breadcrumb a {
+    color: var(--accent-warm);
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb .current {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.breadcrumb .sep {
+    margin: 0 0.5em;
+    color: var(--border-color);
+}
+
+.page-title {
     text-align: center;
-    margin: 0.5em 0 0.3em 0;
-    font-size: 2.5em;
-    color: #333;
-    font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+    font-size: clamp(1.8em, 5vw, 2.6em);
+    margin: 0 0 1em;
+    color: var(--text-primary);
+    font-weight: 600;
 }
 
-.sub-category h2 {
-    text-align: center;
-    margin: 1em 0 0.5em 0;
-    font-size: 1.8em;
-    color: #555;
-    font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
-}
-
-.article-list {
-    margin: 0;
-    padding: 0;
-}
-
-.article-list li {
-    font-size: 2em;
-    list-style-type: none;
-    font-style: normal;
-    height: 100px;
-    line-height: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0.5em;
-    width: 80%;
-    background-color: #fff;    
-    text-align: center;
-    font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu ;
-}
-
-.article-list li:hover {
-    cursor: pointer;
+.sub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5em;
+    margin-bottom: 2em;
 }
 
 .sub-category-card {
-    width: 80%;
-    max-width: 600px;
-    margin: 0 auto 1em auto;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 1.2em 1.5em;
+    background-color: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: 1.5em 1.8em;
     cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.15s;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
 }
 
 .sub-category-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
 }
 
 .sub-category-card h3 {
-    margin: 0 0 0.3em 0;
-    font-size: 1.4em;
-    color: #222;
-    font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+    margin: 0 0 0.4em;
+    font-size: 1.25em;
+    color: var(--text-primary);
+    font-weight: 600;
 }
 
 .sub-category-card p {
     margin: 0;
     font-size: 0.9em;
-    color: #666;
+    color: var(--text-secondary);
+}
+
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.2em;
+}
+
+.article-card {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: 1.4em 1.6em;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100px;
+}
+
+.article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-light);
+}
+
+.article-title {
+    margin: 0 0 0.6em;
+    font-size: 1.15em;
+    color: var(--text-primary);
+    font-weight: 500;
+    line-height: 1.45;
+}
+
+.article-meta {
+    font-size: 0.85em;
+    color: var(--text-secondary);
 }
 
 .empty {
     text-align: center;
-    font-size: 1.5em;
-    color: #666;
-    margin-top: 2em;
+    font-size: 1.2em;
+    color: var(--text-secondary);
+    margin-top: 3em;
+}
+
+@media (max-width: 768px) {
+    #contents {
+        padding: 1.5em 0 3em;
+    }
+
+    #blogs {
+        width: 92%;
+    }
+
+    .sub-grid,
+    .article-grid {
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+
+    .article-card {
+        min-height: auto;
+        padding: 1.2em;
+    }
 }

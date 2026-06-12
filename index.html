@@ -7,30 +7,53 @@
     <title>Snap Here</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
-     
 </head>
 <body>
-        <div id="header" class="opacity70">
-            <ul class="title">
-                <li v-on:click="home">Snap</li>
-                <li v-on:click="leetcode">LeetCode</li>
-                <li v-on:click="github">Github</li>
-            </ul>
-        </div>
-        <div id="contents" style="background-color: rgba(255,228,196,0.85);">
+    <div id="header" class="opacity70">
+        <button class="mobile-menu-btn" @click="toggleMenu">☰</button>
+        <ul class="title" :class="{ 'mobile-open': menuOpen }">
+            <li v-on:click="home">Snap</li>
+            <li v-on:click="leetcode">LeetCode</li>
+            <li v-on:click="github">Github</li>
+        </ul>
+    </div>
+    <div id="contents">
+        <div id="home">
+            <div class="hero">
+                <h1>Snap Here</h1>
+                <p>记录学习与思考</p>
+                <div class="search-box">
+                    <input
+                        type="text"
+                        v-model="searchQuery"
+                        placeholder="搜索文章标题..."
+                        @input="onSearch"
+                    />
+                    <span class="search-icon">🔍</span>
+                </div>
+            </div>
+            <p v-if="loading" class="status-msg">加载中...</p>
+            <p v-if="error" class="status-msg error">{{ error }}</p>
             <div id="categories">
-                <p v-if="loading" style="color:#333;font-size:1.5em;">加载中...</p>
-                <p v-if="error" style="color:#c00;font-size:1.2em;">{{ error }}</p>
                 <div v-for="cat in categories" :key="cat.id" class="category-card" @click="jumpCategory(cat)">
                     <h2>{{ cat.label }}</h2>
                     <p>{{ articleCount(cat) }} 篇文章</p>
                 </div>
             </div>
-            <div id="debug" style="position:fixed;bottom:10px;left:10px;background:rgba(0,0,0,0.8);color:#0f0;padding:10px;font-family:monospace;z-index:9999;"></div>
+            <div v-if="searchResults.length > 0" class="search-results">
+                <h3>搜索结果</h3>
+                <ul>
+                    <li v-for="r in searchResults" :key="r.path" @click="goArticle(r)">
+                        <span class="result-title">{{ r.title }}</span>
+                        <span class="result-category">{{ r.categoryLabel }}</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div id="bottom" class="opacity70">
-            <span>2018-2026</span>
-        </div>
+    </div>
+    <div id="bottom" class="opacity70">
+        <span>2018-2026</span>
+    </div>
     <script src="scripts/index.js"></script>
 </body>
 </html>
