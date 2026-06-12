@@ -591,6 +591,56 @@
           "type": "list",
           "articles": [
             {
+              "title": "`printf` 家族类型不安全",
+              "path": "cpp/ch07/107.md",
+              "order": 81
+            },
+            {
+              "title": "`perror` 仅限系统错误",
+              "path": "cpp/ch07/108.md",
+              "order": 82
+            },
+            {
+              "title": "`cout` / `cerr` / `clog` 缓冲策略差异",
+              "path": "cpp/ch07/109.md",
+              "order": 83
+            },
+            {
+              "title": "`std::endl` 与 `'\n'` 的本质差异",
+              "path": "cpp/ch07/110.md",
+              "order": 84
+            },
+            {
+              "title": "`std::to_chars` 零分配高性能",
+              "path": "cpp/ch07/111.md",
+              "order": 85
+            },
+            {
+              "title": "`std::format` 类型安全格式化",
+              "path": "cpp/ch07/112.md",
+              "order": 86
+            },
+            {
+              "title": "`std::print` / `std::println` (C++23)",
+              "path": "cpp/ch07/113.md",
+              "order": 87
+            },
+            {
+              "title": "`write()` 系统调用与信号安全",
+              "path": "cpp/ch07/114.md",
+              "order": 88
+            },
+            {
+              "title": "`std::ostringstream` 内存拼接",
+              "path": "cpp/ch07/115.md",
+              "order": 89
+            },
+            {
+              "title": "输出方案选择矩阵",
+              "path": "cpp/ch07/116.md",
+              "order": 90
+            },
+            {
               "title": "`std::cout` 默认输出类型",
               "path": "cpp/ch07/91.md",
               "order": 91
