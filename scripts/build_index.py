@@ -33,16 +33,17 @@ def scan_articles(dir_path: Path) -> list:
     """Scan a directory for all .md files, return sorted article list."""
     articles = []
     for md_file in dir_path.glob("*.md"):
-        # Extract order number from filename like 01.md → 1, ch01.md → 1
-        match = re.match(r"(\d+)", md_file.stem)
+        # Extract order number from filename like 01.md → 1, crtp_01.md → 1
+        match = re.search(r"(\d+)", md_file.stem)
         order = int(match.group(1)) if match else 999
         articles.append({
             "title": extract_title(md_file),
             "path": str(md_file.relative_to(POSTS_DIR)).replace("\\", "/"),
             "order": order
         })
-    # Sort by numeric order so 99 follows 20 and precedes 100
-    articles.sort(key=lambda a: a["order"])
+    # Sort by numeric order so 99 follows 20 and precedes 100;
+    # tie-break by path to keep prefixed topics grouped stably.
+    articles.sort(key=lambda a: (a["order"], a["path"]))
     return articles
 
 
