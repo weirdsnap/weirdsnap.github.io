@@ -783,6 +783,11 @@
               "title": "`std::atomic_ref` / `atomic_wait`",
               "path": "cpp/ch10/02.md",
               "order": 2
+            },
+            {
+              "title": "doctest：轻量级 C++ 测试框架入门",
+              "path": "cpp/ch10/03.md",
+              "order": 3
             }
           ]
         },
