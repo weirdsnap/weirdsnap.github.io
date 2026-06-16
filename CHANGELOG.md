@@ -8,6 +8,23 @@
 
 ---
 
+## 2026-05-26 修复：返回列表链接与代码块语言标注
+
+### 问题
+- 博客页顶部的 `Blogs` 按钮跳转 `./list.html` 不带分类参数，返回后显示“未找到”
+- 部分 Markdown 代码块缺少语言标注，`highlight.js` 无法语法高亮
+
+### 修改内容
+1. **`scripts/blog.js`**：加载 `posts/index.json`，根据当前文章路径计算出所属分类/子分类，点击 `Blogs` 时返回对应列表页（带 `category` / `sub` 参数）
+2. **`scripts/blog.js`**：`highlightCode` 增加 fallback，对无语言标注的代码块使用 `hljs.highlightAuto` 自动检测
+3. **批量修复 Markdown 代码块**：根据内容自动为 `cpp` 目录下的代码块补充 `cpp` 标注
+
+### 文件变更
+- 修改：`scripts/blog.js`
+- 修改：`posts/cpp/ch01/00.md`、`posts/cpp/ch02/01.md`、`posts/cpp/practices/ipc_02.md`
+
+---
+
 ## 2026-05-26 第一次重构：Vue 3 升级与清理
 
 ### 问题

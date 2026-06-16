@@ -125,6 +125,11 @@ var blogApp = Vue.createApp({
         },
         highlightCode: function() {
             document.querySelectorAll('pre code').forEach(function(block) {
+                var cls = block.className || '';
+                if (!cls.trim()) {
+                    var result = hljs.highlightAuto(block.textContent);
+                    block.className = 'hljs language-' + result.language;
+                }
                 hljs.highlightElement(block);
             });
         },
@@ -157,12 +162,47 @@ var blogApp = Vue.createApp({
 Vue.createApp({
     data() {
         return {
-            menuOpen: false
+            menuOpen: false,
+            backHref: './list.html'
         };
+    },
+    mounted() {
+        var post = getPostParam();
+        if (!post) return;
+        var self = this;
+        fetch('../posts/index.json')
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                var categories = data.categories || [];
+                for (var i = 0; i < categories.length; i++) {
+                    var cat = categories[i];
+                    var articles = cat.articles || [];
+                    for (var j = 0; j < articles.length; j++) {
+                        if (articles[j].path === post) {
+                            self.backHref = './list.html?category=' + encodeURIComponent(cat.id);
+                            return;
+                        }
+                    }
+                    var subs = cat.subs || [];
+                    for (var k = 0; k < subs.length; k++) {
+                        var sub = subs[k];
+                        var subArticles = sub.articles || [];
+                        for (var l = 0; l < subArticles.length; l++) {
+                            if (subArticles[l].path === post) {
+                                self.backHref = './list.html?category=' + encodeURIComponent(cat.id) + '&sub=' + encodeURIComponent(sub.id);
+                                return;
+                            }
+                        }
+                    }
+                }
+            })
+            .catch(function() {
+                self.backHref = './list.html';
+            });
     },
     methods: {
         home() { window.location.href = 'https://weirdsnap.github.io'; },
-        list() { window.location.href = './list.html'; },
+        list() { window.location.href = this.backHref; },
         github() { window.location.href = 'https://github.com/weirdsnap'; },
         toggleMenu() { this.menuOpen = !this.menuOpen; }
     }

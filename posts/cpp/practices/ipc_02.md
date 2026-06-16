@@ -100,14 +100,13 @@ struct Data {
 
 ### 3.1 内存示意图
 
-```
+```cpp
 共享内存（约 4KB + 4800B）
 ├─ [0 ~ 15]        std::atomic<int> write_idx
 ├─ [16 ~ 31]       std::atomic<int> read_idx
 ├─ [32 ~ 4095]     填充（padding，满足对齐）
 └─ [4096 ~ ...]    Message msgs[100]
 ```
-
 > 注意：因为 `std::atomic<int>` 和 `Message` 的对齐要求不同，中间可能有填充。
 
 ---
