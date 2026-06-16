@@ -88,12 +88,12 @@
               "order": 2
             },
             {
-              "title": "字面量的默认类型",
+              "title": "C++ 字面量与类型",
               "path": "cpp/ch01/03.md",
               "order": 3
             },
             {
-              "title": "字符串字面量的默认类型",
+              "title": "字符串字面量的特殊行为与陷阱",
               "path": "cpp/ch01/04.md",
               "order": 4
             },
@@ -196,6 +196,11 @@
               "title": "对象切片（Object Slicing）",
               "path": "cpp/ch01/24.md",
               "order": 24
+            },
+            {
+              "title": "`NULL`、`nullptr` 与 `void*`",
+              "path": "cpp/ch01/25.md",
+              "order": 25
             }
           ]
         },
