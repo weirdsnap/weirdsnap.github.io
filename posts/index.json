@@ -925,6 +925,11 @@
           "title": "寻找两个正序数组的中位数（4. Median of Two Sorted Arrays）",
           "path": "leetcode/ch06.md",
           "order": 6
+        },
+        {
+          "title": "正则表达式匹配（10. Regular Expression Matching）",
+          "path": "leetcode/ch07.md",
+          "order": 7
         }
       ],
       "subs": []
