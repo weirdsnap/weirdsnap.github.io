@@ -1,5 +1,7 @@
 # weirdsnap.github.io
 
+[![Validate Blog Data](https://github.com/weirdsnap/weirdsnap.github.io/actions/workflows/validate.yml/badge.svg)](https://github.com/weirdsnap/weirdsnap.github.io/actions/workflows/validate.yml)
+
 个人博客站点，纯静态部署在 GitHub Pages。
 
 > 2018/3/9 创建，2026 年重构为 Markdown + Vue 3 驱动。
