@@ -843,6 +843,11 @@
               "title": "头文件保护：`#pragma once` vs `ifndef` 守卫",
               "path": "cpp/ch10/04.md",
               "order": 4
+            },
+            {
+              "title": "C++ 中的睡眠：从 `sleep` 到高精度等待",
+              "path": "cpp/ch10/05.md",
+              "order": 5
             }
           ]
         },
