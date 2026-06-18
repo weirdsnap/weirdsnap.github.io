@@ -201,6 +201,11 @@
               "title": "`NULL`、`nullptr` 与 `void*`",
               "path": "cpp/ch01/25.md",
               "order": 25
+            },
+            {
+              "title": "静态变量的默认初始化",
+              "path": "cpp/ch01/26.md",
+              "order": 26
             }
           ]
         },
@@ -848,11 +853,6 @@
               "title": "C++ 中的睡眠：从 `sleep` 到高精度等待",
               "path": "cpp/ch10/05.md",
               "order": 5
-            },
-            {
-              "title": "静态变量的默认初始化",
-              "path": "cpp/ch10/06.md",
-              "order": 6
             }
           ]
         },
