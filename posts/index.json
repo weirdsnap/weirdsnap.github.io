@@ -940,6 +940,11 @@
           "title": "正则表达式匹配（10. Regular Expression Matching）",
           "path": "leetcode/ch07.md",
           "order": 7
+        },
+        {
+          "title": "最长公共前缀（14. Longest Common Prefix）",
+          "path": "leetcode/ch08.md",
+          "order": 8
         }
       ],
       "subs": []
