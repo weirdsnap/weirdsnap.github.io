@@ -206,6 +206,11 @@
               "title": "静态变量的默认初始化",
               "path": "cpp/ch01/26.md",
               "order": 26
+            },
+            {
+              "title": "`std::string` 的三种操作风格",
+              "path": "cpp/ch01/27.md",
+              "order": 27
             }
           ]
         },
