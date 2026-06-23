@@ -3,15 +3,6 @@ function getParam(name) {
     return params.get(name) || '';
 }
 
-function estimateReadTime(title) {
-    // Rough estimate: ~400 Chinese chars or ~600 English words per minute
-    if (!title) return 0;
-    const chineseChars = (title.match(/[\u4e00-\u9fa5]/g) || []).length;
-    const totalChars = title.length;
-    const nonChinese = totalChars - chineseChars;
-    const minutes = Math.max(1, Math.round((chineseChars * 1.5 + nonChinese) / 400));
-    return minutes;
-}
 
 Vue.createApp({
     data: function() {
@@ -43,7 +34,7 @@ Vue.createApp({
                     if (sub) {
                         self.pageTitle = sub.label;
                         self.articles = (sub.articles || []).map(function(a) {
-                            return { ...a, readTime: estimateReadTime(a.title) };
+                            return { ...a, readTime: a.readTime || 1 };
                         });
                         self.showArticles = true;
                         self.breadcrumb = [
@@ -66,7 +57,7 @@ Vue.createApp({
                     self.showSubs = true;
                 } else {
                     self.articles = (cat.articles || []).map(function(a) {
-                        return { ...a, readTime: estimateReadTime(a.title) };
+                        return { ...a, readTime: a.readTime || 1 };
                     });
                     self.showArticles = true;
                 }
