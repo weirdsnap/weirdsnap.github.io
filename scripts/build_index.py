@@ -19,6 +19,25 @@ def extract_title(md_path: Path) -> str:
     return md_path.stem
 
 
+def estimate_read_time(md_path: Path) -> dict:
+    """Estimate reading time and word count from markdown content.
+    
+    Rules match scripts/blog.js:
+    - Chinese characters count as 1 unit each
+    - English words count as 0.5 units each
+    - ~400 units per minute
+    - Minimum 1 minute
+    """
+    text = md_path.read_text(encoding="utf-8")
+    chinese = len(re.findall(r"[\u4e00-\u9fa5]", text))
+    words = len(text.split())
+    units = chinese + words * 0.5
+    minutes = max(1, round(units / 400))
+    # Approximate word count for display: Chinese chars + English words
+    word_count = chinese + words
+    return {"wordCount": word_count, "readTime": minutes}
+
+
 def read_meta(dir_path: Path) -> dict:
     """Read _meta.json from a directory, return defaults if missing."""
     meta_file = dir_path / "_meta.json"
@@ -36,10 +55,13 @@ def scan_articles(dir_path: Path) -> list:
         # Extract order number from filename like 01.md → 1, crtp_01.md → 1
         match = re.search(r"(\d+)", md_file.stem)
         order = int(match.group(1)) if match else 999
+        meta = estimate_read_time(md_file)
         articles.append({
             "title": extract_title(md_file),
             "path": str(md_file.relative_to(POSTS_DIR)).replace("\\", "/"),
-            "order": order
+            "order": order,
+            "wordCount": meta["wordCount"],
+            "readTime": meta["readTime"]
         })
     # Sort by numeric order so 99 follows 20 and precedes 100;
     # tie-break by path to keep prefixed topics grouped stably.

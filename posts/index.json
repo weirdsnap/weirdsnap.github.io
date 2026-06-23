@@ -9,52 +9,72 @@
         {
           "title": "刚开始写python遇到了很迷的bug",
           "path": "essays/ch01.md",
-          "order": 1
+          "order": 1,
+          "wordCount": 138,
+          "readTime": 1
         },
         {
           "title": "ch02",
           "path": "essays/ch02.md",
-          "order": 2
+          "order": 2,
+          "wordCount": 220,
+          "readTime": 1
         },
         {
           "title": "数学建模学习",
           "path": "essays/ch03.md",
-          "order": 3
+          "order": 3,
+          "wordCount": 903,
+          "readTime": 2
         },
         {
           "title": "系统分析与设计学习（一）",
           "path": "essays/ch04.md",
-          "order": 4
+          "order": 4,
+          "wordCount": 875,
+          "readTime": 2
         },
         {
           "title": "vue",
           "path": "essays/ch05.md",
-          "order": 5
+          "order": 5,
+          "wordCount": 232,
+          "readTime": 1
         },
         {
           "title": "系统分析与设计学习（二）",
           "path": "essays/ch06.md",
-          "order": 6
+          "order": 6,
+          "wordCount": 1331,
+          "readTime": 3
         },
         {
           "title": "ES6学习",
           "path": "essays/ch07.md",
-          "order": 7
+          "order": 7,
+          "wordCount": 503,
+          "readTime": 1
         },
         {
           "title": "ch08",
           "path": "essays/ch08.md",
-          "order": 8
+          "order": 8,
+          "wordCount": 813,
+          "readTime": 2
         },
         {
           "title": "系统与分析作业7",
           "path": "essays/ch09.md",
-          "order": 9
+          "order": 9,
+          "wordCount": 28,
+          "readTime": 1
         },
         {
           "title": "前端知识复习",
           "path": "essays/ch10.md",
-          "order": 10
+          "order": 10,
+          "wordCount": 1437,
+          "readTime": 3
         }
       ],
       "subs": []
@@ -75,142 +95,198 @@
             {
               "title": "C++ 语言基础与类型系统",
               "path": "cpp/ch01/00.md",
-              "order": 0
+              "order": 0,
+              "wordCount": 1734,
+              "readTime": 4
             },
             {
               "title": "无符号整型回绕",
               "path": "cpp/ch01/01.md",
-              "order": 1
+              "order": 1,
+              "wordCount": 418,
+              "readTime": 1
             },
             {
               "title": "`char` 的符号性",
               "path": "cpp/ch01/02.md",
-              "order": 2
+              "order": 2,
+              "wordCount": 377,
+              "readTime": 1
             },
             {
               "title": "C++ 字面量与类型",
               "path": "cpp/ch01/03.md",
-              "order": 3
+              "order": 3,
+              "wordCount": 982,
+              "readTime": 2
             },
             {
               "title": "字符串字面量的特殊行为与陷阱",
               "path": "cpp/ch01/04.md",
-              "order": 4
+              "order": 4,
+              "wordCount": 737,
+              "readTime": 2
             },
             {
               "title": "隐式转换 `bool` / `operator bool`",
               "path": "cpp/ch01/05.md",
-              "order": 5
+              "order": 5,
+              "wordCount": 204,
+              "readTime": 1
             },
             {
               "title": "`auto` 的类型推导",
               "path": "cpp/ch01/06.md",
-              "order": 6
+              "order": 6,
+              "wordCount": 198,
+              "readTime": 1
             },
             {
               "title": "`decltype` 的推导规则",
               "path": "cpp/ch01/07.md",
-              "order": 7
+              "order": 7,
+              "wordCount": 183,
+              "readTime": 1
             },
             {
               "title": "`decltype(auto)`",
               "path": "cpp/ch01/08.md",
-              "order": 8
+              "order": 8,
+              "wordCount": 197,
+              "readTime": 1
             },
             {
               "title": "表达式中的类型退化",
               "path": "cpp/ch01/09.md",
-              "order": 9
+              "order": 9,
+              "wordCount": 231,
+              "readTime": 1
             },
             {
               "title": "`const` 引用绑定与临时对象",
               "path": "cpp/ch01/10.md",
-              "order": 10
+              "order": 10,
+              "wordCount": 220,
+              "readTime": 1
             },
             {
               "title": "`std::max`/`min` 返回引用",
               "path": "cpp/ch01/11.md",
-              "order": 11
+              "order": 11,
+              "wordCount": 137,
+              "readTime": 1
             },
             {
               "title": "静态类型与动态类型",
               "path": "cpp/ch01/12.md",
-              "order": 12
+              "order": 12,
+              "wordCount": 239,
+              "readTime": 1
             },
             {
               "title": "构造与析构顺序",
               "path": "cpp/ch01/13.md",
-              "order": 13
+              "order": 13,
+              "wordCount": 237,
+              "readTime": 1
             },
             {
               "title": "声明、定义与初始化",
               "path": "cpp/ch01/14.md",
-              "order": 14
+              "order": 14,
+              "wordCount": 254,
+              "readTime": 1
             },
             {
               "title": "返回局部/临时变量的指针/引用",
               "path": "cpp/ch01/15.md",
-              "order": 15
+              "order": 15,
+              "wordCount": 183,
+              "readTime": 1
             },
             {
               "title": "函数指针与仿函数",
               "path": "cpp/ch01/16.md",
-              "order": 16
+              "order": 16,
+              "wordCount": 236,
+              "readTime": 1
             },
             {
               "title": "Lambda 按值捕获的 `const` 性",
               "path": "cpp/ch01/17.md",
-              "order": 17
+              "order": 17,
+              "wordCount": 207,
+              "readTime": 1
             },
             {
               "title": "函数参数求值顺序未指定",
               "path": "cpp/ch01/18.md",
-              "order": 18
+              "order": 18,
+              "wordCount": 183,
+              "readTime": 1
             },
             {
               "title": "花括号列表 vs 圆括号参数求值顺序",
               "path": "cpp/ch01/19.md",
-              "order": 19
+              "order": 19,
+              "wordCount": 238,
+              "readTime": 1
             },
             {
               "title": "`std::variant`",
               "path": "cpp/ch01/20.md",
-              "order": 20
+              "order": 20,
+              "wordCount": 196,
+              "readTime": 1
             },
             {
               "title": "右值引用与转发引用",
               "path": "cpp/ch01/21.md",
-              "order": 21
+              "order": 21,
+              "wordCount": 318,
+              "readTime": 1
             },
             {
               "title": "`std::optional`",
               "path": "cpp/ch01/22.md",
-              "order": 22
+              "order": 22,
+              "wordCount": 328,
+              "readTime": 1
             },
             {
               "title": "`enum class` vs `enum`",
               "path": "cpp/ch01/23.md",
-              "order": 23
+              "order": 23,
+              "wordCount": 375,
+              "readTime": 1
             },
             {
               "title": "对象切片（Object Slicing）",
               "path": "cpp/ch01/24.md",
-              "order": 24
+              "order": 24,
+              "wordCount": 301,
+              "readTime": 1
             },
             {
               "title": "`NULL`、`nullptr` 与 `void*`",
               "path": "cpp/ch01/25.md",
-              "order": 25
+              "order": 25,
+              "wordCount": 815,
+              "readTime": 2
             },
             {
               "title": "静态变量的默认初始化",
               "path": "cpp/ch01/26.md",
-              "order": 26
+              "order": 26,
+              "wordCount": 672,
+              "readTime": 1
             },
             {
               "title": "`std::string` 的三种操作风格",
               "path": "cpp/ch01/27.md",
-              "order": 27
+              "order": 27,
+              "wordCount": 1362,
+              "readTime": 3
             }
           ]
         },
@@ -223,137 +299,191 @@
             {
               "title": "虚函数的底层支持（vtable / vptr）",
               "path": "cpp/ch02/01.md",
-              "order": 1
+              "order": 1,
+              "wordCount": 490,
+              "readTime": 1
             },
             {
               "title": "构造顺序与 vptr 切换",
               "path": "cpp/ch02/02.md",
-              "order": 2
+              "order": 2,
+              "wordCount": 228,
+              "readTime": 1
             },
             {
               "title": "析构顺序与 vptr 回切",
               "path": "cpp/ch02/03.md",
-              "order": 3
+              "order": 3,
+              "wordCount": 165,
+              "readTime": 1
             },
             {
               "title": "构造/析构中调用虚函数",
               "path": "cpp/ch02/04.md",
-              "order": 4
+              "order": 4,
+              "wordCount": 201,
+              "readTime": 1
             },
             {
               "title": "虚函数的默认参数",
               "path": "cpp/ch02/05.md",
-              "order": 5
+              "order": 5,
+              "wordCount": 234,
+              "readTime": 1
             },
             {
               "title": "NVI 惯用法",
               "path": "cpp/ch02/06.md",
-              "order": 6
+              "order": 6,
+              "wordCount": 228,
+              "readTime": 1
             },
             {
               "title": "`vptr` 与 `vbptr` 的区别",
               "path": "cpp/ch02/07.md",
-              "order": 7
+              "order": 7,
+              "wordCount": 234,
+              "readTime": 1
             },
             {
               "title": "同时含 `vptr` 与 `vbptr` 的对象布局",
               "path": "cpp/ch02/08.md",
-              "order": 8
+              "order": 8,
+              "wordCount": 191,
+              "readTime": 1
             },
             {
               "title": "`this` 指针调整（Thunk）",
               "path": "cpp/ch02/09.md",
-              "order": 9
+              "order": 9,
+              "wordCount": 242,
+              "readTime": 1
             },
             {
               "title": "虚继承与菱形继承",
               "path": "cpp/ch02/10.md",
-              "order": 10
+              "order": 10,
+              "wordCount": 241,
+              "readTime": 1
             },
             {
               "title": "虚继承的 `vbptr` 与偏移量表",
               "path": "cpp/ch02/11.md",
-              "order": 11
+              "order": 11,
+              "wordCount": 185,
+              "readTime": 1
             },
             {
               "title": "空类的虚继承大小",
               "path": "cpp/ch02/12.md",
-              "order": 12
+              "order": 12,
+              "wordCount": 281,
+              "readTime": 1
             },
             {
               "title": "成员函数模板不能是虚函数",
               "path": "cpp/ch02/13.md",
-              "order": 13
+              "order": 13,
+              "wordCount": 177,
+              "readTime": 1
             },
             {
               "title": "虚函数内联的去虚拟化",
               "path": "cpp/ch02/14.md",
-              "order": 14
+              "order": 14,
+              "wordCount": 281,
+              "readTime": 1
             },
             {
               "title": "`final` 与编译器优化",
               "path": "cpp/ch02/15.md",
-              "order": 15
+              "order": 15,
+              "wordCount": 253,
+              "readTime": 1
             },
             {
               "title": "Pimpl 惯用法",
               "path": "cpp/ch02/16.md",
-              "order": 16
+              "order": 16,
+              "wordCount": 201,
+              "readTime": 1
             },
             {
               "title": "ABI 与二进制兼容",
               "path": "cpp/ch02/17.md",
-              "order": 17
+              "order": 17,
+              "wordCount": 286,
+              "readTime": 1
             },
             {
               "title": "名字查找的\"找到即停\"",
               "path": "cpp/ch02/18.md",
-              "order": 18
+              "order": 18,
+              "wordCount": 218,
+              "readTime": 1
             },
             {
               "title": "数组参数退化影响函数重载",
               "path": "cpp/ch02/19.md",
-              "order": 19
+              "order": 19,
+              "wordCount": 193,
+              "readTime": 1
             },
             {
               "title": "数组引用 vs 指针重载优先级",
               "path": "cpp/ch02/20.md",
-              "order": 20
+              "order": 20,
+              "wordCount": 487,
+              "readTime": 1
             },
             {
               "title": "类型转换函数基础语法",
               "path": "cpp/ch02/99.md",
-              "order": 99
+              "order": 99,
+              "wordCount": 405,
+              "readTime": 1
             },
             {
               "title": "`operator auto()` 返回类型推导 (C++23)",
               "path": "cpp/ch02/100.md",
-              "order": 100
+              "order": 100,
+              "wordCount": 345,
+              "readTime": 1
             },
             {
               "title": "`explicit` 转换函数",
               "path": "cpp/ch02/101.md",
-              "order": 101
+              "order": 101,
+              "wordCount": 306,
+              "readTime": 1
             },
             {
               "title": "`operator void()` 不合法",
               "path": "cpp/ch02/102.md",
-              "order": 102
+              "order": 102,
+              "wordCount": 339,
+              "readTime": 1
             },
             {
               "title": "转换函数模板与推导限制",
               "path": "cpp/ch02/103.md",
-              "order": 103
+              "order": 103,
+              "wordCount": 418,
+              "readTime": 1
             },
             {
               "title": "转换函数的 `const` 正确性",
               "path": "cpp/ch02/104.md",
-              "order": 104
+              "order": 104,
+              "wordCount": 378,
+              "readTime": 1
             },
             {
               "title": "转换函数重载的二义性",
               "path": "cpp/ch02/105.md",
-              "order": 105
+              "order": 105,
+              "wordCount": 465,
+              "readTime": 1
             }
           ]
         },
@@ -366,77 +496,107 @@
             {
               "title": "`new`/`delete` vs `malloc`/`free`",
               "path": "cpp/ch03/01.md",
-              "order": 1
+              "order": 1,
+              "wordCount": 215,
+              "readTime": 1
             },
             {
               "title": "`shared_ptr`",
               "path": "cpp/ch03/02.md",
-              "order": 2
+              "order": 2,
+              "wordCount": 252,
+              "readTime": 1
             },
             {
               "title": "`weak_ptr`",
               "path": "cpp/ch03/03.md",
-              "order": 3
+              "order": 3,
+              "wordCount": 199,
+              "readTime": 1
             },
             {
               "title": "`unique_ptr` vs `shared_ptr`",
               "path": "cpp/ch03/04.md",
-              "order": 4
+              "order": 4,
+              "wordCount": 243,
+              "readTime": 1
             },
             {
               "title": "拷贝构造 vs 拷贝赋值",
               "path": "cpp/ch03/05.md",
-              "order": 5
+              "order": 5,
+              "wordCount": 285,
+              "readTime": 1
             },
             {
               "title": "三/五/零法则",
               "path": "cpp/ch03/06.md",
-              "order": 6
+              "order": 6,
+              "wordCount": 355,
+              "readTime": 1
             },
             {
               "title": "成员初始化列表顺序",
               "path": "cpp/ch03/07.md",
-              "order": 7
+              "order": 7,
+              "wordCount": 222,
+              "readTime": 1
             },
             {
               "title": "移动语义",
               "path": "cpp/ch03/08.md",
-              "order": 8
+              "order": 8,
+              "wordCount": 241,
+              "readTime": 1
             },
             {
               "title": "RVO 与 NRVO",
               "path": "cpp/ch03/09.md",
-              "order": 9
+              "order": 9,
+              "wordCount": 208,
+              "readTime": 1
             },
             {
               "title": "返回 prvalue 的零拷贝",
               "path": "cpp/ch03/10.md",
-              "order": 10
+              "order": 10,
+              "wordCount": 227,
+              "readTime": 1
             },
             {
               "title": "RAII 代理模式（栈管理堆资源）",
               "path": "cpp/ch03/11.md",
-              "order": 11
+              "order": 11,
+              "wordCount": 310,
+              "readTime": 1
             },
             {
               "title": "模板静态成员 vs 非模板静态成员",
               "path": "cpp/ch03/12.md",
-              "order": 12
+              "order": 12,
+              "wordCount": 335,
+              "readTime": 1
             },
             {
               "title": "特殊成员函数的自动生成规则",
               "path": "cpp/ch03/13.md",
-              "order": 13
+              "order": 13,
+              "wordCount": 371,
+              "readTime": 1
             },
             {
               "title": "用户声明拷贝构造抑制移动（基于题目）",
               "path": "cpp/ch03/14.md",
-              "order": 14
+              "order": 14,
+              "wordCount": 298,
+              "readTime": 1
             },
             {
               "title": "模板实例化延迟",
               "path": "cpp/ch03/15.md",
-              "order": 15
+              "order": 15,
+              "wordCount": 305,
+              "readTime": 1
             }
           ]
         },
@@ -449,122 +609,170 @@
             {
               "title": "模板参数推导（`int` vs `const int`）",
               "path": "cpp/ch04/01.md",
-              "order": 1
+              "order": 1,
+              "wordCount": 245,
+              "readTime": 1
             },
             {
               "title": "函数入参推导保留顶层 `const`",
               "path": "cpp/ch04/02.md",
-              "order": 2
+              "order": 2,
+              "wordCount": 206,
+              "readTime": 1
             },
             {
               "title": "重载决议的工作流程",
               "path": "cpp/ch04/03.md",
-              "order": 3
+              "order": 3,
+              "wordCount": 285,
+              "readTime": 1
             },
             {
               "title": "隐式转换序列的比较规则",
               "path": "cpp/ch04/04.md",
-              "order": 4
+              "order": 4,
+              "wordCount": 272,
+              "readTime": 1
             },
             {
               "title": "模板全特化 vs 主模板",
               "path": "cpp/ch04/05.md",
-              "order": 5
+              "order": 5,
+              "wordCount": 187,
+              "readTime": 1
             },
             {
               "title": "全特化 vs 偏特化",
               "path": "cpp/ch04/06.md",
-              "order": 6
+              "order": 6,
+              "wordCount": 246,
+              "readTime": 1
             },
             {
               "title": "万能引用",
               "path": "cpp/ch04/07.md",
-              "order": 7
+              "order": 7,
+              "wordCount": 234,
+              "readTime": 1
             },
             {
               "title": "完美转发",
               "path": "cpp/ch04/08.md",
-              "order": 8
+              "order": 8,
+              "wordCount": 221,
+              "readTime": 1
             },
             {
               "title": "模板类基类函数调用",
               "path": "cpp/ch04/09.md",
-              "order": 9
+              "order": 9,
+              "wordCount": 234,
+              "readTime": 1
             },
             {
               "title": "`static_assert`",
               "path": "cpp/ch04/10.md",
-              "order": 10
+              "order": 10,
+              "wordCount": 230,
+              "readTime": 1
             },
             {
               "title": "模板精确匹配 vs 非模板标准转换",
               "path": "cpp/ch04/11.md",
-              "order": 11
+              "order": 11,
+              "wordCount": 229,
+              "readTime": 1
             },
             {
               "title": "显式模板语法 `<>` 强制模板候选",
               "path": "cpp/ch04/12.md",
-              "order": 12
+              "order": 12,
+              "wordCount": 201,
+              "readTime": 1
             },
             {
               "title": "特化 vs 重载的优先级",
               "path": "cpp/ch04/13.md",
-              "order": 13
+              "order": 13,
+              "wordCount": 93,
+              "readTime": 1
             },
             {
               "title": "模板重载决议的三阶段",
               "path": "cpp/ch04/14.md",
-              "order": 14
+              "order": 14,
+              "wordCount": 80,
+              "readTime": 1
             },
             {
               "title": "显式特化的语法伪装",
               "path": "cpp/ch04/15.md",
-              "order": 15
+              "order": 15,
+              "wordCount": 102,
+              "readTime": 1
             },
             {
               "title": "模板推导是模式匹配，不是解方程",
               "path": "cpp/ch04/16.md",
-              "order": 16
+              "order": 16,
+              "wordCount": 280,
+              "readTime": 1
             },
             {
               "title": "可变参数模板",
               "path": "cpp/ch04/17.md",
-              "order": 17
+              "order": 17,
+              "wordCount": 209,
+              "readTime": 1
             },
             {
               "title": "IFNDR 与欺骗性模板",
               "path": "cpp/ch04/18.md",
-              "order": 18
+              "order": 18,
+              "wordCount": 180,
+              "readTime": 1
             },
             {
               "title": "函数参数类型确定的三阶段",
               "path": "cpp/ch04/19.md",
-              "order": 19
+              "order": 19,
+              "wordCount": 335,
+              "readTime": 1
             },
             {
               "title": "`void*` / `nullptr` / `NULL`",
               "path": "cpp/ch04/20.md",
-              "order": 20
+              "order": 20,
+              "wordCount": 233,
+              "readTime": 1
             },
             {
               "title": "`operator void()`",
               "path": "cpp/ch04/21.md",
-              "order": 21
+              "order": 21,
+              "wordCount": 167,
+              "readTime": 1
             },
             {
               "title": "`explicit` 转换运算符",
               "path": "cpp/ch04/22.md",
-              "order": 22
+              "order": 22,
+              "wordCount": 201,
+              "readTime": 1
             },
             {
               "title": "`constexpr` vs `const`",
               "path": "cpp/ch04/23.md",
-              "order": 23
+              "order": 23,
+              "wordCount": 219,
+              "readTime": 1
             },
             {
               "title": "`auto` 的引用剥离（Decay）",
               "path": "cpp/ch04/24.md",
-              "order": 24
+              "order": 24,
+              "wordCount": 234,
+              "readTime": 1
             }
           ]
         },
@@ -577,17 +785,23 @@
             {
               "title": "`override` 与虚函数重写",
               "path": "cpp/ch05/01.md",
-              "order": 1
+              "order": 1,
+              "wordCount": 238,
+              "readTime": 1
             },
             {
               "title": "`typeid` 与 RTTI",
               "path": "cpp/ch05/02.md",
-              "order": 2
+              "order": 2,
+              "wordCount": 228,
+              "readTime": 1
             },
             {
               "title": "`dynamic_cast`",
               "path": "cpp/ch05/03.md",
-              "order": 3
+              "order": 3,
+              "wordCount": 219,
+              "readTime": 1
             }
           ]
         },
@@ -600,37 +814,51 @@
             {
               "title": "`mutex`",
               "path": "cpp/ch06/01.md",
-              "order": 1
+              "order": 1,
+              "wordCount": 176,
+              "readTime": 1
             },
             {
               "title": "`lock_guard`",
               "path": "cpp/ch06/02.md",
-              "order": 2
+              "order": 2,
+              "wordCount": 177,
+              "readTime": 1
             },
             {
               "title": "`unique_lock`",
               "path": "cpp/ch06/03.md",
-              "order": 3
+              "order": 3,
+              "wordCount": 201,
+              "readTime": 1
             },
             {
               "title": "三者选择策略",
               "path": "cpp/ch06/04.md",
-              "order": 4
+              "order": 4,
+              "wordCount": 100,
+              "readTime": 1
             },
             {
               "title": "`std::atomic`",
               "path": "cpp/ch06/05.md",
-              "order": 5
+              "order": 5,
+              "wordCount": 204,
+              "readTime": 1
             },
             {
               "title": "`std::atomic` 内存序",
               "path": "cpp/ch06/06.md",
-              "order": 6
+              "order": 6,
+              "wordCount": 266,
+              "readTime": 1
             },
             {
               "title": "数据竞争（基础）",
               "path": "cpp/ch06/07.md",
-              "order": 7
+              "order": 7,
+              "wordCount": 297,
+              "readTime": 1
             }
           ]
         },
@@ -643,132 +871,184 @@
             {
               "title": "`printf` 家族类型不安全",
               "path": "cpp/ch07/01.md",
-              "order": 1
+              "order": 1,
+              "wordCount": 333,
+              "readTime": 1
             },
             {
               "title": "`perror` 仅限系统错误",
               "path": "cpp/ch07/02.md",
-              "order": 2
+              "order": 2,
+              "wordCount": 321,
+              "readTime": 1
             },
             {
               "title": "`cout` / `cerr` / `clog` 缓冲策略差异",
               "path": "cpp/ch07/03.md",
-              "order": 3
+              "order": 3,
+              "wordCount": 365,
+              "readTime": 1
             },
             {
               "title": "`std::endl` 与 `'\\n'` 的本质差异",
               "path": "cpp/ch07/04.md",
-              "order": 4
+              "order": 4,
+              "wordCount": 375,
+              "readTime": 1
             },
             {
               "title": "`std::to_chars` 零分配高性能",
               "path": "cpp/ch07/05.md",
-              "order": 5
+              "order": 5,
+              "wordCount": 324,
+              "readTime": 1
             },
             {
               "title": "`std::format` 类型安全格式化",
               "path": "cpp/ch07/06.md",
-              "order": 6
+              "order": 6,
+              "wordCount": 334,
+              "readTime": 1
             },
             {
               "title": "`std::print` / `std::println` (C++23)",
               "path": "cpp/ch07/07.md",
-              "order": 7
+              "order": 7,
+              "wordCount": 299,
+              "readTime": 1
             },
             {
               "title": "`write()` 系统调用与信号安全",
               "path": "cpp/ch07/08.md",
-              "order": 8
+              "order": 8,
+              "wordCount": 364,
+              "readTime": 1
             },
             {
               "title": "`std::ostringstream` 内存拼接",
               "path": "cpp/ch07/09.md",
-              "order": 9
+              "order": 9,
+              "wordCount": 401,
+              "readTime": 1
             },
             {
               "title": "输出方案选择矩阵",
               "path": "cpp/ch07/10.md",
-              "order": 10
+              "order": 10,
+              "wordCount": 571,
+              "readTime": 1
             },
             {
               "title": "`std::cout` 默认输出类型",
               "path": "cpp/ch07/11.md",
-              "order": 11
+              "order": 11,
+              "wordCount": 217,
+              "readTime": 1
             },
             {
               "title": "`std::function` 类型擦除",
               "path": "cpp/ch07/12.md",
-              "order": 12
+              "order": 12,
+              "wordCount": 240,
+              "readTime": 1
             },
             {
               "title": "`argv[argc]` 的明确定义",
               "path": "cpp/ch07/13.md",
-              "order": 13
+              "order": 13,
+              "wordCount": 173,
+              "readTime": 1
             },
             {
               "title": "常见的未定义行为（UB）",
               "path": "cpp/ch07/14.md",
-              "order": 14
+              "order": 14,
+              "wordCount": 265,
+              "readTime": 1
             },
             {
               "title": "流异常处理",
               "path": "cpp/ch07/15.md",
-              "order": 15
+              "order": 15,
+              "wordCount": 181,
+              "readTime": 1
             },
             {
               "title": "输出运算符与逻辑运算符的优先级陷阱",
               "path": "cpp/ch07/16.md",
-              "order": 16
+              "order": 16,
+              "wordCount": 626,
+              "readTime": 1
             },
             {
               "title": "`stringstream` 家族与继承体系",
               "path": "cpp/ch07/106.md",
-              "order": 106
+              "order": 106,
+              "wordCount": 411,
+              "readTime": 1
             },
             {
               "title": "`operator>>` 提取陷阱",
               "path": "cpp/ch07/107.md",
-              "order": 107
+              "order": 107,
+              "wordCount": 452,
+              "readTime": 1
             },
             {
               "title": "流状态位（`eof/fail/bad`）与检测逻辑",
               "path": "cpp/ch07/108.md",
-              "order": 108
+              "order": 108,
+              "wordCount": 520,
+              "readTime": 1
             },
             {
               "title": "重置与复用：`str()` 与 `clear()` 的分工",
               "path": "cpp/ch07/109.md",
-              "order": 109
+              "order": 109,
+              "wordCount": 445,
+              "readTime": 1
             },
             {
               "title": "定位操作：`seekp` / `seekg` 与读写指针",
               "path": "cpp/ch07/110.md",
-              "order": 110
+              "order": 110,
+              "wordCount": 487,
+              "readTime": 1
             },
             {
               "title": "格式化操纵器的持久性陷阱",
               "path": "cpp/ch07/111.md",
-              "order": 111
+              "order": 111,
+              "wordCount": 534,
+              "readTime": 1
             },
             {
               "title": "性能开销：与零拷贝方案的对比",
               "path": "cpp/ch07/112.md",
-              "order": 112
+              "order": 112,
+              "wordCount": 514,
+              "readTime": 1
             },
             {
               "title": "宽字符流 `wstringstream` 的平台差异",
               "path": "cpp/ch07/113.md",
-              "order": 113
+              "order": 113,
+              "wordCount": 391,
+              "readTime": 1
             },
             {
               "title": "C++23 `spanstream`：零拷贝解析",
               "path": "cpp/ch07/114.md",
-              "order": 114
+              "order": 114,
+              "wordCount": 410,
+              "readTime": 1
             },
             {
               "title": "字符串分割与 `>>` / `getline` 混用陷阱",
               "path": "cpp/ch07/115.md",
-              "order": 115
+              "order": 115,
+              "wordCount": 457,
+              "readTime": 1
             }
           ]
         },
@@ -781,27 +1061,37 @@
             {
               "title": "`noexcept`",
               "path": "cpp/ch08/01.md",
-              "order": 1
+              "order": 1,
+              "wordCount": 228,
+              "readTime": 1
             },
             {
               "title": "`noexcept` 工程实践",
               "path": "cpp/ch08/02.md",
-              "order": 2
+              "order": 2,
+              "wordCount": 169,
+              "readTime": 1
             },
             {
               "title": "析构函数抛出异常与栈展开",
               "path": "cpp/ch08/03.md",
-              "order": 3
+              "order": 3,
+              "wordCount": 272,
+              "readTime": 1
             },
             {
               "title": "`return` 语句析构异常与返回对象销毁",
               "path": "cpp/ch08/04.md",
-              "order": 4
+              "order": 4,
+              "wordCount": 277,
+              "readTime": 1
             },
             {
               "title": "C++ 未定义行为（Undefined Behavior, UB）",
               "path": "cpp/ch08/05.md",
-              "order": 5
+              "order": 5,
+              "wordCount": 1346,
+              "readTime": 3
             }
           ]
         },
@@ -814,17 +1104,23 @@
             {
               "title": "拷贝并交换惯用法（Copy-and-Swap）",
               "path": "cpp/ch09/01.md",
-              "order": 1
+              "order": 1,
+              "wordCount": 145,
+              "readTime": 1
             },
             {
               "title": "placement new 与显式析构",
               "path": "cpp/ch09/02.md",
-              "order": 2
+              "order": 2,
+              "wordCount": 106,
+              "readTime": 1
             },
             {
               "title": "`std::move_only_function` / `function_ref`",
               "path": "cpp/ch09/03.md",
-              "order": 3
+              "order": 3,
+              "wordCount": 80,
+              "readTime": 1
             }
           ]
         },
@@ -837,27 +1133,44 @@
             {
               "title": "用户自定义字面量（UDL）",
               "path": "cpp/ch10/01.md",
-              "order": 1
+              "order": 1,
+              "wordCount": 95,
+              "readTime": 1
             },
             {
               "title": "`std::atomic_ref` / `atomic_wait`",
               "path": "cpp/ch10/02.md",
-              "order": 2
+              "order": 2,
+              "wordCount": 129,
+              "readTime": 1
             },
             {
               "title": "doctest：轻量级 C++ 测试框架入门",
               "path": "cpp/ch10/03.md",
-              "order": 3
+              "order": 3,
+              "wordCount": 879,
+              "readTime": 2
             },
             {
               "title": "头文件保护：`#pragma once` vs `ifndef` 守卫",
               "path": "cpp/ch10/04.md",
-              "order": 4
+              "order": 4,
+              "wordCount": 599,
+              "readTime": 1
             },
             {
               "title": "C++ 中的睡眠：从 `sleep` 到高精度等待",
               "path": "cpp/ch10/05.md",
-              "order": 5
+              "order": 5,
+              "wordCount": 1094,
+              "readTime": 2
+            },
+            {
+              "title": "常用位运算惯用法",
+              "path": "cpp/ch10/06.md",
+              "order": 6,
+              "wordCount": 628,
+              "readTime": 1
             }
           ]
         },
@@ -870,17 +1183,23 @@
             {
               "title": "CRTP（Curiously Recurring Template Pattern，奇异递归模板模式）",
               "path": "cpp/practices/crtp_01.md",
-              "order": 1
+              "order": 1,
+              "wordCount": 1488,
+              "readTime": 3
             },
             {
               "title": "基础共享内存实现",
               "path": "cpp/practices/ipc_01.md",
-              "order": 1
+              "order": 1,
+              "wordCount": 1233,
+              "readTime": 2
             },
             {
               "title": "POSIX 共享内存进阶：环形缓冲区（Ring Buffer）设计",
               "path": "cpp/practices/ipc_02.md",
-              "order": 2
+              "order": 2,
+              "wordCount": 2449,
+              "readTime": 5
             }
           ]
         }
@@ -895,22 +1214,30 @@
         {
           "title": "ch00",
           "path": "python2cpp/ch00.md",
-          "order": 0
+          "order": 0,
+          "wordCount": 0,
+          "readTime": 1
         },
         {
           "title": "类型系统",
           "path": "python2cpp/ch01.md",
-          "order": 1
+          "order": 1,
+          "wordCount": 1737,
+          "readTime": 4
         },
         {
-          "title": "常用容器：string、vector、map",
+          "title": "常用容器：`string`、`vector`、`map`",
           "path": "python2cpp/ch02.md",
-          "order": 2
+          "order": 2,
+          "wordCount": 1836,
+          "readTime": 3
         },
         {
-          "title": "控制流：if、while、for、switch",
+          "title": "控制流：`if`、`while`、`for`、`switch`",
           "path": "python2cpp/ch03.md",
-          "order": 3
+          "order": 3,
+          "wordCount": 1563,
+          "readTime": 3
         }
       ],
       "subs": []
@@ -924,42 +1251,58 @@
         {
           "title": "接雨水（42. Trapping Rain Water）",
           "path": "leetcode/ch01.md",
-          "order": 1
+          "order": 1,
+          "wordCount": 952,
+          "readTime": 2
         },
         {
           "title": "边权赋值方案数（3558 / 3559）",
           "path": "leetcode/ch02.md",
-          "order": 2
+          "order": 2,
+          "wordCount": 1447,
+          "readTime": 3
         },
         {
           "title": "删除链表的中间节点（2095. Delete the Middle Node of a Linked List）",
           "path": "leetcode/ch03.md",
-          "order": 3
+          "order": 3,
+          "wordCount": 917,
+          "readTime": 2
         },
         {
           "title": "分发糖果（135. Candy）",
           "path": "leetcode/ch04.md",
-          "order": 4
+          "order": 4,
+          "wordCount": 1248,
+          "readTime": 2
         },
         {
           "title": "用特殊操作处理字符串 I（3612. Process String with Special Operations I）",
           "path": "leetcode/ch05.md",
-          "order": 5
+          "order": 5,
+          "wordCount": 1022,
+          "readTime": 2
         },
         {
           "title": "寻找两个正序数组的中位数（4. Median of Two Sorted Arrays）",
           "path": "leetcode/ch06.md",
-          "order": 6
+          "order": 6,
+          "wordCount": 1200,
+          "readTime": 2
         },
         {
           "title": "正则表达式匹配（10. Regular Expression Matching）",
           "path": "leetcode/ch07.md",
-          "order": 7
+          "order": 7,
+          "wordCount": 469,
+          "readTime": 1
         },
         {
           "title": "最长公共前缀（14. Longest Common Prefix）",
           "path": "leetcode/ch08.md",
-          "order": 8
+          "order": 8,
+          "wordCount": 1361,
+          "readTime": 3
         }
       ],
       "subs": []
