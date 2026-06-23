@@ -906,6 +906,11 @@
           "title": "常用容器：string、vector、map",
           "path": "python2cpp/ch02.md",
           "order": 2
+        },
+        {
+          "title": "控制流：if、while、for、switch",
+          "path": "python2cpp/ch03.md",
+          "order": 3
         }
       ],
       "subs": []
