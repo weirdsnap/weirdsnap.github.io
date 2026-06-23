@@ -896,6 +896,11 @@
           "title": "类型系统",
           "path": "python2cpp/ch01.md",
           "order": 1
+        },
+        {
+          "title": "常用容器：string、vector、map",
+          "path": "python2cpp/ch02.md",
+          "order": 2
         }
       ],
       "subs": []
