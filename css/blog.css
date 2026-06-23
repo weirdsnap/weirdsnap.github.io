@@ -122,6 +122,21 @@
     flex-direction: column;
 }
 
+.back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    margin-bottom: 1em;
+    font-size: 0.95em;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.back-home:hover {
+    color: var(--accent-warm);
+}
+
 #blog-post {
     width: 100%;
     background-color: var(--bg-card);

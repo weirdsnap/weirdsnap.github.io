@@ -22,14 +22,34 @@
             <div class="hero">
                 <h1>Snap Here</h1>
                 <p>记录学习与思考</p>
-                <div class="search-box">
-                    <input
-                        type="text"
-                        v-model="searchQuery"
-                        placeholder="搜索文章标题..."
-                        @input="onSearch"
-                    />
-                    <span class="search-icon">🔍</span>
+                <div class="search-wrapper" v-click-outside="closeSearch">
+                    <div class="search-box">
+                        <input
+                            type="text"
+                            v-model="searchQuery"
+                            placeholder="搜索文章标题..."
+                            @input="onSearch"
+                            @keyup.enter="onSearch"
+                            @focus="onSearchFocus"
+                        />
+                        <span class="search-icon" @click="onSearch" title="搜索">🔍</span>
+                    </div>
+                    <div v-if="showSearchPanel" class="search-results">
+                        <h3>
+                            搜索结果
+                            <span v-if="searchResults.length > 0" class="result-count">找到 {{ searchResults.length }} 条</span>
+                        </h3>
+                        <ul v-if="searchResults.length > 0">
+                            <li v-for="r in searchResults" :key="r.path" @click="goArticle(r)">
+                                <span class="result-title">{{ r.title }}</span>
+                                <span class="result-category">{{ r.categoryLabel }}</span>
+                            </li>
+                        </ul>
+                        <p v-else class="no-results">
+                            <span v-if="searchQuery.trim()">未找到与 "{{ searchQuery }}" 相关的文章</span>
+                            <span v-else>输入标题关键词开始搜索</span>
+                        </p>
+                    </div>
                 </div>
             </div>
             <p v-if="loading" class="status-msg">加载中...</p>
@@ -39,19 +59,6 @@
                     <h2>{{ cat.label }}</h2>
                     <p>{{ articleCount(cat) }} 篇文章</p>
                 </div>
-            </div>
-            <div v-if="searchQuery.trim()" class="search-results">
-                <h3>
-                    搜索结果
-                    <span v-if="searchResults.length > 0" class="result-count">找到 {{ searchResults.length }} 条</span>
-                </h3>
-                <ul v-if="searchResults.length > 0">
-                    <li v-for="r in searchResults" :key="r.path" @click="goArticle(r)">
-                        <span class="result-title">{{ r.title }}</span>
-                        <span class="result-category">{{ r.categoryLabel }}</span>
-                    </li>
-                </ul>
-                <p v-else class="no-results">未找到与 "{{ searchQuery }}" 相关的文章</p>
             </div>
         </div>
     </div>

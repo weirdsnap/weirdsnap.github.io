@@ -201,7 +201,7 @@ Vue.createApp({
             });
     },
     methods: {
-        home() { window.location.href = 'https://weirdsnap.github.io'; },
+        home() { window.location.href = '../index.html'; },
         list() { window.location.href = this.backHref; },
         github() { window.location.href = 'https://github.com/weirdsnap'; },
         toggleMenu() { this.menuOpen = !this.menuOpen; }

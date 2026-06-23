@@ -4,14 +4,27 @@ function log(msg) {
     if (el) el.innerHTML += msg + '<br>';
 }
 
-log('JS loaded, Vue=' + typeof Vue);
-
 if (typeof Vue === 'undefined') {
     log('ERROR: Vue not loaded!');
 } else {
-    log('Vue version check...');
     try {
+        // Custom directive: close when clicking outside the element
+        const clickOutside = {
+            mounted(el, binding) {
+                el._clickOutside = function(event) {
+                    if (!(el === event.target || el.contains(event.target))) {
+                        binding.value();
+                    }
+                };
+                document.addEventListener('click', el._clickOutside);
+            },
+            unmounted(el) {
+                document.removeEventListener('click', el._clickOutside);
+            }
+        };
+
         Vue.createApp({
+            directives: { 'click-outside': clickOutside },
             data() {
                 return {
                     categories: [],
@@ -20,19 +33,17 @@ if (typeof Vue === 'undefined') {
                     error: '',
                     searchQuery: '',
                     searchResults: [],
+                    showSearchPanel: false,
                     menuOpen: false
                 };
             },
             mounted() {
-                log('Vue mounted, fetching...');
                 fetch('./posts/index.json')
                     .then(res => {
-                        log('fetch status: ' + res.status);
                         if (!res.ok) throw new Error('HTTP ' + res.status);
                         return res.json();
                     })
                     .then(data => {
-                        log('data loaded, categories: ' + (data.categories || []).length);
                         this.categories = (data.categories || []).sort((a, b) => (a.order || 0) - (b.order || 0));
                         this.buildArticleIndex();
                         this.loading = false;
@@ -64,7 +75,7 @@ if (typeof Vue === 'undefined') {
                     }
                     this.allArticles = articles;
                 },
-                onSearch() {
+                doSearch() {
                     const q = this.searchQuery.trim().toLowerCase();
                     if (!q) {
                         this.searchResults = [];
@@ -73,21 +84,26 @@ if (typeof Vue === 'undefined') {
                     this.searchResults = this.allArticles
                         .filter(a => a.title && a.title.toLowerCase().includes(q))
                         .slice(0, 8);
-
-                    if (this.searchResults.length === 0) {
-                        // 用户能明确感知到搜索已执行但无结果
-                        log('search no results for: ' + q);
+                },
+                onSearch() {
+                    this.showSearchPanel = true;
+                    this.doSearch();
+                },
+                onSearchFocus() {
+                    this.showSearchPanel = true;
+                    if (this.searchQuery.trim()) {
+                        this.doSearch();
                     }
                 },
+                closeSearch() {
+                    this.showSearchPanel = false;
+                },
                 goArticle(article) {
+                    this.closeSearch();
                     window.location.href = './htmls/blog.html?post=' + encodeURIComponent(article.path);
                 },
                 jumpCategory(cat) {
                     window.location.href = './htmls/list.html?category=' + encodeURIComponent(cat.id);
-                },
-                clearSearch() {
-                    this.searchQuery = '';
-                    this.searchResults = [];
                 },
                 articleCount(cat) {
                     let subCount = 0;
@@ -103,7 +119,6 @@ if (typeof Vue === 'undefined') {
                 }
             }
         }).mount('#home');
-        log('home app created');
 
         Vue.createApp({
             data() {
@@ -113,7 +128,7 @@ if (typeof Vue === 'undefined') {
             },
             methods: {
                 home() {
-                    window.location.href = 'https://weirdsnap.github.io';
+                    window.location.href = './index.html';
                 },
                 leetcode() {
                     window.location.href = 'https://leetcode.cn/u/snap-1/';
@@ -126,7 +141,6 @@ if (typeof Vue === 'undefined') {
                 }
             }
         }).mount('#header');
-        log('header app created');
     } catch (e) {
         log('Vue ERROR: ' + e.message);
     }

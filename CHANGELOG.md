@@ -1,5 +1,24 @@
 # 项目变更记录
 
+## 2026-06-09 修复：首页搜索交互与文章页返回首页
+
+### 问题
+- 首页搜索框没有明显的搜索按钮，用户习惯按 Enter 或点击搜索图标，但旧交互反馈弱
+- 用户反馈搜索有时无反应、看不到下拉结果
+- 文章页没有明显返回首页的入口
+
+### 修改内容
+1. **`index.html` + `css/style.css`**：搜索框改为可点击的放大镜图标（🔍）作为搜索按钮，保留输入即搜索与 Enter 搜索
+2. **`scripts/index.js`**：新增 `showSearchPanel` 状态与 `v-click-outside` 指令，搜索结果以下拉面板形式悬浮在搜索框下方；点击外部或选中结果后自动收起
+3. **`scripts/index.js`、`scripts/list.js`、`scripts/blog.js`**：顶部导航 `Snap` 统一改为相对路径返回首页，本地预览也可正常使用
+4. **`htmls/blog.html` + `css/blog.css`**：在文章正文顶部新增 `← 返回首页` 链接
+
+### 文件变更
+- 修改：`index.html`、`css/style.css`、`scripts/index.js`
+- 修改：`htmls/blog.html`、`css/blog.css`、`scripts/blog.js`、`scripts/list.js`
+
+---
+
 ## 项目背景
 
 - **创建时间**：2018/3/9
