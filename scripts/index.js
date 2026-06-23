@@ -73,12 +73,21 @@ if (typeof Vue === 'undefined') {
                     this.searchResults = this.allArticles
                         .filter(a => a.title && a.title.toLowerCase().includes(q))
                         .slice(0, 8);
+
+                    if (this.searchResults.length === 0) {
+                        // 用户能明确感知到搜索已执行但无结果
+                        log('search no results for: ' + q);
+                    }
                 },
                 goArticle(article) {
                     window.location.href = './htmls/blog.html?post=' + encodeURIComponent(article.path);
                 },
                 jumpCategory(cat) {
                     window.location.href = './htmls/list.html?category=' + encodeURIComponent(cat.id);
+                },
+                clearSearch() {
+                    this.searchQuery = '';
+                    this.searchResults = [];
                 },
                 articleCount(cat) {
                     let subCount = 0;

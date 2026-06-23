@@ -40,14 +40,18 @@
                     <p>{{ articleCount(cat) }} 篇文章</p>
                 </div>
             </div>
-            <div v-if="searchResults.length > 0" class="search-results">
-                <h3>搜索结果</h3>
-                <ul>
+            <div v-if="searchQuery.trim()" class="search-results">
+                <h3>
+                    搜索结果
+                    <span v-if="searchResults.length > 0" class="result-count">找到 {{ searchResults.length }} 条</span>
+                </h3>
+                <ul v-if="searchResults.length > 0">
                     <li v-for="r in searchResults" :key="r.path" @click="goArticle(r)">
                         <span class="result-title">{{ r.title }}</span>
                         <span class="result-category">{{ r.categoryLabel }}</span>
                     </li>
                 </ul>
+                <p v-else class="no-results">未找到与 "{{ searchQuery }}" 相关的文章</p>
             </div>
         </div>
     </div>
