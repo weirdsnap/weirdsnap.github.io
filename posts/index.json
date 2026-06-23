@@ -1306,6 +1306,20 @@
         }
       ],
       "subs": []
+    },
+    {
+      "id": "rpc",
+      "label": "RPC 学习",
+      "order": 5,
+      "type": "list",
+      "articles": [
+        {
+          "title": "从共享内存到 RPC：先补齐 socket 这一课",
+          "path": "rpc/ch01.md",
+          "order": 1
+        }
+      ],
+      "subs": []
     }
   ]
 }
