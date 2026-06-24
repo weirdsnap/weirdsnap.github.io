@@ -294,6 +294,13 @@
               "order": 28,
               "wordCount": 1341,
               "readTime": 4
+            },
+            {
+              "title": "ADL（参数依赖查找 / Koenig 查找）",
+              "path": "cpp/ch01/29.md",
+              "order": 29,
+              "wordCount": 971,
+              "readTime": 3
             }
           ]
         },
