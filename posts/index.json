@@ -851,6 +851,13 @@
               "order": 6,
               "wordCount": 920,
               "readTime": 2
+            },
+            {
+              "title": "虚继承内存布局详解",
+              "path": "cpp/ch05/07.md",
+              "order": 7,
+              "wordCount": 1155,
+              "readTime": 3
             }
           ]
         },
