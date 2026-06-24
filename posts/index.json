@@ -212,7 +212,7 @@
               "readTime": 1
             },
             {
-              "title": "Lambda 按值捕获的 `const` 性",
+              "title": "Lambda 捕获：值、引用、`this` 和陷阱",
               "path": "cpp/ch01/17.md",
               "order": 17,
               "wordCount": 207,
@@ -1303,6 +1303,20 @@
           "order": 8,
           "wordCount": 1361,
           "readTime": 3
+        }
+      ],
+      "subs": []
+    },
+    {
+      "id": "rpc",
+      "label": "RPC 学习",
+      "order": 5,
+      "type": "list",
+      "articles": [
+        {
+          "title": "从共享内存到 RPC：先补齐 socket 这一课",
+          "path": "rpc/ch01.md",
+          "order": 1
         }
       ],
       "subs": []
