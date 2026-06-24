@@ -103,14 +103,14 @@
               "title": "无符号整型回绕",
               "path": "cpp/ch01/01.md",
               "order": 1,
-              "wordCount": 418,
+              "wordCount": 460,
               "readTime": 1
             },
             {
               "title": "`char` 的符号性",
               "path": "cpp/ch01/02.md",
               "order": 2,
-              "wordCount": 377,
+              "wordCount": 428,
               "readTime": 1
             },
             {
@@ -215,7 +215,7 @@
               "title": "Lambda 捕获：值、引用、`this` 和陷阱",
               "path": "cpp/ch01/17.md",
               "order": 17,
-              "wordCount": 1871,
+              "wordCount": 2047,
               "readTime": 4
             },
             {
@@ -286,6 +286,13 @@
               "path": "cpp/ch01/27.md",
               "order": 27,
               "wordCount": 1362,
+              "readTime": 3
+            },
+            {
+              "title": "整数提升与通常算术转换",
+              "path": "cpp/ch01/28.md",
+              "order": 28,
+              "wordCount": 1341,
               "readTime": 3
             }
           ]
@@ -722,14 +729,14 @@
               "title": "可变参数模板",
               "path": "cpp/ch04/17.md",
               "order": 17,
-              "wordCount": 209,
-              "readTime": 1
+              "wordCount": 1207,
+              "readTime": 2
             },
             {
               "title": "IFNDR 与欺骗性模板",
               "path": "cpp/ch04/18.md",
               "order": 18,
-              "wordCount": 180,
+              "wordCount": 207,
               "readTime": 1
             },
             {
@@ -773,6 +780,13 @@
               "order": 24,
               "wordCount": 234,
               "readTime": 1
+            },
+            {
+              "title": "`if constexpr`：编译期 if 与 IFNDR 陷阱",
+              "path": "cpp/ch04/25.md",
+              "order": 25,
+              "wordCount": 1262,
+              "readTime": 3
             }
           ]
         },
@@ -802,6 +816,20 @@
               "order": 3,
               "wordCount": 219,
               "readTime": 1
+            },
+            {
+              "title": "C++ 运行时多态概述",
+              "path": "cpp/ch05/04.md",
+              "order": 4,
+              "wordCount": 1196,
+              "readTime": 2
+            },
+            {
+              "title": "虚函数表（vtable）与虚指针布局",
+              "path": "cpp/ch05/05.md",
+              "order": 5,
+              "wordCount": 1167,
+              "readTime": 2
             }
           ]
         },
