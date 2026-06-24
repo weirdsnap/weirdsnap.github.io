@@ -96,7 +96,7 @@
               "title": "C++ 语言基础与类型系统",
               "path": "cpp/ch01/00.md",
               "order": 0,
-              "wordCount": 1734,
+              "wordCount": 1767,
               "readTime": 5
             },
             {
@@ -301,6 +301,13 @@
               "order": 29,
               "wordCount": 971,
               "readTime": 3
+            },
+            {
+              "title": "类型别名：`using` 与 `typedef`",
+              "path": "cpp/ch01/30.md",
+              "order": 30,
+              "wordCount": 881,
+              "readTime": 2
             }
           ]
         },
@@ -814,7 +821,7 @@
               "title": "`typeid` 与 RTTI",
               "path": "cpp/ch05/02.md",
               "order": 2,
-              "wordCount": 228,
+              "wordCount": 260,
               "readTime": 1
             },
             {
