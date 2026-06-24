@@ -844,6 +844,13 @@
               "order": 5,
               "wordCount": 1167,
               "readTime": 3
+            },
+            {
+              "title": "多重继承下的 vtable 布局",
+              "path": "cpp/ch05/06.md",
+              "order": 6,
+              "wordCount": 920,
+              "readTime": 2
             }
           ]
         },
