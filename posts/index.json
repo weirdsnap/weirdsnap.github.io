@@ -901,6 +901,34 @@
               "order": 7,
               "wordCount": 297,
               "readTime": 1
+            },
+            {
+              "title": "`std::thread` 与 `std::jthread`",
+              "path": "cpp/ch06/08.md",
+              "order": 8,
+              "wordCount": 675,
+              "readTime": 2
+            },
+            {
+              "title": "`std::async` / `std::future` / `std::promise`",
+              "path": "cpp/ch06/09.md",
+              "order": 9,
+              "wordCount": 826,
+              "readTime": 2
+            },
+            {
+              "title": "`std::condition_variable`：条件变量",
+              "path": "cpp/ch06/10.md",
+              "order": 10,
+              "wordCount": 654,
+              "readTime": 2
+            },
+            {
+              "title": "无锁编程：`compare_exchange` 与原子操作",
+              "path": "cpp/ch06/11.md",
+              "order": 11,
+              "wordCount": 798,
+              "readTime": 2
             }
           ]
         },
@@ -1134,6 +1162,13 @@
               "order": 5,
               "wordCount": 1346,
               "readTime": 4
+            },
+            {
+              "title": "异常安全三等级",
+              "path": "cpp/ch08/06.md",
+              "order": 6,
+              "wordCount": 1017,
+              "readTime": 3
             }
           ]
         },
@@ -1163,6 +1198,27 @@
               "order": 3,
               "wordCount": 80,
               "readTime": 1
+            },
+            {
+              "title": "`constexpr` vs `consteval` vs `constinit`",
+              "path": "cpp/ch09/04.md",
+              "order": 4,
+              "wordCount": 979,
+              "readTime": 3
+            },
+            {
+              "title": "Fold Expressions（折叠表达式）",
+              "path": "cpp/ch09/05.md",
+              "order": 5,
+              "wordCount": 845,
+              "readTime": 2
+            },
+            {
+              "title": "SFINAE / `enable_if` / `requires`：模板约束的演进",
+              "path": "cpp/ch09/06.md",
+              "order": 6,
+              "wordCount": 987,
+              "readTime": 3
             }
           ]
         },
