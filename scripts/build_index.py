@@ -32,7 +32,7 @@ def estimate_read_time(md_path: Path) -> dict:
     chinese = len(re.findall(r"[\u4e00-\u9fa5]", text))
     words = len(text.split())
     units = chinese + words * 0.5
-    minutes = max(1, round(units / 400))
+    minutes = max(1, round(units / 300))
     # Approximate word count for display: Chinese chars + English words
     word_count = chinese + words
     return {"wordCount": word_count, "readTime": minutes}

@@ -25,14 +25,14 @@
           "path": "essays/ch03.md",
           "order": 3,
           "wordCount": 903,
-          "readTime": 2
+          "readTime": 3
         },
         {
           "title": "系统分析与设计学习（一）",
           "path": "essays/ch04.md",
           "order": 4,
           "wordCount": 875,
-          "readTime": 2
+          "readTime": 3
         },
         {
           "title": "vue",
@@ -46,21 +46,21 @@
           "path": "essays/ch06.md",
           "order": 6,
           "wordCount": 1331,
-          "readTime": 3
+          "readTime": 4
         },
         {
           "title": "ES6学习",
           "path": "essays/ch07.md",
           "order": 7,
           "wordCount": 503,
-          "readTime": 1
+          "readTime": 2
         },
         {
           "title": "ch08",
           "path": "essays/ch08.md",
           "order": 8,
           "wordCount": 813,
-          "readTime": 2
+          "readTime": 3
         },
         {
           "title": "系统与分析作业7",
@@ -74,7 +74,7 @@
           "path": "essays/ch10.md",
           "order": 10,
           "wordCount": 1437,
-          "readTime": 3
+          "readTime": 4
         }
       ],
       "subs": []
@@ -97,7 +97,7 @@
               "path": "cpp/ch01/00.md",
               "order": 0,
               "wordCount": 1734,
-              "readTime": 4
+              "readTime": 5
             },
             {
               "title": "无符号整型回绕",
@@ -216,7 +216,7 @@
               "path": "cpp/ch01/17.md",
               "order": 17,
               "wordCount": 2047,
-              "readTime": 4
+              "readTime": 6
             },
             {
               "title": "函数参数求值顺序未指定",
@@ -279,21 +279,21 @@
               "path": "cpp/ch01/26.md",
               "order": 26,
               "wordCount": 672,
-              "readTime": 1
+              "readTime": 2
             },
             {
               "title": "`std::string` 的三种操作风格",
               "path": "cpp/ch01/27.md",
               "order": 27,
               "wordCount": 1362,
-              "readTime": 3
+              "readTime": 4
             },
             {
               "title": "整数提升与通常算术转换",
               "path": "cpp/ch01/28.md",
               "order": 28,
               "wordCount": 1341,
-              "readTime": 3
+              "readTime": 4
             }
           ]
         },
@@ -730,7 +730,7 @@
               "path": "cpp/ch04/17.md",
               "order": 17,
               "wordCount": 1207,
-              "readTime": 2
+              "readTime": 3
             },
             {
               "title": "IFNDR 与欺骗性模板",
@@ -786,7 +786,7 @@
               "path": "cpp/ch04/25.md",
               "order": 25,
               "wordCount": 1262,
-              "readTime": 3
+              "readTime": 4
             }
           ]
         },
@@ -822,14 +822,14 @@
               "path": "cpp/ch05/04.md",
               "order": 4,
               "wordCount": 1196,
-              "readTime": 2
+              "readTime": 3
             },
             {
               "title": "虚函数表（vtable）与虚指针布局",
               "path": "cpp/ch05/05.md",
               "order": 5,
               "wordCount": 1167,
-              "readTime": 2
+              "readTime": 3
             }
           ]
         },
@@ -964,7 +964,7 @@
               "path": "cpp/ch07/10.md",
               "order": 10,
               "wordCount": 571,
-              "readTime": 1
+              "readTime": 2
             },
             {
               "title": "`std::cout` 默认输出类型",
@@ -1006,7 +1006,7 @@
               "path": "cpp/ch07/16.md",
               "order": 16,
               "wordCount": 626,
-              "readTime": 1
+              "readTime": 2
             },
             {
               "title": "`stringstream` 家族与继承体系",
@@ -1119,7 +1119,7 @@
               "path": "cpp/ch08/05.md",
               "order": 5,
               "wordCount": 1346,
-              "readTime": 3
+              "readTime": 4
             }
           ]
         },
@@ -1184,21 +1184,21 @@
               "path": "cpp/ch10/04.md",
               "order": 4,
               "wordCount": 599,
-              "readTime": 1
+              "readTime": 2
             },
             {
               "title": "C++ 中的睡眠：从 `sleep` 到高精度等待",
               "path": "cpp/ch10/05.md",
               "order": 5,
               "wordCount": 1094,
-              "readTime": 2
+              "readTime": 3
             },
             {
               "title": "常用位运算惯用法",
               "path": "cpp/ch10/06.md",
               "order": 6,
               "wordCount": 628,
-              "readTime": 1
+              "readTime": 2
             }
           ]
         },
@@ -1213,21 +1213,21 @@
               "path": "cpp/practices/crtp_01.md",
               "order": 1,
               "wordCount": 1488,
-              "readTime": 3
+              "readTime": 4
             },
             {
               "title": "基础共享内存实现",
               "path": "cpp/practices/ipc_01.md",
               "order": 1,
               "wordCount": 1233,
-              "readTime": 2
+              "readTime": 3
             },
             {
               "title": "POSIX 共享内存进阶：环形缓冲区（Ring Buffer）设计",
               "path": "cpp/practices/ipc_02.md",
               "order": 2,
               "wordCount": 2449,
-              "readTime": 5
+              "readTime": 6
             }
           ]
         }
@@ -1251,21 +1251,21 @@
           "path": "python2cpp/ch01.md",
           "order": 1,
           "wordCount": 1737,
-          "readTime": 4
+          "readTime": 5
         },
         {
           "title": "常用容器：`string`、`vector`、`map`",
           "path": "python2cpp/ch02.md",
           "order": 2,
           "wordCount": 1842,
-          "readTime": 3
+          "readTime": 5
         },
         {
           "title": "控制流：`if`、`while`、`for`、`switch`",
           "path": "python2cpp/ch03.md",
           "order": 3,
           "wordCount": 1563,
-          "readTime": 3
+          "readTime": 4
         }
       ],
       "subs": []
@@ -1288,7 +1288,7 @@
           "path": "leetcode/ch02.md",
           "order": 2,
           "wordCount": 1447,
-          "readTime": 3
+          "readTime": 4
         },
         {
           "title": "删除链表的中间节点（2095. Delete the Middle Node of a Linked List）",
@@ -1302,21 +1302,21 @@
           "path": "leetcode/ch04.md",
           "order": 4,
           "wordCount": 1248,
-          "readTime": 2
+          "readTime": 3
         },
         {
           "title": "用特殊操作处理字符串 I（3612. Process String with Special Operations I）",
           "path": "leetcode/ch05.md",
           "order": 5,
           "wordCount": 1022,
-          "readTime": 2
+          "readTime": 3
         },
         {
           "title": "寻找两个正序数组的中位数（4. Median of Two Sorted Arrays）",
           "path": "leetcode/ch06.md",
           "order": 6,
           "wordCount": 1200,
-          "readTime": 2
+          "readTime": 3
         },
         {
           "title": "正则表达式匹配（10. Regular Expression Matching）",
@@ -1330,7 +1330,7 @@
           "path": "leetcode/ch08.md",
           "order": 8,
           "wordCount": 1361,
-          "readTime": 3
+          "readTime": 4
         }
       ],
       "subs": []
@@ -1346,7 +1346,7 @@
           "path": "rpc/ch01.md",
           "order": 1,
           "wordCount": 2788,
-          "readTime": 6
+          "readTime": 8
         }
       ],
       "subs": []
@@ -1369,14 +1369,14 @@
               "path": "ai/models/ch01.md",
               "order": 1,
               "wordCount": 2520,
-              "readTime": 6
+              "readTime": 8
             },
             {
               "title": "Transformer 详解：attention 到底在注意什么？",
               "path": "ai/models/ch02.md",
               "order": 2,
               "wordCount": 3251,
-              "readTime": 7
+              "readTime": 10
             }
           ]
         },
@@ -1391,21 +1391,21 @@
               "path": "ai/inference/ch01.md",
               "order": 1,
               "wordCount": 2175,
-              "readTime": 4
+              "readTime": 6
             },
             {
               "title": "并行技术与集合通信：AI 训练推理的分布式基础",
               "path": "ai/inference/ch02.md",
               "order": 2,
               "wordCount": 2865,
-              "readTime": 6
+              "readTime": 8
             },
             {
               "title": "RDMA：让 CPU 通信不再成为 AI 训练的瓶颈",
               "path": "ai/inference/ch03.md",
               "order": 3,
               "wordCount": 3064,
-              "readTime": 7
+              "readTime": 9
             }
           ]
         }

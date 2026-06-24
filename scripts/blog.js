@@ -8,7 +8,7 @@ function estimateReadTime(text) {
     if (!text) return 1;
     var chinese = (text.match(/[\u4e00-\u9fa5]/g) || []).length;
     var words = text.trim().split(/\s+/).length;
-    var minutes = Math.max(1, Math.round((chinese + words * 0.5) / 400));
+    var minutes = Math.max(1, Math.round((chinese + words * 0.5) / 300));
     return minutes;
 }
 
