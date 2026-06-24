@@ -26,6 +26,8 @@ jobs:
         run: |
           if [ -n "$(git status --porcelain posts/index.json)" ]; then
             echo "Error: posts/index.json is out of date. Run 'python3 scripts/build_index.py' and commit the result."
+            echo "Diff:"
+            git diff posts/index.json | head -200
             exit 1
           fi
 
