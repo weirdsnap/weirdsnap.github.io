@@ -128,11 +128,11 @@
               "readTime": 2
             },
             {
-              "title": "隐式转换 `bool` / `operator bool`",
+              "title": "条件上下文的布尔值隐式转换（Contextual Conversion to `bool`）",
               "path": "cpp/ch01/05.md",
               "order": 5,
-              "wordCount": 204,
-              "readTime": 1
+              "wordCount": 1504,
+              "readTime": 4
             },
             {
               "title": "`auto` 的类型推导",
