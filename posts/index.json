@@ -1368,14 +1368,14 @@
               "title": "从文字接龙到现代大语言模型",
               "path": "ai/models/ch01.md",
               "order": 1,
-              "wordCount": 2555,
+              "wordCount": 2520,
               "readTime": 6
             },
             {
               "title": "Transformer 详解：attention 到底在注意什么？",
               "path": "ai/models/ch02.md",
               "order": 2,
-              "wordCount": 3282,
+              "wordCount": 3251,
               "readTime": 7
             }
           ]
@@ -1390,21 +1390,21 @@
               "title": "LLM 推理的内存都去哪了？",
               "path": "ai/inference/ch01.md",
               "order": 1,
-              "wordCount": 2193,
-              "readTime": 5
+              "wordCount": 2175,
+              "readTime": 4
             },
             {
               "title": "并行技术与集合通信：AI 训练推理的分布式基础",
               "path": "ai/inference/ch02.md",
               "order": 2,
-              "wordCount": 2880,
+              "wordCount": 2865,
               "readTime": 6
             },
             {
               "title": "RDMA：让 CPU 通信不再成为 AI 训练的瓶颈",
               "path": "ai/inference/ch03.md",
               "order": 3,
-              "wordCount": 3085,
+              "wordCount": 3064,
               "readTime": 7
             }
           ]
