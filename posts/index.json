@@ -215,8 +215,8 @@
               "title": "Lambda 捕获：值、引用、`this` 和陷阱",
               "path": "cpp/ch01/17.md",
               "order": 17,
-              "wordCount": 207,
-              "readTime": 1
+              "wordCount": 1871,
+              "readTime": 4
             },
             {
               "title": "函数参数求值顺序未指定",
@@ -1316,10 +1316,72 @@
         {
           "title": "从共享内存到 RPC：先补齐 socket 这一课",
           "path": "rpc/ch01.md",
-          "order": 1
+          "order": 1,
+          "wordCount": 2788,
+          "readTime": 6
         }
       ],
       "subs": []
+    },
+    {
+      "id": "ai",
+      "label": "AI 学习",
+      "order": 6,
+      "type": "folder",
+      "articles": [],
+      "subs": [
+        {
+          "id": "models",
+          "label": "AI 模型",
+          "order": 1,
+          "type": "list",
+          "articles": [
+            {
+              "title": "从文字接龙到现代大语言模型",
+              "path": "ai/models/ch01.md",
+              "order": 1,
+              "wordCount": 2555,
+              "readTime": 6
+            },
+            {
+              "title": "Transformer 详解：attention 到底在注意什么？",
+              "path": "ai/models/ch02.md",
+              "order": 2,
+              "wordCount": 3282,
+              "readTime": 7
+            }
+          ]
+        },
+        {
+          "id": "inference",
+          "label": "AI 推理部署",
+          "order": 2,
+          "type": "list",
+          "articles": [
+            {
+              "title": "LLM 推理的内存都去哪了？",
+              "path": "ai/inference/ch01.md",
+              "order": 1,
+              "wordCount": 2193,
+              "readTime": 5
+            },
+            {
+              "title": "并行技术与集合通信：AI 训练推理的分布式基础",
+              "path": "ai/inference/ch02.md",
+              "order": 2,
+              "wordCount": 2880,
+              "readTime": 6
+            },
+            {
+              "title": "RDMA：让 CPU 通信不再成为 AI 训练的瓶颈",
+              "path": "ai/inference/ch03.md",
+              "order": 3,
+              "wordCount": 3085,
+              "readTime": 7
+            }
+          ]
+        }
+      ]
     }
   ]
 }
