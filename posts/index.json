@@ -135,25 +135,11 @@
               "readTime": 4
             },
             {
-              "title": "`auto` 的类型推导",
+              "title": "`auto` / `decltype` / `decltype(auto)`：类型推导规则对比",
               "path": "cpp/ch01/06.md",
               "order": 6,
-              "wordCount": 198,
-              "readTime": 1
-            },
-            {
-              "title": "`decltype` 的推导规则",
-              "path": "cpp/ch01/07.md",
-              "order": 7,
-              "wordCount": 183,
-              "readTime": 1
-            },
-            {
-              "title": "`decltype(auto)`",
-              "path": "cpp/ch01/08.md",
-              "order": 8,
-              "wordCount": 197,
-              "readTime": 1
+              "wordCount": 911,
+              "readTime": 2
             },
             {
               "title": "表达式中的类型退化",
