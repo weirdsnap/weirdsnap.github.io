@@ -308,6 +308,13 @@
               "order": 30,
               "wordCount": 881,
               "readTime": 2
+            },
+            {
+              "title": "`X x;` vs `X x();` —— Most Vexing Parse 详解",
+              "path": "cpp/ch01/31.md",
+              "order": 31,
+              "wordCount": 1096,
+              "readTime": 3
             }
           ]
         },
@@ -1183,6 +1190,13 @@
               "order": 6,
               "wordCount": 1017,
               "readTime": 3
+            },
+            {
+              "title": "C++ 异常堆栈信息的完整获取方案",
+              "path": "cpp/ch08/07.md",
+              "order": 7,
+              "wordCount": 1239,
+              "readTime": 3
             }
           ]
         },
@@ -1334,22 +1348,36 @@
           "title": "类型系统",
           "path": "python2cpp/ch01.md",
           "order": 1,
-          "wordCount": 1737,
+          "wordCount": 1744,
           "readTime": 5
         },
         {
-          "title": "常用容器：`string`、`vector`、`map`",
+          "title": "常用容器（上）：`string`、`vector`、`map`",
           "path": "python2cpp/ch02.md",
           "order": 2,
-          "wordCount": 1842,
-          "readTime": 5
+          "wordCount": 1753,
+          "readTime": 4
+        },
+        {
+          "title": "常用容器（下）：`tuple`、`set`、`optional`、`variant`",
+          "path": "python2cpp/ch03.md",
+          "order": 3,
+          "wordCount": 1431,
+          "readTime": 4
         },
         {
           "title": "控制流：`if`、`while`、`for`、`switch`",
-          "path": "python2cpp/ch03.md",
-          "order": 3,
+          "path": "python2cpp/ch04.md",
+          "order": 4,
           "wordCount": 1563,
           "readTime": 4
+        },
+        {
+          "title": "异常处理：try-catch 的定位信息去哪了？",
+          "path": "python2cpp/ch05.md",
+          "order": 5,
+          "wordCount": 952,
+          "readTime": 3
         }
       ],
       "subs": []
