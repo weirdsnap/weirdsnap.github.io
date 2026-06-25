@@ -1495,8 +1495,8 @@
               "title": "推理服务指标与批处理策略",
               "path": "ai/inference/ch04.md",
               "order": 4,
-              "wordCount": 1852,
-              "readTime": 5
+              "wordCount": 1987,
+              "readTime": 6
             },
             {
               "title": "PagedAttention：KV Cache 的分页管理",
