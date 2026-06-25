@@ -1247,6 +1247,13 @@
               "order": 6,
               "wordCount": 987,
               "readTime": 3
+            },
+            {
+              "title": "Type Traits 入门：`is_same` / `conditional` / `remove_reference`",
+              "path": "cpp/ch09/07.md",
+              "order": 7,
+              "wordCount": 863,
+              "readTime": 2
             }
           ]
         },
@@ -1296,6 +1303,27 @@
               "path": "cpp/ch10/06.md",
               "order": 6,
               "wordCount": 628,
+              "readTime": 2
+            },
+            {
+              "title": "`std::string_view` 与 `std::span`：零拷贝视图",
+              "path": "cpp/ch10/07.md",
+              "order": 7,
+              "wordCount": 667,
+              "readTime": 2
+            },
+            {
+              "title": "`std::filesystem` 入门：路径操作与文件遍历",
+              "path": "cpp/ch10/08.md",
+              "order": 8,
+              "wordCount": 675,
+              "readTime": 2
+            },
+            {
+              "title": "`std::chrono` 深入：duration / time_point / clock",
+              "path": "cpp/ch10/09.md",
+              "order": 9,
+              "wordCount": 867,
               "readTime": 2
             }
           ]
