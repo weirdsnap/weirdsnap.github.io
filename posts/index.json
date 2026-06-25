@@ -163,13 +163,6 @@
               "readTime": 1
             },
             {
-              "title": "std::max/min 返回引用",
-              "path": "cpp/ch01/11.md",
-              "order": 11,
-              "wordCount": 131,
-              "readTime": 1
-            },
-            {
               "title": "静态类型与动态类型",
               "path": "cpp/ch01/12.md",
               "order": 12,
@@ -184,11 +177,11 @@
               "readTime": 1
             },
             {
-              "title": "声明、定义与初始化",
+              "title": "`const` vs `constexpr`",
               "path": "cpp/ch01/14.md",
               "order": 14,
-              "wordCount": 248,
-              "readTime": 1
+              "wordCount": 826,
+              "readTime": 2
             },
             {
               "title": "返回局部/临时变量的指针/引用",
@@ -307,6 +300,13 @@
               "path": "cpp/ch01/31.md",
               "order": 31,
               "wordCount": 1096,
+              "readTime": 3
+            },
+            {
+              "title": "声明 vs 定义 vs 初始化",
+              "path": "cpp/ch01/32.md",
+              "order": 32,
+              "wordCount": 1265,
               "readTime": 3
             }
           ]
@@ -1132,6 +1132,13 @@
               "path": "cpp/ch07/26.md",
               "order": 26,
               "wordCount": 457,
+              "readTime": 1
+            },
+            {
+              "title": "std::max/min 返回引用",
+              "path": "cpp/ch07/27.md",
+              "order": 27,
+              "wordCount": 131,
               "readTime": 1
             }
           ]
