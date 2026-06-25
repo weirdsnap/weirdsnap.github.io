@@ -1474,21 +1474,35 @@
               "title": "LLM 推理的内存都去哪了？",
               "path": "ai/inference/ch01.md",
               "order": 1,
-              "wordCount": 2175,
+              "wordCount": 2170,
               "readTime": 6
             },
             {
-              "title": "并行技术与集合通信：AI 训练推理的分布式基础",
+              "title": "从模型到推理：一次推理调用的拆解",
               "path": "ai/inference/ch02.md",
               "order": 2,
-              "wordCount": 2865,
+              "wordCount": 1279,
+              "readTime": 4
+            },
+            {
+              "title": "并行技术与集合通信：AI 训练推理的分布式基础",
+              "path": "ai/inference/ch03.md",
+              "order": 3,
+              "wordCount": 2699,
               "readTime": 8
             },
             {
+              "title": "大模型推理引擎原理：从静态批处理到 PagedAttention",
+              "path": "ai/inference/ch04.md",
+              "order": 4,
+              "wordCount": 6411,
+              "readTime": 18
+            },
+            {
               "title": "RDMA：让 CPU 通信不再成为 AI 训练的瓶颈",
-              "path": "ai/inference/ch03.md",
-              "order": 3,
-              "wordCount": 3064,
+              "path": "ai/inference/ch05.md",
+              "order": 5,
+              "wordCount": 3059,
               "readTime": 9
             }
           ]
