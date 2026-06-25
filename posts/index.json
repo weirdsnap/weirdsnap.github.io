@@ -143,9 +143,16 @@
             },
             {
               "title": "表达式中的类型退化（Type Decay）",
-              "path": "cpp/ch01/09.md",
-              "order": 9,
+              "path": "cpp/ch01/07.md",
+              "order": 7,
               "wordCount": 967,
+              "readTime": 3
+            },
+            {
+              "title": "数组名的类型",
+              "path": "cpp/ch01/08.md",
+              "order": 8,
+              "wordCount": 1042,
               "readTime": 3
             },
             {
@@ -300,13 +307,6 @@
               "path": "cpp/ch01/31.md",
               "order": 31,
               "wordCount": 1096,
-              "readTime": 3
-            },
-            {
-              "title": "数组名的类型",
-              "path": "cpp/ch01/32.md",
-              "order": 32,
-              "wordCount": 1042,
               "readTime": 3
             }
           ]
