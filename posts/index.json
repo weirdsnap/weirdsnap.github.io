@@ -135,18 +135,18 @@
               "readTime": 4
             },
             {
-              "title": "`auto` / `decltype` / `decltype(auto)`：类型推导规则对比",
+              "title": "`auto` / `decltype` / `decltype(auto)`",
               "path": "cpp/ch01/06.md",
               "order": 6,
-              "wordCount": 911,
-              "readTime": 2
+              "wordCount": 1213,
+              "readTime": 3
             },
             {
-              "title": "表达式中的类型退化",
+              "title": "表达式中的类型退化（Type Decay）",
               "path": "cpp/ch01/09.md",
               "order": 9,
-              "wordCount": 231,
-              "readTime": 1
+              "wordCount": 967,
+              "readTime": 3
             },
             {
               "title": "`const` 引用绑定与临时对象",
@@ -300,6 +300,13 @@
               "path": "cpp/ch01/31.md",
               "order": 31,
               "wordCount": 1096,
+              "readTime": 3
+            },
+            {
+              "title": "数组名的类型",
+              "path": "cpp/ch01/32.md",
+              "order": 32,
+              "wordCount": 1042,
               "readTime": 3
             }
           ]
