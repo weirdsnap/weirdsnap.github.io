@@ -1492,17 +1492,38 @@
               "readTime": 8
             },
             {
-              "title": "大模型推理引擎原理：从静态批处理到 PagedAttention",
+              "title": "推理服务指标与批处理策略",
               "path": "ai/inference/ch04.md",
               "order": 4,
-              "wordCount": 6411,
-              "readTime": 18
+              "wordCount": 1852,
+              "readTime": 5
+            },
+            {
+              "title": "PagedAttention：KV Cache 的分页管理",
+              "path": "ai/inference/ch05.md",
+              "order": 5,
+              "wordCount": 1346,
+              "readTime": 4
+            },
+            {
+              "title": "GQA 与 Flash Attention：注意力层的双重优化",
+              "path": "ai/inference/ch06.md",
+              "order": 6,
+              "wordCount": 1539,
+              "readTime": 4
+            },
+            {
+              "title": "前缀缓存、推测解码与进阶优化",
+              "path": "ai/inference/ch07.md",
+              "order": 7,
+              "wordCount": 1346,
+              "readTime": 4
             },
             {
               "title": "RDMA：让 CPU 通信不再成为 AI 训练的瓶颈",
-              "path": "ai/inference/ch05.md",
-              "order": 5,
-              "wordCount": 3059,
+              "path": "ai/inference/ch08.md",
+              "order": 8,
+              "wordCount": 3063,
               "readTime": 9
             }
           ]
