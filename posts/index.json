@@ -156,11 +156,11 @@
               "readTime": 3
             },
             {
-              "title": "const 引用绑定与临时对象",
+              "title": "引用的临时对象生命周期延长",
               "path": "cpp/ch01/10.md",
               "order": 10,
-              "wordCount": 214,
-              "readTime": 1
+              "wordCount": 929,
+              "readTime": 3
             },
             {
               "title": "静态类型与动态类型",
