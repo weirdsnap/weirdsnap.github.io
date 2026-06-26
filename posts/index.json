@@ -306,8 +306,8 @@
               "title": "声明 vs 定义 vs 初始化",
               "path": "cpp/ch01/32.md",
               "order": 32,
-              "wordCount": 1540,
-              "readTime": 4
+              "wordCount": 1613,
+              "readTime": 5
             }
           ]
         },
@@ -1140,6 +1140,13 @@
               "order": 27,
               "wordCount": 131,
               "readTime": 1
+            },
+            {
+              "title": "`extern \"C\"` 工程陷阱与类型系统暗礁",
+              "path": "cpp/ch07/28.md",
+              "order": 28,
+              "wordCount": 961,
+              "readTime": 3
             }
           ]
         },
