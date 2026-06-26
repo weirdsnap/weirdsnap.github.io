@@ -1390,14 +1390,14 @@
           "title": "常用容器（上）：`string`、`vector`、`map`",
           "path": "python2cpp/ch02.md",
           "order": 2,
-          "wordCount": 1753,
+          "wordCount": 1759,
           "readTime": 4
         },
         {
           "title": "常用容器（下）：`tuple`、`set`、`optional`、`variant`",
           "path": "python2cpp/ch03.md",
           "order": 3,
-          "wordCount": 1431,
+          "wordCount": 1437,
           "readTime": 4
         },
         {
