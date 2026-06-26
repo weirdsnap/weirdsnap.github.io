@@ -177,18 +177,18 @@
               "readTime": 1
             },
             {
-              "title": "函数指针与仿函数",
+              "title": "可调用对象：函数指针、仿函数、Lambda、std::function",
               "path": "cpp/ch01/16.md",
               "order": 16,
-              "wordCount": 236,
-              "readTime": 1
+              "wordCount": 1518,
+              "readTime": 4
             },
             {
               "title": "Lambda 捕获：值、引用、this 和陷阱",
               "path": "cpp/ch01/17.md",
               "order": 17,
-              "wordCount": 2047,
-              "readTime": 6
+              "wordCount": 2555,
+              "readTime": 7
             },
             {
               "title": "函数参数求值顺序未指定",
@@ -1147,6 +1147,13 @@
               "order": 28,
               "wordCount": 961,
               "readTime": 3
+            },
+            {
+              "title": "`std::string` 构造函数的隐藏重载",
+              "path": "cpp/ch07/29.md",
+              "order": 29,
+              "wordCount": 803,
+              "readTime": 2
             }
           ]
         },
