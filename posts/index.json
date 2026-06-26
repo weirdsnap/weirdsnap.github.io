@@ -294,6 +294,13 @@
               "order": 32,
               "wordCount": 1613,
               "readTime": 5
+            },
+            {
+              "title": "聚合与聚合初始化",
+              "path": "cpp/ch01/33.md",
+              "order": 33,
+              "wordCount": 1097,
+              "readTime": 3
             }
           ]
         },
