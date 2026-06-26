@@ -156,18 +156,11 @@
               "readTime": 3
             },
             {
-              "title": "引用的临时对象生命周期延长",
+              "title": "引用的临时对象与生命周期延长",
               "path": "cpp/ch01/10.md",
               "order": 10,
-              "wordCount": 929,
-              "readTime": 3
-            },
-            {
-              "title": "静态类型与动态类型",
-              "path": "cpp/ch01/12.md",
-              "order": 12,
-              "wordCount": 233,
-              "readTime": 1
+              "wordCount": 1573,
+              "readTime": 4
             },
             {
               "title": "构造与析构顺序",
@@ -858,6 +851,13 @@
               "order": 7,
               "wordCount": 1155,
               "readTime": 3
+            },
+            {
+              "title": "静态类型与动态类型",
+              "path": "cpp/ch05/08.md",
+              "order": 8,
+              "wordCount": 233,
+              "readTime": 1
             }
           ]
         },
