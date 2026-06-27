@@ -20,12 +20,37 @@ marked.setOptions({
     mangle: false
 });
 
+function findArticleInIndex(indexData, postPath) {
+    var categories = indexData.categories || [];
+    for (var i = 0; i < categories.length; i++) {
+        var cat = categories[i];
+        var articles = cat.articles || [];
+        for (var j = 0; j < articles.length; j++) {
+            if (articles[j].path === postPath) {
+                return { article: articles[j], siblings: articles };
+            }
+        }
+        var subs = cat.subs || [];
+        for (var k = 0; k < subs.length; k++) {
+            var subArticles = subs[k].articles || [];
+            for (var l = 0; l < subArticles.length; l++) {
+                if (subArticles[l].path === postPath) {
+                    return { article: subArticles[l], siblings: subArticles };
+                }
+            }
+        }
+    }
+    return null;
+}
+
 var blogApp = Vue.createApp({
     data: function() {
         return {
             renderedContent: '<p>Loading...</p>',
             toc: [],
             meta: null,
+            prev: null,
+            next: null,
             showBackToTop: false,
             mobile: window.innerWidth <= 1100,
             tocOpen: false,
@@ -46,18 +71,44 @@ var blogApp = Vue.createApp({
             return;
         }
 
-        fetch('../posts/' + post)
-            .then(function(res) {
+        Promise.all([
+            fetch('../posts/' + post).then(function(res) {
                 if (!res.ok) throw new Error('Post not found');
                 return res.text();
+            }),
+            fetch('../posts/index.json').then(function(res) {
+                if (!res.ok) throw new Error('Index not found');
+                return res.json();
             })
-            .then(function(md) {
+        ])
+            .then(function(results) {
+                var md = results[0];
+                var indexData = results[1];
                 var html = marked.parse(md, { async: false });
                 self.renderedContent = html;
+
+                var found = findArticleInIndex(indexData, post);
+                var articleMeta = found ? found.article : {};
+                var siblings = found ? found.siblings : [];
+
+                // Compute prev/next within the same sibling group
+                if (found) {
+                    var idx = siblings.findIndex(function(a) { return a.path === post; });
+                    if (idx > 0) {
+                        self.prev = siblings[idx - 1];
+                    }
+                    if (idx >= 0 && idx < siblings.length - 1) {
+                        self.next = siblings[idx + 1];
+                    }
+                }
+
                 self.meta = {
                     wordCount: md.replace(/\s/g, '').length,
-                    readTime: estimateReadTime(md)
+                    readTime: estimateReadTime(md),
+                    date: articleMeta.date || null,
+                    updated: articleMeta.updated || null
                 };
+
                 self.$nextTick(function() {
                     self.buildTOC();
                     self.addCopyButtons();
@@ -155,6 +206,12 @@ var blogApp = Vue.createApp({
         },
         backToTop: function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        },
+        formatDate: function(dateStr) {
+            if (!dateStr) return '';
+            var d = new Date(dateStr);
+            if (isNaN(d.getTime())) return dateStr;
+            return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
         }
     }
 }).mount('#blog-wrapper');

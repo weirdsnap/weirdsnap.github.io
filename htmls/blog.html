@@ -56,7 +56,20 @@
                 <div class="article-meta-bar" v-if="meta">
                     <span>预计阅读 {{ meta.readTime }} 分钟</span>
                     <span>{{ meta.wordCount }} 字</span>
+                    <span v-if="meta.date">{{ formatDate(meta.date) }}</span>
+                    <span v-if="meta.updated && meta.updated !== meta.date" class="updated-tag">更新于 {{ formatDate(meta.updated) }}</span>
                 </div>
+                <nav class="article-nav" v-if="prev || next">
+                    <a v-if="prev" class="nav-prev" :href="'./blog.html?post=' + encodeURIComponent(prev.path)">
+                        <span class="nav-label">← 上一篇</span>
+                        <span class="nav-title">{{ prev.title }}</span>
+                    </a>
+                    <span v-else class="nav-placeholder"></span>
+                    <a v-if="next" class="nav-next" :href="'./blog.html?post=' + encodeURIComponent(next.path)">
+                        <span class="nav-label">下一篇 →</span>
+                        <span class="nav-title">{{ next.title }}</span>
+                    </a>
+                </nav>
             </div>
             <button class="back-to-top" :class="{ visible: showBackToTop }" @click="backToTop">↑</button>
         </div>
