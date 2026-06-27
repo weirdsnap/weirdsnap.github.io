@@ -1,6 +1,7 @@
 # weirdsnap.github.io
 
 [![Validate Blog Data](https://github.com/weirdsnap/weirdsnap.github.io/actions/workflows/validate.yml/badge.svg)](https://github.com/weirdsnap/weirdsnap.github.io/actions/workflows/validate.yml)
+[![Blog CI](https://github.com/weirdsnap/weirdsnap.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/weirdsnap/weirdsnap.github.io/actions/workflows/ci.yml)
 
 个人博客站点，纯静态部署在 GitHub Pages。
 
@@ -51,6 +52,7 @@ posts/                      ← 博客源文件
 
 scripts/
 ├── build_index.py          ← 扫描 posts/ 生成 index.json
+├── validate.py             ← 数据完整性检查
 ├── split_cpp.py            ← 把长章节拆分为知识点卡片
 └── index.js / list.js / blog.js
 
@@ -81,19 +83,131 @@ python3 serve.py
 正文...
 ```
 
-### 2. 生成索引
+> ⚠️ `index.json` 中的标题会从第一行 `# ` 提取。如果之后改了标题，记得重新生成索引。
+
+### 2. 可选：YAML Frontmatter
+
+如需手动指定发布/更新日期，可在文件开头加 frontmatter：
+
+```markdown
+---
+date: 2026-06-24
+updated: 2026-06-25
+---
+
+# 文章标题
+
+正文...
+```
+
+| 字段 | 说明 |
+|------|------|
+| `date` | 发布日期 |
+| `updated` | 最后更新日期 |
+| `title` | 标题（可选，不写则从第一行 H1 提取） |
+
+未指定日期时，`build_index.py` 会从 `git log` 自动提取：
+- `date`：文件首次提交日期
+- `updated`：文件最后修改日期
+
+### 3. 生成索引
 
 ```bash
 python3 scripts/build_index.py
 ```
 
-脚本扫描 `posts/` 下所有文件夹和 `.md` 文件，从第一行 `# ` 提取标题，生成 `posts/index.json`。**无需改任何 JS 代码**。
+脚本扫描 `posts/` 下所有文件夹和 `.md` 文件：
+- 从第一行 `# ` 提取标题
+- 按文件名中的数字排序（如 `01.md` → order 1）
+- 计算字数和阅读时间
+- 提取/生成日期
+- 生成 `posts/index.json`
 
-### 3. 推送
+**无需改任何 JS 代码**。
+
+### 4. 推送
 
 ```bash
 git add . && git commit -m "新增文章" && git push
 ```
+
+---
+
+## 重新排序 / 改名
+
+文章顺序由**文件名中的数字**决定，子分类顺序由 `_meta.json` 的 `order` 决定。
+
+- 改文件名数字即可重排
+- 改文件名不影响导航，因为 `blog.js` 从 `index.json` 动态计算 prev/next
+- 改名后如果其他文章里有硬编码链接，CI 死链检查会报错
+
+---
+
+## 文章导航
+
+文章页底部会自动显示**上一篇 / 下一篇**导航：
+
+- 基于当前文章在**同一子分类/分类**中的顺序
+- 由 `blog.js` 动态计算，无需手动维护
+- 重排、改名、新增文章后会自动更新
+
+因此，**文章正文中不要写死相邻文章的链接**。如需引用其他文章，可以写：
+
+```markdown
+上一章我们聊了 LLM 推理时的内存占用。
+```
+
+而**不要**写：
+
+```markdown
+[上一章：LLM 推理的内存都去哪了？](./blog.html?post=ai/inference/ch01.md)
+```
+
+内容相关的跨系列引用链接仍可保留（如引用某篇概念文章）。
+
+---
+
+## 阅读时间
+
+文章页显示"预计阅读 X 分钟"，计算规则：
+
+- 中文字符：1 单位
+- 英文单词：0.5 单位
+- 技术文章阅读速度：**300 单位/分钟**
+
+```text
+阅读时间 = max(1, round((中文字符数 + 英文单词数 × 0.5) / 300))
+```
+
+字数显示为：`中文字符数 + 英文单词数`。
+
+---
+
+## CI 检查规则
+
+每次 push 到 master/main 时，GitHub Actions 会运行：
+
+### Blog CI
+
+1. 运行 `python3 scripts/build_index.py`
+2. 检查 `posts/index.json` 是否已是最新
+3. 检查 `posts/index.json` 是否是合法 JSON
+
+### Validate Blog Data
+
+运行 `python3 scripts/validate.py`，检查：
+
+| 检查项 | 说明 |
+|--------|------|
+| NUL bytes | `.md` 文件中不能包含 NUL 字符 |
+| index.json 合法 | 必须是有效 JSON |
+| 路径存在 | `index.json` 中每篇文章的 `path` 都对应真实文件 |
+| 标题非空 | 每篇文章必须有标题 |
+| 标题不重复 | 不同文章不能同名 |
+| **标题与 H1 一致** | `index.json` 中的 `title` 必须等于文章第一行 `# ` 标题 |
+| **无死链** | 文章中的 `?post=...` 链接必须指向 `index.json` 中存在的文章 |
+
+如果 CI 失败，根据报错修复后重新生成索引再 push。
 
 ---
 
