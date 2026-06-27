@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Validate blog data integrity."""
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -73,6 +74,54 @@ def check_empty_titles(articles: list[dict]) -> list[str]:
     return bad
 
 
+def extract_h1(md_path: Path) -> str | None:
+    """Extract the first H1 title from a markdown file."""
+    try:
+        with open(md_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line.startswith("# "):
+                    return line[2:].strip()
+    except (OSError, UnicodeDecodeError):
+        pass
+    return None
+
+
+def check_title_mismatch(articles: list[dict]) -> list[str]:
+    """Check that index title matches the markdown H1 title.
+
+    Files without an H1 (e.g., placeholders) are skipped.
+    """
+    mismatches = []
+    for a in articles:
+        md_path = POSTS_DIR / a["path"]
+        h1 = extract_h1(md_path)
+        if h1 is not None and h1 != a["title"]:
+            mismatches.append(f"{a['path']}: H1='{h1}' != index='{a['title']}'")
+    return mismatches
+
+
+def collect_article_paths(articles: list[dict]) -> set[str]:
+    """Return a set of valid article paths from index.json."""
+    return {a["path"] for a in articles}
+
+
+def check_dead_links(article_paths: set[str]) -> list[str]:
+    """Check that all ?post=... links in markdown files point to valid articles."""
+    dead = []
+    # Match ?post=PATH or ?post=PATH&... in markdown links
+    link_pattern = re.compile(r"\?post=([^\s\)&]+)")
+    for md_file in POSTS_DIR.rglob("*.md"):
+        text = md_file.read_text(encoding="utf-8")
+        for match in link_pattern.finditer(text):
+            target = match.group(1)
+            # Decode URL-encoded path for comparison
+            target_path = target.replace("%2F", "/").replace("%2f", "/")
+            if target_path not in article_paths:
+                dead.append(f"{md_file.relative_to(POSTS_DIR)} -> ?post={target_path}")
+    return dead
+
+
 def main() -> int:
     errors = []
 
@@ -91,6 +140,7 @@ def main() -> int:
         return 1
 
     articles = collect_articles(data)
+    article_paths = collect_article_paths(articles)
 
     # 3. paths exist
     missing = check_paths_exist(articles)
@@ -113,12 +163,26 @@ def main() -> int:
         for p in empty:
             errors.append(f"  - {p}")
 
+    # 6. title/H1 mismatch
+    mismatches = check_title_mismatch(articles)
+    if mismatches:
+        errors.append(f"{len(mismatches)} article title(s) do not match H1:")
+        for m in mismatches:
+            errors.append(f"  - {m}")
+
+    # 7. dead links in markdown
+    dead_links = check_dead_links(article_paths)
+    if dead_links:
+        errors.append(f"{len(dead_links)} dead link(s) found:")
+        for link in dead_links:
+            errors.append(f"  - {link}")
+
     if errors:
         print("Validation failed:")
         print("\n".join(errors))
         return 1
 
-    print(f"Validation passed: {len(articles)} articles, no NUL bytes, no duplicates.")
+    print(f"Validation passed: {len(articles)} articles, no NUL bytes, no duplicates, no mismatches, no dead links.")
     return 0
 
 

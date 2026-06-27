@@ -1941,7 +1941,7 @@
               "title": "Transformer 详解：attention 到底在注意什么？",
               "path": "ai/models/ch02.md",
               "order": 2,
-              "wordCount": 3251,
+              "wordCount": 3237,
               "readTime": 10,
               "date": "2026-06-24",
               "updated": "2026-06-24"
@@ -1967,7 +1967,7 @@
               "title": "从模型到推理：一次推理调用的拆解",
               "path": "ai/inference/ch02.md",
               "order": 2,
-              "wordCount": 1300,
+              "wordCount": 1301,
               "readTime": 4,
               "date": "2026-06-24",
               "updated": "2026-06-25"
@@ -1976,7 +1976,7 @@
               "title": "并行技术与集合通信：AI 训练推理的分布式基础",
               "path": "ai/inference/ch03.md",
               "order": 3,
-              "wordCount": 2699,
+              "wordCount": 2683,
               "readTime": 8,
               "date": "2026-06-24",
               "updated": "2026-06-25"
@@ -1985,7 +1985,7 @@
               "title": "推理服务指标与批处理策略",
               "path": "ai/inference/ch04.md",
               "order": 4,
-              "wordCount": 1987,
+              "wordCount": 1966,
               "readTime": 6,
               "date": "2026-06-25",
               "updated": "2026-06-25"
@@ -1994,7 +1994,7 @@
               "title": "PagedAttention：KV Cache 的分页管理",
               "path": "ai/inference/ch05.md",
               "order": 5,
-              "wordCount": 1346,
+              "wordCount": 1333,
               "readTime": 4,
               "date": "2026-06-24",
               "updated": "2026-06-25"
@@ -2003,7 +2003,7 @@
               "title": "GQA 与 Flash Attention：注意力层的双重优化",
               "path": "ai/inference/ch06.md",
               "order": 6,
-              "wordCount": 1539,
+              "wordCount": 1531,
               "readTime": 4,
               "date": "2026-06-25",
               "updated": "2026-06-25"
@@ -2012,7 +2012,7 @@
               "title": "前缀缓存、推测解码与进阶优化",
               "path": "ai/inference/ch07.md",
               "order": 7,
-              "wordCount": 1346,
+              "wordCount": 1332,
               "readTime": 4,
               "date": "2026-06-25",
               "updated": "2026-06-25"
@@ -2021,7 +2021,7 @@
               "title": "RDMA：让 CPU 通信不再成为 AI 训练的瓶颈",
               "path": "ai/inference/ch08.md",
               "order": 8,
-              "wordCount": 3063,
+              "wordCount": 3049,
               "readTime": 9,
               "date": "2026-06-24",
               "updated": "2026-06-25"
