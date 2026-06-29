@@ -2006,7 +2006,7 @@
               "wordCount": 2803,
               "readTime": 7,
               "date": "2026-06-25",
-              "updated": "2026-06-27"
+              "updated": "2026-06-29"
             },
             {
               "title": "GQA：从模型架构缩减 KV Cache",
@@ -2015,7 +2015,7 @@
               "wordCount": 1288,
               "readTime": 3,
               "date": "2026-06-25",
-              "updated": "2026-06-27"
+              "updated": "2026-06-29"
             },
             {
               "title": "前缀缓存、推测解码与进阶优化",
@@ -2024,14 +2024,16 @@
               "wordCount": 1332,
               "readTime": 4,
               "date": "2026-06-24",
-              "updated": "2026-06-27"
+              "updated": "2026-06-29"
             },
             {
               "title": "RDMA：让 CPU 通信不再成为 AI 训练的瓶颈",
               "path": "ai/inference/ch09.md",
               "order": 9,
               "wordCount": 3049,
-              "readTime": 9
+              "readTime": 9,
+              "date": "2026-06-24",
+              "updated": "2026-06-29"
             }
           ]
         }
