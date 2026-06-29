@@ -1944,7 +1944,7 @@
               "wordCount": 3237,
               "readTime": 10,
               "date": "2026-06-24",
-              "updated": "2026-06-24"
+              "updated": "2026-06-27"
             }
           ]
         },
@@ -1970,7 +1970,7 @@
               "wordCount": 1301,
               "readTime": 4,
               "date": "2026-06-24",
-              "updated": "2026-06-25"
+              "updated": "2026-06-27"
             },
             {
               "title": "并行技术与集合通信：AI 训练推理的分布式基础",
@@ -1979,7 +1979,7 @@
               "wordCount": 2683,
               "readTime": 8,
               "date": "2026-06-24",
-              "updated": "2026-06-25"
+              "updated": "2026-06-27"
             },
             {
               "title": "推理服务指标与批处理策略",
@@ -1988,7 +1988,7 @@
               "wordCount": 1966,
               "readTime": 6,
               "date": "2026-06-25",
-              "updated": "2026-06-25"
+              "updated": "2026-06-27"
             },
             {
               "title": "PagedAttention：KV Cache 的分页管理",
@@ -1997,7 +1997,7 @@
               "wordCount": 1333,
               "readTime": 4,
               "date": "2026-06-24",
-              "updated": "2026-06-25"
+              "updated": "2026-06-27"
             },
             {
               "title": "GQA 与 Flash Attention：注意力层的双重优化",
@@ -2006,7 +2006,7 @@
               "wordCount": 1531,
               "readTime": 4,
               "date": "2026-06-25",
-              "updated": "2026-06-25"
+              "updated": "2026-06-27"
             },
             {
               "title": "前缀缓存、推测解码与进阶优化",
@@ -2015,7 +2015,7 @@
               "wordCount": 1332,
               "readTime": 4,
               "date": "2026-06-25",
-              "updated": "2026-06-25"
+              "updated": "2026-06-27"
             },
             {
               "title": "RDMA：让 CPU 通信不再成为 AI 训练的瓶颈",
@@ -2024,7 +2024,7 @@
               "wordCount": 3049,
               "readTime": 9,
               "date": "2026-06-24",
-              "updated": "2026-06-25"
+              "updated": "2026-06-27"
             }
           ]
         }

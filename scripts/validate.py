@@ -74,14 +74,26 @@ def check_empty_titles(articles: list[dict]) -> list[str]:
     return bad
 
 
+def strip_frontmatter(text: str) -> str:
+    """Remove YAML frontmatter from markdown text if present."""
+    if not text.startswith("---"):
+        return text
+    parts = text.split("---", 2)
+    if len(parts) < 3:
+        return text
+    return parts[2].lstrip("\n")
+
+
 def extract_h1(md_path: Path) -> str | None:
-    """Extract the first H1 title from a markdown file."""
+    """Extract the first H1 title from a markdown file (after frontmatter)."""
     try:
         with open(md_path, "r", encoding="utf-8") as f:
-            for line in f:
-                line = line.strip()
-                if line.startswith("# "):
-                    return line[2:].strip()
+            text = f.read()
+        body = strip_frontmatter(text)
+        for line in body.splitlines():
+            line = line.strip()
+            if line.startswith("# "):
+                return line[2:].strip()
     except (OSError, UnicodeDecodeError):
         pass
     return None
@@ -112,7 +124,7 @@ def check_dead_links(article_paths: set[str]) -> list[str]:
     # Match ?post=PATH or ?post=PATH&... in markdown links
     link_pattern = re.compile(r"\?post=([^\s\)&]+)")
     for md_file in POSTS_DIR.rglob("*.md"):
-        text = md_file.read_text(encoding="utf-8")
+        text = strip_frontmatter(md_file.read_text(encoding="utf-8"))
         for match in link_pattern.finditer(text):
             target = match.group(1)
             # Decode URL-encoded path for comparison

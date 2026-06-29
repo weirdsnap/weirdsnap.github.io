@@ -45,6 +45,26 @@ def git_dates(md_path: Path) -> tuple[str | None, str | None]:
     return first, last
 
 
+def strip_frontmatter(text: str) -> str:
+    """Remove YAML frontmatter from markdown text if present.
+
+    Frontmatter is a block at the very beginning of the file delimited by
+    triple dashes, e.g.:
+
+        ---
+        date: 2026-06-24
+        ---
+
+    Returns the text with the frontmatter block removed.
+    """
+    if not text.startswith("---"):
+        return text
+    parts = text.split("---", 2)
+    if len(parts) < 3:
+        return text
+    return parts[2].lstrip("\n")
+
+
 def extract_frontmatter(md_path: Path) -> dict:
     """Extract title and dates from markdown file.
 
@@ -103,7 +123,7 @@ def estimate_read_time(md_path: Path) -> dict:
     - ~300 units per minute for technical articles
     - Minimum 1 minute
     """
-    text = md_path.read_text(encoding="utf-8")
+    text = strip_frontmatter(md_path.read_text(encoding="utf-8"))
     chinese = len(re.findall(r"[\u4e00-\u9fa5]", text))
     words = len(text.split())
     units = chinese + words * 0.5

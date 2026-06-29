@@ -4,10 +4,18 @@ function getPostParam() {
     return params.get('post') || '';
 }
 
+function stripFrontmatter(text) {
+    if (!text || !text.startsWith('---')) return text;
+    var parts = text.split('---');
+    if (parts.length < 3) return text;
+    return parts.slice(2).join('---').replace(/^\n+/, '');
+}
+
 function estimateReadTime(text) {
     if (!text) return 1;
-    var chinese = (text.match(/[\u4e00-\u9fa5]/g) || []).length;
-    var words = text.trim().split(/\s+/).length;
+    var body = stripFrontmatter(text);
+    var chinese = (body.match(/[\u4e00-\u9fa5]/g) || []).length;
+    var words = body.trim().split(/\s+/).length;
     var minutes = Math.max(1, Math.round((chinese + words * 0.5) / 300));
     return minutes;
 }
@@ -84,7 +92,8 @@ var blogApp = Vue.createApp({
             .then(function(results) {
                 var md = results[0];
                 var indexData = results[1];
-                var html = marked.parse(md, { async: false });
+                var body = stripFrontmatter(md);
+                var html = marked.parse(body, { async: false });
                 self.renderedContent = html;
 
                 var found = findArticleInIndex(indexData, post);
