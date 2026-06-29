@@ -231,6 +231,77 @@ Validation failed:
 
 ---
 
+## CI 踩坑记录
+
+### 1. `index.json` 忘记提交
+
+**现象**：Blog CI 报 `posts/index.json is out of date`。
+
+**原因**：新增/删除/改名/改标题后，只改了 `.md`，没运行 `build_index.py`，也没把 `posts/index.json` 一起提交。
+
+**修复**：
+
+```bash
+python3 scripts/build_index.py
+git add posts/index.json
+git commit -m "chore(index): regenerate"
+```
+
+### 2. GitHub Actions 是 shallow clone，导致日期和本地不一致
+
+**现象**：本地明明已经运行过 `build_index.py` 并提交了 `index.json`，CI 仍然报 `posts/index.json is out of date`。
+
+**原因**：`actions/checkout@v4` 默认 `fetch-depth: 1`，CI 环境里 `git log --follow` 只能看到最近一个 commit。`build_index.py` 用 git 历史推算 `date/updated` 时，算出的日期和本地完整历史不一致，生成的 `index.json` 自然也不一样。
+
+**修复**：`.github/workflows/ci.yml` 里让 checkout 拉取完整历史。
+
+```yaml
+- uses: actions/checkout@v4
+  with:
+    fetch-depth: 0
+```
+
+> 这次 Flash Attention 文章更新后 CI 失败，就是这个问题，不是 index.json 没更新。
+
+### 3. GitHub Pages 把 `{{` 当成 Jekyll/Liquid 模板
+
+**现象**：页面构建失败，或部署后代码块里的 `{{` 消失/报错。
+
+**原因**：GitHub Pages 默认用 Jekyll 构建，`{{` 和 `}}` 会被解析为 Liquid 变量语法。
+
+**修复**：
+
+- 如果整段代码含大量 `{{`，用 `{% raw %}` 包裹：
+
+```markdown
+{% raw %}
+```cpp
+auto p = std::make_shared<int>(42);
+std::cout << {{p}}; // 示例
+```
+{% endraw %}
+```
+
+- 如果只是占位符（如 `{{todo}}`），直接改成纯文本 `TODO`，避免触发 Liquid。
+
+### 4. 标题改了但 `index.json` 没同步
+
+**现象**：Validate Blog Data 报 `title mismatch`。
+
+**原因**：修改了 `.md` 第一行的 `# ` 标题，但没有重新生成 `index.json`，导致 `index.json` 里的 `title` 和文件里的 H1 不一致。
+
+**修复**：改标题后必须重新运行 `python3 scripts/build_index.py`。
+
+### 5. 文章改名/移动后死链
+
+**现象**：Validate Blog Data 报 `dead link`。
+
+**原因**：文章路径变了，但其他文章里硬编码的 `?post=旧路径.md` 没改。
+
+**修复**：全局搜索旧路径并替换，然后重新生成索引。注意相邻文章的 `prev/next` 导航是前端自动计算的，正文中不要写死相邻文章的链接。
+
+---
+
 ## 新增分类 / 子分类
 
 ```bash
