@@ -1486,8 +1486,8 @@
               "title": "noexcept",
               "path": "cpp/ch08/01.md",
               "order": 1,
-              "wordCount": 228,
-              "readTime": 1,
+              "wordCount": 660,
+              "readTime": 2,
               "date": "2026-06-05",
               "updated": "2026-06-25"
             },
@@ -1898,8 +1898,10 @@
           "title": "买卖股票的最佳时机 IV（188. Best Time to Buy and Sell Stock IV）",
           "path": "leetcode/ch10.md",
           "order": 10,
-          "wordCount": 1302,
-          "readTime": 4
+          "wordCount": 1854,
+          "readTime": 5,
+          "date": "2026-06-29",
+          "updated": "2026-06-29"
         }
       ],
       "subs": []
