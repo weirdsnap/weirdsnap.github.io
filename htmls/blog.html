@@ -37,6 +37,7 @@
             <button class="toc-toggle" v-if="toc.length > 0 && mobile" @click="tocOpen = !tocOpen">
                 目录
             </button>
+            <div class="toc-overlay" v-if="toc.length > 0 && mobile" :class="{ open: tocOpen }" @click="tocOpen = false"></div>
             <nav class="toc-drawer" v-if="toc.length > 0 && mobile" :class="{ open: tocOpen }">
                 <div class="toc-title">
                     目录
