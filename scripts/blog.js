@@ -233,9 +233,16 @@ Vue.createApp({
         };
     },
     mounted() {
+        var self = this;
+        document.addEventListener('click', function(e) {
+            var header = document.getElementById('header');
+            if (header && !header.contains(e.target)) {
+                self.menuOpen = false;
+            }
+        });
+
         var post = getPostParam();
         if (!post) return;
-        var self = this;
         fetch('../posts/index.json')
             .then(function(res) { return res.json(); })
             .then(function(data) {

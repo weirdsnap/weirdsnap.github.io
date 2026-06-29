@@ -126,6 +126,15 @@ if (typeof Vue === 'undefined') {
                     menuOpen: false
                 };
             },
+            mounted() {
+                var self = this;
+                document.addEventListener('click', function(e) {
+                    var header = document.getElementById('header');
+                    if (header && !header.contains(e.target)) {
+                        self.menuOpen = false;
+                    }
+                });
+            },
             methods: {
                 home() {
                     window.location.href = './index.html';
