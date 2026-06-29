@@ -131,6 +131,14 @@
         width: 92%;
     }
 
+    .breadcrumb {
+        line-height: 1.6;
+    }
+
+    .page-title {
+        font-size: 1.6em;
+    }
+
     .sub-grid,
     .article-grid {
         grid-template-columns: 1fr;
@@ -140,5 +148,9 @@
     .article-card {
         min-height: auto;
         padding: 1.2em;
+    }
+
+    .article-title {
+        font-size: 1.1em;
     }
 }

@@ -7,6 +7,7 @@
 
   --text-primary: #2d2a26;
   --text-secondary: #6b6560;
+  --text-muted: #9a9189;
   --text-inverse: #faf8f5;
 
   --accent-warm: #c17817;
@@ -37,6 +38,12 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+button, a {
+  touch-action: manipulation;
 }
 
 body {
@@ -147,7 +154,7 @@ body {
   width: 100%;
   border: none;
   background: transparent;
-  font-size: 1em;
+  font-size: 16px;
   outline: none;
   padding: 0.9em 2.6em 0.9em 1.2em;
   color: var(--text-primary);
@@ -390,9 +397,19 @@ a:hover {
     min-height: 130px;
   }
 
+  .search-results {
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
   .search-results li {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.3em;
+  }
+
+  .category-card {
+    width: 100%;
+    max-width: none;
   }
 }
