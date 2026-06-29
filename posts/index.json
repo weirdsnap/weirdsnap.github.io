@@ -95,6 +95,20 @@
           "readTime": 4,
           "date": "2026-06-03",
           "updated": "2026-06-10"
+        },
+        {
+          "title": "把maxTokens当成上下文窗口的蠢事",
+          "path": "essays/ch11.md",
+          "order": 11,
+          "wordCount": 585,
+          "readTime": 2
+        },
+        {
+          "title": "DeepSeek 思考模式：一个被误解的错误",
+          "path": "essays/ch12.md",
+          "order": 12,
+          "wordCount": 921,
+          "readTime": 3
         }
       ],
       "subs": []
@@ -1899,7 +1913,9 @@
           "path": "leetcode/ch10.md",
           "order": 10,
           "wordCount": 1302,
-          "readTime": 4
+          "readTime": 4,
+          "date": "2026-06-29",
+          "updated": "2026-06-29"
         }
       ],
       "subs": []
