@@ -947,13 +947,13 @@
               "updated": "2026-06-24"
             },
             {
-              "title": "IFNDR 与欺骗性模板",
+              "title": "IFNDR：只有空包才合法的变参模板",
               "path": "cpp/ch04/18.md",
               "order": 18,
-              "wordCount": 201,
-              "readTime": 1,
+              "wordCount": 683,
+              "readTime": 2,
               "date": "2026-06-05",
-              "updated": "2026-06-25"
+              "updated": "2026-06-29"
             },
             {
               "title": "函数参数类型确定的三阶段",
