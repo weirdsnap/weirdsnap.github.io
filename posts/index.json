@@ -362,7 +362,7 @@
               "wordCount": 1302,
               "readTime": 4,
               "date": "2026-06-25",
-              "updated": "2026-06-25"
+              "updated": "2026-06-29"
             },
             {
               "title": "声明 vs 定义 vs 初始化",
@@ -2000,31 +2000,38 @@
               "updated": "2026-06-27"
             },
             {
-              "title": "GQA 与 Flash Attention：注意力层的双重优化",
+              "title": "Flash Attention：一步步拆解",
               "path": "ai/inference/ch06.md",
               "order": 6,
-              "wordCount": 1531,
-              "readTime": 4,
+              "wordCount": 2803,
+              "readTime": 7,
+              "date": "2026-06-25",
+              "updated": "2026-06-27"
+            },
+            {
+              "title": "GQA：从模型架构缩减 KV Cache",
+              "path": "ai/inference/ch07.md",
+              "order": 7,
+              "wordCount": 1288,
+              "readTime": 3,
               "date": "2026-06-25",
               "updated": "2026-06-27"
             },
             {
               "title": "前缀缓存、推测解码与进阶优化",
-              "path": "ai/inference/ch07.md",
-              "order": 7,
+              "path": "ai/inference/ch08.md",
+              "order": 8,
               "wordCount": 1332,
               "readTime": 4,
-              "date": "2026-06-25",
+              "date": "2026-06-24",
               "updated": "2026-06-27"
             },
             {
               "title": "RDMA：让 CPU 通信不再成为 AI 训练的瓶颈",
-              "path": "ai/inference/ch08.md",
-              "order": 8,
+              "path": "ai/inference/ch09.md",
+              "order": 9,
               "wordCount": 3049,
-              "readTime": 9,
-              "date": "2026-06-24",
-              "updated": "2026-06-27"
+              "readTime": 9
             }
           ]
         }
