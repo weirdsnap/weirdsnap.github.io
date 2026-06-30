@@ -2048,8 +2048,8 @@
               "title": "GQA：从模型架构缩减 KV Cache",
               "path": "ai/inference/ch07.md",
               "order": 7,
-              "wordCount": 1288,
-              "readTime": 3,
+              "wordCount": 2161,
+              "readTime": 6,
               "date": "2026-06-25",
               "updated": "2026-06-29"
             },
