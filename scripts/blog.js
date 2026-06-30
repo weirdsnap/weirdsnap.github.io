@@ -184,14 +184,40 @@ var blogApp = Vue.createApp({
             });
         },
         highlightCode: function() {
-            document.querySelectorAll('pre code').forEach(function(block) {
-                var cls = block.className || '';
-                if (!cls.trim()) {
-                    var result = hljs.highlightAuto(block.textContent);
-                    block.className = 'hljs language-' + result.language;
-                }
-                hljs.highlightElement(block);
+            var blocks = document.querySelectorAll('pre code');
+            if (!blocks.length) return;
+
+            var self = this;
+            this.loadHighlight().then(function() {
+                blocks.forEach(function(block) {
+                    var cls = block.className || '';
+                    if (!cls.trim() || cls.indexOf('language-') === -1 && cls.indexOf('lang-') === -1) {
+                        var result = hljs.highlightAuto(block.textContent);
+                        block.className = 'hljs language-' + (result.language || 'plaintext');
+                    }
+                    hljs.highlightElement(block);
+                });
+            }).catch(function() {
+                console.error('Failed to load highlight.js');
             });
+        },
+        loadHighlight: function() {
+            if (window.hljs) return Promise.resolve();
+            if (this._hlLoadPromise) return this._hlLoadPromise;
+
+            this._hlLoadPromise = new Promise(function(resolve, reject) {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = '../scripts/vendor/atom-one-light.min.css';
+                document.head.appendChild(link);
+
+                var script = document.createElement('script');
+                script.src = '../scripts/vendor/highlight.min.js';
+                script.onload = function() { resolve(); };
+                script.onerror = function() { reject(new Error('highlight.js load failed')); };
+                document.head.appendChild(script);
+            });
+            return this._hlLoadPromise;
         },
         setupScrollSpy: function() {
             // Simple scroll spy: update active TOC item on scroll
