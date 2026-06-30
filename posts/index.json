@@ -1920,6 +1920,13 @@
           "readTime": 5,
           "date": "2026-06-29",
           "updated": "2026-06-29"
+        },
+        {
+          "title": "编辑距离（72. Edit Distance）",
+          "path": "leetcode/ch11.md",
+          "order": 11,
+          "wordCount": 1968,
+          "readTime": 5
         }
       ],
       "subs": []
