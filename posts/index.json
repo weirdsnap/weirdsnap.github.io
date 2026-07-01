@@ -100,8 +100,8 @@
           "title": "把maxTokens当成上下文窗口的蠢事",
           "path": "essays/ch11.md",
           "order": 11,
-          "wordCount": 1017,
-          "readTime": 6,
+          "wordCount": 920,
+          "readTime": 3,
           "date": "2026-06-29",
           "updated": "2026-07-01"
         },
@@ -109,8 +109,8 @@
           "title": "DeepSeek 思考模式：一个被误解的错误",
           "path": "essays/ch12.md",
           "order": 12,
-          "wordCount": 1356,
-          "readTime": 7,
+          "wordCount": 1386,
+          "readTime": 4,
           "date": "2026-06-29",
           "updated": "2026-07-01"
         }
@@ -1802,7 +1802,7 @@
           "wordCount": 1795,
           "readTime": 5,
           "date": "2026-06-23",
-          "updated": "2026-06-26"
+          "updated": "2026-07-01"
         },
         {
           "title": "常用容器（下）：字典、集合、元组、可选值、联合体",
@@ -1811,7 +1811,7 @@
           "wordCount": 2396,
           "readTime": 6,
           "date": "2026-06-23",
-          "updated": "2026-06-26"
+          "updated": "2026-07-01"
         },
         {
           "title": "控制流：`if`、`while`、`for`、`switch`",
@@ -2063,11 +2063,11 @@
               "updated": "2026-06-30"
             },
             {
-              "title": "前缀缓存、推测解码与进阶优化",
+              "title": "前缀缓存与推测解码",
               "path": "ai/inference/ch08.md",
               "order": 8,
-              "wordCount": 1332,
-              "readTime": 4,
+              "wordCount": 2294,
+              "readTime": 6,
               "date": "2026-06-24",
               "updated": "2026-06-29"
             },
@@ -2075,7 +2075,7 @@
               "title": "RDMA：让 CPU 通信不再成为 AI 训练的瓶颈",
               "path": "ai/inference/ch09.md",
               "order": 9,
-              "wordCount": 3049,
+              "wordCount": 3047,
               "readTime": 9,
               "date": "2026-06-24",
               "updated": "2026-06-29"
