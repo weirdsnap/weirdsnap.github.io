@@ -1796,20 +1796,20 @@
           "updated": "2026-06-25"
         },
         {
-          "title": "常用容器（上）：`string`、`vector`、`map`",
+          "title": "常用容器（上）：队列、栈、堆、数组、字符串",
           "path": "python2cpp/ch02.md",
           "order": 2,
-          "wordCount": 1759,
-          "readTime": 4,
+          "wordCount": 1795,
+          "readTime": 5,
           "date": "2026-06-23",
           "updated": "2026-06-26"
         },
         {
-          "title": "常用容器（下）：`tuple`、`set`、`optional`、`variant`",
+          "title": "常用容器（下）：字典、集合、元组、可选值、联合体",
           "path": "python2cpp/ch03.md",
           "order": 3,
-          "wordCount": 1437,
-          "readTime": 4,
+          "wordCount": 2396,
+          "readTime": 6,
           "date": "2026-06-23",
           "updated": "2026-06-26"
         },
