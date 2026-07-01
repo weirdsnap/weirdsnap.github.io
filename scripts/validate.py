@@ -9,10 +9,17 @@ POSTS_DIR = Path("posts")
 INDEX_FILE = POSTS_DIR / "index.json"
 
 
+def is_skipped(md_file: Path) -> bool:
+    """Files starting with an underscore are internal drafts/planning notes."""
+    return md_file.name.startswith("_")
+
+
 def check_nul_bytes() -> list[str]:
     """Find .md files containing NUL bytes."""
     bad = []
     for md_file in POSTS_DIR.rglob("*.md"):
+        if is_skipped(md_file):
+            continue
         with open(md_file, "rb") as f:
             if b"\x00" in f.read():
                 bad.append(str(md_file))
@@ -124,6 +131,8 @@ def check_dead_links(article_paths: set[str]) -> list[str]:
     # Match ?post=PATH or ?post=PATH&... in markdown links
     link_pattern = re.compile(r"\?post=([^\s\)&]+)")
     for md_file in POSTS_DIR.rglob("*.md"):
+        if is_skipped(md_file):
+            continue
         text = strip_frontmatter(md_file.read_text(encoding="utf-8"))
         for match in link_pattern.finditer(text):
             target = match.group(1)

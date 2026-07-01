@@ -8,6 +8,10 @@ from pathlib import Path
 POSTS_DIR = Path("posts")
 INDEX_FILE = POSTS_DIR / "index.json"
 
+# Files starting with an underscore are treated as drafts/internal notes
+# and are excluded from the public index.
+SKIP_NAME_PREFIX = "_"
+
 
 def run_git(args: list[str]) -> str | None:
     """Run a git command and return stripped stdout, or None on failure."""
@@ -144,9 +148,15 @@ def read_meta(dir_path: Path) -> dict:
 
 
 def scan_articles(dir_path: Path) -> list:
-    """Scan a directory for all .md files, return sorted article list."""
+    """Scan a directory for all .md files, return sorted article list.
+
+    Files whose name starts with an underscore are skipped; they are treated
+    as internal drafts or planning notes that should not appear in the index.
+    """
     articles = []
     for md_file in dir_path.glob("*.md"):
+        if md_file.name.startswith(SKIP_NAME_PREFIX):
+            continue
         # Extract order number from filename like 01.md → 1, crtp_01.md → 1
         match = re.search(r"(\d+)", md_file.stem)
         order = int(match.group(1)) if match else 999
