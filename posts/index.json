@@ -100,19 +100,19 @@
           "title": "把maxTokens当成上下文窗口的蠢事",
           "path": "essays/ch11.md",
           "order": 11,
-          "wordCount": 585,
-          "readTime": 2,
+          "wordCount": 1017,
+          "readTime": 6,
           "date": "2026-06-29",
-          "updated": "2026-06-29"
+          "updated": "2026-07-01"
         },
         {
           "title": "DeepSeek 思考模式：一个被误解的错误",
           "path": "essays/ch12.md",
           "order": 12,
-          "wordCount": 921,
-          "readTime": 3,
+          "wordCount": 1356,
+          "readTime": 7,
           "date": "2026-06-29",
-          "updated": "2026-06-29"
+          "updated": "2026-07-01"
         }
       ],
       "subs": []
@@ -1035,6 +1035,15 @@
               "readTime": 4,
               "date": "2026-06-15",
               "updated": "2026-06-25"
+            },
+            {
+              "title": "部分显式指定模板参数与隐式转换",
+              "path": "cpp/ch04/26.md",
+              "order": 26,
+              "wordCount": 685,
+              "readTime": 2,
+              "date": "2026-07-01",
+              "updated": "2026-07-01"
             }
           ]
         },
