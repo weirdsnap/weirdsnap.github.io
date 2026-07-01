@@ -1035,6 +1035,13 @@
               "readTime": 4,
               "date": "2026-06-15",
               "updated": "2026-06-25"
+            },
+            {
+              "title": "部分显式指定模板参数与隐式转换",
+              "path": "cpp/ch04/26.md",
+              "order": 26,
+              "wordCount": 685,
+              "readTime": 2
             }
           ]
         },
