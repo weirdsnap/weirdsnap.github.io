@@ -1938,6 +1938,15 @@
           "readTime": 5,
           "date": "2026-06-30",
           "updated": "2026-06-30"
+        },
+        {
+          "title": "网格安全路径（2812. Find the Safest Path in a Grid）",
+          "path": "leetcode/ch12.md",
+          "order": 12,
+          "wordCount": 1271,
+          "readTime": 3,
+          "date": "2026-07-03",
+          "updated": "2026-07-03"
         }
       ],
       "subs": []
@@ -2079,6 +2088,13 @@
               "readTime": 9,
               "date": "2026-06-24",
               "updated": "2026-07-01"
+            },
+            {
+              "title": "模型量化：用 INT4/INT8 让 LLM 瘦身",
+              "path": "ai/inference/ch10.md",
+              "order": 10,
+              "wordCount": 2442,
+              "readTime": 7
             }
           ]
         }
