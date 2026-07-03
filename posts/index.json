@@ -2133,6 +2133,13 @@
               "readTime": 7,
               "date": "2026-07-03",
               "updated": "2026-07-03"
+            },
+            {
+              "title": "模型格式与转换：Safetensors、GGUF、ONNX 与 PyTorch 权重",
+              "path": "ai/inference/ch13.md",
+              "order": 13,
+              "wordCount": 1961,
+              "readTime": 5
             }
           ]
         }
