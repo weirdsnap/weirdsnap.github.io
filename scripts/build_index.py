@@ -3,6 +3,7 @@
 import json
 import re
 import subprocess
+from datetime import datetime, timezone
 from pathlib import Path
 
 POSTS_DIR = Path("posts")
@@ -28,10 +29,24 @@ def run_git(args: list[str]) -> str | None:
         return None
 
 
+def file_mtime_date(md_path: Path) -> str | None:
+    """Return ISO-8601 date string from file modification time.
+
+    Used as a fallback when git history is unavailable (e.g. CI shallow
+    contexts or merge commits where --follow cannot trace a new file).
+    """
+    try:
+        mtime = md_path.stat().st_mtime
+        return datetime.fromtimestamp(mtime, tz=timezone.utc).strftime("%Y-%m-%d")
+    except OSError:
+        return None
+
+
 def git_dates(md_path: Path) -> tuple[str | None, str | None]:
     """Return (first_commit_date, last_commit_date) for a file using git log.
 
     Dates are returned as ISO-8601 strings (YYYY-MM-DD).
+    Falls back to file modification time if git history is unavailable.
     """
     rel_path = str(md_path.relative_to(POSTS_DIR.parent))
 
@@ -45,6 +60,17 @@ def git_dates(md_path: Path) -> tuple[str | None, str | None]:
 
     # Last commit date: most recent commit that touched this file
     last = run_git(["log", "-1", "--format=%cs", "--", rel_path])
+
+    # Fallback to filesystem mtime so that newly added files still get
+    # stable dates in CI environments where git log --follow may fail.
+    if not first and not last:
+        mtime_date = file_mtime_date(md_path)
+        return mtime_date, mtime_date
+
+    if not first:
+        first = last
+    if not last:
+        last = first
 
     return first, last
 
