@@ -2088,6 +2088,13 @@
               "readTime": 9,
               "date": "2026-06-24",
               "updated": "2026-07-01"
+            },
+            {
+              "title": "模型量化：用 INT4/INT8 让 LLM 瘦身",
+              "path": "ai/inference/ch10.md",
+              "order": 10,
+              "wordCount": 2442,
+              "readTime": 7
             }
           ]
         }
