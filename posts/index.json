@@ -2106,6 +2106,13 @@
               "readTime": 9,
               "date": "2026-07-03",
               "updated": "2026-07-03"
+            },
+            {
+              "title": "推理引擎横评：vLLM、TGI、TensorRT-LLM 与 llama.cpp",
+              "path": "ai/inference/ch12.md",
+              "order": 12,
+              "wordCount": 2467,
+              "readTime": 7
             }
           ]
         }
