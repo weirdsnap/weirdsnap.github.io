@@ -2008,6 +2008,13 @@
               "readTime": 10,
               "date": "2026-06-24",
               "updated": "2026-06-27"
+            },
+            {
+              "title": "位置编码与长上下文窗口",
+              "path": "ai/models/ch03.md",
+              "order": 3,
+              "wordCount": 2255,
+              "readTime": 7
             }
           ]
         },
