@@ -2017,6 +2017,15 @@
               "readTime": 7,
               "date": "2026-07-03",
               "updated": "2026-07-03"
+            },
+            {
+              "title": "FFN、激活函数与归一化",
+              "path": "ai/models/ch04.md",
+              "order": 4,
+              "wordCount": 2085,
+              "readTime": 6,
+              "date": "2026-07-03",
+              "updated": "2026-07-03"
             }
           ]
         },
