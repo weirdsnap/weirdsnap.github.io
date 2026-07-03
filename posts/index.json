@@ -2151,6 +2151,15 @@
               "readTime": 5,
               "date": "2026-07-03",
               "updated": "2026-07-03"
+            },
+            {
+              "title": "推理服务的监控与性能调优",
+              "path": "ai/inference/ch15.md",
+              "order": 15,
+              "wordCount": 2129,
+              "readTime": 6,
+              "date": "2026-07-03",
+              "updated": "2026-07-03"
             }
           ]
         }
