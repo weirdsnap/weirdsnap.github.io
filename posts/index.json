@@ -2026,6 +2026,15 @@
               "readTime": 6,
               "date": "2026-07-03",
               "updated": "2026-07-03"
+            },
+            {
+              "title": "MoE 与多模态概览",
+              "path": "ai/models/ch05.md",
+              "order": 5,
+              "wordCount": 2216,
+              "readTime": 6,
+              "date": "2026-07-06",
+              "updated": "2026-07-06"
             }
           ]
         },
