@@ -1956,6 +1956,15 @@
           "readTime": 5,
           "date": "2026-07-03",
           "updated": "2026-07-03"
+        },
+        {
+          "title": "三角形最小路径和（120. Triangle）",
+          "path": "leetcode/ch13.md",
+          "order": 13,
+          "wordCount": 1127,
+          "readTime": 3,
+          "date": "2026-07-07",
+          "updated": "2026-07-07"
         }
       ],
       "subs": []
@@ -2111,33 +2120,24 @@
               "title": "前缀缓存与推测解码",
               "path": "ai/inference/ch08.md",
               "order": 8,
-              "wordCount": 2294,
+              "wordCount": 2290,
               "readTime": 6,
               "date": "2026-06-24",
               "updated": "2026-07-01"
             },
             {
-              "title": "RDMA：让 CPU 通信不再成为 AI 训练的瓶颈",
+              "title": "模型量化：用 INT4/INT8 让 LLM 瘦身",
               "path": "ai/inference/ch09.md",
               "order": 9,
-              "wordCount": 3047,
-              "readTime": 9,
+              "wordCount": 2442,
+              "readTime": 7,
               "date": "2026-06-24",
               "updated": "2026-07-01"
             },
             {
-              "title": "模型量化：用 INT4/INT8 让 LLM 瘦身",
+              "title": "推测解码进阶：Tree Attention、Lookahead 与实战调参",
               "path": "ai/inference/ch10.md",
               "order": 10,
-              "wordCount": 2442,
-              "readTime": 7,
-              "date": "2026-07-03",
-              "updated": "2026-07-03"
-            },
-            {
-              "title": "推测解码进阶：Tree Attention、Lookahead 与实战调参",
-              "path": "ai/inference/ch11.md",
-              "order": 11,
               "wordCount": 3091,
               "readTime": 9,
               "date": "2026-07-03",
@@ -2145,8 +2145,8 @@
             },
             {
               "title": "推理引擎横评：vLLM、TGI、TensorRT-LLM 与 llama.cpp",
-              "path": "ai/inference/ch12.md",
-              "order": 12,
+              "path": "ai/inference/ch11.md",
+              "order": 11,
               "wordCount": 2467,
               "readTime": 7,
               "date": "2026-07-03",
@@ -2154,8 +2154,8 @@
             },
             {
               "title": "模型格式与转换：Safetensors、GGUF、ONNX 与 PyTorch 权重",
-              "path": "ai/inference/ch13.md",
-              "order": 13,
+              "path": "ai/inference/ch12.md",
+              "order": 12,
               "wordCount": 1961,
               "readTime": 5,
               "date": "2026-07-03",
@@ -2163,8 +2163,8 @@
             },
             {
               "title": "用 vLLM 部署一个本地大模型",
-              "path": "ai/inference/ch14.md",
-              "order": 14,
+              "path": "ai/inference/ch13.md",
+              "order": 13,
               "wordCount": 1880,
               "readTime": 5,
               "date": "2026-07-03",
@@ -2172,12 +2172,29 @@
             },
             {
               "title": "推理服务的监控与性能调优",
-              "path": "ai/inference/ch15.md",
-              "order": 15,
+              "path": "ai/inference/ch14.md",
+              "order": 14,
               "wordCount": 2129,
               "readTime": 6,
               "date": "2026-07-03",
               "updated": "2026-07-03"
+            }
+          ]
+        },
+        {
+          "id": "infrastructure",
+          "label": "AI 基础设施",
+          "order": 3,
+          "type": "list",
+          "articles": [
+            {
+              "title": "RDMA：让 CPU 通信不再成为 AI 训练的瓶颈",
+              "path": "ai/infrastructure/ch01.md",
+              "order": 1,
+              "wordCount": 3051,
+              "readTime": 9,
+              "date": "2026-07-07",
+              "updated": "2026-07-07"
             }
           ]
         }
