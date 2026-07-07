@@ -2213,6 +2213,15 @@
               "readTime": 6,
               "date": "2026-07-07",
               "updated": "2026-07-07"
+            },
+            {
+              "title": "GPU 互联拓扑：NVLink、NVSwitch 与 PCIe",
+              "path": "ai/infrastructure/ch03.md",
+              "order": 3,
+              "wordCount": 1819,
+              "readTime": 5,
+              "date": "2026-07-07",
+              "updated": "2026-07-07"
             }
           ]
         }
