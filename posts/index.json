@@ -1965,6 +1965,15 @@
           "readTime": 3,
           "date": "2026-07-07",
           "updated": "2026-07-07"
+        },
+        {
+          "title": "最小路径和（64. Minimum Path Sum）",
+          "path": "leetcode/ch14.md",
+          "order": 14,
+          "wordCount": 895,
+          "readTime": 2,
+          "date": "2026-07-07",
+          "updated": "2026-07-07"
         }
       ],
       "subs": []
