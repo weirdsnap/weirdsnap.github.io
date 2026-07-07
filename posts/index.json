@@ -2186,6 +2186,15 @@
               "readTime": 9,
               "date": "2026-06-24",
               "updated": "2026-07-07"
+            },
+            {
+              "title": "InfiniBand 与 RoCEv2：两种 RDMA 网络实现",
+              "path": "ai/infrastructure/ch02.md",
+              "order": 2,
+              "wordCount": 2185,
+              "readTime": 6,
+              "date": "2026-07-07",
+              "updated": "2026-07-07"
             }
           ]
         }

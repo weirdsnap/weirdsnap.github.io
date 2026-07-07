@@ -5,3 +5,6 @@ cpp_sample_project/
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Drafts not ready for indexing
+_drafts/
