@@ -1956,6 +1956,15 @@
           "readTime": 5,
           "date": "2026-07-03",
           "updated": "2026-07-03"
+        },
+        {
+          "title": "三角形最小路径和（120. Triangle）",
+          "path": "leetcode/ch13.md",
+          "order": 13,
+          "wordCount": 1127,
+          "readTime": 3,
+          "date": "2026-07-07",
+          "updated": "2026-07-07"
         }
       ],
       "subs": []
