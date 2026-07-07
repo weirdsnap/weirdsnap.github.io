@@ -2222,6 +2222,42 @@
               "readTime": 5,
               "date": "2026-07-07",
               "updated": "2026-07-07"
+            },
+            {
+              "title": "NCCL：集合通信库",
+              "path": "ai/infrastructure/ch04.md",
+              "order": 4,
+              "wordCount": 1825,
+              "readTime": 5,
+              "date": "2026-07-07",
+              "updated": "2026-07-07"
+            },
+            {
+              "title": "AI 数据中心网络架构",
+              "path": "ai/infrastructure/ch05.md",
+              "order": 5,
+              "wordCount": 2138,
+              "readTime": 6,
+              "date": "2026-07-07",
+              "updated": "2026-07-07"
+            },
+            {
+              "title": "分布式文件系统与 Checkpoint 加载",
+              "path": "ai/infrastructure/ch06.md",
+              "order": 6,
+              "wordCount": 1862,
+              "readTime": 5,
+              "date": "2026-07-07",
+              "updated": "2026-07-07"
+            },
+            {
+              "title": "数据加载与预处理流水线",
+              "path": "ai/infrastructure/ch07.md",
+              "order": 7,
+              "wordCount": 1800,
+              "readTime": 5,
+              "date": "2026-07-07",
+              "updated": "2026-07-07"
             }
           ]
         }
