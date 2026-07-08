@@ -143,7 +143,7 @@ if (typeof Vue === 'undefined') {
                     window.location.href = 'https://leetcode.cn/u/snap-1/';
                 },
                 hollowKnight() {
-                    window.location.href = 'htmls/hollow_knight.html';
+                    window.location.href = './htmls/hollow_knight.html';
                 },
                 github() {
                     window.location.href = 'https://github.com/weirdsnap';

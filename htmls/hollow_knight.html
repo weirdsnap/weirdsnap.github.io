@@ -152,15 +152,12 @@
             color: var(--accent-hover);
         }
 
-        .message.loading .dots::after {
-            content: '';
-            animation: dots 1.5s infinite;
+        .message.loading .dots {
+            animation: pulse 1.5s infinite;
         }
-        @keyframes dots {
-            0% { content: ''; }
-            33% { content: '.'; }
-            66% { content: '..'; }
-            100% { content: '...'; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
         }
 
         .chat-input-area {
@@ -330,6 +327,8 @@
         }).mount('#header');
 
         // Main App
+        // 注意：GitHub Pages 使用 HTTPS，直接调用 HTTP API 会被浏览器以 Mixed Content 拦截。
+        // 生产环境请为后端配置 HTTPS，或将 API 部署到与博客同域的路径。
         const API_URL = 'http://114.132.189.56:8765/api';
 
         const app = Vue.createApp({
@@ -357,16 +356,45 @@
                 }
             },
             methods: {
-                login() {
+                async login() {
                     this.errorMsg = '';
                     if (!this.passwordInput.trim()) {
                         this.errorMsg = '请输入密码';
                         return;
                     }
+                    this.loading = true;
+                    const ok = await this.verifyPassword();
+                    this.loading = false;
+                    if (!ok) return;
                     this.authenticated = true;
                     this.$nextTick(() => {
                         this.$refs.inputBox?.focus();
                     });
+                },
+
+                async verifyPassword() {
+                    try {
+                        const res = await fetch(API_URL + '/ask', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                question: '',
+                                password: this.passwordInput,
+                                history: []
+                            })
+                        });
+                        const data = await res.json();
+                        if (res.ok) return true;
+                        if (data.error === '密码错误') {
+                            this.errorMsg = '密码错误';
+                        } else {
+                            this.errorMsg = data.error || '验证失败';
+                        }
+                        return false;
+                    } catch (e) {
+                        this.errorMsg = '无法连接到助手服务器';
+                        return false;
+                    }
                 },
 
                 async sendQuestion(q) {
@@ -397,9 +425,9 @@
                     this.scrollBottom();
 
                     try {
-                        // 构建历史
+                        // 构建历史，跳过第一条系统欢迎语
                         const history = [];
-                        for (let i = 0; i < this.messages.length - 1; i++) {
+                        for (let i = 1; i < this.messages.length - 1; i++) {
                             const m = this.messages[i];
                             if (m.role === 'user') {
                                 history.push({ role: 'user', content: this.stripHtml(m.content) });
