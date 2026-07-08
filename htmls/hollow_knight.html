@@ -314,7 +314,7 @@
                     <p>输入密码以访问</p>
                     <input type="password" v-model="passwordInput" @keyup.enter="login" placeholder="请输入密码" ref="pwInput">
                     <div class="error-msg">{{ errorMsg }}</div>
-                    <button @click="login">确认</button>
+                    <button @click="login" :disabled="loading">{{ loading ? '登录中...' : '确认' }}</button>
                 </div>
             </div>
 
@@ -335,7 +335,7 @@
 
                     <!-- 示例问题 -->
                     <div class="suggestions" v-if="messages.length <= 1">
-                        <button v-for="q in sampleQuestions" :key="q" @click="sendQuestion(q)">{{ q }}</button>
+                        <button v-for="q in sampleQuestions" :key="q" @click="sendQuestion(q)" :disabled="loading">{{ q }}</button>
                     </div>
 
                     <div class="chat-input-area">
@@ -403,6 +403,7 @@
             },
             methods: {
                 async login() {
+                    if (this.loading) return;
                     this.errorMsg = '';
                     if (!this.passwordInput.trim()) {
                         this.errorMsg = '请输入密码';
