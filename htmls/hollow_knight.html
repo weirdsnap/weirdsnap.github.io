@@ -372,14 +372,15 @@
         }).mount('#header');
 
         // Main App
-        // 注意：GitHub Pages 使用 HTTPS，直接调用 HTTP API 会被浏览器以 Mixed Content 拦截。
-        // 生产环境请为后端配置 HTTPS，或将 API 部署到与博客同域的路径。
-        const API_URL = 'http://114.132.189.56:8765/api';
+        // 使用协议相对 URL，页面是 HTTPS 时自动走 HTTPS，HTTP 时走 HTTP
+        const API_URL = '//api.weirdsnap.top/api';
 
         const app = Vue.createApp({
             data() {
                 return {
                     authenticated: false,
+                    token: null,
+                    tokenExpiry: null,
                     passwordInput: '',
                     errorMsg: '',
                     questionInput: '',
@@ -408,7 +409,7 @@
                         return;
                     }
                     this.loading = true;
-                    const ok = await this.verifyPassword();
+                    const ok = await this.doLogin();
                     this.loading = false;
                     if (!ok) return;
                     this.authenticated = true;
@@ -417,29 +418,46 @@
                     });
                 },
 
-                async verifyPassword() {
+                async doLogin() {
                     try {
-                        const res = await fetch(API_URL + '/ask', {
+                        const res = await fetch(API_URL + '/login', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                question: '',
-                                password: this.passwordInput,
-                                history: []
-                            })
+                            body: JSON.stringify({ password: this.passwordInput.trim() })
                         });
                         const data = await res.json();
-                        if (res.ok) return true;
-                        if (data.error === '密码错误') {
+                        if (res.ok && data.token) {
+                            this.token = data.token;
+                            // 记录过期时间，预留 60 秒缓冲
+                            const expiresIn = data.expires_in || 3600;
+                            this.tokenExpiry = Date.now() + (expiresIn - 60) * 1000;
+                            return true;
+                        }
+                        if (res.status === 401 || data.error === '密码错误') {
                             this.errorMsg = '密码错误';
                         } else {
-                            this.errorMsg = data.error || '验证失败';
+                            this.errorMsg = data.error || '登录失败';
                         }
                         return false;
                     } catch (e) {
                         this.errorMsg = '无法连接到助手服务器';
                         return false;
                     }
+                },
+
+                isTokenExpired() {
+                    return !this.token || (this.tokenExpiry && Date.now() > this.tokenExpiry);
+                },
+
+                async ensureToken() {
+                    if (this.isTokenExpired()) {
+                        // token 过期，重新登录
+                        this.authenticated = false;
+                        this.token = null;
+                        this.errorMsg = '登录已过期，请重新输入密码';
+                        return false;
+                    }
+                    return true;
                 },
 
                 async sendQuestion(q) {
@@ -481,12 +499,17 @@
                             }
                         }
 
+                        if (!(await this.ensureToken())) {
+                            this.messages = this.messages.filter(m => m.id !== loadingId);
+                            return;
+                        }
+
                         const res = await fetch(API_URL + '/ask', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
+                                token: this.token,
                                 question: text,
-                                password: this.passwordInput,
                                 history: history
                             })
                         });
@@ -513,9 +536,10 @@
                                 role: 'assistant',
                                 content: '<p>😿 出错了：' + this.escapeHtml(data.error || '未知错误') + '</p>'
                             });
-                            if (data.error === '密码错误') {
+                            if (res.status === 401) {
                                 this.authenticated = false;
-                                this.errorMsg = '密码错误，请重新输入';
+                                this.token = null;
+                                this.errorMsg = '登录已过期，请重新输入密码';
                             }
                         }
                     } catch (e) {
