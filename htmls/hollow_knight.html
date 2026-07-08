@@ -310,7 +310,7 @@
             <!-- 密码输入 -->
             <div class="password-overlay" v-if="!authenticated">
                 <div class="password-box hk-card">
-                    <h2>🐞 助手</h2>
+                    <h2>🐞 游戏助手</h2>
                     <p>输入密码以访问</p>
                     <input type="password" v-model="passwordInput" @keyup.enter="login" placeholder="请输入密码" ref="pwInput">
                     <div class="error-msg">{{ errorMsg }}</div>
@@ -322,7 +322,7 @@
             <div class="chat-area" :class="{ active: authenticated }">
                 <div class="hk-card" style="display: flex; flex-direction: column; flex: 1;">
                     <div class="chat-header">
-                        <h2>🐞 助手</h2>
+                        <h2>🐞 游戏助手</h2>
                         <div class="subtitle">基于 RAG 的知识库，可以问游戏中的任何内容</div>
                     </div>
 
@@ -372,8 +372,8 @@
         }).mount('#header');
 
         // Main App
-        // 使用协议相对 URL，页面是 HTTPS 时自动走 HTTPS，HTTP 时走 HTTP
-        const API_URL = '//api.weirdsnap.top:8443/api';
+        // 后端只支持 HTTPS，直接写死避免本地 HTTP 测试时协议降级
+        const API_URL = 'https://api.weirdsnap.top:8443/api';
 
         const app = Vue.createApp({
             data() {

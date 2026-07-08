@@ -101,8 +101,12 @@ class LiveReloadHandler(http.server.SimpleHTTPRequestHandler):
         super().do_HEAD()
 
 
+class ReusableTCPServer(socketserver.TCPServer):
+    allow_reuse_address = True
+
+
 def run():
-    with socketserver.TCPServer(("", PORT), LiveReloadHandler) as httpd:
+    with ReusableTCPServer(("", PORT), LiveReloadHandler) as httpd:
         print(f"Serving at http://localhost:{PORT}")
         print("Live reload enabled — save any file and browser will auto-refresh.")
         print("Press Ctrl+C to stop.")
