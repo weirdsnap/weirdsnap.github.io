@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空洞骑士助手</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../scripts/vendor/vue.global.js"></script>
+    <style>
+        .hk-container {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 0 16px;
+        }
+
+        /* 密码遮罩 */
+        .password-overlay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60vh;
+        }
+        .password-box {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .password-box h2 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+            color: var(--text-primary);
+        }
+        .password-box p {
+            color: var(--text-secondary);
+            margin: 0 0 24px;
+            font-size: 0.9rem;
+        }
+        .password-box input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+            box-sizing: border-box;
+        }
+        .password-box input:focus {
+            border-color: var(--accent-warm);
+        }
+        .password-box .error-msg {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin: 8px 0 0;
+            min-height: 20px;
+        }
+        .password-box button {
+            margin-top: 16px;
+            padding: 10px 32px;
+            background: var(--accent-warm);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .password-box button:hover {
+            background: var(--accent-hover);
+        }
+
+        /* 聊天界面 */
+        .chat-area {
+            display: none;
+            flex-direction: column;
+            height: calc(100vh - 160px);
+            min-height: 480px;
+        }
+        .chat-area.active {
+            display: flex;
+        }
+
+        .chat-header {
+            text-align: center;
+            padding: 12px 0 8px;
+        }
+        .chat-header h2 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+        .chat-header .subtitle {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 10px 16px;
+            border-radius: var(--radius-lg);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            word-break: break-word;
+        }
+        .message.user {
+            align-self: flex-end;
+            background: var(--accent-warm);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+        .message.assistant {
+            align-self: flex-start;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-bottom-left-radius: 4px;
+        }
+        .message.assistant p {
+            margin: 6px 0;
+        }
+        .message.assistant p:first-child {
+            margin-top: 0;
+        }
+        .message.assistant p:last-child {
+            margin-bottom: 0;
+        }
+        .message.assistant em {
+            color: var(--accent-warm);
+            font-style: normal;
+        }
+        .message.assistant strong {
+            color: var(--accent-hover);
+        }
+
+        .message.loading .dots::after {
+            content: '';
+            animation: dots 1.5s infinite;
+        }
+        @keyframes dots {
+            0% { content: ''; }
+            33% { content: '.'; }
+            66% { content: '..'; }
+            100% { content: '...'; }
+        }
+
+        .chat-input-area {
+            display: flex;
+            gap: 8px;
+            padding: 12px 0;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-warm);
+        }
+        .chat-input-area input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .chat-input-area input:focus {
+            border-color: var(--accent-warm);
+        }
+        .chat-input-area input:disabled {
+            opacity: 0.6;
+        }
+        .chat-input-area button {
+            padding: 10px 20px;
+            background: var(--accent-warm);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .chat-input-area button:hover {
+            background: var(--accent-hover);
+        }
+        .chat-input-area button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* 示例问题 */
+        .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 8px 0 4px;
+        }
+        .suggestions button {
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            background: var(--accent-light);
+            color: var(--accent-hover);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+            opacity: 0.8;
+        }
+        .suggestions button:hover {
+            background: var(--accent-warm);
+            color: white;
+            opacity: 1;
+        }
+
+        /* 底部页脚风格一致 */
+        .hk-footer {
+            text-align: center;
+            padding: 12px 0;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+        .hk-footer a {
+            color: var(--accent-warm);
+            text-decoration: none;
+        }
+
+        /* 响应式 */
+        @media (max-width: 480px) {
+            .hk-container {
+                padding: 0 12px;
+                margin: 10px auto;
+            }
+            .chat-area {
+                height: calc(100vh - 140px);
+                min-height: 400px;
+            }
+            .message {
+                max-width: 90%;
+                font-size: 0.88rem;
+            }
+            .password-box {
+                padding: 24px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header" class="opacity70">
+        <button class="mobile-menu-btn" @click="toggleMenu">☰</button>
+        <ul class="title" :class="{ 'mobile-open': menuOpen }">
+            <li @click="home">Snap</li>
+            <li @click="hollowKnight">空洞骑士</li>
+            <li @click="github">Github</li>
+        </ul>
+    </div>
+
+    <div class="hk-container" id="app">
+        <!-- 密码输入 -->
+        <div class="password-overlay" v-if="!authenticated">
+            <div class="password-box">
+                <h2>🐞 空洞骑士助手</h2>
+                <p>输入密码以访问</p>
+                <input type="password" v-model="passwordInput" @keyup.enter="login" placeholder="请输入密码" ref="pwInput">
+                <div class="error-msg">{{ errorMsg }}</div>
+                <button @click="login">确认</button>
+            </div>
+        </div>
+
+        <!-- 聊天界面 -->
+        <div class="chat-area" :class="{ active: authenticated }">
+            <div class="chat-header">
+                <h2>🐞 空洞骑士知识问答</h2>
+                <div class="subtitle">基于 RAG 的知识库，可以问游戏中的任何内容</div>
+            </div>
+
+            <div class="chat-messages" ref="msgBox">
+                <div v-for="msg in messages" :key="msg.id" class="message" :class="msg.role">
+                    <span v-if="msg.role === 'loading'" class="dots">思考中</span>
+                    <span v-else v-html="msg.content"></span>
+                </div>
+            </div>
+
+            <!-- 示例问题 -->
+            <div class="suggestions" v-if="messages.length <= 1">
+                <button v-for="q in sampleQuestions" :key="q" @click="sendQuestion(q)">{{ q }}</button>
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" v-model="questionInput" @keyup.enter="sendQuestion" placeholder="输入你的问题..." :disabled="loading" ref="inputBox">
+                <button @click="sendQuestion" :disabled="loading || !questionInput.trim()">
+                    {{ loading ? '思考中...' : '发送' }}
+                </button>
+            </div>
+
+            <div class="hk-footer">
+                <a href="../index.html">← 返回首页</a> · 数据来源 Hollow Knight Wiki &amp; Hallownest API
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Header
+        Vue.createApp({
+            data() {
+                return { menuOpen: false }
+            },
+            methods: {
+                home() { window.location.href = '../index.html'; },
+                hollowKnight() {},
+                github() { window.location.href = 'https://github.com/weirdsnap'; },
+                toggleMenu() { this.menuOpen = !this.menuOpen; }
+            }
+        }).mount('#header');
+
+        // Main App
+        const API_URL = 'https://snap.api.weirdsnap.com/api';
+
+        const app = Vue.createApp({
+            data() {
+                return {
+                    authenticated: false,
+                    passwordInput: '',
+                    errorMsg: '',
+                    questionInput: '',
+                    loading: false,
+                    messages: [
+                        {
+                            id: 0,
+                            role: 'assistant',
+                            content: '你好！我是空洞骑士知识助手 🐈<br>有什么关于圣巢的问题都可以问我！'
+                        }
+                    ],
+                    msgId: 1,
+                    sampleQuestions: [
+                        '怎么获得螳螂爪？',
+                        '深巢入口在哪里？',
+                        '白王是谁？',
+                        '梦之钉怎么升级？'
+                    ]
+                }
+            },
+            methods: {
+                login() {
+                    this.errorMsg = '';
+                    if (!this.passwordInput.trim()) {
+                        this.errorMsg = '请输入密码';
+                        return;
+                    }
+                    this.authenticated = true;
+                    this.$nextTick(() => {
+                        this.$refs.inputBox?.focus();
+                    });
+                },
+
+                async sendQuestion(q) {
+                    if (this.loading) return;
+                    const text = q || this.questionInput.trim();
+                    if (!text) return;
+
+                    if (q) {
+                        this.questionInput = q;
+                    } else {
+                        this.questionInput = '';
+                    }
+
+                    this.messages.push({
+                        id: this.msgId++,
+                        role: 'user',
+                        content: this.escapeHtml(text)
+                    });
+
+                    const loadingId = this.msgId++;
+                    this.messages.push({
+                        id: loadingId,
+                        role: 'loading',
+                        content: ''
+                    });
+
+                    this.loading = true;
+                    this.scrollBottom();
+
+                    try {
+                        // 构建历史
+                        const history = [];
+                        for (let i = 0; i < this.messages.length - 1; i++) {
+                            const m = this.messages[i];
+                            if (m.role === 'user') {
+                                history.push({ role: 'user', content: this.stripHtml(m.content) });
+                            } else if (m.role === 'assistant') {
+                                history.push({ role: 'assistant', content: this.stripHtml(m.content) });
+                            }
+                        }
+
+                        const res = await fetch(API_URL + '/ask', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                question: text,
+                                password: this.passwordInput,
+                                history: history
+                            })
+                        });
+
+                        const data = await res.json();
+
+                        // 移除 loading
+                        this.messages = this.messages.filter(m => m.id !== loadingId);
+
+                        if (res.ok) {
+                            const answerHtml = data.answer
+                                .replace(/</g, '&lt;')
+                                .replace(/>/g, '&gt;')
+                                .replace(/\n\n/g, '</p><p>')
+                                .replace(/\n/g, '<br>');
+                            this.messages.push({
+                                id: this.msgId++,
+                                role: 'assistant',
+                                content: '<p>' + answerHtml + '</p>'
+                            });
+                        } else {
+                            this.messages.push({
+                                id: this.msgId++,
+                                role: 'assistant',
+                                content: '<p>😿 出错了：' + this.escapeHtml(data.error || '未知错误') + '</p>'
+                            });
+                            if (data.error === '密码错误') {
+                                this.authenticated = false;
+                                this.errorMsg = '密码错误，请重新输入';
+                            }
+                        }
+                    } catch (e) {
+                        this.messages = this.messages.filter(m => m.id !== loadingId);
+                        this.messages.push({
+                            id: this.msgId++,
+                            role: 'assistant',
+                            content: '<p>😿 网络错误，无法连接到助手服务器</p>'
+                        });
+                    }
+
+                    this.loading = false;
+                    this.scrollBottom();
+                },
+
+                scrollBottom() {
+                    this.$nextTick(() => {
+                        const box = this.$refs.msgBox;
+                        if (box) box.scrollTop = box.scrollHeight;
+                    });
+                },
+
+                escapeHtml(text) {
+                    return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                },
+
+                stripHtml(html) {
+                    const div = document.createElement('div');
+                    div.innerHTML = html;
+                    return div.textContent || div.innerText || '';
+                }
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+</html>
