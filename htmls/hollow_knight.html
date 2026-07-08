@@ -534,7 +534,7 @@
                             this.messages.push({
                                 id: this.msgId++,
                                 role: 'assistant',
-                                content: '<p>😿 出错了：' + this.escapeHtml(data.error || '未知错误') + '</p>'
+                                content: '<p>出错了：' + this.escapeHtml(data.error || '未知错误') + '</p>'
                             });
                             if (res.status === 401) {
                                 this.authenticated = false;
@@ -547,7 +547,7 @@
                         this.messages.push({
                             id: this.msgId++,
                             role: 'assistant',
-                            content: '<p>😿 网络错误，无法连接到助手服务器</p>'
+                            content: '<p>网络错误，无法连接到助手服务器</p>'
                         });
                     }
 
