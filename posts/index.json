@@ -2013,7 +2013,7 @@
               "title": "从文字接龙到现代大语言模型",
               "path": "ai/models/ch01.md",
               "order": 1,
-              "wordCount": 2520,
+              "wordCount": 2579,
               "readTime": 8,
               "date": "2026-06-24",
               "updated": "2026-06-24"
@@ -2022,7 +2022,7 @@
               "title": "Transformer 详解：attention 到底在注意什么？",
               "path": "ai/models/ch02.md",
               "order": 2,
-              "wordCount": 3237,
+              "wordCount": 3314,
               "readTime": 10,
               "date": "2026-06-24",
               "updated": "2026-06-27"
@@ -2031,7 +2031,7 @@
               "title": "位置编码与长上下文窗口",
               "path": "ai/models/ch03.md",
               "order": 3,
-              "wordCount": 2255,
+              "wordCount": 2309,
               "readTime": 7,
               "date": "2026-07-03",
               "updated": "2026-07-03"
@@ -2040,7 +2040,7 @@
               "title": "FFN、激活函数与归一化",
               "path": "ai/models/ch04.md",
               "order": 4,
-              "wordCount": 2085,
+              "wordCount": 2127,
               "readTime": 6,
               "date": "2026-07-03",
               "updated": "2026-07-03"
@@ -2049,7 +2049,7 @@
               "title": "MoE 与多模态概览",
               "path": "ai/models/ch05.md",
               "order": 5,
-              "wordCount": 2216,
+              "wordCount": 2259,
               "readTime": 6,
               "date": "2026-07-06",
               "updated": "2026-07-06"
@@ -2066,7 +2066,7 @@
               "title": "LLM 推理的内存都去哪了？",
               "path": "ai/inference/ch01.md",
               "order": 1,
-              "wordCount": 2170,
+              "wordCount": 2149,
               "readTime": 6,
               "date": "2026-06-24",
               "updated": "2026-06-25"
@@ -2075,7 +2075,7 @@
               "title": "从模型到推理：一次推理调用的拆解",
               "path": "ai/inference/ch02.md",
               "order": 2,
-              "wordCount": 1301,
+              "wordCount": 1384,
               "readTime": 4,
               "date": "2026-06-24",
               "updated": "2026-06-27"
@@ -2084,7 +2084,7 @@
               "title": "并行技术与集合通信：AI 训练推理的分布式基础",
               "path": "ai/inference/ch03.md",
               "order": 3,
-              "wordCount": 2683,
+              "wordCount": 2668,
               "readTime": 8,
               "date": "2026-06-24",
               "updated": "2026-06-27"
@@ -2093,7 +2093,7 @@
               "title": "推理服务指标与批处理策略",
               "path": "ai/inference/ch04.md",
               "order": 4,
-              "wordCount": 1966,
+              "wordCount": 1932,
               "readTime": 6,
               "date": "2026-06-25",
               "updated": "2026-06-27"
@@ -2102,7 +2102,7 @@
               "title": "PagedAttention：KV Cache 的分页管理",
               "path": "ai/inference/ch05.md",
               "order": 5,
-              "wordCount": 1333,
+              "wordCount": 1300,
               "readTime": 4,
               "date": "2026-06-24",
               "updated": "2026-06-27"
@@ -2111,7 +2111,7 @@
               "title": "Flash Attention：一步步拆解",
               "path": "ai/inference/ch06.md",
               "order": 6,
-              "wordCount": 3099,
+              "wordCount": 3096,
               "readTime": 8,
               "date": "2026-06-25",
               "updated": "2026-06-29"
@@ -2120,7 +2120,7 @@
               "title": "GQA：从模型架构缩减 KV Cache",
               "path": "ai/inference/ch07.md",
               "order": 7,
-              "wordCount": 2161,
+              "wordCount": 2141,
               "readTime": 6,
               "date": "2026-06-25",
               "updated": "2026-06-30"
@@ -2129,8 +2129,8 @@
               "title": "前缀缓存与推测解码",
               "path": "ai/inference/ch08.md",
               "order": 8,
-              "wordCount": 2290,
-              "readTime": 6,
+              "wordCount": 2371,
+              "readTime": 7,
               "date": "2026-06-24",
               "updated": "2026-07-07"
             },
@@ -2138,7 +2138,7 @@
               "title": "模型量化：用 INT4/INT8 让 LLM 瘦身",
               "path": "ai/inference/ch09.md",
               "order": 9,
-              "wordCount": 2442,
+              "wordCount": 2489,
               "readTime": 7,
               "date": "2026-06-24",
               "updated": "2026-07-07"
@@ -2147,7 +2147,7 @@
               "title": "推测解码进阶：Tree Attention、Lookahead 与实战调参",
               "path": "ai/inference/ch10.md",
               "order": 10,
-              "wordCount": 3091,
+              "wordCount": 3075,
               "readTime": 9,
               "date": "2026-07-03",
               "updated": "2026-07-07"
@@ -2174,7 +2174,7 @@
               "title": "用 vLLM 部署一个本地大模型",
               "path": "ai/inference/ch13.md",
               "order": 13,
-              "wordCount": 1880,
+              "wordCount": 1875,
               "readTime": 5,
               "date": "2026-07-03",
               "updated": "2026-07-07"
@@ -2183,7 +2183,7 @@
               "title": "推理服务的监控与性能调优",
               "path": "ai/inference/ch14.md",
               "order": 14,
-              "wordCount": 2129,
+              "wordCount": 2131,
               "readTime": 6,
               "date": "2026-07-03",
               "updated": "2026-07-07"
@@ -2200,7 +2200,7 @@
               "title": "RDMA：让 CPU 通信不再成为 AI 训练的瓶颈",
               "path": "ai/infrastructure/ch01.md",
               "order": 1,
-              "wordCount": 3051,
+              "wordCount": 3052,
               "readTime": 9,
               "date": "2026-06-24",
               "updated": "2026-07-07"
@@ -2236,7 +2236,7 @@
               "title": "AI 数据中心网络架构",
               "path": "ai/infrastructure/ch05.md",
               "order": 5,
-              "wordCount": 2138,
+              "wordCount": 2172,
               "readTime": 6,
               "date": "2026-07-07",
               "updated": "2026-07-07"
