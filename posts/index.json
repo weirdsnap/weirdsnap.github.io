@@ -113,6 +113,15 @@
           "readTime": 4,
           "date": "2026-06-29",
           "updated": "2026-07-01"
+        },
+        {
+          "title": "给游戏助手后端配 HTTPS：一团乱七八糟的折腾",
+          "path": "essays/ch13.md",
+          "order": 13,
+          "wordCount": 789,
+          "readTime": 2,
+          "date": "2026-07-08",
+          "updated": "2026-07-08"
         }
       ],
       "subs": []
