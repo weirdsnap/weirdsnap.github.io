@@ -95,7 +95,7 @@ Vue.createApp({
     methods: {
         home() { window.location.href = '../index.html'; },
         list() { window.location.href = './list.html'; },
-        hollowKnight() { window.location.href = 'http://114.132.189.56:8765/chat'; },
+        hollowKnight() { window.location.href = './hollow_knight.html'; },
         github() { window.location.href = 'https://github.com/weirdsnap'; },
         toggleMenu() { this.menuOpen = !this.menuOpen; }
     }
