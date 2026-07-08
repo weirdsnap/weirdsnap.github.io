@@ -7,13 +7,30 @@
     <link rel="stylesheet" href="../css/style.css">
     <script src="../scripts/vendor/vue.global.js"></script>
     <style>
-        .hk-container {
-            max-width: 700px;
-            margin: 20px auto;
-            padding: 0 16px;
+        /* 与博客统一的页面内容区 */
+        #contents {
+            flex: 1;
+            overflow: auto;
+            background-color: rgba(249, 245, 235, 0.92);
+            backdrop-filter: blur(2px);
         }
 
-        /* 密码遮罩 */
+        .hk-container {
+            max-width: var(--article-max-width);
+            margin: 0 auto;
+            padding: 2em 1.5em 4em;
+            min-height: calc(100vh - var(--header-height) - var(--footer-height));
+        }
+
+        /* 通用卡片样式，与博客文章卡片一致 */
+        .hk-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 2em;
+        }
+
+        /* 密码页 */
         .password-overlay {
             display: flex;
             justify-content: center;
@@ -21,63 +38,67 @@
             min-height: 60vh;
         }
         .password-box {
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-            padding: 40px;
             text-align: center;
-            max-width: 400px;
+            max-width: 420px;
             width: 100%;
         }
         .password-box h2 {
-            margin: 0 0 8px;
-            font-size: 1.4rem;
+            margin: 0 0 0.5em;
+            font-size: 1.5rem;
             color: var(--text-primary);
         }
         .password-box p {
             color: var(--text-secondary);
-            margin: 0 0 24px;
-            font-size: 0.9rem;
+            margin: 0 0 1.5em;
+            font-size: 0.95rem;
         }
         .password-box input {
             width: 100%;
-            padding: 10px 14px;
+            padding: 0.75em 1em;
             border: 2px solid var(--border-color);
             border-radius: var(--radius-md);
             font-size: 1rem;
+            font-family: var(--font-sans);
+            color: var(--text-primary);
             outline: none;
-            transition: border-color 0.2s;
+            transition: border-color 0.2s, box-shadow 0.2s;
             box-sizing: border-box;
+            background: var(--bg-warm);
         }
         .password-box input:focus {
             border-color: var(--accent-warm);
+            box-shadow: 0 0 0 3px rgba(193, 120, 23, 0.12);
         }
         .password-box .error-msg {
-            color: #e74c3c;
+            color: #c0392b;
             font-size: 0.85rem;
-            margin: 8px 0 0;
-            min-height: 20px;
+            margin: 0.5em 0 0;
+            min-height: 1.4em;
         }
         .password-box button {
-            margin-top: 16px;
-            padding: 10px 32px;
+            margin-top: 1.25em;
+            padding: 0.65em 2em;
             background: var(--accent-warm);
             color: white;
             border: none;
             border-radius: var(--radius-md);
             font-size: 1rem;
+            font-family: var(--font-sans);
             cursor: pointer;
-            transition: background 0.2s;
+            transition: background 0.2s, transform 0.1s;
         }
         .password-box button:hover {
             background: var(--accent-hover);
+        }
+        .password-box button:active {
+            transform: translateY(1px);
         }
 
         /* 聊天界面 */
         .chat-area {
             display: none;
             flex-direction: column;
-            height: calc(100vh - 160px);
+            height: calc(100vh - var(--header-height) - var(--footer-height) - 4em);
             min-height: 480px;
         }
         .chat-area.active {
@@ -86,25 +107,28 @@
 
         .chat-header {
             text-align: center;
-            padding: 12px 0 8px;
+            padding-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1em;
         }
         .chat-header h2 {
             margin: 0;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--text-primary);
         }
         .chat-header .subtitle {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
+            margin-top: 0.25em;
         }
 
         .chat-messages {
             flex: 1;
             overflow-y: auto;
-            padding: 16px 0;
+            padding: 0.5em 0;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
         .chat-messages::-webkit-scrollbar {
             width: 6px;
@@ -116,27 +140,28 @@
 
         .message {
             max-width: 85%;
-            padding: 10px 16px;
+            padding: 0.75em 1em;
             border-radius: var(--radius-lg);
-            font-size: 0.92rem;
-            line-height: 1.6;
+            font-size: 0.95rem;
+            line-height: 1.65;
             word-break: break-word;
+            box-shadow: var(--shadow-sm);
         }
         .message.user {
             align-self: flex-end;
             background: var(--accent-warm);
             color: white;
-            border-bottom-right-radius: 4px;
+            border-bottom-right-radius: var(--radius-sm);
         }
         .message.assistant {
             align-self: flex-start;
-            background: var(--bg-card);
+            background: var(--bg-warm);
             color: var(--text-primary);
             border: 1px solid var(--border-color);
-            border-bottom-left-radius: 4px;
+            border-bottom-left-radius: var(--radius-sm);
         }
         .message.assistant p {
-            margin: 6px 0;
+            margin: 0.5em 0;
         }
         .message.assistant p:first-child {
             margin-top: 0;
@@ -162,39 +187,47 @@
 
         .chat-input-area {
             display: flex;
-            gap: 8px;
-            padding: 12px 0;
+            gap: 10px;
+            padding-top: 1em;
             border-top: 1px solid var(--border-color);
-            background: var(--bg-warm);
+            margin-top: 1em;
         }
         .chat-input-area input {
             flex: 1;
-            padding: 10px 14px;
+            padding: 0.75em 1em;
             border: 2px solid var(--border-color);
             border-radius: var(--radius-md);
             font-size: 0.95rem;
+            font-family: var(--font-sans);
+            color: var(--text-primary);
+            background: var(--bg-warm);
             outline: none;
-            transition: border-color 0.2s;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
         .chat-input-area input:focus {
             border-color: var(--accent-warm);
+            box-shadow: 0 0 0 3px rgba(193, 120, 23, 0.12);
         }
         .chat-input-area input:disabled {
             opacity: 0.6;
         }
         .chat-input-area button {
-            padding: 10px 20px;
+            padding: 0.75em 1.5em;
             background: var(--accent-warm);
             color: white;
             border: none;
             border-radius: var(--radius-md);
             font-size: 0.95rem;
+            font-family: var(--font-sans);
             cursor: pointer;
-            transition: background 0.2s;
+            transition: background 0.2s, transform 0.1s;
             white-space: nowrap;
         }
         .chat-input-area button:hover {
             background: var(--accent-hover);
+        }
+        .chat-input-area button:active {
+            transform: translateY(1px);
         }
         .chat-input-area button:disabled {
             opacity: 0.6;
@@ -205,55 +238,59 @@
         .suggestions {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            padding: 8px 0 4px;
+            gap: 8px;
+            padding: 0.5em 0;
         }
         .suggestions button {
-            padding: 4px 12px;
-            font-size: 0.8rem;
-            background: var(--accent-light);
-            color: var(--accent-hover);
-            border: none;
-            border-radius: 20px;
+            padding: 0.4em 0.9em;
+            font-size: 0.85rem;
+            font-family: var(--font-sans);
+            background: var(--bg-warm);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.2s;
             white-space: nowrap;
-            opacity: 0.8;
         }
         .suggestions button:hover {
-            background: var(--accent-warm);
-            color: white;
-            opacity: 1;
+            background: var(--accent-light);
+            color: var(--accent-hover);
+            border-color: var(--accent-light);
         }
 
-        /* 底部页脚风格一致 */
+        /* 底部页脚 */
         .hk-footer {
             text-align: center;
-            padding: 12px 0;
-            font-size: 0.78rem;
+            padding-top: 1em;
+            font-size: 0.8rem;
             color: var(--text-muted);
         }
         .hk-footer a {
             color: var(--accent-warm);
             text-decoration: none;
+            transition: color 0.2s;
+        }
+        .hk-footer a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
         }
 
         /* 响应式 */
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
             .hk-container {
-                padding: 0 12px;
-                margin: 10px auto;
+                padding: 1em 1em 2em;
+            }
+            .hk-card {
+                padding: 1.25em;
             }
             .chat-area {
-                height: calc(100vh - 140px);
+                height: calc(100vh - var(--header-height) - var(--footer-height) - 2em);
                 min-height: 400px;
             }
             .message {
                 max-width: 90%;
-                font-size: 0.88rem;
-            }
-            .password-box {
-                padding: 24px 20px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -268,48 +305,56 @@
         </ul>
     </div>
 
-    <div class="hk-container" id="app">
-        <!-- 密码输入 -->
-        <div class="password-overlay" v-if="!authenticated">
-            <div class="password-box">
-                <h2>🐞 助手</h2>
-                <p>输入密码以访问</p>
-                <input type="password" v-model="passwordInput" @keyup.enter="login" placeholder="请输入密码" ref="pwInput">
-                <div class="error-msg">{{ errorMsg }}</div>
-                <button @click="login">确认</button>
-            </div>
-        </div>
-
-        <!-- 聊天界面 -->
-        <div class="chat-area" :class="{ active: authenticated }">
-            <div class="chat-header">
-                <h2>🐞 助手</h2>
-                <div class="subtitle">基于 RAG 的知识库，可以问游戏中的任何内容</div>
-            </div>
-
-            <div class="chat-messages" ref="msgBox">
-                <div v-for="msg in messages" :key="msg.id" class="message" :class="msg.role">
-                    <span v-if="msg.role === 'loading'" class="dots">思考中</span>
-                    <span v-else v-html="msg.content"></span>
+    <div id="contents">
+        <div class="hk-container" id="app">
+            <!-- 密码输入 -->
+            <div class="password-overlay" v-if="!authenticated">
+                <div class="password-box hk-card">
+                    <h2>🐞 助手</h2>
+                    <p>输入密码以访问</p>
+                    <input type="password" v-model="passwordInput" @keyup.enter="login" placeholder="请输入密码" ref="pwInput">
+                    <div class="error-msg">{{ errorMsg }}</div>
+                    <button @click="login">确认</button>
                 </div>
             </div>
 
-            <!-- 示例问题 -->
-            <div class="suggestions" v-if="messages.length <= 1">
-                <button v-for="q in sampleQuestions" :key="q" @click="sendQuestion(q)">{{ q }}</button>
-            </div>
+            <!-- 聊天界面 -->
+            <div class="chat-area" :class="{ active: authenticated }">
+                <div class="hk-card" style="display: flex; flex-direction: column; flex: 1;">
+                    <div class="chat-header">
+                        <h2>🐞 助手</h2>
+                        <div class="subtitle">基于 RAG 的知识库，可以问游戏中的任何内容</div>
+                    </div>
 
-            <div class="chat-input-area">
-                <input type="text" v-model="questionInput" @keyup.enter="sendQuestion" placeholder="输入你的问题..." :disabled="loading" ref="inputBox">
-                <button @click="sendQuestion" :disabled="loading || !questionInput.trim()">
-                    {{ loading ? '思考中...' : '发送' }}
-                </button>
-            </div>
+                    <div class="chat-messages" ref="msgBox">
+                        <div v-for="msg in messages" :key="msg.id" class="message" :class="msg.role">
+                            <span v-if="msg.role === 'loading'" class="dots">思考中...</span>
+                            <span v-else v-html="msg.content"></span>
+                        </div>
+                    </div>
 
-            <div class="hk-footer">
-                <a href="../index.html">← 返回首页</a> · 数据来源 Hollow Knight Wiki &amp; Hallownest API
+                    <!-- 示例问题 -->
+                    <div class="suggestions" v-if="messages.length <= 1">
+                        <button v-for="q in sampleQuestions" :key="q" @click="sendQuestion(q)">{{ q }}</button>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <input type="text" v-model="questionInput" @keyup.enter="sendQuestion" placeholder="输入你的问题..." :disabled="loading" ref="inputBox">
+                        <button @click="sendQuestion" :disabled="loading || !questionInput.trim()">
+                            {{ loading ? '思考中...' : '发送' }}
+                        </button>
+                    </div>
+
+                    <div class="hk-footer">
+                        <a href="../index.html">← 返回首页</a> · 数据来源 Hollow Knight Wiki &amp; Hallownest API
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+
+    <div id="bottom" class="opacity70">
+        <span>2018-2026</span>
     </div>
 
     <script>
