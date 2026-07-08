@@ -2013,7 +2013,7 @@
               "title": "从文字接龙到现代大语言模型",
               "path": "ai/models/ch01.md",
               "order": 1,
-              "wordCount": 2579,
+              "wordCount": 2548,
               "readTime": 8,
               "date": "2026-06-24",
               "updated": "2026-06-24"
@@ -2022,7 +2022,7 @@
               "title": "Transformer 详解：attention 到底在注意什么？",
               "path": "ai/models/ch02.md",
               "order": 2,
-              "wordCount": 3314,
+              "wordCount": 3309,
               "readTime": 10,
               "date": "2026-06-24",
               "updated": "2026-06-27"
@@ -2031,7 +2031,7 @@
               "title": "位置编码与长上下文窗口",
               "path": "ai/models/ch03.md",
               "order": 3,
-              "wordCount": 2309,
+              "wordCount": 2308,
               "readTime": 7,
               "date": "2026-07-03",
               "updated": "2026-07-03"
@@ -2075,7 +2075,7 @@
               "title": "从模型到推理：一次推理调用的拆解",
               "path": "ai/inference/ch02.md",
               "order": 2,
-              "wordCount": 1384,
+              "wordCount": 1362,
               "readTime": 4,
               "date": "2026-06-24",
               "updated": "2026-06-27"
@@ -2084,7 +2084,7 @@
               "title": "并行技术与集合通信：AI 训练推理的分布式基础",
               "path": "ai/inference/ch03.md",
               "order": 3,
-              "wordCount": 2668,
+              "wordCount": 2659,
               "readTime": 8,
               "date": "2026-06-24",
               "updated": "2026-06-27"
@@ -2093,8 +2093,8 @@
               "title": "推理服务指标与批处理策略",
               "path": "ai/inference/ch04.md",
               "order": 4,
-              "wordCount": 1932,
-              "readTime": 6,
+              "wordCount": 1911,
+              "readTime": 5,
               "date": "2026-06-25",
               "updated": "2026-06-27"
             },
@@ -2102,7 +2102,7 @@
               "title": "PagedAttention：KV Cache 的分页管理",
               "path": "ai/inference/ch05.md",
               "order": 5,
-              "wordCount": 1300,
+              "wordCount": 1294,
               "readTime": 4,
               "date": "2026-06-24",
               "updated": "2026-06-27"
@@ -2111,7 +2111,7 @@
               "title": "Flash Attention：一步步拆解",
               "path": "ai/inference/ch06.md",
               "order": 6,
-              "wordCount": 3096,
+              "wordCount": 3091,
               "readTime": 8,
               "date": "2026-06-25",
               "updated": "2026-06-29"
@@ -2138,7 +2138,7 @@
               "title": "模型量化：用 INT4/INT8 让 LLM 瘦身",
               "path": "ai/inference/ch09.md",
               "order": 9,
-              "wordCount": 2489,
+              "wordCount": 2466,
               "readTime": 7,
               "date": "2026-06-24",
               "updated": "2026-07-07"
@@ -2218,7 +2218,7 @@
               "title": "GPU 互联拓扑：NVLink、NVSwitch 与 PCIe",
               "path": "ai/infrastructure/ch03.md",
               "order": 3,
-              "wordCount": 1819,
+              "wordCount": 1817,
               "readTime": 5,
               "date": "2026-07-07",
               "updated": "2026-07-07"
@@ -2227,7 +2227,7 @@
               "title": "NCCL：集合通信库",
               "path": "ai/infrastructure/ch04.md",
               "order": 4,
-              "wordCount": 1825,
+              "wordCount": 1821,
               "readTime": 5,
               "date": "2026-07-07",
               "updated": "2026-07-07"
