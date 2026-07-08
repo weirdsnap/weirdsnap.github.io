@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>空洞骑士助手</title>
+    <title>助手</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../scripts/vendor/vue.global.js"></script>
     <style>
@@ -263,7 +263,7 @@
         <button class="mobile-menu-btn" @click="toggleMenu">☰</button>
         <ul class="title" :class="{ 'mobile-open': menuOpen }">
             <li @click="home">Snap</li>
-            <li @click="hollowKnight">空洞骑士</li>
+            <li @click="hollowKnight">助手</li>
             <li @click="github">Github</li>
         </ul>
     </div>
@@ -272,7 +272,7 @@
         <!-- 密码输入 -->
         <div class="password-overlay" v-if="!authenticated">
             <div class="password-box">
-                <h2>🐞 空洞骑士助手</h2>
+                <h2>🐞 助手</h2>
                 <p>输入密码以访问</p>
                 <input type="password" v-model="passwordInput" @keyup.enter="login" placeholder="请输入密码" ref="pwInput">
                 <div class="error-msg">{{ errorMsg }}</div>
@@ -283,7 +283,7 @@
         <!-- 聊天界面 -->
         <div class="chat-area" :class="{ active: authenticated }">
             <div class="chat-header">
-                <h2>🐞 空洞骑士知识问答</h2>
+                <h2>🐞 助手</h2>
                 <div class="subtitle">基于 RAG 的知识库，可以问游戏中的任何内容</div>
             </div>
 
@@ -343,7 +343,7 @@
                         {
                             id: 0,
                             role: 'assistant',
-                            content: '你好！我是空洞骑士知识助手 🐈<br>有什么关于圣巢的问题都可以问我！'
+                            content: '你好！我是游戏助手 🐈<br>有什么关于圣巢的问题都可以问我！'
                         }
                     ],
                     msgId: 1,
