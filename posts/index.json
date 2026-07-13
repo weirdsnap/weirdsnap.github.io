@@ -2071,6 +2071,15 @@
               "readTime": 6,
               "date": "2026-07-06",
               "updated": "2026-07-06"
+            },
+            {
+              "title": "Embedding 模型：单语言与多语言的核心差异",
+              "path": "ai/models/ch06.md",
+              "order": 6,
+              "wordCount": 3400,
+              "readTime": 10,
+              "date": "2026-07-09",
+              "updated": "2026-07-09"
             }
           ]
         },
