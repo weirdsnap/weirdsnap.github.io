@@ -122,6 +122,15 @@
           "readTime": 2,
           "date": "2026-07-08",
           "updated": "2026-07-08"
+        },
+        {
+          "title": "GitHub Pages 不更新了：一次部署踩坑",
+          "path": "essays/ch14.md",
+          "order": 14,
+          "wordCount": 891,
+          "readTime": 2,
+          "date": "2026-07-14",
+          "updated": "2026-07-14"
         }
       ],
       "subs": []
