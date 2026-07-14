@@ -231,6 +231,19 @@ Validation failed:
 
 ---
 
+## GitHub Pages 自动部署
+
+Settings → Pages 的 Source 已改为 **GitHub Actions**，由 `.github/workflows/pages.yml` 接管部署：
+
+1. push 到 `master` 时触发 workflow
+2. 运行 CI 检查（build index + validate）
+3. CI 通过后自动打包并部署到 GitHub Pages
+4. 无需手动切换 Source，也无需等待默认 `pages-build-deployment`
+
+> 如果 CI 任何一步失败，部署不会执行，修复后重新 push 即可。
+
+---
+
 ## CI 踩坑记录
 
 ### 1. `index.json` 忘记提交
