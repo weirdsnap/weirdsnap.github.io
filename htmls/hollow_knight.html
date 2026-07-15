@@ -6,6 +6,7 @@
     <title>助手</title>
     <link rel="stylesheet" href="../css/style.css?v=2">
     <script src="../scripts/vendor/vue.global.js"></script>
+    <script src="../scripts/vendor/marked.min.js"></script>
     <style>
         /* 与博客统一的页面内容区 */
         #contents {
@@ -613,16 +614,12 @@
                 },
 
                 updateAssistantMessage(id, text, elapsed) {
-                    let html = this.escapeHtml(text)
-                        .replace(/\n\n/g, '</p><p>')
-                        .replace(/\n/g, '<br>');
-                    html = '<p>' + html + '</p>';
-                    if (elapsed) {
-                        html += '<p class="elapsed">耗时 ' + Number(elapsed).toFixed(1) + ' 秒</p>';
-                    }
+                    // 使用 marked 渲染 Markdown，单换行也转为 <br>
+                    const html = marked.parse(text, { breaks: true });
+                    const suffix = elapsed ? '<p class="elapsed">耗时 ' + Number(elapsed).toFixed(1) + ' 秒</p>' : '';
                     const idx = this.messages.findIndex(m => m.id === id);
                     if (idx !== -1) {
-                        this.messages[idx].content = html;
+                        this.messages[idx].content = html + suffix;
                     }
                     this.scrollBottom();
                 },
