@@ -478,11 +478,11 @@
                         content: this.escapeHtml(text)
                     });
 
-                    const loadingId = this.msgId++;
+                    const assistantId = this.msgId++;
                     this.messages.push({
-                        id: loadingId,
-                        role: 'loading',
-                        content: ''
+                        id: assistantId,
+                        role: 'assistant',
+                        content: '<p>思考中...</p>'
                     });
 
                     this.loading = true;
@@ -501,11 +501,12 @@
                         }
 
                         if (!(await this.ensureToken())) {
-                            this.messages = this.messages.filter(m => m.id !== loadingId);
+                            this.messages = this.messages.filter(m => m.id !== assistantId);
+                            this.loading = false;
                             return;
                         }
 
-                        const res = await fetch(API_URL + '/ask', {
+                        const res = await fetch(API_URL + '/ask/stream', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
@@ -515,36 +516,91 @@
                             })
                         });
 
-                        const data = await res.json();
-
-                        // 移除 loading
-                        this.messages = this.messages.filter(m => m.id !== loadingId);
-
-                        if (res.ok) {
-                            const answerHtml = data.answer
-                                .replace(/</g, '&lt;')
-                                .replace(/>/g, '&gt;')
-                                .replace(/\n\n/g, '</p><p>')
-                                .replace(/\n/g, '<br>');
+                        if (!res.ok) {
+                            const data = await res.json().catch(() => ({}));
+                            this.messages = this.messages.filter(m => m.id !== assistantId);
                             this.messages.push({
                                 id: this.msgId++,
                                 role: 'assistant',
-                                content: '<p>' + answerHtml + '</p>'
-                            });
-                        } else {
-                            this.messages.push({
-                                id: this.msgId++,
-                                role: 'assistant',
-                                content: '<p>出错了：' + this.escapeHtml(data.error || '未知错误') + '</p>'
+                                content: '<p>出错了：' + this.escapeHtml(data.error || '服务器错误 ' + res.status) + '</p>'
                             });
                             if (res.status === 401) {
                                 this.authenticated = false;
                                 this.token = null;
                                 this.errorMsg = '登录已过期，请重新输入密码';
                             }
+                            this.loading = false;
+                            this.scrollBottom();
+                            return;
+                        }
+
+                        // 消费 SSE 流
+                        const reader = res.body.getReader();
+                        const decoder = new TextDecoder();
+                        let buffer = '';
+                        let answerText = '';
+                        let elapsed = 0;
+
+                        while (true) {
+                            const { done, value } = await reader.read();
+                            if (done) break;
+
+                            buffer += decoder.decode(value, { stream: true });
+                            const parts = buffer.split('\n\n');
+                            buffer = parts.pop(); // 保留未完整消息
+
+                            for (const part of parts) {
+                                for (const line of part.split('\n')) {
+                                    if (!line.startsWith('data: ')) continue;
+                                    const jsonStr = line.slice(6).trim();
+                                    if (!jsonStr) continue;
+
+                                    let data;
+                                    try {
+                                        data = JSON.parse(jsonStr);
+                                    } catch (e) {
+                                        console.error('SSE parse error:', jsonStr, e);
+                                        continue;
+                                    }
+
+                                    switch (data.type) {
+                                        case 'meta':
+                                            // 可在此显示游戏信息，暂不处理
+                                            break;
+                                        case 'token':
+                                            answerText += data.content;
+                                            this.updateAssistantMessage(assistantId, answerText);
+                                            break;
+                                        case 'done':
+                                            elapsed = data.elapsed || 0;
+                                            break;
+                                        case 'error':
+                                            this.messages = this.messages.filter(m => m.id !== assistantId);
+                                            this.messages.push({
+                                                id: this.msgId++,
+                                                role: 'assistant',
+                                                content: '<p>出错了：' + this.escapeHtml(data.content || '未知错误') + '</p>'
+                                            });
+                                            this.loading = false;
+                                            this.scrollBottom();
+                                            return;
+                                    }
+                                }
+                            }
+                        }
+
+                        if (answerText) {
+                            this.updateAssistantMessage(assistantId, answerText, elapsed);
+                        } else {
+                            this.messages = this.messages.filter(m => m.id !== assistantId);
+                            this.messages.push({
+                                id: this.msgId++,
+                                role: 'assistant',
+                                content: '<p>没有收到回答</p>'
+                            });
                         }
                     } catch (e) {
-                        this.messages = this.messages.filter(m => m.id !== loadingId);
+                        this.messages = this.messages.filter(m => m.id !== assistantId);
                         this.messages.push({
                             id: this.msgId++,
                             role: 'assistant',
@@ -553,6 +609,21 @@
                     }
 
                     this.loading = false;
+                    this.scrollBottom();
+                },
+
+                updateAssistantMessage(id, text, elapsed) {
+                    let html = this.escapeHtml(text)
+                        .replace(/\n\n/g, '</p><p>')
+                        .replace(/\n/g, '<br>');
+                    html = '<p>' + html + '</p>';
+                    if (elapsed) {
+                        html += '<p class="elapsed">耗时 ' + Number(elapsed).toFixed(1) + ' 秒</p>';
+                    }
+                    const idx = this.messages.findIndex(m => m.id === id);
+                    if (idx !== -1) {
+                        this.messages[idx].content = html;
+                    }
                     this.scrollBottom();
                 },
 
