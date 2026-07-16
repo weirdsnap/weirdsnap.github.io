@@ -340,7 +340,7 @@
                     </div>
 
                     <div class="chat-input-area">
-                        <input type="text" v-model="questionInput" @keyup.enter="handleEnter" placeholder="输入你的问题..." :disabled="loading" ref="inputBox">
+                        <input type="text" v-model="questionInput" @keydown.enter="handleEnter" placeholder="输入你的问题..." :disabled="loading" ref="inputBox">
                         <button @click="sendQuestion()" :disabled="loading || !questionInput.trim()">
                             {{ loading ? '思考中...' : '发送' }}
                         </button>
