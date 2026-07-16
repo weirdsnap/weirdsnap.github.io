@@ -310,13 +310,13 @@
         <div class="hk-container" id="app">
             <!-- 密码输入 -->
             <div class="password-overlay" v-if="!authenticated">
-                <div class="password-box hk-card">
+                <form class="password-box hk-card" @submit.prevent="login">
                     <h2>游戏助手</h2>
                     <p>输入密码以访问</p>
-                    <input type="password" v-model="passwordInput" @keyup.enter="login" placeholder="请输入密码" ref="pwInput">
+                    <input type="password" name="password" autocomplete="current-password" v-model="passwordInput" placeholder="请输入密码" ref="pwInput">
                     <div class="error-msg">{{ errorMsg }}</div>
-                    <button @click="login" :disabled="loading">{{ loading ? '登录中...' : '确认' }}</button>
-                </div>
+                    <button type="submit" :disabled="loading">{{ loading ? '登录中...' : '确认' }}</button>
+                </form>
             </div>
 
             <!-- 聊天界面 -->
