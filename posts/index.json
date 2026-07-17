@@ -2021,10 +2021,10 @@
           "updated": "2026-07-14"
         },
         {
-          "title": "最大利润（3573. Maximum Profit）",
+          "title": "买卖股票的最佳时机 V（3573. Best Time to Buy and Sell Stock V）",
           "path": "leetcode/ch18.md",
           "order": 18,
-          "wordCount": 1300,
+          "wordCount": 1318,
           "readTime": 4,
           "date": "2026-07-17",
           "updated": "2026-07-17"
