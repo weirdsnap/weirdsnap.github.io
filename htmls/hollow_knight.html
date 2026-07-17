@@ -340,7 +340,7 @@
                     </div>
 
                     <div class="chat-input-area">
-                        <input type="text" v-model="questionInput" @keydown.enter="handleEnter" placeholder="输入你的问题..." :disabled="loading" ref="inputBox">
+                        <input type="text" v-model="questionInput" @keydown.enter="handleEnter" @compositionstart="imeComposing = true" @compositionend="onCompositionEnd" placeholder="输入你的问题..." :disabled="loading" ref="inputBox">
                         <button @click="sendQuestion()" :disabled="loading || !questionInput.trim()">
                             {{ loading ? '思考中...' : '发送' }}
                         </button>
@@ -385,6 +385,7 @@
                     passwordInput: '',
                     errorMsg: '',
                     questionInput: '',
+                    imeComposing: false,
                     loading: false,
                     messages: [
                         {
@@ -462,9 +463,16 @@
                     return true;
                 },
 
+                onCompositionEnd() {
+                    // 延迟清除 IME 状态，防止 keydown 在 compositionend 之后触发
+                    setTimeout(() => {
+                        this.imeComposing = false;
+                    }, 100);
+                },
+
                 handleEnter(e) {
-                    // 输入法候选框选词时 isComposing 为 true，不应提交
-                    if (!e.isComposing) {
+                    // 双重判断：手动维护的 IME 状态 + 浏览器原生 isComposing
+                    if (!this.imeComposing && !e.isComposing) {
                         this.sendQuestion();
                     }
                 },
