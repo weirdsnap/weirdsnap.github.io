@@ -1883,7 +1883,7 @@
           "wordCount": 2928,
           "readTime": 8,
           "date": "2026-06-12",
-          "updated": "2026-06-15"
+          "updated": "2026-07-17"
         },
         {
           "title": "删除链表的中间节点（2095. Delete the Middle Node of a Linked List）",
@@ -2026,6 +2026,24 @@
           "order": 18,
           "wordCount": 1610,
           "readTime": 5,
+          "date": "2026-07-17",
+          "updated": "2026-07-17"
+        },
+        {
+          "title": "最大子数组和（53. Maximum Subarray）",
+          "path": "leetcode/ch19.md",
+          "order": 19,
+          "wordCount": 764,
+          "readTime": 2,
+          "date": "2026-07-17",
+          "updated": "2026-07-17"
+        },
+        {
+          "title": "最长递增子序列（300. Longest Increasing Subsequence）",
+          "path": "leetcode/ch20.md",
+          "order": 20,
+          "wordCount": 872,
+          "readTime": 2,
           "date": "2026-07-17",
           "updated": "2026-07-17"
         }
