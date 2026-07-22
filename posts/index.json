@@ -2055,6 +2055,24 @@
           "readTime": 2,
           "date": "2026-07-17",
           "updated": "2026-07-17"
+        },
+        {
+          "title": "合并区间（56. Merge Intervals）",
+          "path": "leetcode/ch21.md",
+          "order": 21,
+          "wordCount": 640,
+          "readTime": 2,
+          "date": "2026-07-17",
+          "updated": "2026-07-17"
+        },
+        {
+          "title": "零钱兑换（322. Coin Change）",
+          "path": "leetcode/ch22.md",
+          "order": 22,
+          "wordCount": 760,
+          "readTime": 2,
+          "date": "2026-07-17",
+          "updated": "2026-07-17"
         }
       ],
       "subs": []
