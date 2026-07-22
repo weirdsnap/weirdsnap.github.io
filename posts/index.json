@@ -1536,6 +1536,15 @@
               "readTime": 1,
               "date": "2026-07-22",
               "updated": "2026-07-22"
+            },
+            {
+              "title": "二分查找：手动实现 vs STL",
+              "path": "cpp/ch07/31.md",
+              "order": 31,
+              "wordCount": 934,
+              "readTime": 2,
+              "date": "2026-07-22",
+              "updated": "2026-07-22"
             }
           ]
         },
