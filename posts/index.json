@@ -1527,6 +1527,15 @@
               "readTime": 2,
               "date": "2026-06-26",
               "updated": "2026-06-26"
+            },
+            {
+              "title": "std::sort：不只是快排",
+              "path": "cpp/ch07/30.md",
+              "order": 30,
+              "wordCount": 512,
+              "readTime": 1,
+              "date": "2026-07-22",
+              "updated": "2026-07-22"
             }
           ]
         },
