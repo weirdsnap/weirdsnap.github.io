@@ -209,13 +209,13 @@
               "wordCount": 1456,
               "readTime": 4,
               "date": "2026-06-05",
-              "updated": "2026-06-25"
+              "updated": "2026-07-23"
             },
             {
               "title": "表达式中的类型退化（Type Decay）",
               "path": "cpp/ch01/07.md",
               "order": 7,
-              "wordCount": 967,
+              "wordCount": 965,
               "readTime": 3,
               "date": "2026-06-05",
               "updated": "2026-06-25"
