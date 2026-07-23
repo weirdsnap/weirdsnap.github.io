@@ -272,7 +272,7 @@
               "wordCount": 2655,
               "readTime": 7,
               "date": "2026-06-05",
-              "updated": "2026-06-26"
+              "updated": "2026-07-23"
             },
             {
               "title": "函数参数求值顺序未指定",
@@ -426,6 +426,15 @@
               "readTime": 3,
               "date": "2026-07-03",
               "updated": "2026-07-03"
+            },
+            {
+              "title": "`std::initializer_list`：引用语义的陷阱",
+              "path": "cpp/ch01/35.md",
+              "order": 35,
+              "wordCount": 766,
+              "readTime": 2,
+              "date": "2026-07-23",
+              "updated": "2026-07-23"
             }
           ]
         },
