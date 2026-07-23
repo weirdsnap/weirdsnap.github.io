@@ -1898,7 +1898,7 @@
           "title": "接雨水（42. Trapping Rain Water）",
           "path": "leetcode/ch01.md",
           "order": 1,
-          "wordCount": 952,
+          "wordCount": 966,
           "readTime": 2,
           "date": "2026-06-05",
           "updated": "2026-06-15"
@@ -1907,7 +1907,7 @@
           "title": "边权赋值方案数（3558 / 3559）",
           "path": "leetcode/ch02.md",
           "order": 2,
-          "wordCount": 2928,
+          "wordCount": 2936,
           "readTime": 8,
           "date": "2026-06-12",
           "updated": "2026-07-17"
@@ -1916,7 +1916,7 @@
           "title": "删除链表的中间节点（2095. Delete the Middle Node of a Linked List）",
           "path": "leetcode/ch03.md",
           "order": 3,
-          "wordCount": 917,
+          "wordCount": 926,
           "readTime": 2,
           "date": "2026-06-15",
           "updated": "2026-06-15"
@@ -1925,7 +1925,7 @@
           "title": "分发糖果（135. Candy）",
           "path": "leetcode/ch04.md",
           "order": 4,
-          "wordCount": 1248,
+          "wordCount": 1258,
           "readTime": 3,
           "date": "2026-06-15",
           "updated": "2026-06-15"
@@ -1934,7 +1934,7 @@
           "title": "用特殊操作处理字符串 I（3612. Process String with Special Operations I）",
           "path": "leetcode/ch05.md",
           "order": 5,
-          "wordCount": 1022,
+          "wordCount": 1031,
           "readTime": 3,
           "date": "2026-06-17",
           "updated": "2026-06-17"
@@ -1943,7 +1943,7 @@
           "title": "寻找两个正序数组的中位数（4. Median of Two Sorted Arrays）",
           "path": "leetcode/ch06.md",
           "order": 6,
-          "wordCount": 1200,
+          "wordCount": 1211,
           "readTime": 3,
           "date": "2026-06-17",
           "updated": "2026-06-17"
@@ -1952,7 +1952,7 @@
           "title": "正则表达式匹配（10. Regular Expression Matching）",
           "path": "leetcode/ch07.md",
           "order": 7,
-          "wordCount": 469,
+          "wordCount": 482,
           "readTime": 1,
           "date": "2026-06-17",
           "updated": "2026-06-17"
@@ -1961,7 +1961,7 @@
           "title": "最长公共前缀（14. Longest Common Prefix）",
           "path": "leetcode/ch08.md",
           "order": 8,
-          "wordCount": 1361,
+          "wordCount": 1368,
           "readTime": 4,
           "date": "2026-06-22",
           "updated": "2026-06-22"
@@ -1988,7 +1988,7 @@
           "title": "编辑距离（72. Edit Distance）",
           "path": "leetcode/ch11.md",
           "order": 11,
-          "wordCount": 1968,
+          "wordCount": 1979,
           "readTime": 5,
           "date": "2026-06-30",
           "updated": "2026-06-30"
@@ -1997,7 +1997,7 @@
           "title": "网格安全路径（2812. Find the Safest Path in a Grid）",
           "path": "leetcode/ch12.md",
           "order": 12,
-          "wordCount": 2042,
+          "wordCount": 2051,
           "readTime": 5,
           "date": "2026-07-03",
           "updated": "2026-07-03"
@@ -2006,7 +2006,7 @@
           "title": "三角形最小路径和（120. Triangle）",
           "path": "leetcode/ch13.md",
           "order": 13,
-          "wordCount": 1127,
+          "wordCount": 1135,
           "readTime": 3,
           "date": "2026-07-07",
           "updated": "2026-07-07"
@@ -2015,7 +2015,7 @@
           "title": "最小路径和（64. Minimum Path Sum）",
           "path": "leetcode/ch14.md",
           "order": 14,
-          "wordCount": 895,
+          "wordCount": 903,
           "readTime": 2,
           "date": "2026-07-07",
           "updated": "2026-07-07"
@@ -2024,7 +2024,7 @@
           "title": "网络延迟时间（743. Network Delay Time）",
           "path": "leetcode/ch15.md",
           "order": 15,
-          "wordCount": 1837,
+          "wordCount": 1845,
           "readTime": 5,
           "date": "2026-07-08",
           "updated": "2026-07-14"
@@ -2060,7 +2060,7 @@
           "title": "最大子数组和（53. Maximum Subarray）",
           "path": "leetcode/ch19.md",
           "order": 19,
-          "wordCount": 764,
+          "wordCount": 774,
           "readTime": 2,
           "date": "2026-07-17",
           "updated": "2026-07-17"
@@ -2069,7 +2069,7 @@
           "title": "最长递增子序列（300. Longest Increasing Subsequence）",
           "path": "leetcode/ch20.md",
           "order": 20,
-          "wordCount": 1174,
+          "wordCount": 1186,
           "readTime": 3,
           "date": "2026-07-17",
           "updated": "2026-07-17"
@@ -2078,7 +2078,7 @@
           "title": "合并区间（56. Merge Intervals）",
           "path": "leetcode/ch21.md",
           "order": 21,
-          "wordCount": 640,
+          "wordCount": 650,
           "readTime": 2,
           "date": "2026-07-17",
           "updated": "2026-07-17"
@@ -2087,7 +2087,7 @@
           "title": "零钱兑换（322. Coin Change）",
           "path": "leetcode/ch22.md",
           "order": 22,
-          "wordCount": 760,
+          "wordCount": 772,
           "readTime": 2,
           "date": "2026-07-17",
           "updated": "2026-07-17"
@@ -2096,7 +2096,7 @@
           "title": "俄罗斯套娃信封问题（354. Russian Doll Envelopes）",
           "path": "leetcode/ch23.md",
           "order": 23,
-          "wordCount": 1043,
+          "wordCount": 1057,
           "readTime": 3,
           "date": "2026-07-17",
           "updated": "2026-07-17"
