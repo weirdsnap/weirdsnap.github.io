@@ -272,7 +272,7 @@
               "wordCount": 2970,
               "readTime": 8,
               "date": "2026-06-05",
-              "updated": "2026-07-23"
+              "updated": "2026-07-24"
             },
             {
               "title": "函数参数求值顺序未指定",
@@ -2196,6 +2196,15 @@
               "order": 26,
               "wordCount": 1160,
               "readTime": 3,
+              "date": "2026-07-24",
+              "updated": "2026-07-24"
+            },
+            {
+              "title": "二叉树的中序遍历（94. Binary Tree Inorder Traversal）",
+              "path": "leetcode/tree/ch27.md",
+              "order": 27,
+              "wordCount": 919,
+              "readTime": 2,
               "date": "2026-07-24",
               "updated": "2026-07-24"
             }
