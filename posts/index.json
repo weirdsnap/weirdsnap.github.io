@@ -2503,6 +2503,23 @@
               "updated": "2026-07-07"
             }
           ]
+        },
+        {
+          "id": "ai-agent",
+          "label": "AI Agent 技术",
+          "order": 4,
+          "type": "list",
+          "articles": [
+            {
+              "title": "Function Calling：让模型学会使用工具",
+              "path": "ai/ai-agent/ch02.md",
+              "order": 2,
+              "wordCount": 2219,
+              "readTime": 6,
+              "date": "2026-07-24",
+              "updated": "2026-07-24"
+            }
+          ]
         }
       ]
     }
