@@ -2518,6 +2518,15 @@
               "readTime": 6,
               "date": "2026-07-24",
               "updated": "2026-07-24"
+            },
+            {
+              "title": "Agent 技术的最新进展（2024-2025）",
+              "path": "ai/ai-agent/ch03.md",
+              "order": 3,
+              "wordCount": 2101,
+              "readTime": 6,
+              "date": "2026-07-24",
+              "updated": "2026-07-24"
             }
           ]
         }
