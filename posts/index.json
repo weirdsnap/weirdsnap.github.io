@@ -209,7 +209,7 @@
               "wordCount": 1631,
               "readTime": 4,
               "date": "2026-06-05",
-              "updated": "2026-07-23"
+              "updated": "2026-07-24"
             },
             {
               "title": "表达式中的类型退化（Type Decay）",
@@ -2095,6 +2095,15 @@
               "readTime": 4,
               "date": "2026-06-22",
               "updated": "2026-07-23"
+            },
+            {
+              "title": "计算器（面试题 16.26. Calculator LCCI）",
+              "path": "leetcode/string/ch25.md",
+              "order": 25,
+              "wordCount": 958,
+              "readTime": 3,
+              "date": "2026-07-24",
+              "updated": "2026-07-24"
             }
           ]
         },
