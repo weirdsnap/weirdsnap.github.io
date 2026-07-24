@@ -2151,8 +2151,8 @@
               "title": "柱状图中最大的矩形（84. Largest Rectangle in Histogram）",
               "path": "leetcode/stack/ch24.md",
               "order": 24,
-              "wordCount": 765,
-              "readTime": 2,
+              "wordCount": 986,
+              "readTime": 3,
               "date": "2026-07-24",
               "updated": "2026-07-24"
             }
@@ -2170,8 +2170,8 @@
               "order": 3,
               "wordCount": 926,
               "readTime": 2,
-              "date": "2026-07-23",
-              "updated": "2026-07-23"
+              "date": "2026-06-15",
+              "updated": "2026-07-24"
             }
           ]
         }
