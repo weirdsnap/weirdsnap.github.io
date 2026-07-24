@@ -1907,7 +1907,7 @@
               "order": 7,
               "wordCount": 482,
               "readTime": 1,
-              "date": "2026-07-23",
+              "date": "2026-06-17",
               "updated": "2026-07-23"
             },
             {
@@ -1916,7 +1916,7 @@
               "order": 9,
               "wordCount": 1975,
               "readTime": 5,
-              "date": "2026-07-23",
+              "date": "2026-06-26",
               "updated": "2026-07-23"
             },
             {
@@ -1925,7 +1925,7 @@
               "order": 10,
               "wordCount": 1874,
               "readTime": 5,
-              "date": "2026-07-23",
+              "date": "2026-06-29",
               "updated": "2026-07-23"
             },
             {
@@ -1934,7 +1934,7 @@
               "order": 11,
               "wordCount": 1979,
               "readTime": 5,
-              "date": "2026-07-23",
+              "date": "2026-06-30",
               "updated": "2026-07-23"
             },
             {
@@ -1943,7 +1943,7 @@
               "order": 13,
               "wordCount": 1135,
               "readTime": 3,
-              "date": "2026-07-23",
+              "date": "2026-07-07",
               "updated": "2026-07-23"
             },
             {
@@ -2014,7 +2014,7 @@
               "order": 4,
               "wordCount": 1258,
               "readTime": 3,
-              "date": "2026-07-23",
+              "date": "2026-06-15",
               "updated": "2026-07-23"
             },
             {
@@ -2049,7 +2049,7 @@
               "order": 2,
               "wordCount": 2936,
               "readTime": 8,
-              "date": "2026-07-23",
+              "date": "2026-06-12",
               "updated": "2026-07-23"
             },
             {
@@ -2058,7 +2058,7 @@
               "order": 12,
               "wordCount": 2051,
               "readTime": 5,
-              "date": "2026-07-23",
+              "date": "2026-07-03",
               "updated": "2026-07-23"
             },
             {
@@ -2084,7 +2084,7 @@
               "order": 5,
               "wordCount": 1031,
               "readTime": 3,
-              "date": "2026-07-23",
+              "date": "2026-06-17",
               "updated": "2026-07-23"
             },
             {
@@ -2093,7 +2093,7 @@
               "order": 8,
               "wordCount": 1368,
               "readTime": 4,
-              "date": "2026-07-23",
+              "date": "2026-06-22",
               "updated": "2026-07-23"
             }
           ]
@@ -2108,9 +2108,9 @@
               "title": "接雨水（42. Trapping Rain Water）",
               "path": "leetcode/array/ch01.md",
               "order": 1,
-              "wordCount": 966,
+              "wordCount": 725,
               "readTime": 2,
-              "date": "2026-07-23",
+              "date": "2026-06-05",
               "updated": "2026-07-23"
             },
             {
@@ -2119,7 +2119,7 @@
               "order": 3,
               "wordCount": 926,
               "readTime": 2,
-              "date": "2026-07-23",
+              "date": "2026-06-15",
               "updated": "2026-07-23"
             },
             {
@@ -2128,7 +2128,7 @@
               "order": 6,
               "wordCount": 1211,
               "readTime": 3,
-              "date": "2026-07-23",
+              "date": "2026-06-17",
               "updated": "2026-07-23"
             }
           ]
@@ -2147,6 +2147,23 @@
               "readTime": 2,
               "date": "2026-07-17",
               "updated": "2026-07-17"
+            }
+          ]
+        },
+        {
+          "id": "stack",
+          "label": "单调栈",
+          "order": 7,
+          "type": "list",
+          "articles": [
+            {
+              "title": "单调栈：接雨水 II & 柱状图中最大的矩形（42 / 84）",
+              "path": "leetcode/stack/ch24.md",
+              "order": 24,
+              "wordCount": 1373,
+              "readTime": 4,
+              "date": "2026-07-24",
+              "updated": "2026-07-24"
             }
           ]
         }
