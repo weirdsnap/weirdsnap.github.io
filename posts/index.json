@@ -1968,7 +1968,7 @@
               "title": "最大子数组和（53. Maximum Subarray）",
               "path": "leetcode/dp/ch19.md",
               "order": 19,
-              "wordCount": 774,
+              "wordCount": 772,
               "readTime": 2,
               "date": "2026-07-17",
               "updated": "2026-07-17"
@@ -2105,15 +2105,6 @@
           "type": "list",
           "articles": [
             {
-              "title": "删除链表的中间节点（2095. Delete the Middle Node of a Linked List）",
-              "path": "leetcode/array/ch03.md",
-              "order": 3,
-              "wordCount": 926,
-              "readTime": 2,
-              "date": "2026-06-15",
-              "updated": "2026-07-23"
-            },
-            {
               "title": "寻找两个正序数组的中位数（4. Median of Two Sorted Arrays）",
               "path": "leetcode/array/ch06.md",
               "order": 6,
@@ -2153,7 +2144,7 @@
               "order": 1,
               "wordCount": 984,
               "readTime": 2,
-              "date": "2026-07-24",
+              "date": "2026-06-05",
               "updated": "2026-07-24"
             },
             {
@@ -2164,6 +2155,23 @@
               "readTime": 2,
               "date": "2026-07-24",
               "updated": "2026-07-24"
+            }
+          ]
+        },
+        {
+          "id": "linked-list",
+          "label": "链表",
+          "order": 8,
+          "type": "list",
+          "articles": [
+            {
+              "title": "删除链表的中间节点（2095. Delete the Middle Node of a Linked List）",
+              "path": "leetcode/linked-list/ch03.md",
+              "order": 3,
+              "wordCount": 926,
+              "readTime": 2,
+              "date": "2026-07-23",
+              "updated": "2026-07-23"
             }
           ]
         }
