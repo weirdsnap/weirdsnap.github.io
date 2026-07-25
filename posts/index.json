@@ -1554,6 +1554,15 @@
               "readTime": 2,
               "date": "2026-07-22",
               "updated": "2026-07-22"
+            },
+            {
+              "title": "C++20 std::ranges：管道语法的排序与视图",
+              "path": "cpp/ch07/32.md",
+              "order": 32,
+              "wordCount": 1383,
+              "readTime": 4,
+              "date": "2026-07-25",
+              "updated": "2026-07-25"
             }
           ]
         },
