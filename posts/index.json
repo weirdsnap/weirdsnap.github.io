@@ -2139,6 +2139,15 @@
               "readTime": 3,
               "date": "2026-06-17",
               "updated": "2026-07-23"
+            },
+            {
+              "title": "唯一异或三元组（3514. Unique XOR Triplets）",
+              "path": "leetcode/array/ch29.md",
+              "order": 29,
+              "wordCount": 937,
+              "readTime": 2,
+              "date": "2026-07-25",
+              "updated": "2026-07-25"
             }
           ]
         },
