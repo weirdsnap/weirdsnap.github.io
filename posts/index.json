@@ -2008,6 +2008,15 @@
               "readTime": 3,
               "date": "2026-07-17",
               "updated": "2026-07-17"
+            },
+            {
+              "title": "好二进制字符串（2533. Good Binary Strings）",
+              "path": "leetcode/dp/ch28.md",
+              "order": 28,
+              "wordCount": 1112,
+              "readTime": 3,
+              "date": "2026-07-25",
+              "updated": "2026-07-25"
             }
           ]
         },
