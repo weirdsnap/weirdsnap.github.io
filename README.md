@@ -128,8 +128,13 @@ python3 scripts/build_index.py
 ### 4. 推送
 
 ```bash
-git add . && git commit -m "新增文章" && git push
+git add posts/ && git commit -m "新增文章"
+python3 scripts/build_index.py          # 内容入库后再生成一次索引
+git add posts/index.json && git commit -m "chore(index): regenerate"
+git push
 ```
+
+> ⚠️ **顺序很重要**：`index.json` 的日期来自 git 历史，必须在内容提交**之后**重新生成，否则 CI 会报 `index.json is out of date`（见踩坑记录第 6 条）。
 
 ---
 
@@ -312,6 +317,28 @@ std::cout << {{p}}; // 示例
 **原因**：文章路径变了，但其他文章里硬编码的 `?post=旧路径.md` 没改。
 
 **修复**：全局搜索旧路径并替换，然后重新生成索引。注意相邻文章的 `prev/next` 导航是前端自动计算的，正文中不要写死相邻文章的链接。
+
+### 6. `index.json` 在内容提交之前生成，日期对不上
+
+**现象**：本地明明跑过 `build_index.py` 并一起提交了，CI 仍报 `posts/index.json is out of date`，且差异只在 `date`/`updated` 字段。
+
+**原因**：`build_index.py` 的日期来自 git 历史。内容**还没提交**时：
+
+- 新文件没有 git 历史，回退用文件 mtime（UTC 日期）
+- 改了但没提交的文件，`updated` 取的还是上一次提交日期
+
+push 后 CI 用提交日期重新生成，两边自然不一致。
+
+**修复 / 正确顺序**：先提交文章内容，再生成索引并单独提交：
+
+```bash
+git add posts/ && git commit -m "新增文章"
+python3 scripts/build_index.py
+git add posts/index.json && git commit -m "chore(index): regenerate"
+git push
+```
+
+> 2026-07-28 一次推送 5 篇新文章时踩过：新文件日期从 mtime 的 07-27 变成提交日的 07-28，补一个 index-only 提交后 CI 才通过。
 
 ---
 
