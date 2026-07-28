@@ -1995,10 +1995,10 @@
               "title": "最大子数组和（53. Maximum Subarray）",
               "path": "leetcode/dp/ch19.md",
               "order": 19,
-              "wordCount": 772,
-              "readTime": 2,
+              "wordCount": 1117,
+              "readTime": 3,
               "date": "2026-07-17",
-              "updated": "2026-07-17"
+              "updated": "2026-07-28"
             },
             {
               "title": "最长递增子序列（300. Longest Increasing Subsequence）",
@@ -2141,6 +2141,15 @@
               "readTime": 5,
               "date": "2026-07-08",
               "updated": "2026-07-14"
+            },
+            {
+              "title": "相似度为 K 的字符串（854. K-Similar Strings）",
+              "path": "leetcode/graph/ch35.md",
+              "order": 35,
+              "wordCount": 2895,
+              "readTime": 8,
+              "date": "2026-07-28",
+              "updated": "2026-07-28"
             }
           ]
         },
