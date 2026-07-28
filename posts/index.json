@@ -269,8 +269,8 @@
               "title": "Lambda 捕获：值、引用、this 和陷阱",
               "path": "cpp/ch01/17.md",
               "order": 17,
-              "wordCount": 2970,
-              "readTime": 8,
+              "wordCount": 3242,
+              "readTime": 9,
               "date": "2026-06-05",
               "updated": "2026-07-24"
             },
@@ -838,6 +838,24 @@
               "readTime": 1,
               "date": "2026-06-05",
               "updated": "2026-06-25"
+            },
+            {
+              "title": "`delete[]` 的数组析构顺序",
+              "path": "cpp/ch03/16.md",
+              "order": 16,
+              "wordCount": 320,
+              "readTime": 1,
+              "date": "2026-07-28",
+              "updated": "2026-07-28"
+            },
+            {
+              "title": "`std::exit` 不析构局部对象",
+              "path": "cpp/ch03/17.md",
+              "order": 17,
+              "wordCount": 408,
+              "readTime": 1,
+              "date": "2026-07-28",
+              "updated": "2026-07-28"
             }
           ]
         },
@@ -2026,6 +2044,24 @@
               "readTime": 3,
               "date": "2026-07-25",
               "updated": "2026-07-25"
+            },
+            {
+              "title": "施咒的最大总伤害（3186. Maximum Total Damage With Spell Casting）",
+              "path": "leetcode/dp/ch32.md",
+              "order": 32,
+              "wordCount": 2288,
+              "readTime": 6,
+              "date": "2026-07-27",
+              "updated": "2026-07-27"
+            },
+            {
+              "title": "解决智力问题（2140. Solving Questions With Brainpower）",
+              "path": "leetcode/dp/ch34.md",
+              "order": 34,
+              "wordCount": 1439,
+              "readTime": 4,
+              "date": "2026-07-28",
+              "updated": "2026-07-28"
             }
           ]
         },
@@ -2140,6 +2176,15 @@
               "readTime": 3,
               "date": "2026-07-24",
               "updated": "2026-07-24"
+            },
+            {
+              "title": "最小回文重排 I（3517. Smallest Palindromic Rearrangement I）",
+              "path": "leetcode/string/ch33.md",
+              "order": 33,
+              "wordCount": 1313,
+              "readTime": 4,
+              "date": "2026-07-28",
+              "updated": "2026-07-28"
             }
           ]
         },
