@@ -1581,6 +1581,15 @@
               "readTime": 4,
               "date": "2026-07-25",
               "updated": "2026-07-25"
+            },
+            {
+              "title": "`vector(n)` 的默认插入语义",
+              "path": "cpp/ch07/33.md",
+              "order": 33,
+              "wordCount": 363,
+              "readTime": 1,
+              "date": "2026-07-29",
+              "updated": "2026-07-29"
             }
           ]
         },
@@ -2062,6 +2071,33 @@
               "readTime": 4,
               "date": "2026-07-28",
               "updated": "2026-07-28"
+            },
+            {
+              "title": "最大开销子字符串（2606. Find the Substring With Maximum Cost）",
+              "path": "leetcode/dp/ch36.md",
+              "order": 36,
+              "wordCount": 989,
+              "readTime": 3,
+              "date": "2026-07-29",
+              "updated": "2026-07-29"
+            },
+            {
+              "title": "乘积最大子数组（152. Maximum Product Subarray）",
+              "path": "leetcode/dp/ch37.md",
+              "order": 37,
+              "wordCount": 1068,
+              "readTime": 3,
+              "date": "2026-07-29",
+              "updated": "2026-07-29"
+            },
+            {
+              "title": "任意子数组和的绝对值的最大值（1749. Maximum Absolute Sum of Any Subarray）",
+              "path": "leetcode/dp/ch38.md",
+              "order": 38,
+              "wordCount": 1008,
+              "readTime": 3,
+              "date": "2026-07-29",
+              "updated": "2026-07-29"
             }
           ]
         },
@@ -2194,6 +2230,15 @@
               "readTime": 4,
               "date": "2026-07-28",
               "updated": "2026-07-28"
+            },
+            {
+              "title": "最小回文重排 II（3518. Smallest Palindromic Rearrangement II）",
+              "path": "leetcode/string/ch39.md",
+              "order": 39,
+              "wordCount": 1884,
+              "readTime": 5,
+              "date": "2026-07-29",
+              "updated": "2026-07-29"
             }
           ]
         },
