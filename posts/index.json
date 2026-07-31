@@ -269,10 +269,10 @@
               "title": "Lambda 捕获：值、引用、this 和陷阱",
               "path": "cpp/ch01/17.md",
               "order": 17,
-              "wordCount": 3242,
+              "wordCount": 3486,
               "readTime": 9,
               "date": "2026-06-05",
-              "updated": "2026-07-28"
+              "updated": "2026-07-31"
             },
             {
               "title": "函数参数求值顺序未指定",
@@ -1590,6 +1590,15 @@
               "readTime": 1,
               "date": "2026-07-29",
               "updated": "2026-07-29"
+            },
+            {
+              "title": "`max` 家族：双参数、initializer_list、max_element、ranges::max",
+              "path": "cpp/ch07/34.md",
+              "order": 34,
+              "wordCount": 436,
+              "readTime": 1,
+              "date": "2026-07-31",
+              "updated": "2026-07-31"
             }
           ]
         },
@@ -2142,6 +2151,15 @@
               "readTime": 3,
               "date": "2026-07-25",
               "updated": "2026-07-25"
+            },
+            {
+              "title": "按键次数最少的打字方案 I（3014. Minimum Number of Pushes to Type Word I）",
+              "path": "leetcode/greedy/ch40.md",
+              "order": 40,
+              "wordCount": 1142,
+              "readTime": 3,
+              "date": "2026-07-31",
+              "updated": "2026-07-31"
             }
           ]
         },
