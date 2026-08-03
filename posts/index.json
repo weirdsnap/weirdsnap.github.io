@@ -269,10 +269,10 @@
               "title": "Lambda 捕获：值、引用、this 和陷阱",
               "path": "cpp/ch01/17.md",
               "order": 17,
-              "wordCount": 3486,
-              "readTime": 9,
+              "wordCount": 2735,
+              "readTime": 7,
               "date": "2026-06-05",
-              "updated": "2026-07-31"
+              "updated": "2026-08-03"
             },
             {
               "title": "函数参数求值顺序未指定",
@@ -1858,6 +1858,15 @@
               "updated": "2026-06-15"
             },
             {
+              "title": "Lambda 递归：三种写法与类型擦除",
+              "path": "cpp/practices/lambda_01.md",
+              "order": 1,
+              "wordCount": 1371,
+              "readTime": 4,
+              "date": "2026-08-03",
+              "updated": "2026-08-03"
+            },
+            {
               "title": "POSIX 共享内存进阶：环形缓冲区（Ring Buffer）设计",
               "path": "cpp/practices/ipc_02.md",
               "order": 2,
@@ -1941,77 +1950,14 @@
       "articles": [],
       "subs": [
         {
-          "id": "dp",
-          "label": "动态规划",
+          "id": "linear",
+          "label": "线性 DP",
           "order": 1,
           "type": "list",
           "articles": [
             {
-              "title": "正则表达式匹配（10. Regular Expression Matching）",
-              "path": "leetcode/dp/ch07.md",
-              "order": 7,
-              "wordCount": 482,
-              "readTime": 1,
-              "date": "2026-06-17",
-              "updated": "2026-07-23"
-            },
-            {
-              "title": "买卖股票的最佳时机 III（123. Best Time to Buy and Sell Stock III）",
-              "path": "leetcode/dp/ch09.md",
-              "order": 9,
-              "wordCount": 1975,
-              "readTime": 5,
-              "date": "2026-06-26",
-              "updated": "2026-07-23"
-            },
-            {
-              "title": "买卖股票的最佳时机 IV（188. Best Time to Buy and Sell Stock IV）",
-              "path": "leetcode/dp/ch10.md",
-              "order": 10,
-              "wordCount": 1874,
-              "readTime": 5,
-              "date": "2026-06-29",
-              "updated": "2026-07-25"
-            },
-            {
-              "title": "编辑距离（72. Edit Distance）",
-              "path": "leetcode/dp/ch11.md",
-              "order": 11,
-              "wordCount": 1979,
-              "readTime": 5,
-              "date": "2026-06-30",
-              "updated": "2026-07-23"
-            },
-            {
-              "title": "三角形最小路径和（120. Triangle）",
-              "path": "leetcode/dp/ch13.md",
-              "order": 13,
-              "wordCount": 1135,
-              "readTime": 3,
-              "date": "2026-07-07",
-              "updated": "2026-07-23"
-            },
-            {
-              "title": "最小路径和（64. Minimum Path Sum）",
-              "path": "leetcode/dp/ch14.md",
-              "order": 14,
-              "wordCount": 903,
-              "readTime": 2,
-              "date": "2026-07-07",
-              "updated": "2026-07-07"
-            },
-            {
-              "title": "买卖股票的最佳时机 V（3573. Best Time to Buy and Sell Stock V）",
-              "path": "leetcode/dp/ch18.md",
-              "order": 18,
-              "wordCount": 1610,
-              "readTime": 5,
-              "date": "2026-07-17",
-              "updated": "2026-07-17"
-            },
-            {
               "title": "最大子数组和（53. Maximum Subarray）",
-              "path": "leetcode/dp/ch19.md",
+              "path": "leetcode/dp/linear/ch19.md",
               "order": 19,
               "wordCount": 1117,
               "readTime": 3,
@@ -2020,7 +1966,7 @@
             },
             {
               "title": "最长递增子序列（300. Longest Increasing Subsequence）",
-              "path": "leetcode/dp/ch20.md",
+              "path": "leetcode/dp/linear/ch20.md",
               "order": 20,
               "wordCount": 1186,
               "readTime": 3,
@@ -2028,17 +1974,8 @@
               "updated": "2026-07-17"
             },
             {
-              "title": "零钱兑换（322. Coin Change）",
-              "path": "leetcode/dp/ch22.md",
-              "order": 22,
-              "wordCount": 772,
-              "readTime": 2,
-              "date": "2026-07-17",
-              "updated": "2026-07-17"
-            },
-            {
               "title": "俄罗斯套娃信封问题（354. Russian Doll Envelopes）",
-              "path": "leetcode/dp/ch23.md",
+              "path": "leetcode/dp/linear/ch23.md",
               "order": 23,
               "wordCount": 1057,
               "readTime": 3,
@@ -2047,73 +1984,194 @@
             },
             {
               "title": "好二进制字符串（2533. Good Binary Strings）",
-              "path": "leetcode/dp/ch28.md",
+              "path": "leetcode/dp/linear/ch28.md",
               "order": 28,
               "wordCount": 1112,
               "readTime": 3,
               "date": "2026-07-25",
-              "updated": "2026-07-25"
+              "updated": "2026-08-03"
             },
             {
               "title": "打家劫舍（198. House Robber）",
-              "path": "leetcode/dp/ch31.md",
+              "path": "leetcode/dp/linear/ch31.md",
               "order": 31,
               "wordCount": 1367,
               "readTime": 3,
               "date": "2026-07-25",
-              "updated": "2026-07-25"
+              "updated": "2026-08-03"
             },
             {
               "title": "施咒的最大总伤害（3186. Maximum Total Damage With Spell Casting）",
-              "path": "leetcode/dp/ch32.md",
+              "path": "leetcode/dp/linear/ch32.md",
               "order": 32,
               "wordCount": 2288,
               "readTime": 6,
               "date": "2026-07-28",
-              "updated": "2026-07-28"
+              "updated": "2026-08-03"
             },
             {
               "title": "解决智力问题（2140. Solving Questions With Brainpower）",
-              "path": "leetcode/dp/ch34.md",
+              "path": "leetcode/dp/linear/ch34.md",
               "order": 34,
-              "wordCount": 1439,
+              "wordCount": 1443,
               "readTime": 4,
               "date": "2026-07-28",
-              "updated": "2026-07-28"
+              "updated": "2026-08-03"
             },
             {
               "title": "最大开销子字符串（2606. Find the Substring With Maximum Cost）",
-              "path": "leetcode/dp/ch36.md",
+              "path": "leetcode/dp/linear/ch36.md",
               "order": 36,
               "wordCount": 989,
               "readTime": 3,
               "date": "2026-07-29",
-              "updated": "2026-07-29"
+              "updated": "2026-08-03"
             },
             {
               "title": "乘积最大子数组（152. Maximum Product Subarray）",
-              "path": "leetcode/dp/ch37.md",
+              "path": "leetcode/dp/linear/ch37.md",
               "order": 37,
               "wordCount": 1068,
               "readTime": 3,
               "date": "2026-07-29",
-              "updated": "2026-07-29"
+              "updated": "2026-08-03"
             },
             {
               "title": "任意子数组和的绝对值的最大值（1749. Maximum Absolute Sum of Any Subarray）",
-              "path": "leetcode/dp/ch38.md",
+              "path": "leetcode/dp/linear/ch38.md",
               "order": 38,
               "wordCount": 1008,
               "readTime": 3,
               "date": "2026-07-29",
-              "updated": "2026-07-29"
+              "updated": "2026-08-03"
+            }
+          ]
+        },
+        {
+          "id": "state-machine",
+          "label": "状态机 DP",
+          "order": 2,
+          "type": "list",
+          "articles": [
+            {
+              "title": "买卖股票的最佳时机 III（123. Best Time to Buy and Sell Stock III）",
+              "path": "leetcode/dp/state-machine/ch09.md",
+              "order": 9,
+              "wordCount": 1975,
+              "readTime": 5,
+              "date": "2026-06-26",
+              "updated": "2026-08-03"
+            },
+            {
+              "title": "买卖股票的最佳时机 IV（188. Best Time to Buy and Sell Stock IV）",
+              "path": "leetcode/dp/state-machine/ch10.md",
+              "order": 10,
+              "wordCount": 1874,
+              "readTime": 5,
+              "date": "2026-06-29",
+              "updated": "2026-08-03"
+            },
+            {
+              "title": "买卖股票的最佳时机 V（3573. Best Time to Buy and Sell Stock V）",
+              "path": "leetcode/dp/state-machine/ch18.md",
+              "order": 18,
+              "wordCount": 1610,
+              "readTime": 5,
+              "date": "2026-07-17",
+              "updated": "2026-07-17"
+            }
+          ]
+        },
+        {
+          "id": "dual-seq",
+          "label": "双序列 DP",
+          "order": 3,
+          "type": "list",
+          "articles": [
+            {
+              "title": "正则表达式匹配（10. Regular Expression Matching）",
+              "path": "leetcode/dp/dual-seq/ch07.md",
+              "order": 7,
+              "wordCount": 482,
+              "readTime": 1,
+              "date": "2026-06-17",
+              "updated": "2026-08-03"
+            },
+            {
+              "title": "编辑距离（72. Edit Distance）",
+              "path": "leetcode/dp/dual-seq/ch11.md",
+              "order": 11,
+              "wordCount": 1979,
+              "readTime": 5,
+              "date": "2026-06-30",
+              "updated": "2026-08-03"
+            }
+          ]
+        },
+        {
+          "id": "path",
+          "label": "路径 DP",
+          "order": 4,
+          "type": "list",
+          "articles": [
+            {
+              "title": "三角形最小路径和（120. Triangle）",
+              "path": "leetcode/dp/path/ch13.md",
+              "order": 13,
+              "wordCount": 1135,
+              "readTime": 3,
+              "date": "2026-07-07",
+              "updated": "2026-08-03"
+            },
+            {
+              "title": "最小路径和（64. Minimum Path Sum）",
+              "path": "leetcode/dp/path/ch14.md",
+              "order": 14,
+              "wordCount": 903,
+              "readTime": 2,
+              "date": "2026-07-07",
+              "updated": "2026-07-07"
+            }
+          ]
+        },
+        {
+          "id": "knapsack",
+          "label": "背包 DP",
+          "order": 5,
+          "type": "list",
+          "articles": [
+            {
+              "title": "零钱兑换（322. Coin Change）",
+              "path": "leetcode/dp/knapsack/ch22.md",
+              "order": 22,
+              "wordCount": 772,
+              "readTime": 2,
+              "date": "2026-07-17",
+              "updated": "2026-07-17"
+            }
+          ]
+        },
+        {
+          "id": "interval",
+          "label": "区间 DP",
+          "order": 6,
+          "type": "list",
+          "articles": [
+            {
+              "title": "预测赢家（486. Predict the Winner）",
+              "path": "leetcode/dp/interval/ch41.md",
+              "order": 41,
+              "wordCount": 1600,
+              "readTime": 4,
+              "date": "2026-08-03",
+              "updated": "2026-08-03"
             }
           ]
         },
         {
           "id": "greedy",
           "label": "贪心",
-          "order": 2,
+          "order": 7,
           "type": "list",
           "articles": [
             {
@@ -2153,20 +2211,20 @@
               "updated": "2026-07-25"
             },
             {
-              "title": "按键次数最少的打字方案 I（3014. Minimum Number of Pushes to Type Word I）",
+              "title": "按键次数最少的打字方案 I & II（3014 / 3016. Minimum Number of Pushes to Type Word）",
               "path": "leetcode/greedy/ch40.md",
               "order": 40,
-              "wordCount": 1142,
-              "readTime": 3,
+              "wordCount": 1523,
+              "readTime": 4,
               "date": "2026-07-31",
-              "updated": "2026-07-31"
+              "updated": "2026-08-03"
             }
           ]
         },
         {
           "id": "graph",
           "label": "图论",
-          "order": 3,
+          "order": 8,
           "type": "list",
           "articles": [
             {
@@ -2210,7 +2268,7 @@
         {
           "id": "string",
           "label": "字符串",
-          "order": 4,
+          "order": 9,
           "type": "list",
           "articles": [
             {
@@ -2263,7 +2321,7 @@
         {
           "id": "array",
           "label": "数组与双指针",
-          "order": 5,
+          "order": 10,
           "type": "list",
           "articles": [
             {
@@ -2289,7 +2347,7 @@
         {
           "id": "sorting",
           "label": "排序与区间",
-          "order": 6,
+          "order": 11,
           "type": "list",
           "articles": [
             {
@@ -2306,7 +2364,7 @@
         {
           "id": "stack",
           "label": "单调栈",
-          "order": 7,
+          "order": 12,
           "type": "list",
           "articles": [
             {
@@ -2332,7 +2390,7 @@
         {
           "id": "linked-list",
           "label": "链表",
-          "order": 8,
+          "order": 13,
           "type": "list",
           "articles": [
             {
@@ -2349,7 +2407,7 @@
         {
           "id": "tree",
           "label": "树",
-          "order": 9,
+          "order": 14,
           "type": "list",
           "articles": [
             {
