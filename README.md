@@ -50,6 +50,10 @@ posts/                      ← 博客源文件
     │   └── 01.md ~ 22.md   ← 知识点短文章
     └── ch02/ ~ ch10/
 
+# 磁盘上允许更深的嵌套（如 leetcode/dp/linear/ch19.md），
+# build_index.py 会递归扫描并把所有含文章的目录扁平为 index.json 里的
+# 二级 sub（id = 目录名，需在同一分类内唯一），前端无需感知嵌套层级。
+
 scripts/
 ├── build_index.py          ← 扫描 posts/ 生成 index.json
 ├── validate.py             ← 数据完整性检查

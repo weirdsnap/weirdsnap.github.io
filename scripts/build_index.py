@@ -206,25 +206,49 @@ def scan_articles(dir_path: Path) -> list:
     return articles
 
 
+def collect_sub_dirs(dir_path: Path) -> list[Path]:
+    """Recursively collect descendant directories that directly contain articles.
+
+    A directory "contains articles" if it has at least one .md file whose name
+    does not start with an underscore. Such directories may be nested at any
+    depth below the category (e.g. leetcode/dp/linear/); they are all
+    flattened into the category's subs list, so the index.json structure and
+    the frontend stay two-level regardless of on-disk nesting.
+    """
+    result = []
+    for sub_dir in sorted(dir_path.iterdir()):
+        if not sub_dir.is_dir() or sub_dir.name.startswith((".", "_")):
+            continue
+        has_articles = any(
+            md.name.endswith(".md") and not md.name.startswith(SKIP_NAME_PREFIX)
+            for md in sub_dir.glob("*.md")
+        )
+        if has_articles:
+            result.append(sub_dir)
+        # Recurse regardless: a directory may hold no articles itself while
+        # its children do (e.g. dp/ is just a grouping level).
+        result.extend(collect_sub_dirs(sub_dir))
+    return result
+
+
 def scan_category(dir_path: Path) -> dict:
     """Scan a category directory (may contain articles and sub-categories)."""
     meta = read_meta(dir_path)
     articles = scan_articles(dir_path)
     subs = []
 
-    # Scan sub-directories (excluding hidden dirs)
-    for sub_dir in sorted(dir_path.iterdir()):
-        if sub_dir.is_dir() and not sub_dir.name.startswith("."):
-            sub_meta = read_meta(sub_dir)
-            sub_articles = scan_articles(sub_dir)
-            if sub_articles:
-                subs.append({
-                    "id": sub_dir.name,
-                    "label": sub_meta.get("label", sub_dir.name.capitalize()),
-                    "order": sub_meta.get("order", 999),
-                    "type": sub_meta.get("type", "list"),
-                    "articles": sub_articles
-                })
+    # Scan sub-directories at any depth; each article-bearing directory
+    # becomes one flat sub entry keyed by its directory name.
+    for sub_dir in collect_sub_dirs(dir_path):
+        sub_meta = read_meta(sub_dir)
+        sub_articles = scan_articles(sub_dir)
+        subs.append({
+            "id": sub_dir.name,
+            "label": sub_meta.get("label", sub_dir.name.capitalize()),
+            "order": sub_meta.get("order", 999),
+            "type": sub_meta.get("type", "list"),
+            "articles": sub_articles
+        })
 
     return {
         "id": dir_path.name,
