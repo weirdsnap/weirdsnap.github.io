@@ -2131,6 +2131,24 @@
               "readTime": 2,
               "date": "2026-07-07",
               "updated": "2026-07-07"
+            },
+            {
+              "title": "不同路径 II（63. Unique Paths II）",
+              "path": "leetcode/dp/path/ch42.md",
+              "order": 42,
+              "wordCount": 1161,
+              "readTime": 3,
+              "date": "2026-08-04",
+              "updated": "2026-08-04"
+            },
+            {
+              "title": "不同路径（62. Unique Paths）",
+              "path": "leetcode/dp/path/ch43.md",
+              "order": 43,
+              "wordCount": 911,
+              "readTime": 2,
+              "date": "2026-08-04",
+              "updated": "2026-08-04"
             }
           ]
         },
@@ -2341,6 +2359,15 @@
               "readTime": 2,
               "date": "2026-07-25",
               "updated": "2026-07-25"
+            },
+            {
+              "title": "查找缺失元素（3731. Find Missing Elements）",
+              "path": "leetcode/array/ch44.md",
+              "order": 44,
+              "wordCount": 925,
+              "readTime": 3,
+              "date": "2026-08-04",
+              "updated": "2026-08-04"
             }
           ]
         },
