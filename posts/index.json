@@ -1843,10 +1843,10 @@
               "title": "CRTP（Curiously Recurring Template Pattern，奇异递归模板模式）",
               "path": "cpp/practices/crtp_01.md",
               "order": 1,
-              "wordCount": 1488,
-              "readTime": 4,
+              "wordCount": 2025,
+              "readTime": 6,
               "date": "2026-06-15",
-              "updated": "2026-06-15"
+              "updated": "2026-08-05"
             },
             {
               "title": "基础共享内存实现",
@@ -1861,10 +1861,10 @@
               "title": "Lambda 递归：三种写法与类型擦除",
               "path": "cpp/practices/lambda_01.md",
               "order": 1,
-              "wordCount": 1371,
-              "readTime": 4,
+              "wordCount": 2505,
+              "readTime": 7,
               "date": "2026-08-03",
-              "updated": "2026-08-03"
+              "updated": "2026-08-05"
             },
             {
               "title": "POSIX 共享内存进阶：环形缓冲区（Ring Buffer）设计",
@@ -2783,6 +2783,24 @@
               "readTime": 6,
               "date": "2026-07-24",
               "updated": "2026-07-24"
+            },
+            {
+              "title": "LangChain 核心概念：它到底封装了什么",
+              "path": "ai/ai-agent/ch04.md",
+              "order": 4,
+              "wordCount": 1163,
+              "readTime": 3,
+              "date": "2026-08-05",
+              "updated": "2026-08-05"
+            },
+            {
+              "title": "LangGraph 入门：用状态图搭建 Agent",
+              "path": "ai/ai-agent/ch05.md",
+              "order": 5,
+              "wordCount": 1200,
+              "readTime": 3,
+              "date": "2026-08-05",
+              "updated": "2026-08-05"
             }
           ]
         }
