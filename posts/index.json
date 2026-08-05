@@ -1867,6 +1867,15 @@
               "updated": "2026-08-05"
             },
             {
+              "title": "对象池（Object Pool）：高频小对象的内存管理",
+              "path": "cpp/practices/object_pool_01.md",
+              "order": 1,
+              "wordCount": 1777,
+              "readTime": 5,
+              "date": "2026-08-05",
+              "updated": "2026-08-05"
+            },
+            {
               "title": "POSIX 共享内存进阶：环形缓冲区（Ring Buffer）设计",
               "path": "cpp/practices/ipc_02.md",
               "order": 2,
@@ -2149,6 +2158,15 @@
               "readTime": 2,
               "date": "2026-08-04",
               "updated": "2026-08-04"
+            },
+            {
+              "title": "网格中的最大路径得分（3742. Maximum Path Score in a Grid）",
+              "path": "leetcode/dp/path/ch46.md",
+              "order": 46,
+              "wordCount": 1741,
+              "readTime": 4,
+              "date": "2026-08-05",
+              "updated": "2026-08-05"
             }
           ]
         },
@@ -2469,22 +2487,30 @@
       ]
     },
     {
-      "id": "rpc",
-      "label": "RPC 学习",
+      "id": "backend",
+      "label": "后端学习",
       "order": 5,
-      "type": "list",
-      "articles": [
+      "type": "folder",
+      "articles": [],
+      "subs": [
         {
-          "title": "从共享内存到 RPC：先补齐 socket 这一课",
-          "path": "rpc/ch01.md",
+          "id": "rpc",
+          "label": "RPC",
           "order": 1,
-          "wordCount": 2788,
-          "readTime": 8,
-          "date": "2026-06-23",
-          "updated": "2026-06-23"
+          "type": "list",
+          "articles": [
+            {
+              "title": "从共享内存到 RPC：先补齐 socket 这一课",
+              "path": "backend/rpc/ch01.md",
+              "order": 1,
+              "wordCount": 2788,
+              "readTime": 8,
+              "date": "2026-06-23",
+              "updated": "2026-08-05"
+            }
+          ]
         }
-      ],
-      "subs": []
+      ]
     },
     {
       "id": "ai",
