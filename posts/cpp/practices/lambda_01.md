@@ -98,7 +98,97 @@ auto acc = [base](this auto&& self, int n) -> int {
 
 ---
 
-## 五、共同陷阱：递归 lambda 必须显式写返回类型
+## 五、语法解读：`this` 和 `auto` 各是什么
+
+`this auto&& self` 看起来是新语法，其实是两个老机制的组合。
+
+### 背景：成员函数一直有个"隐式对象参数"
+
+C++ 标准里，非静态成员函数在语义上一直有一个 **implicit object parameter**（隐式对象参数）——重载决议时它和其他参数一样参与匹配，只是写不出来、也没有名字，函数体内只能通过 `this` 指针间接访问：
+
+```cpp
+struct S {
+    void f(int x);  // 概念上 ≈ void f(S& 隐式对象, int x);
+};
+```
+
+C++23（P0847，deducing this）做的就是一件事：**允许把这个参数显式写出来、给它名字、让它的类型可推导**。
+
+### `this`：不是指针，是参数位置的标记
+
+这里的 `this` 不是函数体里那个指向对象的指针，而是复用的**参数位置标记**，含义是"这个参数是显式对象参数，调用成员函数时的对象实参绑定到它"：
+
+```cpp
+struct S {
+    void f(this S& self, int x);  // this 标记 self 是对象参数
+};                                // 调用 s.f(42) 时，s 绑定给 self
+```
+
+为什么选 `this` 这个词？它复刻了老的尾置限定语法的语义位置——`void f() &`、`void f() const` 里的 `&`/`const` 限定的本来就是这个隐式对象参数；现在把它提到参数列表开头用 `this` 标出来，语义一脉相承。
+
+### `auto`：普通的类型推导，成员函数变成模板
+
+`auto` 没有任何特殊化，就是函数参数里的占位类型推导（C++20 简写函数模板那套）：
+
+```cpp
+void f(this auto&& self, int x);
+// 等价于：template <typename Self> void f(Self&& self, int x);
+```
+
+`auto&&` 是转发引用，能同时推导值类别——以前要为 `&`、`const &`、`&&` 写三个重载，现在一个模板全收：
+
+```cpp
+struct S {
+    void log(this auto&& self) { /* const& / & / && 全收 */ }
+    // 不再需要：void log() &; void log() const&; void log() &&;
+};
+```
+
+所以在 lambda 上它特别合适：lambda 的闭包类型**没有名字**，你写不出 `void f(this 闭包类型& self)`；但 `operator()` 本质就是闭包的成员函数，用 `auto` 推导绕过了"类型不可命名"的问题。一句话：**`this` 回答"这个参数是谁"（调用点左边的对象），`auto` 回答"它是什么类型"（编译器推导）**。
+
+### 推导细则：`Self` 到底是什么类型
+
+推导模型：**把点号左边的对象当成第一个实参，套普通模板参数推导规则**。`auto&&` 是转发引用，老规则——左值推成左值引用，右值推成无引用的纯类型，const 保留：
+
+| 调用 | 对象表达式 | `Self` 推导为 | `decltype(self)` |
+|------|-----------|--------------|------------------|
+| `s.f()` | 左值 | `S&` | `S&` |
+| `std::as_const(s).f()` | const 左值 | `const S&` | `const S&` |
+| `S().f()` / `std::move(s).f()` | 右值 | `S` | `S&&` |
+
+lambda 场景里 `factorial(5)` 的 `factorial` 是左值，所以 `Self` 是"闭包类型&"，`self` 是闭包对象本身的引用而非副本。
+
+**递归时的稳定性**：递归调用 `self(n - 1)` 里，`self` 是有名字的变量——有名字的变量永远是左值，哪怕声明类型是 `S&&`。因此每一层递归推导出的类型都和上一层相同，整条递归链只实例化**一份** `operator()`，不会左右横跳。
+
+**按值写法 `this auto self` 的代价**：没有 `&&` 时按值推导，`Self` 脱成纯类型后拷贝进参数——递归每层复制一次闭包；在类继承场景下还有对象切片风险（见 [CRTP 篇](./crtp_01.md) 与 deducing this 的对照）。惯例就是写 `auto&&`。
+
+**不确定就让编译器说**：
+
+```cpp
+auto check = [](this auto&& self) {
+    static_assert(std::is_same_v<decltype(self), /* 预期类型 */>);
+};
+```
+
+注意 `decltype(self)` 给的是声明类型（含引用），和 `Self` 本身略有差别，必要时用 `std::remove_reference_t` 处理。
+
+### 都能在哪里使用
+
+- ✅ **任何非静态成员函数**：上面 `struct S` 的例子就是普通成员函数，不限于 lambda
+- ✅ **lambda 的 `operator()`**：递归 lambda 就是典型用法
+- ✅ **简化 CRTP**：基类不用再 `static_cast<Derived*>(this)`，直接推导：
+  ```cpp
+  template <typename Derived>
+  struct Base {
+      void interface(this auto&& self) { self.implementation(); }
+      // self 推导为 Derived，不再需要 static_cast
+  };
+  ```
+- ❌ **静态成员函数 / 自由函数**：没有隐式对象参数，`this` 标记无处安放
+
+---
+
+## 六、共同陷阱：递归 lambda 必须显式写返回类型
 
 上面的示例都写了 `-> int`，这不是风格问题——**省略会编译失败**：
 
@@ -116,7 +206,7 @@ auto func = [&](this auto&& self, int i, int j) {  // ❌ 报错
 
 ---
 
-## 六、对比与选择
+## 七、对比与选择
 
 | | `std::function` | Y-combinator | deducing this |
 |--|-----------------|--------------|---------------|

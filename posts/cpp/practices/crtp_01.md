@@ -212,15 +212,54 @@ void render(const T& obj) {
 
 ### 2. C++23 Deducing This（显式对象参数）
 
-C++23 的 `Deducing this` 可以进一步简化某些 CRTP 场景：
+C++23 的 deducing this（`this auto&& self`）直接命中 CRTP 的核心目的——"让基类知道派生类的类型"：
 
 ```cpp
-struct Widget {
-    auto operator<=>(const Widget&) = default;
+// CRTP 版：模板参数 + static_cast
+template <typename Derived>
+struct Base {
+    void tick() { static_cast<Derived*>(this)->impl(); }
+};
+
+// deducing this 版：模板参数没了，cast 没了
+struct Base {
+    void tick(this auto&& self) { self.impl(); }  // self 推导为调用点的派生类型
 };
 ```
 
-但对于需要**跨类复用代码**的场景，CRTP 仍然不可替代。
+#### 继承下的推导规则
+
+关键规则：**推导出的类型取决于调用点对象的静态类型，而不是函数定义所在的类**。
+
+```cpp
+struct A { void f(this auto&& self); };
+struct B : A {};
+struct C : B {};
+
+C c;
+c.f();  // Self = C& —— 中间层不覆盖，就一路推到最外层
+
+A& a = c;
+a.f();  // Self = A& —— 只看表达式的静态类型，与运行时类型无关
+```
+
+由此引出三个要点：
+
+- **它是编译期机制，不是多态**。显式对象参数的成员函数不能声明为 `virtual`；需要运行时多态（基类指针指向未知对象）的场合仍要用虚函数，deducing this 解决的是编译期多态——正好和 CRTP 同一赛道。
+- **按值写法有切片风险**。`this auto self`（不加 `&&`）按值推导，通过 `A&` 调用时 `Self = A`，拷贝进参数时派生部分被切掉。类体系里坚持写 `auto&&`。
+- **名字查找不变**。函数体内不带 `self.` 的成员访问仍只看定义处的作用域：`self.impl()` 可以访问派生类成员，但裸写 `impl()` 在基类作用域里找不到——`self` 是通往派生类视角的唯一通道。
+
+#### CRTP vs deducing this
+
+| | CRTP | deducing this |
+|--|------|---------------|
+| 基类拿派生类型 | 模板参数显式传入 | 调用点自动推导 |
+| 访问派生成员 | `static_cast<Derived*>(this)->impl()` | `self.impl()` |
+| 安全性 | 靠约定（可能写错 `Base<Other>`） | 编译器推导，写不错 |
+| 开销 | 零 | 零 |
+| 可用标准 | C++98 | C++23 |
+
+对于**跨类复用代码**的老代码库，CRTP 仍然不可替代（标准兼容性）；新代码且能用 C++23 时，deducing this 是更干净的表达。更多推导细节和递归 lambda 用法见 [Lambda 递归：三种写法与类型擦除](./lambda_01.md)。
 
 ---
 
