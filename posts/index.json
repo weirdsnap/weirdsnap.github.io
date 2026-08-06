@@ -2167,6 +2167,15 @@
               "readTime": 4,
               "date": "2026-08-05",
               "updated": "2026-08-05"
+            },
+            {
+              "title": "机器人能获得的最大金币数（3418. Maximum Amount of Money Robot Can Earn）",
+              "path": "leetcode/dp/path/ch48.md",
+              "order": 48,
+              "wordCount": 1986,
+              "readTime": 5,
+              "date": "2026-08-06",
+              "updated": "2026-08-06"
             }
           ]
         },
@@ -2254,6 +2263,15 @@
               "readTime": 4,
               "date": "2026-07-31",
               "updated": "2026-08-03"
+            },
+            {
+              "title": "最小整除数位积 I（3345. Smallest Divisible Digit Product I）",
+              "path": "leetcode/greedy/ch47.md",
+              "order": 47,
+              "wordCount": 905,
+              "readTime": 2,
+              "date": "2026-08-06",
+              "updated": "2026-08-06"
             }
           ]
         },
