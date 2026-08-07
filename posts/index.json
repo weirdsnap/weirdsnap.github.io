@@ -1686,7 +1686,7 @@
               "wordCount": 1762,
               "readTime": 5,
               "date": "2026-06-05",
-              "updated": "2026-06-12"
+              "updated": "2026-08-07"
             },
             {
               "title": "placement new 与显式析构",
@@ -1864,7 +1864,7 @@
               "wordCount": 2534,
               "readTime": 7,
               "date": "2026-08-03",
-              "updated": "2026-08-05"
+              "updated": "2026-08-07"
             },
             {
               "title": "对象池（Object Pool）：高频小对象的内存管理",
@@ -2184,7 +2184,7 @@
               "wordCount": 2331,
               "readTime": 6,
               "date": "2026-08-05",
-              "updated": "2026-08-05"
+              "updated": "2026-08-07"
             },
             {
               "title": "机器人能获得的最大金币数（3418. Maximum Amount of Money Robot Can Earn）",
