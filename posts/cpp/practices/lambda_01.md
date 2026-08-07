@@ -224,3 +224,5 @@ auto func = [&](this auto&& self, int i, int j) {  // ❌ 报错
 ## 相关阅读
 
 - Lambda 捕获的各种方式与陷阱：[ch01/17 Lambda 捕获](../ch01/17.md)
+- `std::function` 与 Lambda 的类型鸿沟（推导为什么失败）：[practices/std_function_01](./std_function_01.md)
+- `std::type_identity`：修复推导失败的工具：[practices/type_identity_01](./type_identity_01.md)
