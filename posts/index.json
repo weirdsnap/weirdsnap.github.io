@@ -1683,8 +1683,8 @@
               "title": "拷贝并交换惯用法（Copy-and-Swap）",
               "path": "cpp/ch09/01.md",
               "order": 1,
-              "wordCount": 145,
-              "readTime": 1,
+              "wordCount": 1762,
+              "readTime": 5,
               "date": "2026-06-05",
               "updated": "2026-06-12"
             },
@@ -1861,7 +1861,7 @@
               "title": "Lambda 递归：三种写法与类型擦除",
               "path": "cpp/practices/lambda_01.md",
               "order": 1,
-              "wordCount": 2505,
+              "wordCount": 2534,
               "readTime": 7,
               "date": "2026-08-03",
               "updated": "2026-08-05"
@@ -1874,6 +1874,24 @@
               "readTime": 5,
               "date": "2026-08-05",
               "updated": "2026-08-05"
+            },
+            {
+              "title": "`std::function` 与 Lambda：两种\"可调用对象\"的类型鸿沟",
+              "path": "cpp/practices/std_function_01.md",
+              "order": 1,
+              "wordCount": 1578,
+              "readTime": 5,
+              "date": "2026-08-07",
+              "updated": "2026-08-07"
+            },
+            {
+              "title": "`std::type_identity`：给模板推导踩刹车的工具",
+              "path": "cpp/practices/type_identity_01.md",
+              "order": 1,
+              "wordCount": 1523,
+              "readTime": 4,
+              "date": "2026-08-07",
+              "updated": "2026-08-07"
             },
             {
               "title": "POSIX 共享内存进阶：环形缓冲区（Ring Buffer）设计",
@@ -2163,8 +2181,8 @@
               "title": "网格中的最大路径得分（3742. Maximum Path Score in a Grid）",
               "path": "leetcode/dp/path/ch46.md",
               "order": 46,
-              "wordCount": 1741,
-              "readTime": 4,
+              "wordCount": 2331,
+              "readTime": 6,
               "date": "2026-08-05",
               "updated": "2026-08-05"
             },
