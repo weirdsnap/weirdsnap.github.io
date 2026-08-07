@@ -2845,6 +2845,42 @@
               "readTime": 3,
               "date": "2026-08-05",
               "updated": "2026-08-05"
+            },
+            {
+              "title": "RAG 检索的两种流派：BM25 与向量检索",
+              "path": "ai/ai-agent/ch06.md",
+              "order": 6,
+              "wordCount": 1380,
+              "readTime": 4,
+              "date": "2026-08-07",
+              "updated": "2026-08-07"
+            },
+            {
+              "title": "混合检索：BM25 和向量怎么合在一起",
+              "path": "ai/ai-agent/ch07.md",
+              "order": 7,
+              "wordCount": 1247,
+              "readTime": 4,
+              "date": "2026-08-07",
+              "updated": "2026-08-07"
+            },
+            {
+              "title": "多阶段 RAG：从 Naive 到 Modular 的流水线",
+              "path": "ai/ai-agent/ch08.md",
+              "order": 8,
+              "wordCount": 1272,
+              "readTime": 4,
+              "date": "2026-08-07",
+              "updated": "2026-08-07"
+            },
+            {
+              "title": "复杂文档进 RAG：PDF、扫描件、OCR 与表格",
+              "path": "ai/ai-agent/ch09.md",
+              "order": 9,
+              "wordCount": 1571,
+              "readTime": 5,
+              "date": "2026-08-07",
+              "updated": "2026-08-07"
             }
           ]
         }
