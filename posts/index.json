@@ -2233,7 +2233,7 @@
               "title": "石子游戏（877. Stone Game）",
               "path": "leetcode/dp/interval/ch57.md",
               "order": 57,
-              "wordCount": 1367,
+              "wordCount": 1357,
               "readTime": 4,
               "date": "2026-08-17",
               "updated": "2026-08-17"
@@ -2244,6 +2244,33 @@
               "order": 58,
               "wordCount": 1155,
               "readTime": 3,
+              "date": "2026-08-17",
+              "updated": "2026-08-17"
+            },
+            {
+              "title": "石子游戏 III（1406. Stone Game III）",
+              "path": "leetcode/dp/interval/ch59.md",
+              "order": 59,
+              "wordCount": 1904,
+              "readTime": 5,
+              "date": "2026-08-17",
+              "updated": "2026-08-17"
+            },
+            {
+              "title": "石子游戏 IV（1510. Stone Game IV）",
+              "path": "leetcode/dp/interval/ch60.md",
+              "order": 60,
+              "wordCount": 1173,
+              "readTime": 3,
+              "date": "2026-08-17",
+              "updated": "2026-08-17"
+            },
+            {
+              "title": "石子游戏 V（1563. Stone Game V）",
+              "path": "leetcode/dp/interval/ch61.md",
+              "order": 61,
+              "wordCount": 2218,
+              "readTime": 6,
               "date": "2026-08-17",
               "updated": "2026-08-17"
             }
