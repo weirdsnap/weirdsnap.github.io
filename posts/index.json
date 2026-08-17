@@ -771,10 +771,10 @@
               "title": "移动语义",
               "path": "cpp/ch03/08.md",
               "order": 8,
-              "wordCount": 235,
+              "wordCount": 424,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-06-25"
+              "updated": "2026-08-17"
             },
             {
               "title": "RVO 与 NRVO",
@@ -816,10 +816,10 @@
               "title": "特殊成员函数的自动生成规则",
               "path": "cpp/ch03/13.md",
               "order": 13,
-              "wordCount": 365,
+              "wordCount": 477,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-06-25"
+              "updated": "2026-08-17"
             },
             {
               "title": "用户声明拷贝构造抑制移动（基于题目）",
@@ -852,10 +852,10 @@
               "title": "`std::exit` 不析构局部对象",
               "path": "cpp/ch03/17.md",
               "order": 17,
-              "wordCount": 408,
-              "readTime": 1,
+              "wordCount": 796,
+              "readTime": 2,
               "date": "2026-07-28",
-              "updated": "2026-07-28"
+              "updated": "2026-08-17"
             }
           ]
         },
@@ -1986,8 +1986,8 @@
               "title": "最大子数组和（53. Maximum Subarray）",
               "path": "leetcode/dp/linear/ch19.md",
               "order": 19,
-              "wordCount": 1117,
-              "readTime": 3,
+              "wordCount": 1575,
+              "readTime": 4,
               "date": "2026-07-17",
               "updated": "2026-07-28"
             },
@@ -2224,10 +2224,28 @@
               "title": "预测赢家（486. Predict the Winner）",
               "path": "leetcode/dp/interval/ch41.md",
               "order": 41,
-              "wordCount": 1600,
+              "wordCount": 1614,
               "readTime": 4,
               "date": "2026-08-03",
-              "updated": "2026-08-03"
+              "updated": "2026-08-17"
+            },
+            {
+              "title": "石子游戏（877. Stone Game）",
+              "path": "leetcode/dp/interval/ch57.md",
+              "order": 57,
+              "wordCount": 1367,
+              "readTime": 4,
+              "date": "2026-08-17",
+              "updated": "2026-08-17"
+            },
+            {
+              "title": "石子游戏 II（1140. Stone Game II）",
+              "path": "leetcode/dp/interval/ch58.md",
+              "order": 58,
+              "wordCount": 1155,
+              "readTime": 3,
+              "date": "2026-08-17",
+              "updated": "2026-08-17"
             }
           ]
         },
@@ -2290,6 +2308,15 @@
               "readTime": 2,
               "date": "2026-08-06",
               "updated": "2026-08-06"
+            },
+            {
+              "title": "数组中的最大距离（624. Maximum Distance in Arrays）",
+              "path": "leetcode/greedy/ch55.md",
+              "order": 55,
+              "wordCount": 1190,
+              "readTime": 3,
+              "date": "2026-08-17",
+              "updated": "2026-08-17"
             }
           ]
         },
@@ -2396,6 +2423,15 @@
               "readTime": 5,
               "date": "2026-07-29",
               "updated": "2026-07-29"
+            },
+            {
+              "title": "每个字符最多出现两次的最长子字符串（3090. Maximum Length Substring With Two Occurrences）",
+              "path": "leetcode/string/ch51.md",
+              "order": 51,
+              "wordCount": 880,
+              "readTime": 3,
+              "date": "2026-08-17",
+              "updated": "2026-08-17"
             }
           ]
         },
@@ -2431,6 +2467,24 @@
               "readTime": 3,
               "date": "2026-08-04",
               "updated": "2026-08-04"
+            },
+            {
+              "title": "大于等于顺序前缀和的最小缺失整数（2996. Smallest Missing Integer Greater Than Sequential Prefix Sum）",
+              "path": "leetcode/array/ch49.md",
+              "order": 49,
+              "wordCount": 919,
+              "readTime": 3,
+              "date": "2026-08-17",
+              "updated": "2026-08-17"
+            },
+            {
+              "title": "每个元素最多出现 K 次的最长子数组（2958. Length of Longest Subarray With at Most K Frequency）",
+              "path": "leetcode/array/ch53.md",
+              "order": 53,
+              "wordCount": 949,
+              "readTime": 3,
+              "date": "2026-08-17",
+              "updated": "2026-08-17"
             }
           ]
         },
@@ -2448,6 +2502,15 @@
               "readTime": 2,
               "date": "2026-07-17",
               "updated": "2026-07-17"
+            },
+            {
+              "title": "三个数的最大乘积（628. Maximum Product of Three Numbers）",
+              "path": "leetcode/sorting/ch54.md",
+              "order": 54,
+              "wordCount": 1037,
+              "readTime": 3,
+              "date": "2026-08-17",
+              "updated": "2026-08-17"
             }
           ]
         },
@@ -2517,6 +2580,49 @@
               "readTime": 4,
               "date": "2026-07-24",
               "updated": "2026-07-24"
+            }
+          ]
+        },
+        {
+          "id": "segment-tree",
+          "label": "线段树与树状数组",
+          "order": 15,
+          "type": "list",
+          "articles": [
+            {
+              "title": "区域和检索 - 数组可修改（307. Range Sum Query - Mutable）",
+              "path": "leetcode/segment-tree/ch50.md",
+              "order": 50,
+              "wordCount": 1514,
+              "readTime": 4,
+              "date": "2026-08-17",
+              "updated": "2026-08-17"
+            },
+            {
+              "title": "由单个字符重复的最长子字符串（2213. Longest Substring of One Repeating Character）",
+              "path": "leetcode/segment-tree/ch52.md",
+              "order": 52,
+              "wordCount": 1560,
+              "readTime": 4,
+              "date": "2026-08-17",
+              "updated": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "id": "bit",
+          "label": "位运算",
+          "order": 16,
+          "type": "list",
+          "articles": [
+            {
+              "title": "唯一异或三元组 I（3513. Number of Unique XOR Triplets I）",
+              "path": "leetcode/bit/ch56.md",
+              "order": 56,
+              "wordCount": 1197,
+              "readTime": 3,
+              "date": "2026-08-17",
+              "updated": "2026-08-17"
             }
           ]
         }
