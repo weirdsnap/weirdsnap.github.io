@@ -2513,6 +2513,15 @@
               "readTime": 3,
               "date": "2026-08-26",
               "updated": "2026-08-26"
+            },
+            {
+              "title": "至多包含 K 个不同字符的最长子串（340. Longest Substring with At Most K Distinct Characters）",
+              "path": "leetcode/string/ch69.md",
+              "order": 69,
+              "wordCount": 972,
+              "readTime": 3,
+              "date": "2026-08-26",
+              "updated": "2026-08-26"
             }
           ]
         },
