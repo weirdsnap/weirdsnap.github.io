@@ -2504,6 +2504,15 @@
               "readTime": 4,
               "date": "2026-08-25",
               "updated": "2026-08-25"
+            },
+            {
+              "title": "最短且字典序最小的美丽字符串（2904. Shortest and Lexicographically Smallest Beautiful String）",
+              "path": "leetcode/string/ch68.md",
+              "order": 68,
+              "wordCount": 1217,
+              "readTime": 3,
+              "date": "2026-08-26",
+              "updated": "2026-08-26"
             }
           ]
         },
