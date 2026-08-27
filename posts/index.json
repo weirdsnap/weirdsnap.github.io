@@ -2733,6 +2733,23 @@
               "updated": "2026-08-25"
             }
           ]
+        },
+        {
+          "id": "sliding-window",
+          "label": "滑动窗口",
+          "order": 17,
+          "type": "list",
+          "articles": [
+            {
+              "title": "滑动窗口：识别信号、代码骨架与题目地图",
+              "path": "leetcode/sliding-window/template.md",
+              "order": 999,
+              "wordCount": 1065,
+              "readTime": 3,
+              "date": "2026-08-27",
+              "updated": "2026-08-27"
+            }
+          ]
         }
       ]
     },
