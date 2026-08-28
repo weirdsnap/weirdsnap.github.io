@@ -2281,7 +2281,7 @@
               "wordCount": 2709,
               "readTime": 7,
               "date": "2026-08-17",
-              "updated": "2026-08-25"
+              "updated": "2026-08-28"
             },
             {
               "title": "石子游戏 VII（1690. Stone Game VII）",
@@ -2486,42 +2486,6 @@
               "readTime": 5,
               "date": "2026-07-29",
               "updated": "2026-08-25"
-            },
-            {
-              "title": "每个字符最多出现两次的最长子字符串（3090. Maximum Length Substring With Two Occurrences）",
-              "path": "leetcode/string/ch51.md",
-              "order": 51,
-              "wordCount": 880,
-              "readTime": 3,
-              "date": "2026-08-17",
-              "updated": "2026-08-17"
-            },
-            {
-              "title": "至多包含两个不同字符的最长子串（159. Longest Substring with At Most Two Distinct Characters）",
-              "path": "leetcode/string/ch67.md",
-              "order": 67,
-              "wordCount": 1365,
-              "readTime": 4,
-              "date": "2026-08-25",
-              "updated": "2026-08-25"
-            },
-            {
-              "title": "最短且字典序最小的美丽字符串（2904. Shortest and Lexicographically Smallest Beautiful String）",
-              "path": "leetcode/string/ch68.md",
-              "order": 68,
-              "wordCount": 1217,
-              "readTime": 3,
-              "date": "2026-08-26",
-              "updated": "2026-08-26"
-            },
-            {
-              "title": "至多包含 K 个不同字符的最长子串（340. Longest Substring with At Most K Distinct Characters）",
-              "path": "leetcode/string/ch69.md",
-              "order": 69,
-              "wordCount": 972,
-              "readTime": 3,
-              "date": "2026-08-26",
-              "updated": "2026-08-26"
             }
           ]
         },
@@ -2563,15 +2527,6 @@
               "path": "leetcode/array/ch49.md",
               "order": 49,
               "wordCount": 919,
-              "readTime": 3,
-              "date": "2026-08-17",
-              "updated": "2026-08-17"
-            },
-            {
-              "title": "每个元素最多出现 K 次的最长子数组（2958. Length of Longest Subarray With at Most K Frequency）",
-              "path": "leetcode/array/ch53.md",
-              "order": 53,
-              "wordCount": 949,
               "readTime": 3,
               "date": "2026-08-17",
               "updated": "2026-08-17"
@@ -2741,13 +2696,58 @@
           "type": "list",
           "articles": [
             {
+              "title": "每个字符最多出现两次的最长子字符串（3090. Maximum Length Substring With Two Occurrences）",
+              "path": "leetcode/sliding-window/ch51.md",
+              "order": 51,
+              "wordCount": 880,
+              "readTime": 3,
+              "date": "2026-08-17",
+              "updated": "2026-08-28"
+            },
+            {
+              "title": "每个元素最多出现 K 次的最长子数组（2958. Length of Longest Subarray With at Most K Frequency）",
+              "path": "leetcode/sliding-window/ch53.md",
+              "order": 53,
+              "wordCount": 949,
+              "readTime": 3,
+              "date": "2026-08-17",
+              "updated": "2026-08-28"
+            },
+            {
+              "title": "至多包含两个不同字符的最长子串（159. Longest Substring with At Most Two Distinct Characters）",
+              "path": "leetcode/sliding-window/ch67.md",
+              "order": 67,
+              "wordCount": 1365,
+              "readTime": 4,
+              "date": "2026-08-25",
+              "updated": "2026-08-28"
+            },
+            {
+              "title": "最短且字典序最小的美丽字符串（2904. Shortest and Lexicographically Smallest Beautiful String）",
+              "path": "leetcode/sliding-window/ch68.md",
+              "order": 68,
+              "wordCount": 1217,
+              "readTime": 3,
+              "date": "2026-08-26",
+              "updated": "2026-08-28"
+            },
+            {
+              "title": "至多包含 K 个不同字符的最长子串（340. Longest Substring with At Most K Distinct Characters）",
+              "path": "leetcode/sliding-window/ch69.md",
+              "order": 69,
+              "wordCount": 972,
+              "readTime": 3,
+              "date": "2026-08-26",
+              "updated": "2026-08-28"
+            },
+            {
               "title": "滑动窗口：识别信号、代码骨架与题目地图",
               "path": "leetcode/sliding-window/template.md",
               "order": 999,
               "wordCount": 1065,
               "readTime": 3,
               "date": "2026-08-27",
-              "updated": "2026-08-27"
+              "updated": "2026-08-28"
             }
           ]
         }
