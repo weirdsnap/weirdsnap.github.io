@@ -58,8 +58,9 @@ return result;
 | [ch51](./blog.html?post=leetcode/sliding-window/ch51.md) | 3090 每字符最多两次 | 频次 ≤ 2 | 判据换成 `cnt[c] > 2`，不用 `size()` |
 | [ch53](./blog.html?post=leetcode/sliding-window/ch53.md) | 2958 每元素最多 K 次 | 频次 ≤ k | 判据换成 `cnt[x] > k`，计数换 `unordered_map` |
 | [ch68](./blog.html?post=leetcode/sliding-window/ch68.md) | 2904 最短美丽字符串 | `1` 的个数 = k | 最短型：达标时更新 + 字典序 tie-break |
+| [ch70](./blog.html?post=leetcode/sliding-window/ch70.md) | 487 翻转一个 0 的最长连续 1 | `0` 的个数 ≤ 1 | 计数只用一个 `zeros` 变量；附 O(1) 段追踪特化版 |
 
-待写候选：3（无重复字符）、209（长度最小子数组，最短型模板）、424（替换次数 ≤ k）、438（异位词，定长窗口）、992（K 个不同整数子数组，计数型 + exactly 转化）、76（最小覆盖子串，最短型天花板）。
+待写候选：3（无重复字符）、209（长度最小子数组，最短型模板）、424（替换次数 ≤ k）、1004（翻转 k 个 0，487 的 K 泛化）、438（异位词，定长窗口）、992（K 个不同整数子数组，计数型 + exactly 转化）、76（最小覆盖子串，最短型天花板）。
 
 ---
 
