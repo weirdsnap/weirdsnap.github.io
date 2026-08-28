@@ -2486,6 +2486,15 @@
               "readTime": 5,
               "date": "2026-07-29",
               "updated": "2026-08-25"
+            },
+            {
+              "title": "大于 target 的最小字典序排列（3720. Lexicographically Smallest Permutation Greater Than Target）",
+              "path": "leetcode/string/ch71.md",
+              "order": 71,
+              "wordCount": 1746,
+              "readTime": 5,
+              "date": "2026-08-28",
+              "updated": "2026-08-28"
             }
           ]
         },
@@ -2660,6 +2669,15 @@
               "readTime": 4,
               "date": "2026-08-17",
               "updated": "2026-08-17"
+            },
+            {
+              "title": "线段树：识别信号、代码骨架与节点设计三段论",
+              "path": "leetcode/segment-tree/template.md",
+              "order": 999,
+              "wordCount": 1159,
+              "readTime": 3,
+              "date": "2026-08-28",
+              "updated": "2026-08-28"
             }
           ]
         },
@@ -2741,10 +2759,19 @@
               "updated": "2026-08-28"
             },
             {
+              "title": "最大连续 1 的个数 II（487. Max Consecutive Ones II）",
+              "path": "leetcode/sliding-window/ch70.md",
+              "order": 70,
+              "wordCount": 1030,
+              "readTime": 3,
+              "date": "2026-08-28",
+              "updated": "2026-08-28"
+            },
+            {
               "title": "滑动窗口：识别信号、代码骨架与题目地图",
               "path": "leetcode/sliding-window/template.md",
               "order": 999,
-              "wordCount": 1065,
+              "wordCount": 1124,
               "readTime": 3,
               "date": "2026-08-27",
               "updated": "2026-08-28"
