@@ -2433,6 +2433,15 @@
               "readTime": 4,
               "date": "2026-08-05",
               "updated": "2026-08-05"
+            },
+            {
+              "title": "打扫教室的最少移动次数（3568. Minimum Moves to Clean the Classroom）",
+              "path": "leetcode/graph/ch79.md",
+              "order": 79,
+              "wordCount": 1606,
+              "readTime": 4,
+              "date": "2026-09-03",
+              "updated": "2026-09-03"
             }
           ]
         },
@@ -2504,6 +2513,51 @@
               "readTime": 4,
               "date": "2026-08-28",
               "updated": "2026-08-28"
+            },
+            {
+              "title": "回文排列（266. Palindrome Permutation）",
+              "path": "leetcode/string/ch77.md",
+              "order": 77,
+              "wordCount": 949,
+              "readTime": 3,
+              "date": "2026-09-03",
+              "updated": "2026-09-03"
+            },
+            {
+              "title": "句子相似性（734. Sentence Similarity）",
+              "path": "leetcode/string/ch78.md",
+              "order": 78,
+              "wordCount": 1282,
+              "readTime": 4,
+              "date": "2026-09-03",
+              "updated": "2026-09-03"
+            },
+            {
+              "title": "单行键盘（1165. Single-Row Keyboard）",
+              "path": "leetcode/string/ch80.md",
+              "order": 80,
+              "wordCount": 1033,
+              "readTime": 3,
+              "date": "2026-09-03",
+              "updated": "2026-09-03"
+            },
+            {
+              "title": "有效的单词方块（422. Valid Word Square）",
+              "path": "leetcode/string/ch81.md",
+              "order": 81,
+              "wordCount": 1088,
+              "readTime": 3,
+              "date": "2026-09-03",
+              "updated": "2026-09-03"
+            },
+            {
+              "title": "给字符串加粗标签（616. Add Bold Tag in String）",
+              "path": "leetcode/string/ch86.md",
+              "order": 86,
+              "wordCount": 1492,
+              "readTime": 4,
+              "date": "2026-09-03",
+              "updated": "2026-09-03"
             }
           ]
         },
@@ -2557,6 +2611,42 @@
               "readTime": 3,
               "date": "2026-08-25",
               "updated": "2026-08-25"
+            },
+            {
+              "title": "找出变位映射（760. Find Anagram Mappings）",
+              "path": "leetcode/array/ch74.md",
+              "order": 74,
+              "wordCount": 1105,
+              "readTime": 3,
+              "date": "2026-09-03",
+              "updated": "2026-09-03"
+            },
+            {
+              "title": "删除最小值和最大值的最少次数（2091. Removing Minimum and Maximum From Array）",
+              "path": "leetcode/array/ch76.md",
+              "order": 76,
+              "wordCount": 1299,
+              "readTime": 4,
+              "date": "2026-09-03",
+              "updated": "2026-09-03"
+            },
+            {
+              "title": "孤独像素 I（531. Lonely Pixel I）",
+              "path": "leetcode/array/ch82.md",
+              "order": 82,
+              "wordCount": 940,
+              "readTime": 3,
+              "date": "2026-09-03",
+              "updated": "2026-09-03"
+            },
+            {
+              "title": "缺失的区间（163. Missing Ranges）",
+              "path": "leetcode/array/ch83.md",
+              "order": 83,
+              "wordCount": 1095,
+              "readTime": 3,
+              "date": "2026-09-03",
+              "updated": "2026-09-03"
             }
           ]
         },
@@ -2583,6 +2673,24 @@
               "readTime": 3,
               "date": "2026-08-17",
               "updated": "2026-08-17"
+            },
+            {
+              "title": "会议室（252. Meeting Rooms）",
+              "path": "leetcode/sorting/ch84.md",
+              "order": 84,
+              "wordCount": 1062,
+              "readTime": 3,
+              "date": "2026-09-03",
+              "updated": "2026-09-03"
+            },
+            {
+              "title": "会议室 II（253. Meeting Rooms II）",
+              "path": "leetcode/sorting/ch85.md",
+              "order": 85,
+              "wordCount": 1179,
+              "readTime": 4,
+              "date": "2026-09-03",
+              "updated": "2026-09-03"
             }
           ]
         },
@@ -2626,6 +2734,15 @@
               "readTime": 2,
               "date": "2026-06-15",
               "updated": "2026-07-24"
+            },
+            {
+              "title": "找出临界点之间的最小和最大距离（2058. Find the Minimum and Maximum Number of Nodes Between Critical Points）",
+              "path": "leetcode/linked-list/ch75.md",
+              "order": 75,
+              "wordCount": 992,
+              "readTime": 3,
+              "date": "2026-09-03",
+              "updated": "2026-09-03"
             }
           ]
         },
