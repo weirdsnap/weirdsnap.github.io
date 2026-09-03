@@ -1,7 +1,7 @@
 > **标签**：线段树、模板、分治
 # 线段树：识别信号、代码骨架与节点设计三段论
 
-这不是题解，是这个分类下所有题解的公共骨架。线段树的难点从来不在骨架（骨架半小时就能背熟），而在**节点设计**——本文的重点也在那。
+这不是题解，是这个分类下所有题解的公共骨架。线段树的难点从来不在骨架，而在**节点设计**——本文的重点也在那。
 
 ---
 
@@ -64,7 +64,7 @@ auto query = [&](this auto&& self, int pos, int l, int r, int ql, int qr) -> Nod
 | [ch19](./blog.html?post=leetcode/dp/linear/ch19.md)（变体章节） | 53 最大子数组和 | `pre / suf / sum / best` 四元组 | 只查根（整体信息） |
 | [ch52](./blog.html?post=leetcode/segment-tree/ch52.md) | 2213 单字符最长重复 | `pre / suf / best / len` + 首尾字符 | 只查根（整体信息） |
 
-注：53 的主线解法是 Kadane（DP），文章在 [dp/linear/ch19](./blog.html?post=leetcode/dp/linear/ch19.md)，线段树解法作为变体章节寄生在那篇里——跨分类的解法不复制，只在这里登记入口。
+注：53 的主线解法是 Kadane（DP），文章在 [dp/linear/ch19](./blog.html?post=leetcode/dp/linear/ch19.md)，线段树解法作为变体章节寄生在那篇里。跨分类的解法不复制，只在这里登记入口。
 
 ## 两种查询形态
 
@@ -82,5 +82,5 @@ auto query = [&](this auto&& self, int pos, int l, int r, int ql, int qr) -> Nod
 
 ## 延伸
 
-- 待写候选：315（树状数组入门，BIT 是线段树的轻量平替——只支持"前缀型"查询但代码量减半）、2407（线段树优化 DP）、673（LIS 计数）。
+- 待写候选：315（树状数组入门，BIT 是线段树的轻量平替，只支持"前缀型"查询但代码量减半）、2407（线段树优化 DP）、673（LIS 计数）。
 - 递归 lambda 的 `this auto&& self` 写法：[ch41](./blog.html?post=leetcode/dp/interval/ch41.md) 里有专门说明。
