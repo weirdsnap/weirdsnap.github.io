@@ -2233,64 +2233,73 @@
               "title": "预测赢家（486. Predict the Winner）",
               "path": "leetcode/dp/interval/ch41.md",
               "order": 41,
-              "wordCount": 1649,
-              "readTime": 4,
+              "wordCount": 1672,
+              "readTime": 5,
               "date": "2026-08-03",
-              "updated": "2026-08-25"
+              "updated": "2026-09-04"
             },
             {
               "title": "石子游戏（877. Stone Game）",
               "path": "leetcode/dp/interval/ch57.md",
               "order": 57,
-              "wordCount": 1357,
+              "wordCount": 1382,
               "readTime": 4,
               "date": "2026-08-17",
-              "updated": "2026-08-17"
+              "updated": "2026-09-04"
             },
             {
               "title": "石子游戏 II（1140. Stone Game II）",
               "path": "leetcode/dp/interval/ch58.md",
               "order": 58,
-              "wordCount": 1155,
+              "wordCount": 1176,
               "readTime": 3,
               "date": "2026-08-17",
-              "updated": "2026-08-17"
+              "updated": "2026-09-04"
             },
             {
               "title": "石子游戏 III（1406. Stone Game III）",
               "path": "leetcode/dp/interval/ch59.md",
               "order": 59,
-              "wordCount": 1904,
+              "wordCount": 1923,
               "readTime": 5,
               "date": "2026-08-17",
-              "updated": "2026-08-17"
+              "updated": "2026-09-04"
             },
             {
               "title": "石子游戏 IV（1510. Stone Game IV）",
               "path": "leetcode/dp/interval/ch60.md",
               "order": 60,
-              "wordCount": 1179,
+              "wordCount": 1195,
               "readTime": 3,
               "date": "2026-08-17",
-              "updated": "2026-08-25"
+              "updated": "2026-09-04"
             },
             {
               "title": "石子游戏 V（1563. Stone Game V）",
               "path": "leetcode/dp/interval/ch61.md",
               "order": 61,
-              "wordCount": 2709,
+              "wordCount": 2730,
               "readTime": 7,
               "date": "2026-08-17",
-              "updated": "2026-08-28"
+              "updated": "2026-09-04"
             },
             {
               "title": "石子游戏 VII（1690. Stone Game VII）",
               "path": "leetcode/dp/interval/ch63.md",
               "order": 63,
-              "wordCount": 1125,
+              "wordCount": 1144,
               "readTime": 3,
               "date": "2026-08-25",
-              "updated": "2026-08-25"
+              "updated": "2026-09-04"
+            },
+            {
+              "title": "博弈题决策清单：四步分流与石子游戏地图",
+              "path": "leetcode/dp/interval/template.md",
+              "order": 999,
+              "wordCount": 1364,
+              "readTime": 4,
+              "date": "2026-09-04",
+              "updated": "2026-09-04"
             }
           ]
         },
@@ -2367,19 +2376,19 @@
               "title": "石子游戏 VI（1686. Stone Game VI）",
               "path": "leetcode/greedy/ch62.md",
               "order": 62,
-              "wordCount": 964,
+              "wordCount": 982,
               "readTime": 3,
               "date": "2026-08-25",
-              "updated": "2026-08-25"
+              "updated": "2026-09-04"
             },
             {
               "title": "求和游戏（1927. Sum Game）",
               "path": "leetcode/greedy/ch64.md",
               "order": 64,
-              "wordCount": 1240,
+              "wordCount": 1259,
               "readTime": 3,
               "date": "2026-08-25",
-              "updated": "2026-08-25"
+              "updated": "2026-09-04"
             }
           ]
         },
@@ -2482,19 +2491,19 @@
               "title": "最小回文重排 I（3517. Smallest Palindromic Rearrangement I）",
               "path": "leetcode/string/ch33.md",
               "order": 33,
-              "wordCount": 1344,
+              "wordCount": 1374,
               "readTime": 4,
               "date": "2026-07-28",
-              "updated": "2026-08-25"
+              "updated": "2026-09-04"
             },
             {
               "title": "最小回文重排 II（3518. Smallest Palindromic Rearrangement II）",
               "path": "leetcode/string/ch39.md",
               "order": 39,
-              "wordCount": 1922,
+              "wordCount": 1956,
               "readTime": 5,
               "date": "2026-07-29",
-              "updated": "2026-08-25"
+              "updated": "2026-09-04"
             },
             {
               "title": "大于 target 的最小字典序排列（3720. Lexicographically Smallest Permutation Greater Than Target）",
@@ -2509,19 +2518,19 @@
               "title": "大于 target 的最小字典序回文排列（3734. Lexicographically Smallest Palindromic Permutation Greater Than Target）",
               "path": "leetcode/string/ch72.md",
               "order": 72,
-              "wordCount": 1472,
+              "wordCount": 1505,
               "readTime": 4,
               "date": "2026-08-28",
-              "updated": "2026-08-28"
+              "updated": "2026-09-04"
             },
             {
               "title": "回文排列（266. Palindrome Permutation）",
               "path": "leetcode/string/ch77.md",
               "order": 77,
-              "wordCount": 949,
+              "wordCount": 979,
               "readTime": 3,
               "date": "2026-09-03",
-              "updated": "2026-09-03"
+              "updated": "2026-09-04"
             },
             {
               "title": "句子相似性（734. Sentence Similarity）",
@@ -2558,6 +2567,15 @@
               "readTime": 4,
               "date": "2026-09-03",
               "updated": "2026-09-03"
+            },
+            {
+              "title": "回文重排家族：识别信号、四步流水线与题目地图",
+              "path": "leetcode/string/template.md",
+              "order": 999,
+              "wordCount": 1188,
+              "readTime": 3,
+              "date": "2026-09-04",
+              "updated": "2026-09-04"
             }
           ]
         },
@@ -2742,6 +2760,15 @@
               "order": 89,
               "wordCount": 1085,
               "readTime": 3,
+              "date": "2026-09-04",
+              "updated": "2026-09-04"
+            },
+            {
+              "title": "寻找排列（484. Find Permutation）",
+              "path": "leetcode/stack/ch90.md",
+              "order": 90,
+              "wordCount": 1535,
+              "readTime": 4,
               "date": "2026-09-04",
               "updated": "2026-09-04"
             }
