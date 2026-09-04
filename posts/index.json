@@ -2647,6 +2647,24 @@
               "readTime": 3,
               "date": "2026-09-03",
               "updated": "2026-09-03"
+            },
+            {
+              "title": "构造统一奇偶数组 I（3875. Construct Uniform Parity Array I）",
+              "path": "leetcode/array/ch87.md",
+              "order": 87,
+              "wordCount": 770,
+              "readTime": 2,
+              "date": "2026-09-04",
+              "updated": "2026-09-04"
+            },
+            {
+              "title": "构造统一奇偶数组 II（3876. Construct Uniform Parity Array II）",
+              "path": "leetcode/array/ch88.md",
+              "order": 88,
+              "wordCount": 1424,
+              "readTime": 4,
+              "date": "2026-09-04",
+              "updated": "2026-09-04"
             }
           ]
         },
@@ -2717,6 +2735,15 @@
               "readTime": 3,
               "date": "2026-07-24",
               "updated": "2026-07-24"
+            },
+            {
+              "title": "三元表达式解析器（439. Ternary Expression Parser）",
+              "path": "leetcode/stack/ch89.md",
+              "order": 89,
+              "wordCount": 1085,
+              "readTime": 3,
+              "date": "2026-09-04",
+              "updated": "2026-09-04"
             }
           ]
         },
@@ -2803,7 +2830,7 @@
               "wordCount": 1150,
               "readTime": 3,
               "date": "2026-08-28",
-              "updated": "2026-08-28"
+              "updated": "2026-09-03"
             }
           ]
         },
@@ -2900,7 +2927,7 @@
               "wordCount": 1350,
               "readTime": 4,
               "date": "2026-08-28",
-              "updated": "2026-08-28"
+              "updated": "2026-09-03"
             },
             {
               "title": "滑动窗口：识别信号、代码骨架与题目地图",
