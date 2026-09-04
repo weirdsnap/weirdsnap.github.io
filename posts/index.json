@@ -2225,7 +2225,7 @@
         },
         {
           "id": "interval",
-          "label": "区间 DP",
+          "label": "区间 DP 与博弈",
           "order": 6,
           "type": "list",
           "articles": [
@@ -2490,15 +2490,6 @@
               "updated": "2026-08-25"
             },
             {
-              "title": "计算器（面试题 16.26. Calculator LCCI）",
-              "path": "leetcode/string/ch25.md",
-              "order": 25,
-              "wordCount": 958,
-              "readTime": 3,
-              "date": "2026-07-24",
-              "updated": "2026-07-24"
-            },
-            {
               "title": "最小回文重排 I（3517. Smallest Palindromic Rearrangement I）",
               "path": "leetcode/string/ch33.md",
               "order": 33,
@@ -2595,15 +2586,6 @@
               "readTime": 3,
               "date": "2026-06-17",
               "updated": "2026-07-23"
-            },
-            {
-              "title": "唯一异或三元组（3514. Unique XOR Triplets）",
-              "path": "leetcode/array/ch29.md",
-              "order": 29,
-              "wordCount": 979,
-              "readTime": 3,
-              "date": "2026-07-25",
-              "updated": "2026-08-25"
             },
             {
               "title": "查找缺失元素（3731. Find Missing Elements）",
@@ -2757,6 +2739,15 @@
               "updated": "2026-07-24"
             },
             {
+              "title": "计算器（面试题 16.26. Calculator LCCI）",
+              "path": "leetcode/stack/ch25.md",
+              "order": 25,
+              "wordCount": 958,
+              "readTime": 3,
+              "date": "2026-07-24",
+              "updated": "2026-09-04"
+            },
+            {
               "title": "三元表达式解析器（439. Ternary Expression Parser）",
               "path": "leetcode/stack/ch89.md",
               "order": 89,
@@ -2871,13 +2862,22 @@
           "type": "list",
           "articles": [
             {
+              "title": "唯一异或三元组（3514. Unique XOR Triplets）",
+              "path": "leetcode/bit/ch29.md",
+              "order": 29,
+              "wordCount": 979,
+              "readTime": 3,
+              "date": "2026-07-25",
+              "updated": "2026-09-04"
+            },
+            {
               "title": "唯一异或三元组 I（3513. Number of Unique XOR Triplets I）",
               "path": "leetcode/bit/ch56.md",
               "order": 56,
               "wordCount": 1197,
               "readTime": 3,
               "date": "2026-08-17",
-              "updated": "2026-08-17"
+              "updated": "2026-09-04"
             },
             {
               "title": "安排电影院座位（1386. Cinema Seat Allocation）",
