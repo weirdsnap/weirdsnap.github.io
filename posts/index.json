@@ -2734,7 +2734,7 @@
         },
         {
           "id": "stack",
-          "label": "单调栈",
+          "label": "栈",
           "order": 12,
           "type": "list",
           "articles": [
