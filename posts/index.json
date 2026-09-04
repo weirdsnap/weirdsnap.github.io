@@ -2230,6 +2230,16 @@
           "type": "list",
           "articles": [
             {
+              "title": "博弈题决策清单：四步分流与石子游戏地图",
+              "path": "leetcode/dp/interval/template.md",
+              "order": 0,
+              "wordCount": 1364,
+              "readTime": 4,
+              "date": "2026-09-04",
+              "updated": "2026-09-04",
+              "pinned": true
+            },
+            {
               "title": "预测赢家（486. Predict the Winner）",
               "path": "leetcode/dp/interval/ch41.md",
               "order": 41,
@@ -2290,15 +2300,6 @@
               "wordCount": 1144,
               "readTime": 3,
               "date": "2026-08-25",
-              "updated": "2026-09-04"
-            },
-            {
-              "title": "博弈题决策清单：四步分流与石子游戏地图",
-              "path": "leetcode/dp/interval/template.md",
-              "order": 999,
-              "wordCount": 1364,
-              "readTime": 4,
-              "date": "2026-09-04",
               "updated": "2026-09-04"
             }
           ]
@@ -2461,6 +2462,16 @@
           "type": "list",
           "articles": [
             {
+              "title": "回文重排家族：识别信号、四步流水线与题目地图",
+              "path": "leetcode/string/template.md",
+              "order": 0,
+              "wordCount": 1188,
+              "readTime": 3,
+              "date": "2026-09-04",
+              "updated": "2026-09-04",
+              "pinned": true
+            },
+            {
               "title": "用特殊操作处理字符串 I（3612. Process String with Special Operations I）",
               "path": "leetcode/string/ch05.md",
               "order": 5,
@@ -2567,15 +2578,6 @@
               "readTime": 4,
               "date": "2026-09-03",
               "updated": "2026-09-03"
-            },
-            {
-              "title": "回文重排家族：识别信号、四步流水线与题目地图",
-              "path": "leetcode/string/template.md",
-              "order": 999,
-              "wordCount": 1188,
-              "readTime": 3,
-              "date": "2026-09-04",
-              "updated": "2026-09-04"
             }
           ]
         },
@@ -2833,6 +2835,16 @@
           "type": "list",
           "articles": [
             {
+              "title": "线段树：识别信号、代码骨架与节点设计三段论",
+              "path": "leetcode/segment-tree/template.md",
+              "order": 0,
+              "wordCount": 1150,
+              "readTime": 3,
+              "date": "2026-08-28",
+              "updated": "2026-09-03",
+              "pinned": true
+            },
+            {
               "title": "区域和检索 - 数组可修改（307. Range Sum Query - Mutable）",
               "path": "leetcode/segment-tree/ch50.md",
               "order": 50,
@@ -2849,15 +2861,6 @@
               "readTime": 4,
               "date": "2026-08-17",
               "updated": "2026-08-17"
-            },
-            {
-              "title": "线段树：识别信号、代码骨架与节点设计三段论",
-              "path": "leetcode/segment-tree/template.md",
-              "order": 999,
-              "wordCount": 1150,
-              "readTime": 3,
-              "date": "2026-08-28",
-              "updated": "2026-09-03"
             }
           ]
         },
@@ -2893,6 +2896,16 @@
           "order": 17,
           "type": "list",
           "articles": [
+            {
+              "title": "滑动窗口：识别信号、代码骨架与题目地图",
+              "path": "leetcode/sliding-window/template.md",
+              "order": 0,
+              "wordCount": 1168,
+              "readTime": 3,
+              "date": "2026-08-27",
+              "updated": "2026-08-28",
+              "pinned": true
+            },
             {
               "title": "每个字符最多出现两次的最长子字符串（3090. Maximum Length Substring With Two Occurrences）",
               "path": "leetcode/sliding-window/ch51.md",
@@ -2955,15 +2968,6 @@
               "readTime": 4,
               "date": "2026-08-28",
               "updated": "2026-09-03"
-            },
-            {
-              "title": "滑动窗口：识别信号、代码骨架与题目地图",
-              "path": "leetcode/sliding-window/template.md",
-              "order": 999,
-              "wordCount": 1168,
-              "readTime": 3,
-              "date": "2026-08-27",
-              "updated": "2026-08-28"
             }
           ]
         }
