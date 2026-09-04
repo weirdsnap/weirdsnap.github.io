@@ -3350,6 +3350,15 @@
               "readTime": 5,
               "date": "2026-08-07",
               "updated": "2026-08-07"
+            },
+            {
+              "title": "RAG / Agent 评测体系：用数字说话，而不是体感",
+              "path": "ai/ai-agent/ch10.md",
+              "order": 10,
+              "wordCount": 2189,
+              "readTime": 7,
+              "date": "2026-09-04",
+              "updated": "2026-09-04"
             }
           ]
         }
