@@ -110,6 +110,18 @@
     line-height: 1.45;
 }
 
+.pin-badge {
+    display: inline-block;
+    margin-right: 0.4em;
+    padding: 0.05em 0.45em;
+    font-size: 0.72em;
+    font-weight: 700;
+    color: #c0392b;
+    border: 1px solid #c0392b;
+    border-radius: var(--radius-sm, 4px);
+    vertical-align: 0.12em;
+}
+
 .article-meta {
     font-size: 0.85em;
     color: var(--text-secondary);

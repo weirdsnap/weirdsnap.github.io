@@ -131,6 +131,14 @@ def extract_frontmatter(md_path: Path) -> dict:
     date = frontmatter.get("date", "").strip() or None
     updated = frontmatter.get("updated", "").strip() or None
 
+    # Explicit ordering (e.g. template.md pinned first with "order: 0")
+    order: int | None = None
+    if "order" in frontmatter:
+        try:
+            order = int(frontmatter["order"])
+        except ValueError:
+            order = None
+
     git_first, git_last = git_dates(md_path)
     if not date:
         date = git_first
@@ -141,6 +149,7 @@ def extract_frontmatter(md_path: Path) -> dict:
         "title": title,
         "date": date,
         "updated": updated,
+        "order": order,
     }
 
 
@@ -183,10 +192,13 @@ def scan_articles(dir_path: Path) -> list:
     for md_file in dir_path.glob("*.md"):
         if md_file.name.startswith(SKIP_NAME_PREFIX):
             continue
-        # Extract order number from filename like 01.md → 1, crtp_01.md → 1
-        match = re.search(r"(\d+)", md_file.stem)
-        order = int(match.group(1)) if match else 999
         frontmatter = extract_frontmatter(md_file)
+        # Order: explicit frontmatter "order" wins; otherwise extract the
+        # number from filenames like 01.md → 1, crtp_01.md → 1
+        match = re.search(r"(\d+)", md_file.stem)
+        order = frontmatter["order"]
+        if order is None:
+            order = int(match.group(1)) if match else 999
         meta = estimate_read_time(md_file)
         article = {
             "title": frontmatter["title"],
@@ -199,6 +211,9 @@ def scan_articles(dir_path: Path) -> list:
             article["date"] = frontmatter["date"]
         if frontmatter.get("updated"):
             article["updated"] = frontmatter["updated"]
+        # Explicit frontmatter order marks the article as pinned (置顶)
+        if frontmatter["order"] is not None:
+            article["pinned"] = True
         articles.append(article)
     # Sort by numeric order so 99 follows 20 and precedes 100;
     # tie-break by path to keep prefixed topics grouped stably.

@@ -41,7 +41,7 @@
             <!-- 文章列表 -->
             <div v-if="showArticles" class="article-grid">
                 <div v-for="article in articles" :key="article.path" class="article-card" @click="goArticle(article)">
-                    <h3 class="article-title">{{ article.title }}</h3>
+                    <h3 class="article-title"><span v-if="article.pinned" class="pin-badge">置顶</span>{{ article.title }}</h3>
                     <span class="article-meta" v-if="article.readTime">预计阅读 {{ article.readTime }} 分钟</span>
                 </div>
             </div>
