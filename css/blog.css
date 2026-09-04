@@ -137,19 +137,29 @@
     flex-direction: column;
 }
 
-.back-home {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3em;
+.breadcrumb {
     margin-bottom: 1.6em;
     font-size: 0.95em;
     color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.2s;
 }
 
-.back-home:hover {
+.breadcrumb a {
     color: var(--accent-warm);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb .current {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.breadcrumb .sep {
+    margin: 0 0.5em;
+    color: var(--border-color);
 }
 
 #blog-post {

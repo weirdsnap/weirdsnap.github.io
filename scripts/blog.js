@@ -35,7 +35,7 @@ function findArticleInIndex(indexData, postPath) {
         var articles = cat.articles || [];
         for (var j = 0; j < articles.length; j++) {
             if (articles[j].path === postPath) {
-                return { article: articles[j], siblings: articles };
+                return { article: articles[j], siblings: articles, cat: cat, sub: null };
             }
         }
         var subs = cat.subs || [];
@@ -43,7 +43,7 @@ function findArticleInIndex(indexData, postPath) {
             var subArticles = subs[k].articles || [];
             for (var l = 0; l < subArticles.length; l++) {
                 if (subArticles[l].path === postPath) {
-                    return { article: subArticles[l], siblings: subArticles };
+                    return { article: subArticles[l], siblings: subArticles, cat: cat, sub: subs[k] };
                 }
             }
         }
@@ -59,6 +59,7 @@ var blogApp = Vue.createApp({
             meta: null,
             prev: null,
             next: null,
+            breadcrumb: [],
             showBackToTop: false,
             mobile: window.innerWidth <= 1100,
             tocOpen: false,
@@ -99,6 +100,24 @@ var blogApp = Vue.createApp({
                 var found = findArticleInIndex(indexData, post);
                 var articleMeta = found ? found.article : {};
                 var siblings = found ? found.siblings : [];
+
+                // Breadcrumb: 首页 / 分类 / 子分类(如有) / 当前文章，与列表页一致
+                var crumbs = [{ label: '首页', link: '../index.html' }];
+                if (found) {
+                    crumbs.push({
+                        label: found.cat.label,
+                        link: './list.html?category=' + encodeURIComponent(found.cat.id)
+                    });
+                    if (found.sub) {
+                        crumbs.push({
+                            label: found.sub.label,
+                            link: './list.html?category=' + encodeURIComponent(found.cat.id) +
+                                  '&sub=' + encodeURIComponent(found.sub.id)
+                        });
+                    }
+                    crumbs.push({ label: articleMeta.title || post });
+                }
+                self.breadcrumb = crumbs;
 
                 // Compute prev/next within the same sibling group
                 if (found) {
