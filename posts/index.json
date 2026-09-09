@@ -2356,15 +2356,6 @@
               "updated": "2026-08-03"
             },
             {
-              "title": "最小整除数位积 I（3345. Smallest Divisible Digit Product I）",
-              "path": "leetcode/greedy/ch47.md",
-              "order": 47,
-              "wordCount": 921,
-              "readTime": 2,
-              "date": "2026-08-06",
-              "updated": "2026-08-25"
-            },
-            {
               "title": "数组中的最大距离（624. Maximum Distance in Arrays）",
               "path": "leetcode/greedy/ch55.md",
               "order": 55,
@@ -2782,6 +2773,15 @@
               "readTime": 6,
               "date": "2026-09-09",
               "updated": "2026-09-09"
+            },
+            {
+              "title": "最多能拿多少本书（2355. Maximum Number of Books You Can Take）",
+              "path": "leetcode/stack/ch94.md",
+              "order": 94,
+              "wordCount": 1538,
+              "readTime": 4,
+              "date": "2026-09-09",
+              "updated": "2026-09-09"
             }
           ]
         },
@@ -2995,6 +2995,41 @@
               "readTime": 4,
               "date": "2026-08-28",
               "updated": "2026-09-03"
+            }
+          ]
+        },
+        {
+          "id": "math",
+          "label": "数学",
+          "order": 18,
+          "type": "list",
+          "articles": [
+            {
+              "title": "最小整除数位积 I（3345. Smallest Divisible Digit Product I）",
+              "path": "leetcode/math/ch47.md",
+              "order": 47,
+              "wordCount": 921,
+              "readTime": 2,
+              "date": "2026-08-06",
+              "updated": "2026-09-09"
+            },
+            {
+              "title": "区间内的逗号计数（3870. Count Commas in Range）",
+              "path": "leetcode/math/ch95.md",
+              "order": 95,
+              "wordCount": 1164,
+              "readTime": 3,
+              "date": "2026-09-09",
+              "updated": "2026-09-09"
+            },
+            {
+              "title": "区间内的逗号计数 II（3871. Count Commas in Range II）",
+              "path": "leetcode/math/ch96.md",
+              "order": 96,
+              "wordCount": 1233,
+              "readTime": 3,
+              "date": "2026-09-09",
+              "updated": "2026-09-09"
             }
           ]
         }
