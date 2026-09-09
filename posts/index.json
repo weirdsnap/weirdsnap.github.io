@@ -2569,6 +2569,15 @@
               "readTime": 4,
               "date": "2026-09-03",
               "updated": "2026-09-03"
+            },
+            {
+              "title": "恰好 K 对相等相邻的旋转计数（4043. Count Rotations With Exactly K Equal Adjacent Pairs）",
+              "path": "leetcode/string/ch92.md",
+              "order": 92,
+              "wordCount": 1490,
+              "readTime": 4,
+              "date": "2026-09-09",
+              "updated": "2026-09-09"
             }
           ]
         },
@@ -2764,6 +2773,15 @@
               "readTime": 4,
               "date": "2026-09-04",
               "updated": "2026-09-04"
+            },
+            {
+              "title": "机器人组合并计数（4045. Count Robot Groups）",
+              "path": "leetcode/stack/ch93.md",
+              "order": 93,
+              "wordCount": 1862,
+              "readTime": 6,
+              "date": "2026-09-09",
+              "updated": "2026-09-09"
             }
           ]
         },
@@ -2790,6 +2808,15 @@
               "readTime": 3,
               "date": "2026-09-03",
               "updated": "2026-09-03"
+            },
+            {
+              "title": "LRU 缓存（146. LRU Cache）",
+              "path": "leetcode/linked-list/ch91.md",
+              "order": 91,
+              "wordCount": 1612,
+              "readTime": 5,
+              "date": "2026-09-09",
+              "updated": "2026-09-09"
             }
           ]
         },
