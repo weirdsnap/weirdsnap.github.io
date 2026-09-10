@@ -2569,6 +2569,15 @@
               "readTime": 4,
               "date": "2026-09-09",
               "updated": "2026-09-09"
+            },
+            {
+              "title": "只含一种字母的子串计数（1180. Count Substrings with Only One Distinct Letter）",
+              "path": "leetcode/string/ch99.md",
+              "order": 99,
+              "wordCount": 1049,
+              "readTime": 3,
+              "date": "2026-09-10",
+              "updated": "2026-09-10"
             }
           ]
         },
@@ -2843,6 +2852,15 @@
               "readTime": 4,
               "date": "2026-07-24",
               "updated": "2026-08-25"
+            },
+            {
+              "title": "子树平均值等于节点值的计数（2265. Count Nodes Equal to Average of Subtree）",
+              "path": "leetcode/tree/ch97.md",
+              "order": 97,
+              "wordCount": 1069,
+              "readTime": 3,
+              "date": "2026-09-10",
+              "updated": "2026-09-10"
             }
           ]
         },
@@ -3030,6 +3048,33 @@
               "readTime": 3,
               "date": "2026-09-09",
               "updated": "2026-09-09"
+            },
+            {
+              "title": "阿姆斯特朗数（1134. Armstrong Number）",
+              "path": "leetcode/math/ch98.md",
+              "order": 98,
+              "wordCount": 986,
+              "readTime": 3,
+              "date": "2026-09-10",
+              "updated": "2026-09-10"
+            }
+          ]
+        },
+        {
+          "id": "misc",
+          "label": "杂项",
+          "order": 19,
+          "type": "list",
+          "articles": [
+            {
+              "title": "常用辅助代码片段速查",
+              "path": "leetcode/misc/template.md",
+              "order": 0,
+              "wordCount": 780,
+              "readTime": 2,
+              "date": "2026-09-10",
+              "updated": "2026-09-10",
+              "pinned": true
             }
           ]
         }
