@@ -1608,6 +1608,15 @@
               "readTime": 2,
               "date": "2026-08-25",
               "updated": "2026-08-25"
+            },
+            {
+              "title": "`std::function` 的值签名会\"吃掉\" lambda 的右值引用",
+              "path": "cpp/ch07/36.md",
+              "order": 36,
+              "wordCount": 531,
+              "readTime": 1,
+              "date": "2026-09-10",
+              "updated": "2026-09-10"
             }
           ]
         },
@@ -2791,6 +2800,24 @@
               "readTime": 4,
               "date": "2026-09-09",
               "updated": "2026-09-09"
+            },
+            {
+              "title": "下一个更大元素 I（496. Next Greater Element I）",
+              "path": "leetcode/stack/ch100.md",
+              "order": 100,
+              "wordCount": 1979,
+              "readTime": 6,
+              "date": "2026-09-10",
+              "updated": "2026-09-10"
+            },
+            {
+              "title": "下一个更大元素 II（503. Next Greater Element II）",
+              "path": "leetcode/stack/ch101.md",
+              "order": 101,
+              "wordCount": 1398,
+              "readTime": 4,
+              "date": "2026-09-10",
+              "updated": "2026-09-10"
             }
           ]
         },
@@ -2858,6 +2885,15 @@
               "path": "leetcode/tree/ch97.md",
               "order": 97,
               "wordCount": 1069,
+              "readTime": 3,
+              "date": "2026-09-10",
+              "updated": "2026-09-10"
+            },
+            {
+              "title": "二叉树层序遍历（102. Binary Tree Level Order Traversal）",
+              "path": "leetcode/tree/ch103.md",
+              "order": 103,
+              "wordCount": 1006,
               "readTime": 3,
               "date": "2026-09-10",
               "updated": "2026-09-10"
@@ -3055,6 +3091,15 @@
               "order": 98,
               "wordCount": 986,
               "readTime": 3,
+              "date": "2026-09-10",
+              "updated": "2026-09-10"
+            },
+            {
+              "title": "下一个更大元素 III（556. Next Greater Element III）",
+              "path": "leetcode/math/ch102.md",
+              "order": 102,
+              "wordCount": 1431,
+              "readTime": 4,
               "date": "2026-09-10",
               "updated": "2026-09-10"
             }
