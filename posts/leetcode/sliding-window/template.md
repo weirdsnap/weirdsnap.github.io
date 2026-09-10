@@ -50,6 +50,38 @@ return result;
 
 还有一个通用转化：**恰好 K 个 = 至多 K 个 − 至多 K−1 个**（`exactly(k) = atMost(k) - atMost(k-1)`），计数型题（如 992）靠它把"恰好"化成两遍骨架。
 
+## 填充示例：拿 159 走一遍
+
+159（至多两个不同字符的最长子串，[ch67](./blog.html?post=leetcode/sliding-window/ch67.md)）是骨架本尊，三个可变点各填一次：
+
+```cpp
+int lengthOfLongestSubstringTwoDistinct(string s) {
+    int i = 0, result = 0;
+    unordered_map<char, int> cnt;         // ① 计数结构：字符集未知，用哈希表
+    for (int j = 0; j < s.size(); j++) {
+        cnt[s[j]]++;
+        while (cnt.size() > 2) {          // ② 收缩判据：种类数 > 2 就违规
+            if (--cnt[s[i]] == 0) cnt.erase(s[i]);  // 用 size() 判据就必须 erase
+            i++;
+        }
+        result = max(result, j - i + 1);  // ③ 最长型：收缩后更新
+    }
+    return result;
+}
+```
+
+用 `s = "eceba"` 手动跟一遍窗口（`[i, j]`）：
+
+| j | 进窗 | 收缩过程 | 窗口 | result |
+|---|------|----------|------|--------|
+| 0 | e:1 | 不收缩 | "e" | 1 |
+| 1 | c:1 | 不收缩 | "ec" | 2 |
+| 2 | e:2 | 不收缩 | "ece" | 3 |
+| 3 | b:1 | 种类数 3 违规：e 减到 1 仍在；c 减到 0  erase，i 到 2 | "eb" | 3 |
+| 4 | a:1 | 再违规：e 减到 0 erase，i 到 3 | "ba" | 3 |
+
+答案 3，对应子串 "ece"。整个过程右端单调前进、左端只增不减，每字符进出各一次，这就是均摊 O(n) 的直观样子。
+
 ---
 
 ## 题目地图

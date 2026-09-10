@@ -59,6 +59,29 @@ auto query = [&](this auto&& self, int pos, int l, int r, int ql, int qr) -> Nod
 
 "辅助信息"是新手最容易卡的地方：比如问"最长连续段"，只存左右各自的 `best` 不够——跨中点的段可能更长，于是要补 `pre / suf`；而维护 `pre / suf` 又需要知道"是否整段相同"，于是再补 `len`。字段是一层层被 `merge` 的需求逼出来的。
 
+## 填充示例：拿 307 走一遍
+
+307（区域和检索，[ch50](./blog.html?post=leetcode/segment-tree/ch50.md)）是骨架本尊。按三段论的顺序填：
+
+1. **问什么**：区间和 `sumRange(l, r)`。
+2. **节点存什么**：只存 `sum` 就够了。和不需要辅助信息，因为 `sum(父) = sum(左) + sum(右)`，这是和类问题比其他查询简单的原因。
+3. **merge 怎么写**：两行。
+
+填进骨架后，所有 `/* 占位 */` 都有了着落：
+
+```cpp
+struct Node { long long sum; };
+
+auto merge = [](const Node& L, const Node& R) -> Node {
+    return {L.sum + R.sum};
+};
+
+// build / update 的叶子：tree[pos] = {(long long)nums[l]};
+// query 的不交集分支（幺元）：return {0};   // 0 加任何数不变
+```
+
+剩下的 `build` / `update` / `query` 一个字符都不用改，原样照抄骨架。这就是"骨架型"分类的理想状态：题目差异全部收敛到 Node 定义、merge、幺元三处。想体验"不够存"的情形，接着看 2213（[ch52](./blog.html?post=leetcode/segment-tree/ch52.md)）里 `pre / suf / best / len` 是怎么被一步步逼出来的。
+
 ## 题目地图
 
 | 文章 | 题 | 节点字段 | 查询形态 |

@@ -51,6 +51,27 @@ return p + (mid ? string(1, mid) : "") + string(p.rbegin(), p.rend());
 | 计数结构 | `int[26]` / `map` | 26 字母用数组；map 的唯一好处是遍历时自然有序，但 `for i in 0..26` 一样有序 |
 | 拼装的 mid 处理 | `mid` 可能为空字符 | 偶数长度没有中心，拼接时跳过 |
 
+## 填充示例：拿 3517 走一遍
+
+3517（最小回文重排 I，[ch33](./blog.html?post=leetcode/string/ch33.md)）是这条流水线上最直的一题。拿 `s = "bbaacc"` 逐步过：
+
+1. **计数**：`cnt[a]=2, cnt[b]=2, cnt[c]=2`，其余 0。
+2. **奇偶开关**：三个频次都是偶数，`mid = 0`（无中心字符），可行。
+3. **减半**：`cnt[a]=1, cnt[b]=1, cnt[c]=1`——这就是前半段的库存。
+4. **构造前半段**：这题要"字典序最小"，策略是每个字符取一半**升序**填入：`p = "abc"`。
+
+拼装：`p + 无 mid + reverse(p)` = `"abccba"`，完事。
+
+写成代码，第 4 步只有两行：
+
+```cpp
+string p;
+for (int i = 0; i < 26; i++) p.append(cnt[i], 'a' + i);  // 升序填充
+return p + (mid ? string(1, mid) : "") + string(p.rbegin(), p.rend());
+```
+
+流水线的前三步原样照抄，一个字符不用改。这题的"最小"实现起来只是碰巧简单：升序填前半段同时让左右两半都最小。想看第 4 步真正复杂的形态，3518（[ch39](./blog.html?post=leetcode/string/ch39.md)）的"第 k 小"要逐位确定字符，3734（[ch72](./blog.html?post=leetcode/string/ch72.md)）要做分界点枚举。
+
 ---
 
 ## 题目地图
