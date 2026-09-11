@@ -2535,15 +2535,6 @@
               "updated": "2026-09-04"
             },
             {
-              "title": "句子相似性（734. Sentence Similarity）",
-              "path": "leetcode/string/ch78.md",
-              "order": 78,
-              "wordCount": 1282,
-              "readTime": 4,
-              "date": "2026-09-03",
-              "updated": "2026-09-03"
-            },
-            {
               "title": "单行键盘（1165. Single-Row Keyboard）",
               "path": "leetcode/string/ch80.md",
               "order": 80,
@@ -2606,40 +2597,13 @@
               "updated": "2026-07-23"
             },
             {
-              "title": "查找缺失元素（3731. Find Missing Elements）",
-              "path": "leetcode/array/ch44.md",
-              "order": 44,
-              "wordCount": 925,
-              "readTime": 3,
-              "date": "2026-08-04",
-              "updated": "2026-08-04"
-            },
-            {
               "title": "大于等于顺序前缀和的最小缺失整数（2996. Smallest Missing Integer Greater Than Sequential Prefix Sum）",
               "path": "leetcode/array/ch49.md",
               "order": 49,
               "wordCount": 919,
               "readTime": 3,
               "date": "2026-08-17",
-              "updated": "2026-08-17"
-            },
-            {
-              "title": "最小缺失倍数（3718. Smallest Missing Multiple of K）",
-              "path": "leetcode/array/ch66.md",
-              "order": 66,
-              "wordCount": 893,
-              "readTime": 3,
-              "date": "2026-08-25",
-              "updated": "2026-08-25"
-            },
-            {
-              "title": "找出变位映射（760. Find Anagram Mappings）",
-              "path": "leetcode/array/ch74.md",
-              "order": 74,
-              "wordCount": 1105,
-              "readTime": 3,
-              "date": "2026-09-03",
-              "updated": "2026-09-03"
+              "updated": "2026-09-11"
             },
             {
               "title": "删除最小值和最大值的最少次数（2091. Removing Minimum and Maximum From Array）",
@@ -3120,6 +3084,68 @@
               "date": "2026-09-10",
               "updated": "2026-09-10",
               "pinned": true
+            }
+          ]
+        },
+        {
+          "id": "hash",
+          "label": "哈希与集合",
+          "order": 20,
+          "type": "list",
+          "articles": [
+            {
+              "title": "查找缺失元素（3731. Find Missing Elements）",
+              "path": "leetcode/hash/ch44.md",
+              "order": 44,
+              "wordCount": 925,
+              "readTime": 3,
+              "date": "2026-08-04",
+              "updated": "2026-09-11"
+            },
+            {
+              "title": "最小缺失倍数（3718. Smallest Missing Multiple of K）",
+              "path": "leetcode/hash/ch66.md",
+              "order": 66,
+              "wordCount": 893,
+              "readTime": 3,
+              "date": "2026-08-25",
+              "updated": "2026-09-11"
+            },
+            {
+              "title": "找出变位映射（760. Find Anagram Mappings）",
+              "path": "leetcode/hash/ch74.md",
+              "order": 74,
+              "wordCount": 1105,
+              "readTime": 3,
+              "date": "2026-09-03",
+              "updated": "2026-09-11"
+            },
+            {
+              "title": "句子相似性（734. Sentence Similarity）",
+              "path": "leetcode/hash/ch78.md",
+              "order": 78,
+              "wordCount": 1282,
+              "readTime": 4,
+              "date": "2026-09-03",
+              "updated": "2026-09-11"
+            },
+            {
+              "title": "前五科的均分（1086. High Five）",
+              "path": "leetcode/hash/ch104.md",
+              "order": 104,
+              "wordCount": 1475,
+              "readTime": 4,
+              "date": "2026-09-11",
+              "updated": "2026-09-11"
+            },
+            {
+              "title": "所有行中的最小公共元素（1198. Smallest Common Element in All Rows）",
+              "path": "leetcode/hash/ch105.md",
+              "order": 105,
+              "wordCount": 1653,
+              "readTime": 5,
+              "date": "2026-09-11",
+              "updated": "2026-09-11"
             }
           ]
         }
