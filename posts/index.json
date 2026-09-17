@@ -1891,25 +1891,25 @@
               "wordCount": 1777,
               "readTime": 5,
               "date": "2026-08-05",
-              "updated": "2026-08-05"
+              "updated": "2026-09-17"
             },
             {
               "title": "`std::function` 与 Lambda：两种\"可调用对象\"的类型鸿沟",
               "path": "cpp/practices/std_function_01.md",
               "order": 1,
-              "wordCount": 1578,
-              "readTime": 5,
+              "wordCount": 1531,
+              "readTime": 4,
               "date": "2026-08-07",
-              "updated": "2026-08-07"
+              "updated": "2026-09-17"
             },
             {
               "title": "`std::type_identity`：给模板推导踩刹车的工具",
               "path": "cpp/practices/type_identity_01.md",
               "order": 1,
-              "wordCount": 1523,
+              "wordCount": 1483,
               "readTime": 4,
               "date": "2026-08-07",
-              "updated": "2026-08-07"
+              "updated": "2026-09-17"
             },
             {
               "title": "POSIX 共享内存进阶：环形缓冲区（Ring Buffer）设计",
@@ -2004,7 +2004,7 @@
               "title": "最大子数组和（53. Maximum Subarray）",
               "path": "leetcode/dp/linear/ch19.md",
               "order": 19,
-              "wordCount": 1586,
+              "wordCount": 1573,
               "readTime": 4,
               "date": "2026-07-17",
               "updated": "2026-07-28"
@@ -2129,7 +2129,7 @@
               "title": "K 条不重叠线段的方案数（1621. Number of Sets of K Non-Overlapping Line Segments）",
               "path": "leetcode/dp/state-machine/ch106.md",
               "order": 106,
-              "wordCount": 2010,
+              "wordCount": 1914,
               "readTime": 5,
               "date": "2026-09-17",
               "updated": "2026-09-17"
@@ -2208,19 +2208,19 @@
               "title": "网格中的最大路径得分（3742. Maximum Path Score in a Grid）",
               "path": "leetcode/dp/path/ch46.md",
               "order": 46,
-              "wordCount": 2331,
+              "wordCount": 2310,
               "readTime": 6,
               "date": "2026-08-05",
-              "updated": "2026-08-07"
+              "updated": "2026-09-17"
             },
             {
               "title": "机器人能获得的最大金币数（3418. Maximum Amount of Money Robot Can Earn）",
               "path": "leetcode/dp/path/ch48.md",
               "order": 48,
-              "wordCount": 2017,
+              "wordCount": 1949,
               "readTime": 5,
               "date": "2026-08-06",
-              "updated": "2026-08-25"
+              "updated": "2026-09-17"
             }
           ]
         },
@@ -2270,55 +2270,55 @@
               "title": "石子游戏（877. Stone Game）",
               "path": "leetcode/dp/interval/ch57.md",
               "order": 57,
-              "wordCount": 1382,
+              "wordCount": 1316,
               "readTime": 4,
               "date": "2026-08-17",
-              "updated": "2026-09-04"
+              "updated": "2026-09-17"
             },
             {
               "title": "石子游戏 II（1140. Stone Game II）",
               "path": "leetcode/dp/interval/ch58.md",
               "order": 58,
-              "wordCount": 1176,
+              "wordCount": 1138,
               "readTime": 3,
               "date": "2026-08-17",
-              "updated": "2026-09-04"
+              "updated": "2026-09-17"
             },
             {
               "title": "石子游戏 III（1406. Stone Game III）",
               "path": "leetcode/dp/interval/ch59.md",
               "order": 59,
-              "wordCount": 1923,
+              "wordCount": 1822,
               "readTime": 5,
               "date": "2026-08-17",
-              "updated": "2026-09-04"
+              "updated": "2026-09-17"
             },
             {
               "title": "石子游戏 IV（1510. Stone Game IV）",
               "path": "leetcode/dp/interval/ch60.md",
               "order": 60,
-              "wordCount": 1195,
+              "wordCount": 1154,
               "readTime": 3,
               "date": "2026-08-17",
-              "updated": "2026-09-04"
+              "updated": "2026-09-17"
             },
             {
               "title": "石子游戏 V（1563. Stone Game V）",
               "path": "leetcode/dp/interval/ch61.md",
               "order": 61,
-              "wordCount": 2730,
+              "wordCount": 2647,
               "readTime": 7,
               "date": "2026-08-17",
-              "updated": "2026-09-04"
+              "updated": "2026-09-17"
             },
             {
               "title": "石子游戏 VII（1690. Stone Game VII）",
               "path": "leetcode/dp/interval/ch63.md",
               "order": 63,
-              "wordCount": 1144,
+              "wordCount": 1081,
               "readTime": 3,
               "date": "2026-08-25",
-              "updated": "2026-09-04"
+              "updated": "2026-09-17"
             }
           ]
         },
@@ -2377,28 +2377,28 @@
               "title": "数组中的最大距离（624. Maximum Distance in Arrays）",
               "path": "leetcode/greedy/ch55.md",
               "order": 55,
-              "wordCount": 1190,
+              "wordCount": 1149,
               "readTime": 3,
               "date": "2026-08-17",
-              "updated": "2026-08-17"
+              "updated": "2026-09-17"
             },
             {
               "title": "石子游戏 VI（1686. Stone Game VI）",
               "path": "leetcode/greedy/ch62.md",
               "order": 62,
-              "wordCount": 982,
+              "wordCount": 940,
               "readTime": 3,
               "date": "2026-08-25",
-              "updated": "2026-09-04"
+              "updated": "2026-09-17"
             },
             {
               "title": "求和游戏（1927. Sum Game）",
               "path": "leetcode/greedy/ch64.md",
               "order": 64,
-              "wordCount": 1259,
+              "wordCount": 1196,
               "readTime": 3,
               "date": "2026-08-25",
-              "updated": "2026-09-04"
+              "updated": "2026-09-17"
             }
           ]
         },
@@ -2457,10 +2457,10 @@
               "title": "打扫教室的最少移动次数（3568. Minimum Moves to Clean the Classroom）",
               "path": "leetcode/graph/ch79.md",
               "order": 79,
-              "wordCount": 1606,
+              "wordCount": 1538,
               "readTime": 4,
               "date": "2026-09-03",
-              "updated": "2026-09-03"
+              "updated": "2026-09-17"
             }
           ]
         },
@@ -2520,73 +2520,73 @@
               "title": "大于 target 的最小字典序排列（3720. Lexicographically Smallest Permutation Greater Than Target）",
               "path": "leetcode/string/ch71.md",
               "order": 71,
-              "wordCount": 1746,
+              "wordCount": 1668,
               "readTime": 5,
               "date": "2026-08-28",
-              "updated": "2026-08-28"
+              "updated": "2026-09-17"
             },
             {
               "title": "大于 target 的最小字典序回文排列（3734. Lexicographically Smallest Palindromic Permutation Greater Than Target）",
               "path": "leetcode/string/ch72.md",
               "order": 72,
-              "wordCount": 1505,
+              "wordCount": 1435,
               "readTime": 4,
               "date": "2026-08-28",
-              "updated": "2026-09-04"
+              "updated": "2026-09-17"
             },
             {
               "title": "回文排列（266. Palindrome Permutation）",
               "path": "leetcode/string/ch77.md",
               "order": 77,
-              "wordCount": 979,
+              "wordCount": 883,
               "readTime": 3,
               "date": "2026-09-03",
-              "updated": "2026-09-04"
+              "updated": "2026-09-17"
             },
             {
               "title": "单行键盘（1165. Single-Row Keyboard）",
               "path": "leetcode/string/ch80.md",
               "order": 80,
-              "wordCount": 1033,
+              "wordCount": 954,
               "readTime": 3,
               "date": "2026-09-03",
-              "updated": "2026-09-03"
+              "updated": "2026-09-17"
             },
             {
               "title": "有效的单词方块（422. Valid Word Square）",
               "path": "leetcode/string/ch81.md",
               "order": 81,
-              "wordCount": 1088,
+              "wordCount": 994,
               "readTime": 3,
               "date": "2026-09-03",
-              "updated": "2026-09-03"
+              "updated": "2026-09-17"
             },
             {
               "title": "给字符串加粗标签（616. Add Bold Tag in String）",
               "path": "leetcode/string/ch86.md",
               "order": 86,
-              "wordCount": 1492,
+              "wordCount": 1300,
               "readTime": 4,
               "date": "2026-09-03",
-              "updated": "2026-09-03"
+              "updated": "2026-09-17"
             },
             {
               "title": "恰好 K 对相等相邻的旋转计数（4043. Count Rotations With Exactly K Equal Adjacent Pairs）",
               "path": "leetcode/string/ch92.md",
               "order": 92,
-              "wordCount": 1490,
+              "wordCount": 1410,
               "readTime": 4,
               "date": "2026-09-09",
-              "updated": "2026-09-09"
+              "updated": "2026-09-17"
             },
             {
               "title": "只含一种字母的子串计数（1180. Count Substrings with Only One Distinct Letter）",
               "path": "leetcode/string/ch99.md",
               "order": 99,
-              "wordCount": 1049,
+              "wordCount": 1013,
               "readTime": 3,
               "date": "2026-09-10",
-              "updated": "2026-09-10"
+              "updated": "2026-09-17"
             }
           ]
         },
@@ -2609,55 +2609,55 @@
               "title": "大于等于顺序前缀和的最小缺失整数（2996. Smallest Missing Integer Greater Than Sequential Prefix Sum）",
               "path": "leetcode/array/ch49.md",
               "order": 49,
-              "wordCount": 919,
-              "readTime": 3,
+              "wordCount": 898,
+              "readTime": 2,
               "date": "2026-08-17",
-              "updated": "2026-09-11"
+              "updated": "2026-09-17"
             },
             {
               "title": "删除最小值和最大值的最少次数（2091. Removing Minimum and Maximum From Array）",
               "path": "leetcode/array/ch76.md",
               "order": 76,
-              "wordCount": 1299,
-              "readTime": 4,
+              "wordCount": 1139,
+              "readTime": 3,
               "date": "2026-09-03",
-              "updated": "2026-09-03"
+              "updated": "2026-09-17"
             },
             {
               "title": "孤独像素 I（531. Lonely Pixel I）",
               "path": "leetcode/array/ch82.md",
               "order": 82,
-              "wordCount": 940,
-              "readTime": 3,
+              "wordCount": 875,
+              "readTime": 2,
               "date": "2026-09-03",
-              "updated": "2026-09-03"
+              "updated": "2026-09-17"
             },
             {
               "title": "缺失的区间（163. Missing Ranges）",
               "path": "leetcode/array/ch83.md",
               "order": 83,
-              "wordCount": 1095,
-              "readTime": 3,
+              "wordCount": 866,
+              "readTime": 2,
               "date": "2026-09-03",
-              "updated": "2026-09-03"
+              "updated": "2026-09-17"
             },
             {
               "title": "构造统一奇偶数组 I（3875. Construct Uniform Parity Array I）",
               "path": "leetcode/array/ch87.md",
               "order": 87,
-              "wordCount": 770,
+              "wordCount": 736,
               "readTime": 2,
               "date": "2026-09-04",
-              "updated": "2026-09-04"
+              "updated": "2026-09-17"
             },
             {
               "title": "构造统一奇偶数组 II（3876. Construct Uniform Parity Array II）",
               "path": "leetcode/array/ch88.md",
               "order": 88,
-              "wordCount": 1424,
+              "wordCount": 1329,
               "readTime": 4,
               "date": "2026-09-04",
-              "updated": "2026-09-04"
+              "updated": "2026-09-17"
             }
           ]
         },
@@ -2680,28 +2680,28 @@
               "title": "三个数的最大乘积（628. Maximum Product of Three Numbers）",
               "path": "leetcode/sorting/ch54.md",
               "order": 54,
-              "wordCount": 1037,
+              "wordCount": 1014,
               "readTime": 3,
               "date": "2026-08-17",
-              "updated": "2026-08-17"
+              "updated": "2026-09-17"
             },
             {
               "title": "会议室（252. Meeting Rooms）",
               "path": "leetcode/sorting/ch84.md",
               "order": 84,
-              "wordCount": 1062,
+              "wordCount": 981,
               "readTime": 3,
               "date": "2026-09-03",
-              "updated": "2026-09-03"
+              "updated": "2026-09-17"
             },
             {
               "title": "会议室 II（253. Meeting Rooms II）",
               "path": "leetcode/sorting/ch85.md",
               "order": 85,
-              "wordCount": 1179,
-              "readTime": 4,
+              "wordCount": 1078,
+              "readTime": 3,
               "date": "2026-09-03",
-              "updated": "2026-09-03"
+              "updated": "2026-09-17"
             }
           ]
         },
@@ -2742,19 +2742,19 @@
               "title": "三元表达式解析器（439. Ternary Expression Parser）",
               "path": "leetcode/stack/ch89.md",
               "order": 89,
-              "wordCount": 1085,
+              "wordCount": 1006,
               "readTime": 3,
               "date": "2026-09-04",
-              "updated": "2026-09-04"
+              "updated": "2026-09-17"
             },
             {
               "title": "寻找排列（484. Find Permutation）",
               "path": "leetcode/stack/ch90.md",
               "order": 90,
-              "wordCount": 1535,
+              "wordCount": 1438,
               "readTime": 4,
               "date": "2026-09-04",
-              "updated": "2026-09-04"
+              "updated": "2026-09-17"
             },
             {
               "title": "机器人组合并计数（4045. Count Robot Groups）",
@@ -2769,28 +2769,28 @@
               "title": "最多能拿多少本书（2355. Maximum Number of Books You Can Take）",
               "path": "leetcode/stack/ch94.md",
               "order": 94,
-              "wordCount": 1538,
+              "wordCount": 1521,
               "readTime": 4,
               "date": "2026-09-09",
-              "updated": "2026-09-09"
+              "updated": "2026-09-17"
             },
             {
               "title": "下一个更大元素 I（496. Next Greater Element I）",
               "path": "leetcode/stack/ch100.md",
               "order": 100,
-              "wordCount": 1979,
+              "wordCount": 1936,
               "readTime": 6,
               "date": "2026-09-10",
-              "updated": "2026-09-10"
+              "updated": "2026-09-17"
             },
             {
               "title": "下一个更大元素 II（503. Next Greater Element II）",
               "path": "leetcode/stack/ch101.md",
               "order": 101,
-              "wordCount": 1398,
+              "wordCount": 1338,
               "readTime": 4,
               "date": "2026-09-10",
-              "updated": "2026-09-10"
+              "updated": "2026-09-17"
             }
           ]
         },
@@ -2813,19 +2813,19 @@
               "title": "找出临界点之间的最小和最大距离（2058. Find the Minimum and Maximum Number of Nodes Between Critical Points）",
               "path": "leetcode/linked-list/ch75.md",
               "order": 75,
-              "wordCount": 992,
+              "wordCount": 934,
               "readTime": 3,
               "date": "2026-09-03",
-              "updated": "2026-09-03"
+              "updated": "2026-09-17"
             },
             {
               "title": "LRU 缓存（146. LRU Cache）",
               "path": "leetcode/linked-list/ch91.md",
               "order": 91,
-              "wordCount": 1612,
-              "readTime": 5,
+              "wordCount": 1533,
+              "readTime": 4,
               "date": "2026-09-09",
-              "updated": "2026-09-09"
+              "updated": "2026-09-17"
             }
           ]
         },
@@ -2857,19 +2857,19 @@
               "title": "子树平均值等于节点值的计数（2265. Count Nodes Equal to Average of Subtree）",
               "path": "leetcode/tree/ch97.md",
               "order": 97,
-              "wordCount": 1069,
+              "wordCount": 1009,
               "readTime": 3,
               "date": "2026-09-10",
-              "updated": "2026-09-10"
+              "updated": "2026-09-17"
             },
             {
               "title": "二叉树层序遍历（102. Binary Tree Level Order Traversal）",
               "path": "leetcode/tree/ch103.md",
               "order": 103,
-              "wordCount": 1006,
+              "wordCount": 964,
               "readTime": 3,
               "date": "2026-09-10",
-              "updated": "2026-09-10"
+              "updated": "2026-09-17"
             }
           ]
         },
@@ -2893,19 +2893,19 @@
               "title": "区域和检索 - 数组可修改（307. Range Sum Query - Mutable）",
               "path": "leetcode/segment-tree/ch50.md",
               "order": 50,
-              "wordCount": 1514,
+              "wordCount": 1480,
               "readTime": 4,
               "date": "2026-08-17",
-              "updated": "2026-08-17"
+              "updated": "2026-09-17"
             },
             {
               "title": "由单个字符重复的最长子字符串（2213. Longest Substring of One Repeating Character）",
               "path": "leetcode/segment-tree/ch52.md",
               "order": 52,
-              "wordCount": 1560,
+              "wordCount": 1533,
               "readTime": 4,
               "date": "2026-08-17",
-              "updated": "2026-08-17"
+              "updated": "2026-09-17"
             }
           ]
         },
@@ -2928,19 +2928,19 @@
               "title": "唯一异或三元组 I（3513. Number of Unique XOR Triplets I）",
               "path": "leetcode/bit/ch56.md",
               "order": 56,
-              "wordCount": 1197,
+              "wordCount": 1127,
               "readTime": 3,
               "date": "2026-08-17",
-              "updated": "2026-09-04"
+              "updated": "2026-09-17"
             },
             {
               "title": "安排电影院座位（1386. Cinema Seat Allocation）",
               "path": "leetcode/bit/ch65.md",
               "order": 65,
-              "wordCount": 1218,
+              "wordCount": 1161,
               "readTime": 3,
               "date": "2026-08-25",
-              "updated": "2026-08-25"
+              "updated": "2026-09-17"
             }
           ]
         },
@@ -2964,64 +2964,64 @@
               "title": "每个字符最多出现两次的最长子字符串（3090. Maximum Length Substring With Two Occurrences）",
               "path": "leetcode/sliding-window/ch51.md",
               "order": 51,
-              "wordCount": 880,
-              "readTime": 3,
+              "wordCount": 835,
+              "readTime": 2,
               "date": "2026-08-17",
-              "updated": "2026-08-28"
+              "updated": "2026-09-17"
             },
             {
               "title": "每个元素最多出现 K 次的最长子数组（2958. Length of Longest Subarray With at Most K Frequency）",
               "path": "leetcode/sliding-window/ch53.md",
               "order": 53,
-              "wordCount": 949,
+              "wordCount": 922,
               "readTime": 3,
               "date": "2026-08-17",
-              "updated": "2026-08-28"
+              "updated": "2026-09-17"
             },
             {
               "title": "至多包含两个不同字符的最长子串（159. Longest Substring with At Most Two Distinct Characters）",
               "path": "leetcode/sliding-window/ch67.md",
               "order": 67,
-              "wordCount": 1365,
+              "wordCount": 1276,
               "readTime": 4,
               "date": "2026-08-25",
-              "updated": "2026-08-28"
+              "updated": "2026-09-17"
             },
             {
               "title": "最短且字典序最小的美丽字符串（2904. Shortest and Lexicographically Smallest Beautiful String）",
               "path": "leetcode/sliding-window/ch68.md",
               "order": 68,
-              "wordCount": 1217,
+              "wordCount": 1159,
               "readTime": 3,
               "date": "2026-08-26",
-              "updated": "2026-08-28"
+              "updated": "2026-09-17"
             },
             {
               "title": "至多包含 K 个不同字符的最长子串（340. Longest Substring with At Most K Distinct Characters）",
               "path": "leetcode/sliding-window/ch69.md",
               "order": 69,
-              "wordCount": 972,
-              "readTime": 3,
+              "wordCount": 916,
+              "readTime": 2,
               "date": "2026-08-26",
-              "updated": "2026-08-28"
+              "updated": "2026-09-17"
             },
             {
               "title": "最大连续 1 的个数 II（487. Max Consecutive Ones II）",
               "path": "leetcode/sliding-window/ch70.md",
               "order": 70,
-              "wordCount": 1030,
+              "wordCount": 967,
               "readTime": 3,
               "date": "2026-08-28",
-              "updated": "2026-08-28"
+              "updated": "2026-09-17"
             },
             {
               "title": "长度为 K 的无重复字符子串（1100. Find K-Length Substrings With No Repeated Characters）",
               "path": "leetcode/sliding-window/ch73.md",
               "order": 73,
-              "wordCount": 1350,
+              "wordCount": 1273,
               "readTime": 4,
               "date": "2026-08-28",
-              "updated": "2026-09-03"
+              "updated": "2026-09-17"
             }
           ]
         },
@@ -3035,46 +3035,46 @@
               "title": "最小整除数位积 I（3345. Smallest Divisible Digit Product I）",
               "path": "leetcode/math/ch47.md",
               "order": 47,
-              "wordCount": 921,
+              "wordCount": 888,
               "readTime": 2,
               "date": "2026-08-06",
-              "updated": "2026-09-09"
+              "updated": "2026-09-17"
             },
             {
               "title": "区间内的逗号计数（3870. Count Commas in Range）",
               "path": "leetcode/math/ch95.md",
               "order": 95,
-              "wordCount": 1164,
+              "wordCount": 1115,
               "readTime": 3,
               "date": "2026-09-09",
-              "updated": "2026-09-09"
+              "updated": "2026-09-17"
             },
             {
               "title": "区间内的逗号计数 II（3871. Count Commas in Range II）",
               "path": "leetcode/math/ch96.md",
               "order": 96,
-              "wordCount": 1233,
+              "wordCount": 1196,
               "readTime": 3,
               "date": "2026-09-09",
-              "updated": "2026-09-09"
+              "updated": "2026-09-17"
             },
             {
               "title": "阿姆斯特朗数（1134. Armstrong Number）",
               "path": "leetcode/math/ch98.md",
               "order": 98,
-              "wordCount": 986,
+              "wordCount": 936,
               "readTime": 3,
               "date": "2026-09-10",
-              "updated": "2026-09-10"
+              "updated": "2026-09-17"
             },
             {
               "title": "下一个更大元素 III（556. Next Greater Element III）",
               "path": "leetcode/math/ch102.md",
               "order": 102,
-              "wordCount": 1431,
+              "wordCount": 1378,
               "readTime": 4,
               "date": "2026-09-10",
-              "updated": "2026-09-10"
+              "updated": "2026-09-17"
             }
           ]
         },
@@ -3115,8 +3115,8 @@
               "title": "最小缺失倍数（3718. Smallest Missing Multiple of K）",
               "path": "leetcode/hash/ch66.md",
               "order": 66,
-              "wordCount": 889,
-              "readTime": 3,
+              "wordCount": 826,
+              "readTime": 2,
               "date": "2026-08-25",
               "updated": "2026-09-17"
             },
@@ -3124,7 +3124,7 @@
               "title": "找出变位映射（760. Find Anagram Mappings）",
               "path": "leetcode/hash/ch74.md",
               "order": 74,
-              "wordCount": 1087,
+              "wordCount": 1009,
               "readTime": 3,
               "date": "2026-09-03",
               "updated": "2026-09-17"
@@ -3133,8 +3133,8 @@
               "title": "句子相似性（734. Sentence Similarity）",
               "path": "leetcode/hash/ch78.md",
               "order": 78,
-              "wordCount": 1250,
-              "readTime": 4,
+              "wordCount": 1159,
+              "readTime": 3,
               "date": "2026-09-03",
               "updated": "2026-09-17"
             },
@@ -3142,19 +3142,19 @@
               "title": "前五科的均分（1086. High Five）",
               "path": "leetcode/hash/ch104.md",
               "order": 104,
-              "wordCount": 1475,
+              "wordCount": 1415,
               "readTime": 4,
               "date": "2026-09-11",
-              "updated": "2026-09-11"
+              "updated": "2026-09-17"
             },
             {
               "title": "所有行中的最小公共元素（1198. Smallest Common Element in All Rows）",
               "path": "leetcode/hash/ch105.md",
               "order": 105,
-              "wordCount": 1653,
-              "readTime": 5,
+              "wordCount": 1594,
+              "readTime": 4,
               "date": "2026-09-11",
-              "updated": "2026-09-11"
+              "updated": "2026-09-17"
             }
           ]
         }
