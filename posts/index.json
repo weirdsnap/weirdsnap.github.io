@@ -131,6 +131,15 @@
           "readTime": 2,
           "date": "2026-07-14",
           "updated": "2026-07-14"
+        },
+        {
+          "title": "JSONL：日志文件为什么爱用\"每行一个 JSON\"",
+          "path": "essays/ch15.md",
+          "order": 15,
+          "wordCount": 762,
+          "readTime": 2,
+          "date": "2026-09-17",
+          "updated": "2026-09-17"
         }
       ],
       "subs": []
@@ -2089,6 +2098,15 @@
               "readTime": 3,
               "date": "2026-07-29",
               "updated": "2026-08-03"
+            },
+            {
+              "title": "找两个和为目标值且不重叠的子数组（1477. Find Two Non-overlapping Sub-arrays Each With Target Sum）",
+              "path": "leetcode/dp/linear/ch107.md",
+              "order": 107,
+              "wordCount": 1779,
+              "readTime": 5,
+              "date": "2026-09-17",
+              "updated": "2026-09-17"
             }
           ]
         },
@@ -2129,8 +2147,8 @@
               "title": "K 条不重叠线段的方案数（1621. Number of Sets of K Non-Overlapping Line Segments）",
               "path": "leetcode/dp/state-machine/ch106.md",
               "order": 106,
-              "wordCount": 1914,
-              "readTime": 5,
+              "wordCount": 2299,
+              "readTime": 6,
               "date": "2026-09-17",
               "updated": "2026-09-17"
             }
@@ -3155,6 +3173,15 @@
               "readTime": 4,
               "date": "2026-09-11",
               "updated": "2026-09-17"
+            },
+            {
+              "title": "和为 K 的子数组（560. Subarray Sum Equals K）",
+              "path": "leetcode/hash/ch108.md",
+              "order": 108,
+              "wordCount": 781,
+              "readTime": 2,
+              "date": "2026-09-17",
+              "updated": "2026-09-17"
             }
           ]
         }
@@ -3546,6 +3573,32 @@
               "readTime": 7,
               "date": "2026-09-04",
               "updated": "2026-09-04"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frontend",
+      "label": "前端",
+      "order": 7,
+      "type": "folder",
+      "articles": [],
+      "subs": [
+        {
+          "id": "vscode",
+          "label": "VSCode 插件",
+          "order": 1,
+          "type": "list",
+          "articles": [
+            {
+              "title": "01",
+              "path": "frontend/vscode/01.md",
+              "order": 1,
+              "wordCount": 566,
+              "readTime": 2,
+              "date": "2026-09-17",
+              "updated": "2026-09-17"
             }
           ]
         }
