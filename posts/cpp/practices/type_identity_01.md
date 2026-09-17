@@ -138,14 +138,9 @@ process(std::type_identity<MyStruct>{});
 
 ---
 
-## 验证代码
-
-`cpp_learning/templates/type_identity/`：`type_identity.cpp` 演示四种用途（含推导失败修复的完整对照），`type_identity_test.cpp` 8 条断言全过（含"lambda 闭包类型唯一""转换单向""`std::function` 大小固定"的编译期验证）。
-
----
-
 ## 相关阅读
 
 - 类型退化（[ch01/07](./blog.html?post=cpp/ch01/07.md)）：`type_identity` 阻止退化的场景
 - `std::function` 与 Lambda：类型擦除的另一面（[practices/std_function_01](./blog.html?post=cpp/practices/std_function_01.md)）：推导失败案例的完整分析
 - 模板参数推导 int vs const int（[ch04/01](./blog.html?post=cpp/ch04/01.md)）：推导的基础规则
+- 配套代码：`cpp_learning/templates/type_identity/`（四种用途的完整对照演示）

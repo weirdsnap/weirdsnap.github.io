@@ -119,13 +119,9 @@ Lambda 是"每个都不同的具体类型"，`std::function` 是"抹平差异的
 
 ---
 
-## 验证代码
+## 配套代码
 
-`cpp_learning/templates/type_identity/`：
-
-- 闭包类型唯一性、转换单向性、`std::function` 大小固定——编译期 `static_assert` 验证；
-- 空捕获 lambda 1 字节、64 字节捕获的 lambda 64 字节、`std::function` 固定 32 字节——`type_identity.cpp` 实测输出；
-- 推导失败修复版（`type_identity_t`）正常运行输出 42。
+`cpp_learning/templates/type_identity/`：`type_identity.cpp` 演示闭包类型唯一性、转换单向性、`std::function` 大小，含推导失败的修复对照。
 
 ---
 

@@ -146,4 +146,4 @@ freelist 是单向链表，摘头 O(1)。`new (&s->obj) T(args...)` 在既有内
 
 - [ch03/01 new/delete vs malloc/free](../ch03/01.md)：池取代的正是这一对操作的逐对象开销
 - [ch01/00 C++ 语言基础与类型系统](../ch01/00.md)：union 的内存共享与对齐规则
-- 验证代码与基准：`cpp_learning/memory_mgmt/object_pool/`
+- 配套代码与基准：`cpp_learning/memory_mgmt/object_pool/`
