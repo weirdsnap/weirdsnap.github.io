@@ -1940,13 +1940,13 @@
       "type": "list",
       "articles": [
         {
-          "title": "ch00",
+          "title": "python 和 cpp",
           "path": "python2cpp/ch00.md",
           "order": 0,
-          "wordCount": 0,
+          "wordCount": 74,
           "readTime": 1,
           "date": "2026-06-05",
-          "updated": "2026-06-10"
+          "updated": "2026-09-20"
         },
         {
           "title": "类型系统",
@@ -2676,6 +2676,15 @@
               "readTime": 4,
               "date": "2026-09-04",
               "updated": "2026-09-17"
+            },
+            {
+              "title": "图像重叠（835. Image Overlap）",
+              "path": "leetcode/array/ch109.md",
+              "order": 109,
+              "wordCount": 1019,
+              "readTime": 3,
+              "date": "2026-09-20",
+              "updated": "2026-09-20"
             }
           ]
         },
@@ -3599,6 +3608,23 @@
               "readTime": 2,
               "date": "2026-09-17",
               "updated": "2026-09-17"
+            }
+          ]
+        },
+        {
+          "id": "security",
+          "label": "Web 安全",
+          "order": 2,
+          "type": "list",
+          "articles": [
+            {
+              "title": "渲染不可信 Markdown 的 XSS 风险与 DOMPurify 消毒",
+              "path": "frontend/security/xss-dompurify.md",
+              "order": 999,
+              "wordCount": 973,
+              "readTime": 3,
+              "date": "2026-09-20",
+              "updated": "2026-09-20"
             }
           ]
         }
