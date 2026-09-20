@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/style.css?v=2">
     <script src="../scripts/vendor/vue.global.js"></script>
     <script src="../scripts/vendor/marked.min.js"></script>
+    <script src="../scripts/vendor/purify.min.js"></script>
     <style>
         /* 与博客统一的页面内容区 */
         #contents {
@@ -630,7 +631,8 @@
 
                 updateAssistantMessage(id, text, elapsed) {
                     // 使用 marked 渲染 Markdown，单换行也转为 <br>
-                    const html = marked.parse(text, { breaks: true });
+                    // 回答来自远端服务，消毒后才允许进 v-html
+                    const html = DOMPurify.sanitize(marked.parse(text, { breaks: true }));
                     const suffix = elapsed ? '<p class="elapsed">耗时 ' + Number(elapsed).toFixed(1) + ' 秒</p>' : '';
                     const idx = this.messages.findIndex(m => m.id === id);
                     if (idx !== -1) {
