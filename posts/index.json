@@ -2685,6 +2685,15 @@
               "readTime": 3,
               "date": "2026-09-20",
               "updated": "2026-09-20"
+            },
+            {
+              "title": "有海景的楼（1762. Buildings With an Ocean View）",
+              "path": "leetcode/array/ch110.md",
+              "order": 110,
+              "wordCount": 491,
+              "readTime": 1,
+              "date": "2026-09-26",
+              "updated": "2026-09-26"
             }
           ]
         },
@@ -3049,6 +3058,15 @@
               "readTime": 4,
               "date": "2026-08-28",
               "updated": "2026-09-17"
+            },
+            {
+              "title": "数据流中的移动平均值（346. Moving Average from Data Stream）",
+              "path": "leetcode/sliding-window/ch112.md",
+              "order": 112,
+              "wordCount": 948,
+              "readTime": 3,
+              "date": "2026-09-26",
+              "updated": "2026-09-26"
             }
           ]
         },
@@ -3191,6 +3209,15 @@
               "readTime": 2,
               "date": "2026-09-17",
               "updated": "2026-09-17"
+            },
+            {
+              "title": "替换字符串中的括号内容（1807. Evaluate the Bracket Pairs of a String）",
+              "path": "leetcode/hash/ch111.md",
+              "order": 111,
+              "wordCount": 980,
+              "readTime": 3,
+              "date": "2026-09-26",
+              "updated": "2026-09-26"
             }
           ]
         }
