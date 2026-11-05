@@ -2827,6 +2827,15 @@
               "readTime": 4,
               "date": "2026-09-10",
               "updated": "2026-09-17"
+            },
+            {
+              "title": "反转每对括号间的子串（1190. Reverse Substrings Between Each Pair of Parentheses）",
+              "path": "leetcode/stack/ch113.md",
+              "order": 113,
+              "wordCount": 821,
+              "readTime": 2,
+              "date": "2026-11-05",
+              "updated": "2026-11-05"
             }
           ]
         },
