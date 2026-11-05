@@ -32,79 +32,19 @@
             padding: 2em;
         }
 
-        /* 密码页 */
-        .password-overlay {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 60vh;
-        }
-        .password-box {
-            text-align: center;
-            max-width: 420px;
-            width: 100%;
-        }
-        .password-box h2 {
-            margin: 0 0 0.5em;
-            font-size: 1.5rem;
-            color: var(--text-primary);
-        }
-        .password-box p {
-            color: var(--text-secondary);
-            margin: 0 0 1.5em;
-            font-size: 0.95rem;
-        }
-        .password-box input {
-            width: 100%;
-            padding: 0.75em 1em;
-            border: 2px solid var(--border-color);
-            border-radius: var(--radius-md);
-            font-size: 1rem;
-            font-family: var(--font-sans);
-            color: var(--text-primary);
-            outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
-            box-sizing: border-box;
-            background: var(--bg-warm);
-        }
-        .password-box input:focus {
-            border-color: var(--accent-warm);
-            box-shadow: 0 0 0 3px rgba(193, 120, 23, 0.12);
-        }
-        .password-box .error-msg {
-            color: #c0392b;
-            font-size: 0.85rem;
-            margin: 0.5em 0 0;
-            min-height: 1.4em;
-        }
-        .password-box button {
-            margin-top: 1.25em;
-            padding: 0.65em 2em;
-            background: var(--accent-warm);
-            color: white;
-            border: none;
-            border-radius: var(--radius-md);
-            font-size: 1rem;
-            font-family: var(--font-sans);
-            cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
-        }
-        .password-box button:hover {
-            background: var(--accent-hover);
-        }
-        .password-box button:active {
-            transform: translateY(1px);
+        /* 额度提示 */
+        .quota-note {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-top: 0.4em;
         }
 
         /* 聊天界面 */
         .chat-area {
-            display: none;
+            display: flex;
             flex-direction: column;
             height: calc(100vh - var(--header-height) - var(--footer-height) - 4em);
             min-height: 480px;
-        }
-        .chat-area.active {
-            display: flex;
         }
 
         .chat-header {
@@ -309,23 +249,15 @@
 
     <div id="contents">
         <div class="hk-container" id="app">
-            <!-- 密码输入 -->
-            <div class="password-overlay" v-if="!authenticated">
-                <form class="password-box hk-card" @submit.prevent="login">
-                    <h2>游戏助手</h2>
-                    <p>输入密码以访问</p>
-                    <input type="password" name="password" autocomplete="current-password" v-model="passwordInput" placeholder="请输入密码" ref="pwInput">
-                    <div class="error-msg">{{ errorMsg }}</div>
-                    <button type="submit" :disabled="loading">{{ loading ? '登录中...' : '确认' }}</button>
-                </form>
-            </div>
-
-            <!-- 聊天界面 -->
-            <div class="chat-area" :class="{ active: authenticated }">
+            <!-- 聊天界面（不再需要密码） -->
+            <div class="chat-area active">
                 <div class="hk-card" style="display: flex; flex-direction: column; flex: 1;">
                     <div class="chat-header">
                         <h2>游戏助手</h2>
-                        <div class="subtitle">基于 RAG 的游戏知识库，支持多款游戏</div>
+                        <div class="subtitle">
+                            基于 RAG 的游戏知识库，支持多款游戏
+                            <div class="quota-note" v-if="quotaRemaining !== null">今日剩余 {{ quotaRemaining }} 次提问</div>
+                        </div>
                     </div>
 
                     <div class="chat-messages" ref="msgBox">
@@ -380,11 +312,7 @@
         const app = Vue.createApp({
             data() {
                 return {
-                    authenticated: false,
-                    token: null,
-                    tokenExpiry: null,
-                    passwordInput: '',
-                    errorMsg: '',
+                    quotaRemaining: null,
                     questionInput: '',
                     imeComposing: false,
                     loading: false,
@@ -404,64 +332,24 @@
                     ]
                 }
             },
+            mounted() {
+                this.loadQuota();
+            },
             methods: {
-                async login() {
-                    if (this.loading) return;
-                    this.errorMsg = '';
-                    if (!this.passwordInput.trim()) {
-                        this.errorMsg = '请输入密码';
-                        return;
-                    }
-                    this.loading = true;
-                    const ok = await this.doLogin();
-                    this.loading = false;
-                    if (!ok) return;
-                    this.authenticated = true;
-                    this.$nextTick(() => {
-                        this.$refs.inputBox?.focus();
-                    });
-                },
-
-                async doLogin() {
+                async loadQuota() {
+                    // 额度用完了也不影响页面能用，失败就默默不显示
                     try {
-                        const res = await fetch(API_URL + '/login', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ password: this.passwordInput.trim() })
-                        });
-                        const data = await res.json();
-                        if (res.ok && data.token) {
-                            this.token = data.token;
-                            // 记录过期时间，预留 60 秒缓冲
-                            const expiresIn = data.expires_in || 3600;
-                            this.tokenExpiry = Date.now() + (expiresIn - 60) * 1000;
-                            return true;
-                        }
-                        if (res.status === 401 || data.error === '密码错误') {
-                            this.errorMsg = '密码错误';
-                        } else {
-                            this.errorMsg = data.error || '登录失败';
-                        }
-                        return false;
+                        const res = await fetch(API_URL + '/quota');
+                        if (res.ok) this.applyQuota(await res.json());
                     } catch (e) {
-                        this.errorMsg = '无法连接到助手服务器';
-                        return false;
+                        /* 忽略 */
                     }
                 },
 
-                isTokenExpired() {
-                    return !this.token || (this.tokenExpiry && Date.now() > this.tokenExpiry);
-                },
-
-                async ensureToken() {
-                    if (this.isTokenExpired()) {
-                        // token 过期，重新登录
-                        this.authenticated = false;
-                        this.token = null;
-                        this.errorMsg = '登录已过期，请重新输入密码';
-                        return false;
+                applyQuota(q) {
+                    if (q && typeof q.remaining === 'number') {
+                        this.quotaRemaining = q.remaining;
                     }
-                    return true;
                 },
 
                 onCompositionEnd() {
@@ -517,17 +405,10 @@
                             }
                         }
 
-                        if (!(await this.ensureToken())) {
-                            this.messages = this.messages.filter(m => m.id !== assistantId);
-                            this.loading = false;
-                            return;
-                        }
-
                         const res = await fetch(API_URL + '/ask/stream', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
-                                token: this.token,
                                 question: text,
                                 history: history
                             })
@@ -535,17 +416,17 @@
 
                         if (!res.ok) {
                             const data = await res.json().catch(() => ({}));
+                            this.applyQuota(data.quota);
                             this.messages = this.messages.filter(m => m.id !== assistantId);
+                            // 429 = 额度用完（或频率限制）：当成一条普通回答展示，不要挂"出错了"
+                            const friendly = res.status === 429 && data.error;
                             this.messages.push({
                                 id: this.msgId++,
                                 role: 'assistant',
-                                content: '<p>出错了：' + this.escapeHtml(data.error || '服务器错误 ' + res.status) + '</p>'
+                                content: friendly
+                                    ? '<p>' + this.escapeHtml(data.error) + '</p>'
+                                    : '<p>出错了：' + this.escapeHtml(data.error || '服务器错误 ' + res.status) + '</p>'
                             });
-                            if (res.status === 401) {
-                                this.authenticated = false;
-                                this.token = null;
-                                this.errorMsg = '登录已过期，请重新输入密码';
-                            }
                             this.loading = false;
                             this.scrollBottom();
                             return;
@@ -590,6 +471,7 @@
                                             break;
                                         case 'done':
                                             elapsed = data.elapsed || 0;
+                                            this.applyQuota(data.quota);
                                             break;
                                         case 'error':
                                             this.messages = this.messages.filter(m => m.id !== assistantId);
