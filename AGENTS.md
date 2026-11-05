@@ -22,7 +22,7 @@
 - 文章里引用别的文章：`[标题](./blog.html?post=分类/路径/文件名.md)`——**必须带 `.md` 后缀**，写之前确认目标文件存在。相邻文章的 prev/next 导航由前端自动算，正文里不写死。
 - 代码块里出现大量 `{{` 时注意 Jekyll/Liquid 冲突（见 README 踩坑 3）。
 - 新分类 / 子分类：建目录 + `_meta.json`（`label` + `order`，order 接现有最大值顺延）。
-- **文章日期**：索引的 `date` 默认取 `git log --follow` 首提交日，但 `--follow` 的重命名识别是启发式的，不同 git 版本结果不同，会让 CI 的索引一致性检查挂掉。所以**移动 / 重命名文章文件后，必须在该文件 frontmatter 里钉死 `date: YYYY-MM-DD`**（frontmatter 优先于 git 历史）；新建被移动过的文件也一样。
+- **文章日期**：索引的 `date` 默认取 `git log --follow` 首提交日，但 `--follow` 的重命名识别是启发式的，不同 git 版本结果不同，会让 CI 的索引一致性检查挂掉。所以**移动 / 重命名文章文件后，必须在该文件 frontmatter 里钉死 `date: YYYY-MM-DD`**（frontmatter 优先于 git 历史）；新建被移动过的文件也一样。`validate.py` 会强制检查这一点（`check_date_drift`），没钉的会被拦下。
 
 ### LeetCode 题解（`posts/leetcode/`）
 

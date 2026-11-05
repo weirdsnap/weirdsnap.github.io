@@ -2,6 +2,7 @@
 """Validate blog data integrity."""
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -125,6 +126,55 @@ def collect_article_paths(articles: list[dict]) -> set[str]:
     return {a["path"] for a in articles}
 
 
+def run_git(args: list[str]) -> str | None:
+    """Run a git command and return stripped stdout, or None on failure."""
+    try:
+        result = subprocess.run(
+            ["git"] + args, capture_output=True, text=True, check=True
+        )
+        return result.stdout.strip() or None
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return None
+
+
+def has_frontmatter_date(md_path: Path) -> bool:
+    """Check whether the file pins a `date` in its YAML frontmatter."""
+    text = md_path.read_text(encoding="utf-8")
+    if not text.startswith("---"):
+        return False
+    parts = text.split("---", 2)
+    if len(parts) < 3:
+        return False
+    for line in parts[1].splitlines():
+        if ":" in line and line.split(":", 1)[0].strip() == "date":
+            return True
+    return False
+
+
+def check_date_drift() -> list[str]:
+    """Find files whose index date depends on git rename detection.
+
+    build_index derives `date` from `git log --follow` unless the file pins
+    `date` in frontmatter. --follow's rename detection is heuristic and
+    differs across git versions, which makes the CI index-consistency check
+    fail. Such files must pin `date` in frontmatter (frontmatter wins).
+    """
+    bad = []
+    for md_file in POSTS_DIR.rglob("*.md"):
+        if is_skipped(md_file):
+            continue
+        if has_frontmatter_date(md_file):
+            continue
+        p = str(md_file)
+        follow = run_git(["log", "--follow", "--format=%cs", "--", p])
+        plain = run_git(["log", "--format=%cs", "--", p])
+        follow_first = follow.splitlines()[-1] if follow else None
+        plain_first = plain.splitlines()[-1] if plain else None
+        if follow_first != plain_first:
+            bad.append(str(md_file.relative_to(POSTS_DIR)))
+    return bad
+
+
 def check_dead_links(article_paths: set[str]) -> list[str]:
     """Check that all ?post=... links in markdown files point to valid articles."""
     dead = []
@@ -198,12 +248,19 @@ def main() -> int:
         for link in dead_links:
             errors.append(f"  - {link}")
 
+    # 8. date drift: date must not depend on git rename detection
+    drift = check_date_drift()
+    if drift:
+        errors.append(f"{len(drift)} article(s) with rename-dependent date; pin 'date' in frontmatter:")
+        for p in drift:
+            errors.append(f"  - {p}")
+
     if errors:
         print("Validation failed:")
         print("\n".join(errors))
         return 1
 
-    print(f"Validation passed: {len(articles)} articles, no NUL bytes, no duplicates, no mismatches, no dead links.")
+    print(f"Validation passed: {len(articles)} articles, no NUL bytes, no duplicates, no mismatches, no dead links, no date drift.")
     return 0
 
 
