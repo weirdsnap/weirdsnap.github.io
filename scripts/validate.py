@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Validate blog data integrity."""
 import json
+import os
 import re
 import subprocess
 import sys
@@ -193,6 +194,34 @@ def check_dead_links(article_paths: set[str]) -> list[str]:
     return dead
 
 
+def check_relative_links() -> list[str]:
+    """Check that relative .md links resolve to existing files.
+
+    `?post=` links are handled by check_dead_links; this covers the
+    same-directory form used by series cross-references, which silently
+    rotted when articles got renumbered or split.
+    """
+    dead = []
+    md_link = re.compile(r"\]\(([^)\s]+)\)")
+    for md_file in POSTS_DIR.rglob("*.md"):
+        if is_skipped(md_file):
+            continue
+        text = strip_frontmatter(md_file.read_text(encoding="utf-8"))
+        for match in md_link.finditer(text):
+            link = match.group(1).split("#", 1)[0]
+            if not link.endswith(".md"):
+                continue
+            if link.startswith(("http://", "https://", "mailto:")) or "blog.html" in link:
+                continue
+            if link.startswith("/"):
+                target = Path(link.lstrip("/"))
+            else:
+                target = Path(os.path.normpath(md_file.parent / link))
+            if not target.exists():
+                dead.append(f"{md_file.relative_to(POSTS_DIR)} -> {link}")
+    return dead
+
+
 def main() -> int:
     errors = []
 
@@ -254,6 +283,13 @@ def main() -> int:
         errors.append(f"{len(drift)} article(s) with rename-dependent date; pin 'date' in frontmatter:")
         for p in drift:
             errors.append(f"  - {p}")
+
+    # 9. relative .md links must resolve
+    rel_dead = check_relative_links()
+    if rel_dead:
+        errors.append(f"{len(rel_dead)} dead relative link(s) found:")
+        for link in rel_dead:
+            errors.append(f"  - {link}")
 
     if errors:
         print("Validation failed:")
