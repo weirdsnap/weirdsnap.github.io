@@ -3293,7 +3293,7 @@
               "title": "DNS 怎么落到分流器手里：redir-host 和 fake-ip",
               "path": "backend/network/ch04.md",
               "order": 4,
-              "wordCount": 1446,
+              "wordCount": 1456,
               "readTime": 4,
               "date": "2026-11-17",
               "updated": "2026-11-17"
@@ -3302,7 +3302,7 @@
               "title": "分流规则的执行模型：第一条命中与兜底",
               "path": "backend/network/ch05.md",
               "order": 5,
-              "wordCount": 1339,
+              "wordCount": 1338,
               "readTime": 4,
               "date": "2026-11-17",
               "updated": "2026-11-17"
@@ -3311,7 +3311,7 @@
               "title": "GEOSITE 和 GEOIP 匹配的到底是什么",
               "path": "backend/network/ch06.md",
               "order": 6,
-              "wordCount": 1125,
+              "wordCount": 1130,
               "readTime": 3,
               "date": "2026-11-17",
               "updated": "2026-11-17"
@@ -3329,7 +3329,7 @@
               "title": "PAC：把代理决策交给客户端",
               "path": "backend/network/ch08.md",
               "order": 8,
-              "wordCount": 1340,
+              "wordCount": 1339,
               "readTime": 4,
               "date": "2026-11-17",
               "updated": "2026-11-17"
