@@ -119,6 +119,43 @@
             color: var(--accent-hover);
         }
 
+        /* 回答下方反馈按钮：赞/踩，提交后锁定 */
+        .message .feedback {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 0.6em;
+            padding-top: 0.5em;
+            border-top: 1px solid var(--border-color);
+        }
+        .message .feedback .fb-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 0.1em 0.5em;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            cursor: pointer;
+            opacity: 0.55;
+            transition: all 0.2s;
+        }
+        .message .feedback .fb-btn:hover:not(:disabled) {
+            opacity: 1;
+            border-color: var(--accent-warm);
+        }
+        .message .feedback .fb-btn.active {
+            opacity: 1;
+            border-color: var(--accent-warm);
+            background: var(--accent-light);
+        }
+        .message .feedback .fb-btn:disabled {
+            cursor: default;
+        }
+        .message .feedback .fb-done {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
         .message.loading .dots {
             animation: pulse 1.5s infinite;
         }
@@ -263,7 +300,14 @@
                     <div class="chat-messages" ref="msgBox">
                         <div v-for="msg in messages" :key="msg.id" class="message" :class="msg.role">
                             <span v-if="msg.role === 'loading'" class="dots">思考中...</span>
-                            <span v-else v-html="msg.content"></span>
+                            <template v-else>
+                                <span v-html="msg.content"></span>
+                                <div v-if="msg.role === 'assistant' && msg.turnId" class="feedback">
+                                    <button class="fb-btn" :class="{ active: msg.feedback === 1 }" @click="sendFeedback(msg, 1)" :disabled="!!msg.feedback" title="回答有帮助">👍</button>
+                                    <button class="fb-btn" :class="{ active: msg.feedback === -1 }" @click="sendFeedback(msg, -1)" :disabled="!!msg.feedback" title="回答有问题">👎</button>
+                                    <span v-if="msg.feedback" class="fb-done">已反馈</span>
+                                </div>
+                            </template>
                         </div>
                     </div>
 
@@ -324,6 +368,8 @@
                         }
                     ],
                     msgId: 1,
+                    currentGame: null,
+                    currentRoute: null,
                     sampleQuestions: [
                         '[空洞骑士] 怎么获得螳螂爪？',
                         '[空洞骑士] 深巢入口在哪里？',
@@ -387,8 +433,14 @@
                     this.messages.push({
                         id: assistantId,
                         role: 'assistant',
-                        content: '<p>思考中...</p>'
+                        content: '<p>思考中...</p>',
+                        question: text,
+                        turnId: null,
+                        game: null,
+                        feedback: null
                     });
+                    this.currentGame = null;
+                    this.currentRoute = null;
 
                     this.loading = true;
                     this.scrollBottom();
@@ -463,7 +515,9 @@
 
                                     switch (data.type) {
                                         case 'meta':
-                                            // 可在此显示游戏信息，暂不处理
+                                            // 记录本轮游戏，反馈时一并上报（不参与渲染）
+                                            this.currentGame = data.game || null;
+                                            this.currentRoute = 'agent';
                                             break;
                                         case 'token':
                                             answerText += data.content;
@@ -472,6 +526,8 @@
                                         case 'done':
                                             elapsed = data.elapsed || 0;
                                             this.applyQuota(data.quota);
+                                            // turn_id 是后端给这一轮生成的编号，反馈时用它关联
+                                            this.attachTurnId(assistantId, data.turn_id);
                                             break;
                                         case 'error':
                                             this.messages = this.messages.filter(m => m.id !== assistantId);
@@ -509,6 +565,38 @@
 
                     this.loading = false;
                     this.scrollBottom();
+                },
+
+                attachTurnId(id, turnId) {
+                    if (!turnId) return;
+                    const idx = this.messages.findIndex(m => m.id === id);
+                    if (idx !== -1) {
+                        this.messages[idx].turnId = turnId;
+                        this.messages[idx].game = this.currentGame;
+                    }
+                },
+
+                async sendFeedback(msg, rating) {
+                    // 已反馈或尚未拿到 turn_id 时不重复提交
+                    if (!msg.turnId || msg.feedback) return;
+                    const idx = this.messages.findIndex(m => m.id === msg.id);
+                    if (idx === -1) return;
+                    this.messages[idx].feedback = rating;   // 乐观更新，失败回滚
+                    try {
+                        const res = await fetch(API_URL + '/feedback', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                turn_id: msg.turnId,
+                                rating: rating,
+                                question: msg.question || '',
+                                game: msg.game || null
+                            })
+                        });
+                        if (!res.ok) throw new Error('status ' + res.status);
+                    } catch (e) {
+                        this.messages[idx].feedback = null;
+                    }
                 },
 
                 updateAssistantMessage(id, text, elapsed) {
