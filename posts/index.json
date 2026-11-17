@@ -164,7 +164,7 @@
               "wordCount": 1767,
               "readTime": 5,
               "date": "2026-06-10",
-              "updated": "2026-06-24"
+              "updated": "2026-11-16"
             },
             {
               "title": "无符号整型回绕",
@@ -173,7 +173,7 @@
               "wordCount": 460,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-06-24"
+              "updated": "2026-11-16"
             },
             {
               "title": "char 的符号性",
@@ -182,7 +182,7 @@
               "wordCount": 428,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-06-25"
+              "updated": "2026-11-16"
             },
             {
               "title": "C++ 字面量与类型",
@@ -254,7 +254,7 @@
               "wordCount": 826,
               "readTime": 2,
               "date": "2026-06-05",
-              "updated": "2026-06-25"
+              "updated": "2026-11-16"
             },
             {
               "title": "返回局部/临时变量的指针/引用",
@@ -1025,7 +1025,7 @@
               "wordCount": 1207,
               "readTime": 3,
               "date": "2026-06-05",
-              "updated": "2026-11-05"
+              "updated": "2026-11-16"
             },
             {
               "title": "IFNDR：只有空包才合法的变参模板",
@@ -1034,7 +1034,7 @@
               "wordCount": 683,
               "readTime": 2,
               "date": "2026-06-05",
-              "updated": "2026-11-05"
+              "updated": "2026-11-16"
             },
             {
               "title": "函数参数类型确定的三阶段",
@@ -1132,7 +1132,7 @@
               "wordCount": 254,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-05"
+              "updated": "2026-11-16"
             },
             {
               "title": "dynamic_cast",
@@ -3253,6 +3253,86 @@
               "readTime": 8,
               "date": "2026-06-23",
               "updated": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "network",
+          "label": "网络基础",
+          "order": 2,
+          "type": "list",
+          "articles": [
+            {
+              "title": "一个数据包从手机出门要经过什么：NAT、转发与连接跟踪",
+              "path": "backend/network/ch01.md",
+              "order": 1,
+              "wordCount": 1448,
+              "readTime": 5,
+              "date": "2026-11-17",
+              "updated": "2026-11-17"
+            },
+            {
+              "title": "代理为什么比直连慢：用户态转发与两段 TCP",
+              "path": "backend/network/ch02.md",
+              "order": 2,
+              "wordCount": 1426,
+              "readTime": 4,
+              "date": "2026-11-17",
+              "updated": "2026-11-17"
+            },
+            {
+              "title": "透明代理的三种做法：REDIRECT、TPROXY 与 TUN",
+              "path": "backend/network/ch03.md",
+              "order": 3,
+              "wordCount": 1421,
+              "readTime": 4,
+              "date": "2026-11-17",
+              "updated": "2026-11-17"
+            },
+            {
+              "title": "DNS 怎么落到分流器手里：redir-host 和 fake-ip",
+              "path": "backend/network/ch04.md",
+              "order": 4,
+              "wordCount": 1446,
+              "readTime": 4,
+              "date": "2026-11-17",
+              "updated": "2026-11-17"
+            },
+            {
+              "title": "分流规则的执行模型：第一条命中与兜底",
+              "path": "backend/network/ch05.md",
+              "order": 5,
+              "wordCount": 1339,
+              "readTime": 4,
+              "date": "2026-11-17",
+              "updated": "2026-11-17"
+            },
+            {
+              "title": "GEOSITE 和 GEOIP 匹配的到底是什么",
+              "path": "backend/network/ch06.md",
+              "order": 6,
+              "wordCount": 1125,
+              "readTime": 3,
+              "date": "2026-11-17",
+              "updated": "2026-11-17"
+            },
+            {
+              "title": "硬件转发为什么没跑起来：NSS、ECM 和一块缺失的模块",
+              "path": "backend/network/ch07.md",
+              "order": 7,
+              "wordCount": 1722,
+              "readTime": 5,
+              "date": "2026-11-17",
+              "updated": "2026-11-17"
+            },
+            {
+              "title": "PAC：把代理决策交给客户端",
+              "path": "backend/network/ch08.md",
+              "order": 8,
+              "wordCount": 1340,
+              "readTime": 4,
+              "date": "2026-11-17",
+              "updated": "2026-11-17"
             }
           ]
         }
