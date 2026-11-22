@@ -54,10 +54,9 @@
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 1em;
         }
-        .new-chat {
+        .new-chat, .history-btn {
             position: absolute;
             top: 0;
-            right: 0;
             font-size: 0.78rem;
             padding: 0.25em 0.7em;
             border: 1px solid var(--border-color);
@@ -66,11 +65,48 @@
             color: var(--text-muted);
             cursor: pointer;
         }
-        .new-chat:hover:not(:disabled) {
+        .new-chat { right: 0; }
+        .history-btn { left: 0; }
+        .new-chat:hover:not(:disabled), .history-btn:hover:not(:disabled) {
             color: var(--text-primary);
             border-color: var(--text-primary);
         }
-        .new-chat:disabled { opacity: 0.4; cursor: default; }
+        .new-chat:disabled, .history-btn:disabled { opacity: 0.4; cursor: default; }
+        .history-mask {
+            position: fixed;
+            inset: 0;
+            background: rgba(45, 42, 38, 0.35);
+            z-index: 50;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 12vh;
+        }
+        .history-panel {
+            width: min(90vw, 420px);
+            max-height: 62vh;
+            overflow-y: auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            padding: 0.8em;
+        }
+        .history-panel .hp-title {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.6em;
+        }
+        .history-item {
+            padding: 0.55em 0.6em;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+        }
+        .history-item:hover { background: var(--bg-warm); }
+        .history-item.active { border-left: 3px solid var(--accent-warm); }
+        .history-item .hi-title { font-size: 0.9rem; color: var(--text-primary); }
+        .history-item .hi-meta { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.15em; }
+        .history-empty { font-size: 0.8rem; color: var(--text-muted); padding: 1em 0; text-align: center; }
         .restore-note {
             font-size: 0.78rem;
             color: var(--text-muted);
@@ -315,6 +351,7 @@
                 <div class="hk-card" style="display: flex; flex-direction: column; flex: 1;">
                     <div class="chat-header">
                         <h2>游戏助手</h2>
+                        <button class="history-btn" @click="toggleHistory" :disabled="loading">历史</button>
                         <button class="new-chat" @click="newChat" :disabled="loading">新对话</button>
                         <div class="subtitle">
                             基于 RAG 的游戏知识库，支持多款游戏
@@ -353,6 +390,20 @@
                         <a href="../index.html">← 返回首页</a> · 数据来源 Fandom 游戏 Wiki 与社区资料
                     </div>
                 </div>
+
+                <!-- 历史会话浮层：后端 /api/sessions 已支持，这里只是入口 -->
+                <div v-if="historyOpen" class="history-mask" @click.self="historyOpen = false">
+                    <div class="history-panel">
+                        <div class="hp-title">最近的对话（最多 10 条，原文保留 3 天）</div>
+                        <div v-if="!sessions.length" class="history-empty">还没有对话记录</div>
+                        <div v-for="s in sessions" :key="s.session_id" class="history-item"
+                             :class="{ active: s.session_id === sessionId }"
+                             @click="switchSession(s.session_id)">
+                            <div class="hi-title">{{ s.title || '（无标题）' }}</div>
+                            <div class="hi-meta">{{ timeAgo(s.last_active) }} · {{ s.turns_available }} 轮{{ s.game ? ' · ' + gameName(s.game) : '' }}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -384,6 +435,13 @@
         // 服务端只靠它们隔离数据，不需要登录。
         const CLIENT_KEY = 'gg_client_id';
         const SESSION_KEY = 'gg_session_id';
+
+        // 会话列表里显示的游戏中名（后端存的是 game_registry 的 key）
+        const GAME_NAMES = {
+            hollow_knight: '空洞骑士', oni: '缺氧', terraria: '泰拉瑞亚',
+            silksong: '丝之歌', cyberpunk2077: '赛博朋克2077', mhw: '怪物猎人荒野',
+            va11halla: 'VA-11 Hall-A', baldurs_gate3: '博德之门3'
+        };
 
         function randomId() {
             if (window.crypto && crypto.randomUUID) return crypto.randomUUID().replace(/-/g, '');
@@ -418,6 +476,8 @@
                     clientId: loadClientId(),
                     sessionId: localStorage.getItem(SESSION_KEY) || null,
                     restoredNote: '',
+                    historyOpen: false,
+                    sessions: [],
                     currentGame: null,
                     currentRoute: null,
                     sampleQuestions: [
@@ -480,7 +540,7 @@
                         }
                         this.messages = msgs;
                         this.currentGame = data.game || null;
-                        this.restoredNote = '已恢复上次的 ' + turns.length + ' 轮对话，点右上角「新对话」可重新开始';
+                        this.restoredNote = '已恢复上次的 ' + turns.length + ' 轮对话，左上角「历史」可切换';
                         this.$nextTick(() => this.scrollBottom());
                     } catch (e) {
                         /* 网络问题不打扰用户 */
@@ -491,6 +551,48 @@
                     if (!sessionId) return;
                     this.sessionId = sessionId;
                     localStorage.setItem(SESSION_KEY, sessionId);
+                },
+
+                // ====== 历史会话（与「新对话」配套：没列表的话点新对话旧会话就找不回来了）======
+                async toggleHistory() {
+                    this.historyOpen = !this.historyOpen;
+                    if (this.historyOpen) await this.loadSessions();
+                },
+
+                async loadSessions() {
+                    try {
+                        const res = await fetch(API_URL + '/sessions?client_id='
+                            + encodeURIComponent(this.clientId) + '&limit=10');
+                        if (!res.ok) return;
+                        const data = await res.json();
+                        this.sessions = data.sessions || [];
+                    } catch (e) {
+                        this.sessions = [];
+                    }
+                },
+
+                async switchSession(sid) {
+                    this.historyOpen = false;
+                    if (sid === this.sessionId) return;
+                    this.sessionId = sid;
+                    localStorage.setItem(SESSION_KEY, sid);
+                    this.restoredNote = '';
+                    this.messages = [this.messages[0]];
+                    this.msgId = 1;
+                    await this.restoreSession();
+                },
+
+                gameName(key) {
+                    return GAME_NAMES[key] || key;
+                },
+
+                timeAgo(ts) {
+                    if (!ts) return '';
+                    const diff = Math.max(0, Math.floor(Date.now() / 1000) - ts);
+                    if (diff < 60) return '刚刚';
+                    if (diff < 3600) return Math.floor(diff / 60) + ' 分钟前';
+                    if (diff < 86400) return Math.floor(diff / 3600) + ' 小时前';
+                    return Math.floor(diff / 86400) + ' 天前';
                 },
 
                 newChat() {
