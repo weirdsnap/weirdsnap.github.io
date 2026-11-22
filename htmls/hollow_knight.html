@@ -48,10 +48,34 @@
         }
 
         .chat-header {
+            position: relative;
             text-align: center;
             padding-bottom: 1em;
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 1em;
+        }
+        .new-chat {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 0.78rem;
+            padding: 0.25em 0.7em;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+        .new-chat:hover:not(:disabled) {
+            color: var(--text-primary);
+            border-color: var(--text-primary);
+        }
+        .new-chat:disabled { opacity: 0.4; cursor: default; }
+        .restore-note {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 0.6em;
         }
         .chat-header h2 {
             margin: 0;
@@ -291,6 +315,7 @@
                 <div class="hk-card" style="display: flex; flex-direction: column; flex: 1;">
                     <div class="chat-header">
                         <h2>游戏助手</h2>
+                        <button class="new-chat" @click="newChat" :disabled="loading">新对话</button>
                         <div class="subtitle">
                             基于 RAG 的游戏知识库，支持多款游戏
                             <div class="quota-note" v-if="quotaRemaining !== null">今日剩余 {{ quotaRemaining }} 次提问</div>
@@ -298,6 +323,7 @@
                     </div>
 
                     <div class="chat-messages" ref="msgBox">
+                        <div v-if="restoredNote" class="restore-note">{{ restoredNote }}</div>
                         <div v-for="msg in messages" :key="msg.id" class="message" :class="msg.role">
                             <span v-if="msg.role === 'loading'" class="dots">思考中...</span>
                             <template v-else>
@@ -353,6 +379,27 @@
         // 后端只支持 HTTPS，直接写死避免本地 HTTP 测试时协议降级
         const API_URL = 'https://api.weirdsnap.top:8443/api';
 
+        // ====== 会话身份（I-23）：刷新 / 重开浏览器后能接着聊 ======
+        // client_id = 一浏览器一个，session_id = 一次对话一个；都是匿名随机串，
+        // 服务端只靠它们隔离数据，不需要登录。
+        const CLIENT_KEY = 'gg_client_id';
+        const SESSION_KEY = 'gg_session_id';
+
+        function randomId() {
+            if (window.crypto && crypto.randomUUID) return crypto.randomUUID().replace(/-/g, '');
+            const bytes = crypto.getRandomValues(new Uint8Array(16));
+            return Array.from(bytes, b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        function loadClientId() {
+            let id = localStorage.getItem(CLIENT_KEY);
+            if (!id) {
+                id = randomId();
+                localStorage.setItem(CLIENT_KEY, id);
+            }
+            return id;
+        }
+
         const app = Vue.createApp({
             data() {
                 return {
@@ -368,6 +415,9 @@
                         }
                     ],
                     msgId: 1,
+                    clientId: loadClientId(),
+                    sessionId: localStorage.getItem(SESSION_KEY) || null,
+                    restoredNote: '',
                     currentGame: null,
                     currentRoute: null,
                     sampleQuestions: [
@@ -380,6 +430,7 @@
             },
             mounted() {
                 this.loadQuota();
+                this.restoreSession();
             },
             methods: {
                 async loadQuota() {
@@ -396,6 +447,65 @@
                     if (q && typeof q.remaining === 'number') {
                         this.quotaRemaining = q.remaining;
                     }
+                },
+
+                // 刷新后恢复上次对话：历史以服务端为准（/api/sessions/{id}）
+                async restoreSession() {
+                    if (!this.sessionId) return;
+                    try {
+                        const res = await fetch(API_URL + '/sessions/' + encodeURIComponent(this.sessionId));
+                        if (!res.ok) {
+                            // 会话被清理/过期：丢掉本地指针，下次提问自动新建
+                            this.sessionId = null;
+                            localStorage.removeItem(SESSION_KEY);
+                            return;
+                        }
+                        const data = await res.json();
+                        const turns = data.turns || [];
+                        if (!turns.length) return;
+                        const msgs = [this.messages[0]];        // 保留欢迎语
+                        for (const t of turns) {
+                            msgs.push({ id: this.msgId++, role: 'user', content: this.escapeHtml(t.question || '') });
+                            msgs.push({
+                                id: this.msgId++,
+                                role: 'assistant',
+                                content: t.answer_expired
+                                    ? '<p class="elapsed">（这轮回答已超过保留期，不再显示）</p>'
+                                    : DOMPurify.sanitize(marked.parse(t.answer || '', { breaks: true })),
+                                question: t.question || '',
+                                turnId: t.turn_id,
+                                game: t.game || data.game || null,
+                                feedback: null
+                            });
+                        }
+                        this.messages = msgs;
+                        this.currentGame = data.game || null;
+                        this.restoredNote = '已恢复上次的 ' + turns.length + ' 轮对话，点右上角「新对话」可重新开始';
+                        this.$nextTick(() => this.scrollBottom());
+                    } catch (e) {
+                        /* 网络问题不打扰用户 */
+                    }
+                },
+
+                applySession(sessionId) {
+                    if (!sessionId) return;
+                    this.sessionId = sessionId;
+                    localStorage.setItem(SESSION_KEY, sessionId);
+                },
+
+                newChat() {
+                    if (this.loading) return;
+                    this.sessionId = null;              // 下一问由服务端新建会话
+                    localStorage.removeItem(SESSION_KEY);
+                    this.restoredNote = '';
+                    this.messages = [{
+                        id: 0,
+                        role: 'assistant',
+                        content: '你好！我是游戏助手<br>有什么关于我支持的游戏的问题都可以问我！'
+                    }];
+                    this.msgId = 1;
+                    this.currentGame = null;
+                    this.currentRoute = null;
                 },
 
                 onCompositionEnd() {
@@ -416,6 +526,7 @@
                     if (this.loading) return;
                     const text = q || this.questionInput.trim();
                     if (!text) return;
+                    this.restoredNote = '';
 
                     if (q) {
                         this.questionInput = q;
@@ -462,7 +573,9 @@
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
                                 question: text,
-                                history: history
+                                history: history,
+                                client_id: this.clientId,
+                                session_id: this.sessionId
                             })
                         });
 
@@ -526,6 +639,8 @@
                                         case 'done':
                                             elapsed = data.elapsed || 0;
                                             this.applyQuota(data.quota);
+                                            // 服务端回传的 session_id 存本地：刷新后靠它恢复
+                                            this.applySession(data.session_id);
                                             // turn_id 是后端给这一轮生成的编号，反馈时用它关联
                                             this.attachTurnId(assistantId, data.turn_id);
                                             break;
