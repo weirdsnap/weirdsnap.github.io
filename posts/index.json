@@ -1237,10 +1237,10 @@
               "title": "std::atomic 内存序",
               "path": "cpp/ch06/06.md",
               "order": 6,
-              "wordCount": 260,
-              "readTime": 1,
+              "wordCount": 1160,
+              "readTime": 3,
               "date": "2026-06-05",
-              "updated": "2026-11-05"
+              "updated": "2026-11-24"
             },
             {
               "title": "数据竞争（基础）",
