@@ -1286,6 +1286,15 @@
               "readTime": 2,
               "date": "2026-06-24",
               "updated": "2026-06-25"
+            },
+            {
+              "title": "缓存行与伪共享",
+              "path": "cpp/ch06/12.md",
+              "order": 12,
+              "wordCount": 1683,
+              "readTime": 5,
+              "date": "2026-11-25",
+              "updated": "2026-11-25"
             }
           ]
         },
