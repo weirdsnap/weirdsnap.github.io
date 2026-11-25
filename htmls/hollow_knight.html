@@ -378,6 +378,40 @@
             text-decoration: underline;
         }
 
+        /* 页头左区：页面级操作按钮，默认隐藏，只在移动端出现（移动端导航收进 ☰，
+           页头左半部分是空的，正好放本页的操作） */
+        .header-left {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .header-left {
+                display: flex;
+                align-items: center;
+                gap: 0.4em;
+                margin-right: auto;   /* 顶到最左，右侧留给 ☰ */
+            }
+            .header-left button {
+                background: none;
+                border: 1px solid rgba(250, 248, 245, 0.35);
+                color: var(--text-inverse);
+                font-size: 0.8em;
+                padding: 0.25em 0.7em;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            .quota-mobile {
+                display: block !important;
+            }
+        }
+        /* 移动端配额提示：chat-header 收起后，配额单独显示为一行小字 */
+        .quota-mobile {
+            display: none;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 0.5em;
+        }
+
         /* 响应式 */
         @media (max-width: 768px) {
             .hk-container {
@@ -395,30 +429,9 @@
                 font-size: 0.9rem;
             }
 
-            /* 页头融合：卡片内的大标题块压成一行，按钮不再绝对定位 */
+            /* 页头融合：按钮已移入全局页头左区，卡片内的标题块整块收起 */
             .chat-header {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                flex-wrap: wrap;
-                padding-bottom: 0.4em;
-                margin-bottom: 0.4em;
-            }
-            .chat-header .quota-note {
-                flex-basis: 100%;   /* 配额提示独占一行，显示在按钮行下面 */
-                text-align: center;
-                margin-top: 0.2em;
-            }
-            .chat-header h2 {
-                font-size: 1rem;
-                order: -1;          /* DOM 顺序是 h2 在前，视觉上行首放标题 */
-            }
-            .chat-header .subtitle {
-                display: none;      /* 副标题与配额提示移动端收起 */
-            }
-            .chat-header .new-chat,
-            .chat-header .history-btn {
-                position: static;
+                display: none;
             }
 
             /* 页尾融合：卡片内的页尾收起，内容并入全局页尾 */
@@ -430,6 +443,10 @@
 </head>
 <body>
     <div id="header" class="opacity70">
+        <div class="header-left">
+            <button @click="chatCall('toggleHistory')">历史</button>
+            <button @click="chatCall('newChat')">新对话</button>
+        </div>
         <button class="mobile-menu-btn" @click="toggleMenu">☰</button>
         <ul class="title" :class="{ 'mobile-open': menuOpen }">
             <li @click="home">Snap</li>
@@ -450,6 +467,8 @@
                         <div class="subtitle">基于 RAG 的游戏知识库，支持多款游戏</div>
                         <div class="quota-note" v-if="quotaRemaining !== null">今日剩余 {{ quotaRemaining }} 次提问</div>
                     </div>
+                    <!-- 移动端配额行：chat-header 收起时显示（与上面那处是同一数据的两个展示位） -->
+                    <div class="quota-note quota-mobile" v-if="quotaRemaining !== null">今日剩余 {{ quotaRemaining }} 次提问</div>
 
                     <div class="chat-messages" ref="msgBox" @scroll="onScroll"
                          :style="{ paddingTop: (padTop + 8) + 'px', paddingBottom: (padBottom + 8) + 'px' }">
@@ -522,7 +541,9 @@
                 home() { window.location.href = '../index.html'; },
                 hollowKnight() {},
                 github() { window.location.href = 'https://github.com/weirdsnap'; },
-                toggleMenu() { this.menuOpen = !this.menuOpen; }
+                toggleMenu() { this.menuOpen = !this.menuOpen; },
+                // 页头左区按钮调聊天应用的方法：聊天应用在挂载后把自己挂到 window.__hkChat
+                chatCall(fn) { if (window.__hkChat) window.__hkChat[fn](); }
             }
         }).mount('#header');
 
@@ -639,6 +660,7 @@
                 }
             },
             mounted() {
+                window.__hkChat = this;  // 暴露给页头应用的 chatCall 桥
                 this.loadQuota();
                 this.restoreSession();
             },
