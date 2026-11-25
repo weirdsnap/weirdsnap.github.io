@@ -471,7 +471,7 @@
         const MAX_WIN = 36;      // 窗口上限，超出后卸载离视口远的一端
         const EDGE_PX = 240;     // 距顶/底多远触发加载
         const GAP_PX = 14;       // 与 CSS .chat-messages 的 gap 保持一致
-        const EST_H = 110;       // 未测量条目的估算高度（只用于占位）
+        const EST_H = 110;       // 未测量条目（窗口内首帧）的估算高度，只给 renderedHeight 用
         // 工具名 → 等待文案。只由后端 progress 事件驱动，前端不做假计时
         const TOOL_LABELS = {
             search_knowledge_base: '正在检索攻略库...',
@@ -542,15 +542,21 @@
                 visibleMessages() {
                     return this.messages.slice(this.chunkStart, this.chunkEnd);
                 },
-                // 上下占位高度：被卸载的条目用缓存高度撑住，滚动条长度才不会乱跳
+                // 上下占位只算「渲染过又被卸载」的条目（hCache 里有实测高度）。
+                //
+                // 从来没过渲染的条目**不能**占位：padding 是看得见的空白。以前这里对
+                // 未测量条目兜底 EST_H，打开一个历史会话时上方还没渲染的轮次会撑出
+                // 12×110px ≈ 1300px 的空洞，用户看到的就是「前面一大段空白」。
+                // 未渲染的部分等滚到边界再加载，插入时由 restoreAnchor 把视口钉住，
+                // 不需要预先支出一块高度。
                 padTop() {
                     let h = 0;
-                    for (let i = 0; i < this.chunkStart; i++) h += this.hCache[this.messages[i].id] || EST_H;
+                    for (let i = 0; i < this.chunkStart; i++) h += this.hCache[this.messages[i].id] || 0;
                     return Math.round(h);
                 },
                 padBottom() {
                     let h = 0;
-                    for (let i = this.chunkEnd; i < this.messages.length; i++) h += this.hCache[this.messages[i].id] || EST_H;
+                    for (let i = this.chunkEnd; i < this.messages.length; i++) h += this.hCache[this.messages[i].id] || 0;
                     return Math.round(h);
                 }
             },
@@ -612,6 +618,7 @@
                         this.$nextTick(() => {
                             this.scrollBottom(true);
                             this.measure();
+                            this.fillViewport();
                         });
                     } catch (e) {
                         /* 网络问题不打扰用户 */
@@ -1023,8 +1030,17 @@
                         this.$nextTick(() => {
                             this.restoreAnchor(a);
                             this._inWinOp = false;
+                            this.fillViewport();
                         });
                     });
+                },
+
+                // 内容凑不满一屏时，“滚到顶”永远不会发生，也就永远触不到 loadEarlier。
+                // 历史会话很短时会出现：上面还有 12 条没渲染，但容器本身没有滚动能力。
+                fillViewport() {
+                    const box = this.$refs.msgBox;
+                    if (!box || this.chunkStart <= 0) return;
+                    if (box.scrollHeight <= box.clientHeight + EDGE_PX) this.loadEarlier();
                 },
 
                 // 往上滚到边界：接进更早的一段；同时卸掉离视口最远的尾部，
