@@ -97,6 +97,8 @@ curl -s "https://api.github.com/repos/weirdsnap/weirdsnap.github.io/actions/runs
 
 CI 三个工作流（Blog CI / Validate Blog Data / Deploy to GitHub Pages）要**全部 success** 才算推送完成，有一个红了就查原因修复。
 
+⚠️ 顺序不能反过来：新增文章的 `date` 取自 git 首次提交；若先跑 build_index 再提交内容，索引里留下的是 mtime 兜底日期，与提交后的日期一旦跨天就漂移，CI 的 "Check index.json is up to date" 会红（2026-11-26 踩过一次）。验证要跑两遍：内容提交前跑 validate 确认文章合规，内容提交后再跑 build_index + validate 定稿索引。
+
 ## 备忘
 
 - `posts/leetcode/_plan.md` 是 leetcode 的规划底账：章节映射表、模板文章登记、待写清单都在里面，写完文章记得同步。
