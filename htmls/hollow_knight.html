@@ -114,27 +114,13 @@
             text-align: center;
             margin-bottom: 0.6em;
         }
-        /* 更早消息：折叠隔条 + 反向无限滚动的哨兵（滚到顶自动展开一批） */
-        .older-sentinel {
-            display: flex;
-            justify-content: center;
-            min-height: 1px;
-        }
-        .older-btn {
-            border: 1px dashed var(--border-color);
-            background: transparent;
+        /* 窗口化渲染：顶部纯文字提示（不是按钮） */
+        .top-note {
+            font-size: 0.74rem;
             color: var(--text-muted);
-            font-size: 0.78rem;
-            padding: 0.35em 0.9em;
-            border-radius: 999px;
-            cursor: pointer;
+            opacity: 0.7;
+            text-align: center;
         }
-        .older-btn:hover:not(:disabled) {
-            color: var(--text-primary);
-            border-color: var(--accent-warm);
-        }
-        .older-btn:disabled { opacity: 0.6; cursor: default; }
-        .older-done { font-size: 0.74rem; color: var(--text-muted); opacity: 0.7; }
         /* 流式输出时用户上翻了才出现，点了才回到底部 */
         .to-bottom {
             position: absolute;
@@ -397,15 +383,11 @@
                         </div>
                     </div>
 
-                    <div class="chat-messages" ref="msgBox" @scroll="onScroll">
-                        <div class="older-sentinel" ref="olderSentinel">
-                            <button v-if="olderCount > 0" class="older-btn" @click="loadOlder" :disabled="loadingOlder">
-                                {{ loadingOlder ? '正在加载…' : '↑ 更早的消息（' + olderCount + ' 轮）' }}
-                            </button>
-                            <span v-else-if="everHadOlder" class="older-done">已经到最早的对话了</span>
-                        </div>
+                    <div class="chat-messages" ref="msgBox" @scroll="onScroll"
+                         :style="{ paddingTop: (padTop + 8) + 'px', paddingBottom: (padBottom + 8) + 'px' }">
+                        <div v-if="chunkStart === 0" class="top-note">已经到最早的对话了</div>
                         <div v-if="restoredNote" class="restore-note">{{ restoredNote }}</div>
-                        <div v-for="msg in messages" :key="msg.id" class="message" :class="msg.role">
+                        <div v-for="msg in visibleMessages" :key="msg.id" :data-mid="msg.id" class="message" :class="msg.role">
                             <span v-if="msg.placeholder" class="dots">{{ progressText }}</span>
                             <template v-else>
                                 <span v-html="msg.content"></span>
@@ -481,11 +463,15 @@
         const CLIENT_KEY = 'gg_client_id';
         const SESSION_KEY = 'gg_session_id';
 
-        // ====== 历史分批渲染 ======
-        // 首屏只渲染最近 VISIBLE_TURNS 轮，更早的折叠在顶部，滚到顶（或点隔条）再展开。
-        // 理由与升级门槛见 GameGuide 仓库 docs/CHAT_HISTORY_RENDER_PLAN.md
-        const VISIBLE_TURNS = 6;
-        const PAGE_MSG = VISIBLE_TURNS * 2;      // 每次向上展开的消息条数
+        // ====== 窗口化无限滚动 ======
+        // 全量消息留在内存，DOM 只渲染视口附近一段；滚到两端自动加载，离得远的自动卸载。
+        // 设计取舍见 GameGuide 仓库 docs/CHAT_HISTORY_RENDER_PLAN.md
+        const WIN_MSG = 12;      // 首屏渲染条数（6 轮）
+        const STEP_MSG = 12;     // 每次自动加载/卸载的条数
+        const MAX_WIN = 36;      // 窗口上限，超出后卸载离视口远的一端
+        const EDGE_PX = 240;     // 距顶/底多远触发加载
+        const GAP_PX = 14;       // 与 CSS .chat-messages 的 gap 保持一致
+        const EST_H = 110;       // 未测量条目的估算高度（只用于占位）
         // 工具名 → 等待文案。只由后端 progress 事件驱动，前端不做假计时
         const TOOL_LABELS = {
             search_knowledge_base: '正在检索攻略库...',
@@ -535,14 +521,13 @@
                     restoredNote: '',
                     historyOpen: false,
                     sessions: [],
-                    // 历史分批渲染：olderTurns 存还没展开的更早消息（数组头早、尾近）
-                    olderTurns: [],
-                    olderCount: 0,
-                    everHadOlder: false,
-                    loadingOlder: false,
+                    // 窗口化渲染：messages 全量在内存，DOM 只渲染 [chunkStart, chunkEnd)
+                    chunkStart: 0,
+                    chunkEnd: 1,
+                    hCache: {},          // msg.id -> 实测高度(含 gap)，卸载后靠它撑高度
+                    _inWinOp: false,     // 窗口操作进行中（防同一帧重复触发）
                     hasNewBelow: false,
                     progressText: '思考中...',
-                    io: null,
                     currentGame: null,
                     currentRoute: null,
                     sampleQuestions: [
@@ -553,13 +538,25 @@
                     ]
                 }
             },
+            computed: {
+                visibleMessages() {
+                    return this.messages.slice(this.chunkStart, this.chunkEnd);
+                },
+                // 上下占位高度：被卸载的条目用缓存高度撑住，滚动条长度才不会乱跳
+                padTop() {
+                    let h = 0;
+                    for (let i = 0; i < this.chunkStart; i++) h += this.hCache[this.messages[i].id] || EST_H;
+                    return Math.round(h);
+                },
+                padBottom() {
+                    let h = 0;
+                    for (let i = this.chunkEnd; i < this.messages.length; i++) h += this.hCache[this.messages[i].id] || EST_H;
+                    return Math.round(h);
+                }
+            },
             mounted() {
                 this.loadQuota();
                 this.restoreSession();
-                this.$nextTick(() => this.setupOlderObserver());
-            },
-            beforeUnmount() {
-                if (this.io) this.io.disconnect();
             },
             methods: {
                 async loadQuota() {
@@ -607,15 +604,15 @@
                                 feedback: null
                             });
                         }
-                        // 首屏只渲染最近 VISIBLE_TURNS 轮，更早的折叠在顶部隔条后面
-                        const split = Math.max(0, msgs.length - PAGE_MSG);
-                        this.olderTurns = msgs.slice(0, split);
-                        this.olderCount = Math.ceil(this.olderTurns.length / 2);
-                        this.everHadOlder = this.olderCount > 0;
-                        this.messages = [this.messages[0], ...msgs.slice(split)];
+                        this.messages = [this.messages[0], ...msgs];
+                        this.chunkEnd = this.messages.length;
+                        this.chunkStart = Math.max(0, this.chunkEnd - WIN_MSG);
                         this.currentGame = data.game || null;
                         this.restoredNote = '已恢复上次的 ' + turns.length + ' 轮对话，左上角「历史」可切换';
-                        this.$nextTick(() => this.scrollBottom(true));
+                        this.$nextTick(() => {
+                            this.scrollBottom(true);
+                            this.measure();
+                        });
                     } catch (e) {
                         /* 网络问题不打扰用户 */
                     }
@@ -653,7 +650,7 @@
                     this.restoredNote = '';
                     this.messages = [this.messages[0]];
                     this.msgId = 1;
-                    this.resetOlder();
+                    this.resetWindow();
                     await this.restoreSession();
                 },
 
@@ -683,7 +680,7 @@
                     this.msgId = 1;
                     this.currentGame = null;
                     this.currentRoute = null;
-                    this.resetOlder();
+                    this.resetWindow();
                 },
 
                 onCompositionEnd() {
@@ -733,12 +730,16 @@
                     this.currentRoute = null;
                     this.progressText = '思考中...';
 
+                    // 新消息一定在最末尾：窗口拉回末尾，免得用户上翻时看不到自己的问题
+                    this.chunkEnd = this.messages.length;
+                    if (this.chunkEnd - this.chunkStart > MAX_WIN) this.chunkStart = this.chunkEnd - MAX_WIN;
+
                     this.loading = true;
                     this.scrollBottom(true);
 
                     try {
-                        // 构建历史：先拼还没展开渲染的更早消息，再拼当前窗口，
-                        // 跳过第一条欢迎语与最后一条占位（分批渲染不能把上下文一起阉了）
+                        // 构建历史：messages 是全量（DOM 只是窗口化），跳过欢迎语与占位，
+                        // 所以卸载远端 DOM 不影响发给模型的上下文
                         const history = [];
                         const pushHist = (m) => {
                             if (m.role === 'user') {
@@ -747,7 +748,6 @@
                                 history.push({ role: 'assistant', content: this.stripHtml(m.content) });
                             }
                         };
-                        for (const m of this.olderTurns) pushHist(m);
                         for (let i = 1; i < this.messages.length - 1; i++) pushHist(this.messages[i]);
 
                         const res = await fetch(API_URL + '/ask/stream', {
@@ -866,6 +866,7 @@
                     }
 
                     this.loading = false;
+                    this.measure();
                     this.scrollBottom();
                 },
 
@@ -933,42 +934,133 @@
                 },
 
                 onScroll() {
+                    const box = this.$refs.msgBox;
+                    if (!box) return;
                     this.hasNewBelow = this.loading && !this.isNearBottom();
+                    // padTop 是已卸载内容撑出来的空白，真正的内容从 padTop 处开始，
+                    // 所以边界判断要带上它，否则用户得先滚过一屏空白才触发加载
+                    if (this.chunkStart > 0 && box.scrollTop < this.padTop + EDGE_PX) {
+                        this.loadEarlier();
+                        return;
+                    }
+                    const bottomEdge = box.scrollHeight - this.padBottom - EDGE_PX;
+                    if (this.chunkEnd < this.messages.length
+                        && box.scrollTop + box.clientHeight > bottomEdge) {
+                        this.loadLater();
+                        return;
+                    }
+                    if (this.chunkEnd - this.chunkStart > MAX_WIN) this.trimWindow();
                 },
 
-                resetOlder() {
-                    this.olderTurns = [];
-                    this.olderCount = 0;
-                    this.everHadOlder = false;
-                    this.loadingOlder = false;
+                resetWindow() {
+                    this.chunkStart = 0;
+                    this.chunkEnd = this.messages.length;
+                    this.hCache = {};
                     this.hasNewBelow = false;
                 },
 
-                // 顶部哨兵进视口就展开一批（点隔条也走这里）
-                setupOlderObserver() {
-                    if (!('IntersectionObserver' in window)) return;
-                    const root = this.$refs.msgBox;
-                    const sentinel = this.$refs.olderSentinel;
-                    if (!root || !sentinel) return;
-                    this.io = new IntersectionObserver((entries) => {
-                        if (entries[0] && entries[0].isIntersecting) this.loadOlder();
-                    }, { root: root, rootMargin: '160px 0px 0px 0px' });
-                    this.io.observe(sentinel);
+                // 已渲染节点的高度记进缓存，卸载后靠它撑占位高度
+                measure() {
+                    const box = this.$refs.msgBox;
+                    if (!box) return;
+                    for (const n of box.querySelectorAll('.message[data-mid]')) {
+                        const h = n.offsetHeight + GAP_PX;
+                        if (h > 0) this.hCache[Number(n.getAttribute('data-mid'))] = h;
+                    }
                 },
 
-                loadOlder() {
-                    if (this.loadingOlder || !this.olderTurns.length) return;
-                    this.loadingOlder = true;
+                renderedHeight() {
+                    let h = 0;
+                    for (let i = this.chunkStart; i < this.chunkEnd; i++) {
+                        h += this.hCache[this.messages[i].id] || EST_H;
+                    }
+                    return h;
+                },
+
+                // 一次窗口操作没落地前不再叠加新的，落地（DOM 更新完）后立刻解锁。
+                // 不能用时间节流：用户甩到顶时事件密集，被丢掉的事件不会重来。
+                winGuard() {
+                    if (this._inWinOp) return false;
+                    this._inWinOp = true;
+                    return true;
+                },
+
+                // 记住视口顶部那条消息此刻在容器里的位置（实测坐标，不依赖估算高度）
+                anchorBefore() {
                     const box = this.$refs.msgBox;
-                    const prevHeight = box ? box.scrollHeight : 0;
-                    const prevTop = box ? box.scrollTop : 0;
-                    const batch = this.olderTurns.splice(-PAGE_MSG);
-                    this.messages.splice(1, 0, ...batch);
-                    this.olderCount = Math.ceil(this.olderTurns.length / 2);
+                    if (!box) return null;
+                    const br = box.getBoundingClientRect();
+                    for (const n of box.querySelectorAll('.message[data-mid]')) {
+                        const r = n.getBoundingClientRect();
+                        if (r.bottom > br.top) return { id: n.getAttribute('data-mid'), top: r.top - br.top };
+                    }
+                    return null;
+                },
+
+                // 把那条消息挪回原来的位置：内容变化多少，scrollTop 就补多少
+                restoreAnchor(a) {
+                    if (!a) return;
+                    const box = this.$refs.msgBox;
+                    if (!box) return;
+                    const el = box.querySelector('.message[data-mid="' + a.id + '"]');
+                    if (!el) return;
+                    const br = box.getBoundingClientRect();
+                    box.scrollTop += (el.getBoundingClientRect().top - br.top) - a.top;
+                },
+
+                // 改动窗口的统一入口：改完把画面钉回原位。
+                // 必须分两步——第一次 DOM 里还没有新条目的实测高度（占位用的是估算值），
+                // 量完再对齐一次，估算误差才不会留在画面上。
+                applyWindow(mutate) {
+                    const box = this.$refs.msgBox;
+                    if (!box) return;
+                    this.measure();
+                    const a = this.anchorBefore();
+                    mutate();
                     this.$nextTick(() => {
-                        // 滚动锚定：插入更早内容后补回高度差，画面停在原处不跳
-                        if (box) box.scrollTop = prevTop + (box.scrollHeight - prevHeight);
-                        this.loadingOlder = false;
+                        this.restoreAnchor(a);
+                        this.measure();          // 新条目写进缓存 → 占位高度变化
+                        this.$nextTick(() => {
+                            this.restoreAnchor(a);
+                            this._inWinOp = false;
+                        });
+                    });
+                },
+
+                // 往上滚到边界：接进更早的一段；同时卸掉离视口最远的尾部，
+                // 窗口才不会一路涨到全量。流式回答期间不卸尾（正在生成的那条在尾部）。
+                loadEarlier() {
+                    if (this.chunkStart <= 0 || !this.winGuard()) return;
+                    this.applyWindow(() => {
+                        this.chunkStart = Math.max(0, this.chunkStart - STEP_MSG);
+                        if (!this.loading && this.chunkEnd - this.chunkStart > MAX_WIN) {
+                            this.chunkEnd -= STEP_MSG;
+                        }
+                    });
+                },
+
+                // 往下滚到边界：把更晚的一段接回来（只有上翻过才需要）
+                loadLater() {
+                    if (this.chunkEnd >= this.messages.length || !this.winGuard()) return;
+                    this.applyWindow(() => {
+                        this.chunkEnd = Math.min(this.messages.length, this.chunkEnd + STEP_MSG);
+                        if (this.chunkEnd - this.chunkStart > MAX_WIN) {
+                            this.chunkStart += STEP_MSG;
+                        }
+                    });
+                },
+
+                // 窗口太长就卸掉离视口远的一端，DOM 不无限增长
+                trimWindow() {
+                    const box = this.$refs.msgBox;
+                    if (!box || !this.winGuard()) return;
+                    this.applyWindow(() => {
+                        const center = box.scrollTop + box.clientHeight / 2 - this.padTop;
+                        if (center > this.renderedHeight() / 2) {
+                            if (this.chunkStart + STEP_MSG < this.chunkEnd) this.chunkStart += STEP_MSG;
+                        } else if (this.chunkEnd - STEP_MSG > this.chunkStart) {
+                            this.chunkEnd -= STEP_MSG;
+                        }
                     });
                 },
 
