@@ -390,14 +390,19 @@
                 gap: 0.4em;
                 margin-right: auto;   /* 顶到最左，右侧留给 ☰ */
             }
+            /* 样式与页头原生菜单项一致：无边框纯文字，悬停同一块高亮 */
             .header-left button {
                 background: none;
-                border: 1px solid rgba(250, 248, 245, 0.35);
+                border: none;
                 color: var(--text-inverse);
-                font-size: 0.8em;
-                padding: 0.25em 0.7em;
-                border-radius: 4px;
+                font-size: 1em;
+                height: var(--header-height);
+                padding: 0 0.9em;
                 cursor: pointer;
+                transition: background-color 0.2s;
+            }
+            .header-left button:hover {
+                background-color: rgba(255, 255, 255, 0.1);
             }
             .quota-mobile {
                 display: block !important;
