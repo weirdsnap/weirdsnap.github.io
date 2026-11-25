@@ -358,12 +358,22 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --header-height: 44px;
+    --footer-height: 34px;
+  }
+
   .title {
     display: none;
   }
 
   .mobile-menu-btn {
     display: block;
+    font-size: 1.3em;
+  }
+
+  #bottom {
+    font-size: 0.8em;
   }
 
   .title {
