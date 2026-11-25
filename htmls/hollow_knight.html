@@ -394,6 +394,37 @@
                 max-width: 90%;
                 font-size: 0.9rem;
             }
+
+            /* 页头融合：卡片内的大标题块压成一行，按钮不再绝对定位 */
+            .chat-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                padding-bottom: 0.4em;
+                margin-bottom: 0.4em;
+            }
+            .chat-header .quota-note {
+                flex-basis: 100%;   /* 配额提示独占一行，显示在按钮行下面 */
+                text-align: center;
+                margin-top: 0.2em;
+            }
+            .chat-header h2 {
+                font-size: 1rem;
+                order: -1;          /* DOM 顺序是 h2 在前，视觉上行首放标题 */
+            }
+            .chat-header .subtitle {
+                display: none;      /* 副标题与配额提示移动端收起 */
+            }
+            .chat-header .new-chat,
+            .chat-header .history-btn {
+                position: static;
+            }
+
+            /* 页尾融合：卡片内的页尾收起，内容并入全局页尾 */
+            .hk-footer {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -416,10 +447,8 @@
                         <h2>游戏助手</h2>
                         <button class="history-btn" @click="toggleHistory" :disabled="loading">历史</button>
                         <button class="new-chat" @click="newChat" :disabled="loading">新对话</button>
-                        <div class="subtitle">
-                            基于 RAG 的游戏知识库，支持多款游戏
-                            <div class="quota-note" v-if="quotaRemaining !== null">今日剩余 {{ quotaRemaining }} 次提问</div>
-                        </div>
+                        <div class="subtitle">基于 RAG 的游戏知识库，支持多款游戏</div>
+                        <div class="quota-note" v-if="quotaRemaining !== null">今日剩余 {{ quotaRemaining }} 次提问</div>
                     </div>
 
                     <div class="chat-messages" ref="msgBox" @scroll="onScroll"
@@ -480,7 +509,7 @@
     </div>
 
     <div id="bottom" class="opacity70">
-        <span>2018-2026</span>
+        <span><a href="../index.html" style="color: var(--accent-light); text-decoration: none;">← 返回首页</a> · 数据来源 Fandom Wiki · 2018-2026</span>
     </div>
 
     <script>
