@@ -779,7 +779,7 @@
                 async removeSession(s) {
                     if (!s || !s.session_id || this.loading) return;
                     const name = s.title || '这段对话';
-                    if (!confirm('删除「' + name + '」？\n删掉后无法恢复，已消耗的额度不退。')) return;
+                    if (!confirm('删除「' + name + '」？\n删了就找不回来了。')) return;
                     try {
                         const res = await fetch(API_URL + '/sessions/' + encodeURIComponent(s.session_id)
                             + '?client_id=' + encodeURIComponent(this.clientId),
