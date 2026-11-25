@@ -17,12 +17,21 @@
             backdrop-filter: blur(2px);
         }
 
+        /* 聊天页锁在视口里：以前这里用 min-height + 上下 6em padding，总高超过
+           #contents，于是整页（body）会被撑高并滚动。刷新/切换会话时页面滚动位置回到顶部，
+           表现就是「打开停在最上面，得往下滚好久」。改成固定高度、只让 .chat-messages 滚。 */
         .hk-container {
             max-width: var(--article-max-width);
             margin: 0 auto;
-            padding: 2em 1.5em 4em;
-            min-height: calc(100vh - var(--header-height) - var(--footer-height));
+            padding: 1em 1.5em;
+            height: calc(100vh - var(--header-height) - var(--footer-height));
+            height: calc(100dvh - var(--header-height) - var(--footer-height));
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
         }
+        body { overflow: hidden; }
+        #contents { overflow: hidden; min-height: 0; }
 
         /* 通用卡片样式，与博客文章卡片一致 */
         .hk-card {
@@ -30,6 +39,7 @@
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-md);
             padding: 2em;
+            min-height: 0;      /* 允许内部 .chat-messages 真正收缩，否则滚动区撑破卡片 */
         }
 
         /* 额度提示 */
@@ -44,8 +54,11 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            height: calc(100vh - var(--header-height) - var(--footer-height) - 4em);
-            min-height: 480px;
+            /* 高度不再写死 calc(100vh - ...)：那算的是整屏，而它坐在已经扣掉头部/底部的
+               容器里，再加 padding 必然溢出、逼出整页滚动。改成吃父容器剩余高度。 */
+            flex: 1 1 auto;
+            height: auto;
+            min-height: 0;
         }
 
         .chat-header {
@@ -364,14 +377,14 @@
         /* 响应式 */
         @media (max-width: 768px) {
             .hk-container {
-                padding: 1em 1em 2em;
+                padding: 0.5em 0.8em;
             }
             .hk-card {
                 padding: 1.25em;
             }
             .chat-area {
-                height: calc(100vh - var(--header-height) - var(--footer-height) - 2em);
-                min-height: 400px;
+                height: auto;
+                min-height: 0;
             }
             .message {
                 max-width: 90%;
@@ -554,6 +567,10 @@
                     hCache: {},          // msg.id -> 实测高度(含 gap)，卸载后靠它撑高度
                     _inWinOp: false,     // 窗口操作进行中（防同一帧重复触发）
                     _pinAfterWin: false, // 初始补屏：窗口操作落地后仍要贴回底部
+                    _stickRAF: 0,        // 贴底循环的 rAF 句柄
+                    _stickUntil: 0,      // 贴底循环的截止时刻（performance.now）
+                    _stickCancelled: true,
+                    _lastTop: 0,         // 上一次 scrollTop，用来判断用户是不是在往上翻
                     hasNewBelow: false,
                     progressText: '思考中...',
                     currentGame: null,
@@ -644,7 +661,10 @@
                         this.currentGame = data.game || null;
                         this.restoredNote = '已恢复上次的 ' + turns.length + ' 轮对话，左上角「历史」可切换';
                         this.$nextTick(() => {
-                            this.scrollBottom(true);
+                            // 整页不再滚动，滚动容器只剩 .chat-messages，先把窗口贴到底，
+                            // 再让补屏（fillViewport）接着补齐不足一屏的历史。
+                            // 贴底用循环而不是一次性设置：Markdown/字体还会继续撑高。
+                            this.stickBottom(2000);
                             this.measure();
                             // 放到下一帧：fillViewport 会触发 loadEarlier，
                             // 它的 restoreAnchor 拿到的锚点必须是「已经滚到底」之后的
@@ -738,6 +758,7 @@
                     this.msgId = 1;
                     this.currentGame = null;
                     this.currentRoute = null;
+                    this.unstickBottom();      // 新对话只剩欢迎语，别再挂着一个贴底循环
                     this.resetWindow();
                 },
 
@@ -998,6 +1019,35 @@
                     this.hasNewBelow = false;
                 },
 
+                // 内容会异步撑高：字体加载、图片、Markdown 重排、Vue 二次 patch 都会让
+                // scrollHeight 在「设完 scrollTop 之后」再涨一截。只设一次必然差出几百像素，
+                // 表现就是打开会话时停在上面。这里在窗口期内每帧检查，脱离底部就贴回去；
+                // 用户一旦自己往上翻立刻停手（否则会跟他的手抢）。
+                stickBottom(ms = 1500) {
+                    this._stickCancelled = false;
+                    this._stickUntil = performance.now() + ms;
+                    this.pinToBottom();
+                    if (this._stickRAF) return;
+                    const tick = () => {
+                        this._stickRAF = 0;
+                        const box = this.$refs.msgBox;
+                        if (!box || this._stickCancelled || performance.now() > this._stickUntil) return;
+                        if (box.scrollHeight - box.scrollTop - box.clientHeight > 2) {
+                            box.scrollTop = box.scrollHeight;
+                        }
+                        this._stickRAF = requestAnimationFrame(tick);
+                    };
+                    this._stickRAF = requestAnimationFrame(tick);
+                },
+
+                unstickBottom() {
+                    this._stickCancelled = true;
+                    if (this._stickRAF) {
+                        cancelAnimationFrame(this._stickRAF);
+                        this._stickRAF = 0;
+                    }
+                },
+
                 isNearBottom() {
                     const box = this.$refs.msgBox;
                     if (!box) return true;
@@ -1007,6 +1057,9 @@
                 onScroll() {
                     const box = this.$refs.msgBox;
                     if (!box) return;
+                    // 用户自己往上翻 → 立刻停止贴底，别跟他的手抢
+                    if (box.scrollTop < this._lastTop - 4) this.unstickBottom();
+                    this._lastTop = box.scrollTop;
                     this.hasNewBelow = this.loading && !this.isNearBottom();
                     // padTop 是已卸载内容撑出来的空白，真正的内容从 padTop 处开始，
                     // 所以边界判断要带上它，否则用户得先滚过一屏空白才触发加载

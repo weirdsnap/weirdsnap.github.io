@@ -1,5 +1,31 @@
 # 项目变更记录
 
+## 2026-11-25 修复：打开/切换会话停在最上面，要滚很久才到底
+
+### 问题
+- 刷新页面、切换历史会话后视图停在顶部，长对话得手动滚到底才看到最新内容
+
+### 根因（两层）
+1. **整页被撑出滚动**：`.hk-container` 用 `min-height: calc(100vh - 头部 - 底部)` 又加
+   `2em 1.5em 4em` padding，总高超过 `#contents`，于是滚动发生在外层 body/`#contents` 上；
+   位置一刷新就回 0，视觉上就是「停在最上面」
+2. **只设一次 scrollTop 不够**：字体加载、Markdown 重排、Vue 二次 patch 都会在设完之后
+   再把 `scrollHeight` 撑高一截，一次 `scrollTop = scrollHeight` 差出几百像素
+
+### 修改内容
+1. **`htmls/hollow_knight.html`**：`.hk-container` 改成固定高度 + flex 列，
+   `body`/`#contents` 关掉外层滚动，滚动只发生在 `.chat-messages`
+2. **`htmls/hollow_knight.html`**：`.chat-area` 丢掉写死的 `calc(100vh - ...)`，改吃父容器剩余高度；
+   `.hk-card` 加 `min-height: 0`
+3. **`htmls/hollow_knight.html`**：新增 `stickBottom(ms)` 贴底循环（rAF 每帧检查，
+   1.5–2 秒窗口），覆盖异步撑高；`onScroll` 检测到用户往上翻立刻 `unstickBottom()`
+4. **`htmls/hollow_knight.html`**：`restoreSession` 收尾改用 `stickBottom(2000)`，`newChat` 停掉循环
+
+### 文件变更
+- 修改：`htmls/hollow_knight.html`
+
+---
+
 ## 2026-11-25 新增：历史对话可从列表删除（软删，数据保留）
 
 ### 问题
