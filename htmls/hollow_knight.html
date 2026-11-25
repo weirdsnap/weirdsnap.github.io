@@ -526,6 +526,7 @@
                     chunkEnd: 1,
                     hCache: {},          // msg.id -> 实测高度(含 gap)，卸载后靠它撑高度
                     _inWinOp: false,     // 窗口操作进行中（防同一帧重复触发）
+                    _pinAfterWin: false, // 初始补屏：窗口操作落地后仍要贴回底部
                     hasNewBelow: false,
                     progressText: '思考中...',
                     currentGame: null,
@@ -618,7 +619,9 @@
                         this.$nextTick(() => {
                             this.scrollBottom(true);
                             this.measure();
-                            this.fillViewport();
+                            // 放到下一帧：fillViewport 会触发 loadEarlier，
+                            // 它的 restoreAnchor 拿到的锚点必须是「已经滚到底」之后的
+                            this.$nextTick(() => this.fillViewport(true));
                         });
                     } catch (e) {
                         /* 网络问题不打扰用户 */
@@ -928,10 +931,23 @@
                         return;
                     }
                     this.$nextTick(() => {
-                        const box = this.$refs.msgBox;
-                        if (box) box.scrollTop = box.scrollHeight;
-                        this.hasNewBelow = false;
+                        this.pinToBottom();
+                        // 复检一次：内容高度要到下一帧才被字体/换行撑开，
+                        // 一次设置会差出几百像素（表现为「没拉到最下面」）
+                        this.$nextTick(() => {
+                            const box = this.$refs.msgBox;
+                            if (box && box.scrollHeight - box.scrollTop - box.clientHeight > 4) {
+                                this.pinToBottom();
+                            }
+                        });
                     });
+                },
+
+                pinToBottom() {
+                    const box = this.$refs.msgBox;
+                    if (!box) return;
+                    box.scrollTop = box.scrollHeight;
+                    this.hasNewBelow = false;
                 },
 
                 isNearBottom() {
@@ -1030,23 +1046,34 @@
                         this.$nextTick(() => {
                             this.restoreAnchor(a);
                             this._inWinOp = false;
-                            this.fillViewport();
+                            // 初始补屏要继续贴底（用户关心的是最新消息）；滚到顶触发的那种
+                            // 保持视口锚定，不能把视图拽走
+                            if (this._pinAfterWin) {
+                                this._pinAfterWin = false;
+                                this.pinToBottom();
+                                this.fillViewport(true);
+                            } else {
+                                this.fillViewport(false);
+                            }
                         });
                     });
                 },
 
                 // 内容凑不满一屏时，“滚到顶”永远不会发生，也就永远触不到 loadEarlier。
                 // 历史会话很短时会出现：上面还有 12 条没渲染，但容器本身没有滚动能力。
-                fillViewport() {
+                // initial=true 表示打开会话时的自动补屏，补完要贴回底部。
+                fillViewport(initial) {
                     const box = this.$refs.msgBox;
                     if (!box || this.chunkStart <= 0) return;
-                    if (box.scrollHeight <= box.clientHeight + EDGE_PX) this.loadEarlier();
+                    if (box.scrollHeight > box.clientHeight + EDGE_PX) return;
+                    this._pinAfterWin = !!initial;
+                    this.loadEarlier();
                 },
 
                 // 往上滚到边界：接进更早的一段；同时卸掉离视口最远的尾部，
                 // 窗口才不会一路涨到全量。流式回答期间不卸尾（正在生成的那条在尾部）。
                 loadEarlier() {
-                    if (this.chunkStart <= 0 || !this.winGuard()) return;
+                    if (this.chunkStart <= 0 || !this.winGuard()) { this._pinAfterWin = false; return; }
                     this.applyWindow(() => {
                         this.chunkStart = Math.max(0, this.chunkStart - STEP_MSG);
                         if (!this.loading && this.chunkEnd - this.chunkStart > MAX_WIN) {
