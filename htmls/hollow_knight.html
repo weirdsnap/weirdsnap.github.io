@@ -700,8 +700,9 @@
                             + '?client_id=' + encodeURIComponent(this.clientId),
                             { method: 'DELETE' });
                         if (!res.ok) throw new Error('HTTP ' + res.status);
-                        const data = await res.json();
-                        if (!data.deleted) throw new Error('not deleted');
+                        // deleted=false 表示本来就不在可见集合里（例如已经过期或在别的标签页删过），
+                        // 对用户来说结果一样：这条不该再出现
+                        await res.json().catch(() => ({}));
                     } catch (e) {
                         this.restoredNote = '删除失败，请稍后再试';
                         return;
