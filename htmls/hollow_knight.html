@@ -43,6 +43,7 @@
         .chat-area {
             display: flex;
             flex-direction: column;
+            position: relative;
             height: calc(100vh - var(--header-height) - var(--footer-height) - 4em);
             min-height: 480px;
         }
@@ -113,6 +114,42 @@
             text-align: center;
             margin-bottom: 0.6em;
         }
+        /* 更早消息：折叠隔条 + 反向无限滚动的哨兵（滚到顶自动展开一批） */
+        .older-sentinel {
+            display: flex;
+            justify-content: center;
+            min-height: 1px;
+        }
+        .older-btn {
+            border: 1px dashed var(--border-color);
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            padding: 0.35em 0.9em;
+            border-radius: 999px;
+            cursor: pointer;
+        }
+        .older-btn:hover:not(:disabled) {
+            color: var(--text-primary);
+            border-color: var(--accent-warm);
+        }
+        .older-btn:disabled { opacity: 0.6; cursor: default; }
+        .older-done { font-size: 0.74rem; color: var(--text-muted); opacity: 0.7; }
+        /* 流式输出时用户上翻了才出现，点了才回到底部 */
+        .to-bottom {
+            position: absolute;
+            right: 1.4em;
+            bottom: 6.2em;
+            z-index: 5;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 0.78rem;
+            padding: 0.35em 0.8em;
+            border-radius: 999px;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+        }
         .chat-header h2 {
             margin: 0;
             font-size: 1.25rem;
@@ -127,6 +164,7 @@
         .chat-messages {
             flex: 1;
             overflow-y: auto;
+            overflow-anchor: none;   /* 关掉浏览器自带锚定，插入历史时只用手动补偿，避免双重跳动 */
             padding: 0.5em 0;
             display: flex;
             flex-direction: column;
@@ -216,7 +254,7 @@
             color: var(--text-muted);
         }
 
-        .message.loading .dots {
+        .message .dots {
             animation: pulse 1.5s infinite;
         }
         @keyframes pulse {
@@ -359,10 +397,16 @@
                         </div>
                     </div>
 
-                    <div class="chat-messages" ref="msgBox">
+                    <div class="chat-messages" ref="msgBox" @scroll="onScroll">
+                        <div class="older-sentinel" ref="olderSentinel">
+                            <button v-if="olderCount > 0" class="older-btn" @click="loadOlder" :disabled="loadingOlder">
+                                {{ loadingOlder ? '正在加载…' : '↑ 更早的消息（' + olderCount + ' 轮）' }}
+                            </button>
+                            <span v-else-if="everHadOlder" class="older-done">已经到最早的对话了</span>
+                        </div>
                         <div v-if="restoredNote" class="restore-note">{{ restoredNote }}</div>
                         <div v-for="msg in messages" :key="msg.id" class="message" :class="msg.role">
-                            <span v-if="msg.role === 'loading'" class="dots">思考中...</span>
+                            <span v-if="msg.placeholder" class="dots">{{ progressText }}</span>
                             <template v-else>
                                 <span v-html="msg.content"></span>
                                 <div v-if="msg.role === 'assistant' && msg.turnId" class="feedback">
@@ -373,6 +417,7 @@
                             </template>
                         </div>
                     </div>
+                    <button v-if="hasNewBelow" class="to-bottom" @click="scrollBottom(true)">↓ 回到底部</button>
 
                     <!-- 示例问题 -->
                     <div class="suggestions" v-if="messages.length <= 1">
@@ -436,6 +481,18 @@
         const CLIENT_KEY = 'gg_client_id';
         const SESSION_KEY = 'gg_session_id';
 
+        // ====== 历史分批渲染 ======
+        // 首屏只渲染最近 VISIBLE_TURNS 轮，更早的折叠在顶部，滚到顶（或点隔条）再展开。
+        // 理由与升级门槛见 GameGuide 仓库 docs/CHAT_HISTORY_RENDER_PLAN.md
+        const VISIBLE_TURNS = 6;
+        const PAGE_MSG = VISIBLE_TURNS * 2;      // 每次向上展开的消息条数
+        // 工具名 → 等待文案。只由后端 progress 事件驱动，前端不做假计时
+        const TOOL_LABELS = {
+            search_knowledge_base: '正在检索攻略库...',
+            query_structured_data: '正在查数据表...',
+            show_database_schema: '正在看数据结构...'
+        };
+
         // 会话列表里显示的游戏中名（后端存的是 game_registry 的 key）
         const GAME_NAMES = {
             hollow_knight: '空洞骑士', oni: '缺氧', terraria: '泰拉瑞亚',
@@ -478,6 +535,14 @@
                     restoredNote: '',
                     historyOpen: false,
                     sessions: [],
+                    // 历史分批渲染：olderTurns 存还没展开的更早消息（数组头早、尾近）
+                    olderTurns: [],
+                    olderCount: 0,
+                    everHadOlder: false,
+                    loadingOlder: false,
+                    hasNewBelow: false,
+                    progressText: '思考中...',
+                    io: null,
                     currentGame: null,
                     currentRoute: null,
                     sampleQuestions: [
@@ -491,6 +556,10 @@
             mounted() {
                 this.loadQuota();
                 this.restoreSession();
+                this.$nextTick(() => this.setupOlderObserver());
+            },
+            beforeUnmount() {
+                if (this.io) this.io.disconnect();
             },
             methods: {
                 async loadQuota() {
@@ -523,7 +592,7 @@
                         const data = await res.json();
                         const turns = data.turns || [];
                         if (!turns.length) return;
-                        const msgs = [this.messages[0]];        // 保留欢迎语
+                        const msgs = [];                        // 只装对话，欢迎语单独拼
                         for (const t of turns) {
                             msgs.push({ id: this.msgId++, role: 'user', content: this.escapeHtml(t.question || '') });
                             msgs.push({
@@ -538,10 +607,15 @@
                                 feedback: null
                             });
                         }
-                        this.messages = msgs;
+                        // 首屏只渲染最近 VISIBLE_TURNS 轮，更早的折叠在顶部隔条后面
+                        const split = Math.max(0, msgs.length - PAGE_MSG);
+                        this.olderTurns = msgs.slice(0, split);
+                        this.olderCount = Math.ceil(this.olderTurns.length / 2);
+                        this.everHadOlder = this.olderCount > 0;
+                        this.messages = [this.messages[0], ...msgs.slice(split)];
                         this.currentGame = data.game || null;
                         this.restoredNote = '已恢复上次的 ' + turns.length + ' 轮对话，左上角「历史」可切换';
-                        this.$nextTick(() => this.scrollBottom());
+                        this.$nextTick(() => this.scrollBottom(true));
                     } catch (e) {
                         /* 网络问题不打扰用户 */
                     }
@@ -579,6 +653,7 @@
                     this.restoredNote = '';
                     this.messages = [this.messages[0]];
                     this.msgId = 1;
+                    this.resetOlder();
                     await this.restoreSession();
                 },
 
@@ -608,6 +683,7 @@
                     this.msgId = 1;
                     this.currentGame = null;
                     this.currentRoute = null;
+                    this.resetOlder();
                 },
 
                 onCompositionEnd() {
@@ -646,7 +722,8 @@
                     this.messages.push({
                         id: assistantId,
                         role: 'assistant',
-                        content: '<p>思考中...</p>',
+                        content: '',
+                        placeholder: true,
                         question: text,
                         turnId: null,
                         game: null,
@@ -654,21 +731,24 @@
                     });
                     this.currentGame = null;
                     this.currentRoute = null;
+                    this.progressText = '思考中...';
 
                     this.loading = true;
-                    this.scrollBottom();
+                    this.scrollBottom(true);
 
                     try {
-                        // 构建历史，跳过第一条系统欢迎语
+                        // 构建历史：先拼还没展开渲染的更早消息，再拼当前窗口，
+                        // 跳过第一条欢迎语与最后一条占位（分批渲染不能把上下文一起阉了）
                         const history = [];
-                        for (let i = 1; i < this.messages.length - 1; i++) {
-                            const m = this.messages[i];
+                        const pushHist = (m) => {
                             if (m.role === 'user') {
                                 history.push({ role: 'user', content: this.stripHtml(m.content) });
-                            } else if (m.role === 'assistant') {
+                            } else if (m.role === 'assistant' && !m.placeholder) {
                                 history.push({ role: 'assistant', content: this.stripHtml(m.content) });
                             }
-                        }
+                        };
+                        for (const m of this.olderTurns) pushHist(m);
+                        for (let i = 1; i < this.messages.length - 1; i++) pushHist(this.messages[i]);
 
                         const res = await fetch(API_URL + '/ask/stream', {
                             method: 'POST',
@@ -736,7 +816,12 @@
                                             break;
                                         case 'token':
                                             answerText += data.content;
+                                            this.markAnswering(assistantId);
                                             this.updateAssistantMessage(assistantId, answerText);
+                                            break;
+                                        case 'progress':
+                                            // 阶段提示全部来自后端真事件，没事件就保持「思考中...」
+                                            this.applyProgress(data);
                                             break;
                                         case 'done':
                                             elapsed = data.elapsed || 0;
@@ -828,11 +913,78 @@
                     this.scrollBottom();
                 },
 
-                scrollBottom() {
+                scrollBottom(force) {
+                    // 用户已经上翻看历史时不要再拽回底部，右下角给「回到底部」按钮
+                    if (!force && !this.isNearBottom()) {
+                        this.hasNewBelow = true;
+                        return;
+                    }
                     this.$nextTick(() => {
                         const box = this.$refs.msgBox;
                         if (box) box.scrollTop = box.scrollHeight;
+                        this.hasNewBelow = false;
                     });
+                },
+
+                isNearBottom() {
+                    const box = this.$refs.msgBox;
+                    if (!box) return true;
+                    return box.scrollHeight - box.scrollTop - box.clientHeight < 120;
+                },
+
+                onScroll() {
+                    this.hasNewBelow = this.loading && !this.isNearBottom();
+                },
+
+                resetOlder() {
+                    this.olderTurns = [];
+                    this.olderCount = 0;
+                    this.everHadOlder = false;
+                    this.loadingOlder = false;
+                    this.hasNewBelow = false;
+                },
+
+                // 顶部哨兵进视口就展开一批（点隔条也走这里）
+                setupOlderObserver() {
+                    if (!('IntersectionObserver' in window)) return;
+                    const root = this.$refs.msgBox;
+                    const sentinel = this.$refs.olderSentinel;
+                    if (!root || !sentinel) return;
+                    this.io = new IntersectionObserver((entries) => {
+                        if (entries[0] && entries[0].isIntersecting) this.loadOlder();
+                    }, { root: root, rootMargin: '160px 0px 0px 0px' });
+                    this.io.observe(sentinel);
+                },
+
+                loadOlder() {
+                    if (this.loadingOlder || !this.olderTurns.length) return;
+                    this.loadingOlder = true;
+                    const box = this.$refs.msgBox;
+                    const prevHeight = box ? box.scrollHeight : 0;
+                    const prevTop = box ? box.scrollTop : 0;
+                    const batch = this.olderTurns.splice(-PAGE_MSG);
+                    this.messages.splice(1, 0, ...batch);
+                    this.olderCount = Math.ceil(this.olderTurns.length / 2);
+                    this.$nextTick(() => {
+                        // 滚动锚定：插入更早内容后补回高度差，画面停在原处不跳
+                        if (box) box.scrollTop = prevTop + (box.scrollHeight - prevHeight);
+                        this.loadingOlder = false;
+                    });
+                },
+
+                markAnswering(id) {
+                    const idx = this.messages.findIndex(m => m.id === id);
+                    if (idx !== -1 && this.messages[idx].placeholder) {
+                        this.messages[idx].placeholder = false;
+                    }
+                },
+
+                applyProgress(d) {
+                    if (d.phase === 'tool_start') {
+                        this.progressText = TOOL_LABELS[d.tool] || '正在查资料...';
+                    } else if (d.phase === 'tool_done' && (d.round || 0) >= 2) {
+                        this.progressText = '已查 ' + d.round + ' 次，还在整理...';
+                    }
                 },
 
                 escapeHtml(text) {
