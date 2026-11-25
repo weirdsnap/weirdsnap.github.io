@@ -1904,6 +1904,15 @@
               "updated": "2026-09-17"
             },
             {
+              "title": "用 perf c2c 定位伪共享",
+              "path": "cpp/practices/perf_01.md",
+              "order": 1,
+              "wordCount": 1010,
+              "readTime": 3,
+              "date": "2026-11-25",
+              "updated": "2026-11-25"
+            },
+            {
               "title": "`std::function` 与 Lambda：两种\"可调用对象\"的类型鸿沟",
               "path": "cpp/practices/std_function_01.md",
               "order": 1,
@@ -3751,6 +3760,41 @@
               "readTime": 3,
               "date": "2026-09-20",
               "updated": "2026-09-20"
+            }
+          ]
+        },
+        {
+          "id": "practices",
+          "label": "工程实践",
+          "order": 3,
+          "type": "list",
+          "articles": [
+            {
+              "title": "CSS 变量驱动全站布局尺寸",
+              "path": "frontend/practices/css_vars_01.md",
+              "order": 1,
+              "wordCount": 576,
+              "readTime": 2,
+              "date": "2026-11-25",
+              "updated": "2026-11-25"
+            },
+            {
+              "title": "iOS 的 100vh 陷阱与动态视口单位",
+              "path": "frontend/practices/viewport_01.md",
+              "order": 1,
+              "wordCount": 776,
+              "readTime": 2,
+              "date": "2026-11-25",
+              "updated": "2026-11-25"
+            },
+            {
+              "title": "同页两个 Vue 应用怎么通信：window 桥",
+              "path": "frontend/practices/vue_bridge_01.md",
+              "order": 1,
+              "wordCount": 753,
+              "readTime": 2,
+              "date": "2026-11-25",
+              "updated": "2026-11-25"
             }
           ]
         }
