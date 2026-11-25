@@ -36,7 +36,7 @@ record 阶段以较低开销采样（Intel 上走 PEBS，AMD 上走 IBS），rep
 - **Shared Data Cache Line Table**：按争用程度排序的缓存行列表，排最前面的就是要找的地址。
 - 编译时加 `-g`，配合 `perf c2c report --stdio` 可以把地址对应回源码行和 struct 字段。
 
-伪共享程序的报告特征很鲜明：HITM 占掉绝大多数样本，且集中在极少数几个缓存行地址上——正好对应 `PackedCounters` 那一行。
+伪共享程序的报告特征很鲜明：HITM 占掉绝大多数样本，且集中在极少数几个缓存行地址上，正好对应 `PackedCounters` 那一行。
 
 ## 修法
 
@@ -60,7 +60,7 @@ struct PaddedCounters {
 
 另一个方向是按访问者分片：每个线程写自己专属的槽位，最后汇总。两种思路对应缓存行那篇说的"该分的分"。
 
-改完再跑一遍 `perf c2c record`，HITM 应该基本消失。直接跑时间对比也能看到差异——本机 demo 里 packed 和 padded 两个版本差约 2.3 倍，具体倍数取决于核数、负载和微架构，没有普适数字。
+改完再跑一遍 `perf c2c record`，HITM 应该基本消失。直接跑时间对比也能看到差异：本机 demo 里 packed 和 padded 两个版本差约 2.3 倍，具体倍数取决于核数、负载和微架构，没有普适数字。
 
 ## 适用边界
 
