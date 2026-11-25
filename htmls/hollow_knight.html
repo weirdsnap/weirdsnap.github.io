@@ -706,8 +706,13 @@
                             msgs.push({
                                 id: this.msgId++,
                                 role: 'assistant',
+                                // skipHist：占位文案不是模型说过的话，拼 history 时要跳过，
+                                // 否则「（这轮没答完）」会被当成上一轮的答案喂回去
+                                skipHist: !!t.answer_expired,
                                 content: t.answer_expired
-                                    ? '<p class="elapsed">（这轮回答已超过保留期，不再显示）</p>'
+                                    ? '<p class="elapsed">' + (t.answer_missing
+                                        ? '（这轮没答完就中断了，可以重新提问）'
+                                        : '（这轮回答已超过保留期，不再显示）') + '</p>'
                                     : DOMPurify.sanitize(marked.parse(t.answer || '', { breaks: true })),
                                 question: t.question || '',
                                 turnId: t.turn_id,
@@ -883,7 +888,7 @@
                         const pushHist = (m) => {
                             if (m.role === 'user') {
                                 history.push({ role: 'user', content: this.stripHtml(m.content) });
-                            } else if (m.role === 'assistant' && !m.placeholder) {
+                            } else if (m.role === 'assistant' && !m.placeholder && !m.skipHist) {
                                 history.push({ role: 'assistant', content: this.stripHtml(m.content) });
                             }
                         };
@@ -961,6 +966,12 @@
                                         case 'progress':
                                             // 阶段提示全部来自后端真事件，没事件就保持「思考中...」
                                             this.applyProgress(data);
+                                            break;
+                                        case 'session':
+                                            // 开流后立刻推的身份：中途刷新/断网收不到 done 也
+                                            // 已经把 session_id 存下了，回来能续上这一轮
+                                            this.applySession(data.session_id);
+                                            this.attachTurnId(assistantId, data.turn_id);
                                             break;
                                         case 'done':
                                             elapsed = data.elapsed || 0;
