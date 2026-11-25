@@ -1,5 +1,22 @@
 # 项目变更记录
 
+## 2026-11-25 新增：历史对话可删除
+
+### 问题
+- 「历史」浮层只能看和切换，攒多了没法清理
+
+### 修改内容
+1. **`htmls/hollow_knight.html`**：历史条目右侧加 `×`，点击前 `confirm` 一次；
+   请求 `DELETE /api/sessions/{id}?client_id=...`，成功后从列表移除
+2. **`htmls/hollow_knight.html`**：删掉的正是当前会话时退回「新对话」，避免下一问写回已删的会话；
+   流式回答进行中按钮置灰（正在写的那一轮会和删除打架）
+3. **`htmls/hollow_knight.html`**：`.history-item` 改 flex 布局，删除按钮常驻低对比（手机不靠 hover）
+
+### 文件变更
+- 修改：`htmls/hollow_knight.html`
+
+---
+
 ## 2026-11-25 修复：聊天页加载历史会话时顶部一大段空白、没滚到最下面
 
 ### 问题

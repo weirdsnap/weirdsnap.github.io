@@ -102,11 +102,33 @@
             padding: 0.55em 0.6em;
             border-radius: var(--radius-sm);
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         .history-item:hover { background: var(--bg-warm); }
         .history-item.active { border-left: 3px solid var(--accent-warm); }
+        .history-item .hi-body { flex: 1; min-width: 0; }
         .history-item .hi-title { font-size: 0.9rem; color: var(--text-primary); }
         .history-item .hi-meta { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.15em; }
+        /* 删除：手机上不靠 hover，常驻但压得低调，点之前还会 confirm 一次 */
+        .hi-del {
+            flex: none;
+            width: 24px;
+            height: 24px;
+            line-height: 1;
+            padding: 0;
+            border: none;
+            border-radius: 50%;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.15s, color 0.15s;
+        }
+        .hi-del:hover { opacity: 1; color: #c0392b; }
+        .hi-del:disabled { opacity: 0.25; cursor: default; }
         .history-empty { font-size: 0.8rem; color: var(--text-muted); padding: 1em 0; text-align: center; }
         .restore-note {
             font-size: 0.78rem;
@@ -426,8 +448,13 @@
                         <div v-for="s in sessions" :key="s.session_id" class="history-item"
                              :class="{ active: s.session_id === sessionId }"
                              @click="switchSession(s.session_id)">
-                            <div class="hi-title">{{ s.title || '（无标题）' }}</div>
-                            <div class="hi-meta">{{ timeAgo(s.last_active) }} · {{ s.turns_available }} 轮{{ s.game ? ' · ' + gameName(s.game) : '' }}</div>
+                            <div class="hi-body">
+                                <div class="hi-title">{{ s.title || '（无标题）' }}</div>
+                                <div class="hi-meta">{{ timeAgo(s.last_active) }} · {{ s.turns_available }} 轮{{ s.game ? ' · ' + gameName(s.game) : '' }}</div>
+                            </div>
+                            <button class="hi-del" :disabled="loading"
+                                    title="删除这段对话"
+                                    @click.stop="removeSession(s)">×</button>
                         </div>
                     </div>
                 </div>
@@ -662,6 +689,26 @@
                     this.msgId = 1;
                     this.resetWindow();
                     await this.restoreSession();
+                },
+
+                async removeSession(s) {
+                    if (!s || !s.session_id || this.loading) return;
+                    const name = s.title || '这段对话';
+                    if (!confirm('删除「' + name + '」？\n删掉后无法恢复，已消耗的额度不退。')) return;
+                    try {
+                        const res = await fetch(API_URL + '/sessions/' + encodeURIComponent(s.session_id)
+                            + '?client_id=' + encodeURIComponent(this.clientId),
+                            { method: 'DELETE' });
+                        if (!res.ok) throw new Error('HTTP ' + res.status);
+                        const data = await res.json();
+                        if (!data.deleted) throw new Error('not deleted');
+                    } catch (e) {
+                        this.restoredNote = '删除失败，请稍后再试';
+                        return;
+                    }
+                    this.sessions = this.sessions.filter(x => x.session_id !== s.session_id);
+                    // 删的就是当前正在看的那段：退回新对话，否则下一次提问还会往已删的会话里写
+                    if (s.session_id === this.sessionId) this.newChat();
                 },
 
                 gameName(key) {
