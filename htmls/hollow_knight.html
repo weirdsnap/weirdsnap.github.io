@@ -30,7 +30,11 @@
             display: flex;
             flex-direction: column;
         }
-        body { overflow: hidden; }
+        /* body 锁成可视高度：style.css 里 body 是 min-height:100vh，iOS 的 100vh 取最大
+           视口（隐藏工具栏时的高度），比实际可见区域大出一截。整页因此多了一段可滚动的
+           死区，表现为顶部内容钻进 sticky 页头底下、页尾上下各空一块。 */
+        html { overflow: hidden; }
+        body { overflow: hidden; min-height: 0; height: 100vh; height: 100dvh; }
         #contents { overflow: hidden; min-height: 0; }
 
         /* 通用卡片样式，与博客文章卡片一致 */
