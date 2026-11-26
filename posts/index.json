@@ -444,6 +444,15 @@
               "readTime": 2,
               "date": "2026-07-23",
               "updated": "2026-07-23"
+            },
+            {
+              "title": "值类别：lvalue、prvalue 与 xvalue",
+              "path": "cpp/ch01/36.md",
+              "order": 36,
+              "wordCount": 820,
+              "readTime": 2,
+              "date": "2026-11-26",
+              "updated": "2026-11-26"
             }
           ]
         },
