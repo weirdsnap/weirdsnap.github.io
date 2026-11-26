@@ -3345,6 +3345,41 @@
               "updated": "2026-11-17"
             }
           ]
+        },
+        {
+          "id": "stability",
+          "label": "服务稳定性",
+          "order": 3,
+          "type": "list",
+          "articles": [
+            {
+              "title": "有界队列与背压：队列满了之后怎么办",
+              "path": "backend/stability/ch01.md",
+              "order": 1,
+              "wordCount": 668,
+              "readTime": 2,
+              "date": "2026-11-26",
+              "updated": "2026-11-26"
+            },
+            {
+              "title": "优雅退出：停机时怎么收拾残局",
+              "path": "backend/stability/ch02.md",
+              "order": 2,
+              "wordCount": 494,
+              "readTime": 2,
+              "date": "2026-11-26",
+              "updated": "2026-11-26"
+            },
+            {
+              "title": "异常隔离：谁病了不传染",
+              "path": "backend/stability/ch03.md",
+              "order": 3,
+              "wordCount": 628,
+              "readTime": 2,
+              "date": "2026-11-26",
+              "updated": "2026-11-26"
+            }
+          ]
         }
       ]
     },
