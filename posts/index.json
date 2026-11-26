@@ -849,10 +849,10 @@
               "updated": "2026-11-05"
             },
             {
-              "title": "移动语义",
+              "title": "移动语义：动机、移后状态与 noexcept",
               "path": "cpp/ch03/08.md",
               "order": 8,
-              "wordCount": 1434,
+              "wordCount": 1442,
               "readTime": 4,
               "date": "2026-06-05",
               "updated": "2026-11-26"
