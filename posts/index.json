@@ -858,22 +858,13 @@
               "updated": "2026-11-26"
             },
             {
-              "title": "RVO 与 NRVO",
+              "title": "返回值优化：RVO、NRVO 与 prvalue 零拷贝",
               "path": "cpp/ch03/09.md",
               "order": 9,
-              "wordCount": 202,
+              "wordCount": 370,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-05"
-            },
-            {
-              "title": "返回 prvalue 的零拷贝",
-              "path": "cpp/ch03/10.md",
-              "order": 10,
-              "wordCount": 227,
-              "readTime": 1,
-              "date": "2026-06-05",
-              "updated": "2026-11-05"
+              "updated": "2026-11-26"
             },
             {
               "title": "RAII 代理模式（栈管理堆资源）",
@@ -903,13 +894,13 @@
               "updated": "2026-11-05"
             },
             {
-              "title": "用户声明拷贝构造抑制移动（基于题目）",
+              "title": "用户声明拷贝构造会抑制移动构造",
               "path": "cpp/ch03/14.md",
               "order": 14,
-              "wordCount": 298,
+              "wordCount": 297,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-05"
+              "updated": "2026-11-26"
             },
             {
               "title": "模板实例化延迟",
