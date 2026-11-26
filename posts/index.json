@@ -852,10 +852,10 @@
               "title": "移动语义",
               "path": "cpp/ch03/08.md",
               "order": 8,
-              "wordCount": 950,
-              "readTime": 3,
+              "wordCount": 1275,
+              "readTime": 4,
               "date": "2026-06-05",
-              "updated": "2026-11-24"
+              "updated": "2026-11-26"
             },
             {
               "title": "RVO 与 NRVO",
