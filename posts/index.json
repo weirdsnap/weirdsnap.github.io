@@ -937,6 +937,24 @@
               "readTime": 2,
               "date": "2026-07-28",
               "updated": "2026-08-17"
+            },
+            {
+              "title": "move-only 类型：unique_ptr、thread、future",
+              "path": "cpp/ch03/18.md",
+              "order": 18,
+              "wordCount": 573,
+              "readTime": 2,
+              "date": "2026-11-26",
+              "updated": "2026-11-26"
+            },
+            {
+              "title": "移动不生效的几种情形",
+              "path": "cpp/ch03/19.md",
+              "order": 19,
+              "wordCount": 712,
+              "readTime": 2,
+              "date": "2026-11-26",
+              "updated": "2026-11-26"
             }
           ]
         },
