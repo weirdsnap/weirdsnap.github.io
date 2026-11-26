@@ -314,10 +314,10 @@
               "title": "右值引用与转发引用",
               "path": "cpp/ch01/21.md",
               "order": 21,
-              "wordCount": 312,
+              "wordCount": 325,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-06-25"
+              "updated": "2026-11-26"
             },
             {
               "title": "std::optional",
