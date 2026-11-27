@@ -453,6 +453,69 @@
               "readTime": 2,
               "date": "2026-11-26",
               "updated": "2026-11-26"
+            },
+            {
+              "title": "类型转换函数基础语法",
+              "path": "cpp/ch01/37.md",
+              "order": 37,
+              "wordCount": 399,
+              "readTime": 1,
+              "date": "2026-06-15",
+              "updated": "2026-11-27"
+            },
+            {
+              "title": "operator auto() 返回类型推导 (C++23)",
+              "path": "cpp/ch01/38.md",
+              "order": 38,
+              "wordCount": 345,
+              "readTime": 1,
+              "date": "2026-06-15",
+              "updated": "2026-11-27"
+            },
+            {
+              "title": "explicit 转换函数",
+              "path": "cpp/ch01/39.md",
+              "order": 39,
+              "wordCount": 306,
+              "readTime": 1,
+              "date": "2026-06-15",
+              "updated": "2026-11-27"
+            },
+            {
+              "title": "operator void() 不合法",
+              "path": "cpp/ch01/40.md",
+              "order": 40,
+              "wordCount": 339,
+              "readTime": 1,
+              "date": "2026-06-15",
+              "updated": "2026-11-27"
+            },
+            {
+              "title": "转换函数模板与推导限制",
+              "path": "cpp/ch01/41.md",
+              "order": 41,
+              "wordCount": 418,
+              "readTime": 1,
+              "date": "2026-06-15",
+              "updated": "2026-11-27"
+            },
+            {
+              "title": "转换函数的 const 正确性",
+              "path": "cpp/ch01/42.md",
+              "order": 42,
+              "wordCount": 457,
+              "readTime": 1,
+              "date": "2026-06-15",
+              "updated": "2026-11-27"
+            },
+            {
+              "title": "转换函数重载的二义性",
+              "path": "cpp/ch01/43.md",
+              "order": 43,
+              "wordCount": 465,
+              "readTime": 1,
+              "date": "2026-06-15",
+              "updated": "2026-11-27"
             }
           ]
         },
@@ -490,54 +553,63 @@
               "updated": "2026-11-27"
             },
             {
-              "title": "虚函数的底层支持（vtable / vptr）",
+              "title": "名字查找的\"找到即停\"",
               "path": "cpp/ch02/04.md",
               "order": 4,
-              "wordCount": 484,
-              "readTime": 1,
+              "wordCount": 586,
+              "readTime": 2,
               "date": "2026-06-05",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "虚函数表（vtable）与虚指针布局",
               "path": "cpp/ch02/05.md",
               "order": 5,
-              "wordCount": 1129,
-              "readTime": 3,
+              "wordCount": 1289,
+              "readTime": 4,
               "date": "2026-06-24",
               "updated": "2026-11-27"
             },
             {
-              "title": "构造顺序与 vptr 切换",
+              "title": "构造与析构顺序",
               "path": "cpp/ch02/06.md",
               "order": 6,
+              "wordCount": 237,
+              "readTime": 1,
+              "date": "2026-06-05",
+              "updated": "2026-11-27"
+            },
+            {
+              "title": "构造顺序与 vptr 切换",
+              "path": "cpp/ch02/07.md",
+              "order": 7,
               "wordCount": 222,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "析构顺序与 vptr 回切",
-              "path": "cpp/ch02/07.md",
-              "order": 7,
-              "wordCount": 159,
+              "path": "cpp/ch02/08.md",
+              "order": 8,
+              "wordCount": 173,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "构造/析构中调用虚函数",
-              "path": "cpp/ch02/08.md",
-              "order": 8,
+              "path": "cpp/ch02/09.md",
+              "order": 9,
               "wordCount": 195,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "虚函数的默认参数",
-              "path": "cpp/ch02/09.md",
-              "order": 9,
+              "path": "cpp/ch02/10.md",
+              "order": 10,
               "wordCount": 228,
               "readTime": 1,
               "date": "2026-06-05",
@@ -545,26 +617,26 @@
             },
             {
               "title": "成员函数模板不能是虚函数",
-              "path": "cpp/ch02/10.md",
-              "order": 10,
+              "path": "cpp/ch02/11.md",
+              "order": 11,
               "wordCount": 171,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "虚函数内联的去虚拟化",
-              "path": "cpp/ch02/11.md",
-              "order": 11,
+              "path": "cpp/ch02/12.md",
+              "order": 12,
               "wordCount": 281,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "final 与编译器优化",
-              "path": "cpp/ch02/12.md",
-              "order": 12,
+              "path": "cpp/ch02/13.md",
+              "order": 13,
               "wordCount": 247,
               "readTime": 1,
               "date": "2026-06-05",
@@ -572,8 +644,8 @@
             },
             {
               "title": "多重继承下的 vtable 布局",
-              "path": "cpp/ch02/13.md",
-              "order": 13,
+              "path": "cpp/ch02/14.md",
+              "order": 14,
               "wordCount": 911,
               "readTime": 3,
               "date": "2026-06-24",
@@ -581,8 +653,8 @@
             },
             {
               "title": "this 指针调整（Thunk）",
-              "path": "cpp/ch02/14.md",
-              "order": 14,
+              "path": "cpp/ch02/15.md",
+              "order": 15,
               "wordCount": 249,
               "readTime": 1,
               "date": "2026-06-05",
@@ -590,48 +662,39 @@
             },
             {
               "title": "虚继承与菱形继承",
-              "path": "cpp/ch02/15.md",
-              "order": 15,
+              "path": "cpp/ch02/16.md",
+              "order": 16,
               "wordCount": 235,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "虚继承内存布局详解",
-              "path": "cpp/ch02/16.md",
-              "order": 16,
+              "path": "cpp/ch02/17.md",
+              "order": 17,
               "wordCount": 1155,
               "readTime": 3,
               "date": "2026-06-24",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "vptr 与 vbptr 的区别",
-              "path": "cpp/ch02/17.md",
-              "order": 17,
+              "path": "cpp/ch02/18.md",
+              "order": 18,
               "wordCount": 228,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "同时含 vptr 与 vbptr 的对象布局",
-              "path": "cpp/ch02/18.md",
-              "order": 18,
+              "path": "cpp/ch02/19.md",
+              "order": 19,
               "wordCount": 185,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-24"
-            },
-            {
-              "title": "虚继承的 vbptr 与偏移量表",
-              "path": "cpp/ch02/19.md",
-              "order": 19,
-              "wordCount": 179,
-              "readTime": 1,
-              "date": "2026-06-05",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "空类的虚继承大小",
@@ -646,25 +709,16 @@
               "title": "typeid 与 RTTI",
               "path": "cpp/ch02/21.md",
               "order": 21,
-              "wordCount": 254,
+              "wordCount": 245,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "dynamic_cast",
               "path": "cpp/ch02/22.md",
               "order": 22,
               "wordCount": 219,
-              "readTime": 1,
-              "date": "2026-06-05",
-              "updated": "2026-11-24"
-            },
-            {
-              "title": "构造与析构顺序",
-              "path": "cpp/ch02/23.md",
-              "order": 23,
-              "wordCount": 237,
               "readTime": 1,
               "date": "2026-06-05",
               "updated": "2026-11-24"
@@ -694,96 +748,6 @@
               "wordCount": 280,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-24"
-            },
-            {
-              "title": "名字查找的\"找到即停\"",
-              "path": "cpp/ch02/27.md",
-              "order": 27,
-              "wordCount": 586,
-              "readTime": 2,
-              "date": "2026-06-05",
-              "updated": "2026-11-27"
-            },
-            {
-              "title": "数组参数退化影响函数重载",
-              "path": "cpp/ch02/28.md",
-              "order": 28,
-              "wordCount": 187,
-              "readTime": 1,
-              "date": "2026-06-05",
-              "updated": "2026-11-24"
-            },
-            {
-              "title": "数组引用 vs 指针重载优先级",
-              "path": "cpp/ch02/29.md",
-              "order": 29,
-              "wordCount": 487,
-              "readTime": 1,
-              "date": "2026-06-05",
-              "updated": "2026-11-24"
-            },
-            {
-              "title": "类型转换函数基础语法",
-              "path": "cpp/ch02/30.md",
-              "order": 30,
-              "wordCount": 399,
-              "readTime": 1,
-              "date": "2026-06-15",
-              "updated": "2026-11-24"
-            },
-            {
-              "title": "operator auto() 返回类型推导 (C++23)",
-              "path": "cpp/ch02/31.md",
-              "order": 31,
-              "wordCount": 345,
-              "readTime": 1,
-              "date": "2026-06-15",
-              "updated": "2026-11-24"
-            },
-            {
-              "title": "explicit 转换函数",
-              "path": "cpp/ch02/32.md",
-              "order": 32,
-              "wordCount": 306,
-              "readTime": 1,
-              "date": "2026-06-15",
-              "updated": "2026-11-24"
-            },
-            {
-              "title": "operator void() 不合法",
-              "path": "cpp/ch02/33.md",
-              "order": 33,
-              "wordCount": 339,
-              "readTime": 1,
-              "date": "2026-06-15",
-              "updated": "2026-11-24"
-            },
-            {
-              "title": "转换函数模板与推导限制",
-              "path": "cpp/ch02/34.md",
-              "order": 34,
-              "wordCount": 418,
-              "readTime": 1,
-              "date": "2026-06-15",
-              "updated": "2026-11-24"
-            },
-            {
-              "title": "转换函数的 const 正确性",
-              "path": "cpp/ch02/35.md",
-              "order": 35,
-              "wordCount": 457,
-              "readTime": 1,
-              "date": "2026-06-15",
-              "updated": "2026-11-27"
-            },
-            {
-              "title": "转换函数重载的二义性",
-              "path": "cpp/ch02/36.md",
-              "order": 36,
-              "wordCount": 465,
-              "readTime": 1,
-              "date": "2026-06-15",
               "updated": "2026-11-24"
             }
           ]
@@ -1197,6 +1161,24 @@
               "readTime": 2,
               "date": "2026-07-01",
               "updated": "2026-07-01"
+            },
+            {
+              "title": "数组参数退化影响函数重载",
+              "path": "cpp/ch04/27.md",
+              "order": 27,
+              "wordCount": 187,
+              "readTime": 1,
+              "date": "2026-06-05",
+              "updated": "2026-11-27"
+            },
+            {
+              "title": "数组引用 vs 指针重载优先级",
+              "path": "cpp/ch04/28.md",
+              "order": 28,
+              "wordCount": 487,
+              "readTime": 1,
+              "date": "2026-06-05",
+              "updated": "2026-11-27"
             }
           ]
         },
