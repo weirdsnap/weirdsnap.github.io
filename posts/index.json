@@ -466,7 +466,7 @@
               "title": "C++ 运行时多态概述",
               "path": "cpp/ch02/01.md",
               "order": 1,
-              "wordCount": 1428,
+              "wordCount": 1443,
               "readTime": 4,
               "date": "2026-06-24",
               "updated": "2026-11-27"
@@ -475,7 +475,7 @@
               "title": "静态类型与动态类型",
               "path": "cpp/ch02/02.md",
               "order": 2,
-              "wordCount": 669,
+              "wordCount": 690,
               "readTime": 2,
               "date": "2026-06-05",
               "updated": "2026-11-27"
@@ -484,7 +484,7 @@
               "title": "override 与虚函数重写",
               "path": "cpp/ch02/03.md",
               "order": 3,
-              "wordCount": 971,
+              "wordCount": 1102,
               "readTime": 3,
               "date": "2026-06-05",
               "updated": "2026-11-27"
@@ -502,10 +502,10 @@
               "title": "虚函数表（vtable）与虚指针布局",
               "path": "cpp/ch02/05.md",
               "order": 5,
-              "wordCount": 1167,
+              "wordCount": 1129,
               "readTime": 3,
               "date": "2026-06-24",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "构造顺序与 vptr 切换",
@@ -541,7 +541,7 @@
               "wordCount": 228,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "成员函数模板不能是虚函数",
@@ -568,25 +568,25 @@
               "wordCount": 247,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "多重继承下的 vtable 布局",
               "path": "cpp/ch02/13.md",
               "order": 13,
-              "wordCount": 920,
-              "readTime": 2,
+              "wordCount": 911,
+              "readTime": 3,
               "date": "2026-06-24",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "this 指针调整（Thunk）",
               "path": "cpp/ch02/14.md",
               "order": 14,
-              "wordCount": 242,
+              "wordCount": 249,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "虚继承与菱形继承",
@@ -700,10 +700,10 @@
               "title": "名字查找的\"找到即停\"",
               "path": "cpp/ch02/27.md",
               "order": 27,
-              "wordCount": 212,
+              "wordCount": 392,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "数组参数退化影响函数重载",
@@ -772,10 +772,10 @@
               "title": "转换函数的 const 正确性",
               "path": "cpp/ch02/35.md",
               "order": 35,
-              "wordCount": 378,
+              "wordCount": 457,
               "readTime": 1,
               "date": "2026-06-15",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "转换函数重载的二义性",
