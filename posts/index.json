@@ -1067,7 +1067,7 @@
               "title": "可变参数模板",
               "path": "cpp/ch04/16.md",
               "order": 16,
-              "wordCount": 1207,
+              "wordCount": 1218,
               "readTime": 3,
               "date": "2026-06-05",
               "updated": "2026-11-27"
@@ -1076,7 +1076,7 @@
               "title": "IFNDR：只有空包才合法的变参模板",
               "path": "cpp/ch04/17.md",
               "order": 17,
-              "wordCount": 683,
+              "wordCount": 694,
               "readTime": 2,
               "date": "2026-06-05",
               "updated": "2026-11-27"
