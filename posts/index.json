@@ -484,10 +484,10 @@
               "title": "override 与虚函数重写",
               "path": "cpp/ch02/03.md",
               "order": 3,
-              "wordCount": 238,
+              "wordCount": 203,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "虚函数的底层支持（vtable / vptr）",
@@ -1076,10 +1076,10 @@
               "title": "特化 vs 重载的优先级",
               "path": "cpp/ch04/13.md",
               "order": 13,
-              "wordCount": 93,
+              "wordCount": 462,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-05"
+              "updated": "2026-11-27"
             },
             {
               "title": "模板重载决议的三阶段",
