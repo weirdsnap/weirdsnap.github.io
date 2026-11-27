@@ -1645,6 +1645,15 @@
               "readTime": 1,
               "date": "2026-09-10",
               "updated": "2026-09-10"
+            },
+            {
+              "title": "`map` 的 `operator[]`：查询背后的默认插入",
+              "path": "cpp/ch07/37.md",
+              "order": 37,
+              "wordCount": 762,
+              "readTime": 2,
+              "date": "2026-11-27",
+              "updated": "2026-11-27"
             }
           ]
         },
