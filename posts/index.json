@@ -242,10 +242,10 @@
               "title": "引用的临时对象与生命周期延长",
               "path": "cpp/ch01/10.md",
               "order": 10,
-              "wordCount": 1573,
-              "readTime": 4,
+              "wordCount": 1661,
+              "readTime": 5,
               "date": "2026-06-05",
-              "updated": "2026-06-26"
+              "updated": "2026-11-27"
             },
             {
               "title": "`const` vs `constexpr`",
@@ -870,10 +870,10 @@
               "title": "返回值优化：RVO、NRVO 与 prvalue 零拷贝",
               "path": "cpp/ch03/09.md",
               "order": 9,
-              "wordCount": 370,
-              "readTime": 1,
+              "wordCount": 565,
+              "readTime": 2,
               "date": "2026-06-05",
-              "updated": "2026-11-26"
+              "updated": "2026-11-27"
             },
             {
               "title": "RAII 代理模式（栈管理堆资源）",
