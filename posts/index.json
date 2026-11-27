@@ -161,10 +161,10 @@
               "title": "C++ 语言基础与类型系统",
               "path": "cpp/ch01/00.md",
               "order": 0,
-              "wordCount": 1767,
+              "wordCount": 1774,
               "readTime": 5,
               "date": "2026-06-10",
-              "updated": "2026-11-16"
+              "updated": "2026-11-27"
             },
             {
               "title": "无符号整型回绕",
@@ -173,7 +173,7 @@
               "wordCount": 460,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-16"
+              "updated": "2026-11-27"
             },
             {
               "title": "char 的符号性",
@@ -182,7 +182,7 @@
               "wordCount": 428,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-16"
+              "updated": "2026-11-27"
             },
             {
               "title": "C++ 字面量与类型",
@@ -1971,10 +1971,10 @@
           "title": "异常处理：try-catch 的定位信息去哪了？",
           "path": "python2cpp/ch05.md",
           "order": 5,
-          "wordCount": 952,
+          "wordCount": 951,
           "readTime": 3,
           "date": "2026-06-25",
-          "updated": "2026-06-25"
+          "updated": "2026-11-27"
         }
       ],
       "subs": []
