@@ -476,16 +476,16 @@
               "title": "explicit 转换函数",
               "path": "cpp/ch01/39.md",
               "order": 39,
-              "wordCount": 306,
+              "wordCount": 329,
               "readTime": 1,
               "date": "2026-06-15",
               "updated": "2026-11-27"
             },
             {
-              "title": "operator void() 不合法",
+              "title": "operator void()：合法但永远不会被调用",
               "path": "cpp/ch01/40.md",
               "order": 40,
-              "wordCount": 339,
+              "wordCount": 345,
               "readTime": 1,
               "date": "2026-06-15",
               "updated": "2026-11-27"
@@ -538,7 +538,7 @@
               "title": "静态类型与动态类型",
               "path": "cpp/ch02/02.md",
               "order": 2,
-              "wordCount": 690,
+              "wordCount": 716,
               "readTime": 2,
               "date": "2026-06-05",
               "updated": "2026-11-27"
@@ -556,7 +556,7 @@
               "title": "名字查找的\"找到即停\"",
               "path": "cpp/ch02/04.md",
               "order": 4,
-              "wordCount": 586,
+              "wordCount": 628,
               "readTime": 2,
               "date": "2026-06-05",
               "updated": "2026-11-27"
@@ -950,19 +950,19 @@
               "title": "重载决议的工作流程",
               "path": "cpp/ch04/03.md",
               "order": 3,
-              "wordCount": 279,
+              "wordCount": 382,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-05"
+              "updated": "2026-11-27"
             },
             {
               "title": "隐式转换序列的比较规则",
               "path": "cpp/ch04/04.md",
               "order": 4,
-              "wordCount": 266,
+              "wordCount": 422,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-05"
+              "updated": "2026-11-27"
             },
             {
               "title": "模板全特化 vs 主模板",
@@ -1046,126 +1046,90 @@
               "updated": "2026-11-27"
             },
             {
-              "title": "模板重载决议的三阶段",
+              "title": "显式特化的语法伪装",
               "path": "cpp/ch04/14.md",
               "order": 14,
-              "wordCount": 80,
-              "readTime": 1,
-              "date": "2026-06-05",
-              "updated": "2026-11-05"
-            },
-            {
-              "title": "显式特化的语法伪装",
-              "path": "cpp/ch04/15.md",
-              "order": 15,
               "wordCount": 102,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-05"
+              "updated": "2026-11-27"
             },
             {
               "title": "模板推导是模式匹配，不是解方程",
-              "path": "cpp/ch04/16.md",
-              "order": 16,
+              "path": "cpp/ch04/15.md",
+              "order": 15,
               "wordCount": 280,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-05"
+              "updated": "2026-11-27"
             },
             {
               "title": "可变参数模板",
-              "path": "cpp/ch04/17.md",
-              "order": 17,
+              "path": "cpp/ch04/16.md",
+              "order": 16,
               "wordCount": 1207,
               "readTime": 3,
               "date": "2026-06-05",
-              "updated": "2026-11-16"
+              "updated": "2026-11-27"
             },
             {
               "title": "IFNDR：只有空包才合法的变参模板",
-              "path": "cpp/ch04/18.md",
-              "order": 18,
+              "path": "cpp/ch04/17.md",
+              "order": 17,
               "wordCount": 683,
               "readTime": 2,
               "date": "2026-06-05",
-              "updated": "2026-11-16"
-            },
-            {
-              "title": "函数参数类型确定的三阶段",
-              "path": "cpp/ch04/19.md",
-              "order": 19,
-              "wordCount": 329,
-              "readTime": 1,
-              "date": "2026-06-05",
-              "updated": "2026-11-05"
+              "updated": "2026-11-27"
             },
             {
               "title": "void* / nullptr / NULL",
-              "path": "cpp/ch04/20.md",
-              "order": 20,
+              "path": "cpp/ch04/18.md",
+              "order": 18,
               "wordCount": 227,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-05"
-            },
-            {
-              "title": "operator void()",
-              "path": "cpp/ch04/21.md",
-              "order": 21,
-              "wordCount": 161,
-              "readTime": 1,
-              "date": "2026-06-05",
-              "updated": "2026-11-05"
-            },
-            {
-              "title": "explicit 转换运算符",
-              "path": "cpp/ch04/22.md",
-              "order": 22,
-              "wordCount": 201,
-              "readTime": 1,
-              "date": "2026-06-05",
-              "updated": "2026-11-05"
+              "updated": "2026-11-27"
             },
             {
               "title": "constexpr vs const",
-              "path": "cpp/ch04/23.md",
-              "order": 23,
+              "path": "cpp/ch04/19.md",
+              "order": 19,
               "wordCount": 213,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-05"
+              "updated": "2026-11-27"
             },
             {
               "title": "auto 的引用剥离（Decay）",
-              "path": "cpp/ch04/24.md",
-              "order": 24,
+              "path": "cpp/ch04/20.md",
+              "order": 20,
               "wordCount": 234,
               "readTime": 1,
               "date": "2026-06-05",
-              "updated": "2026-11-05"
+              "updated": "2026-11-27"
             },
             {
               "title": "if constexpr：编译期 if 与 IFNDR 陷阱",
-              "path": "cpp/ch04/25.md",
-              "order": 25,
+              "path": "cpp/ch04/21.md",
+              "order": 21,
               "wordCount": 1262,
               "readTime": 4,
-              "date": "2026-06-15",
-              "updated": "2026-06-25"
+              "date": "2026-06-05",
+              "updated": "2026-11-27"
             },
             {
               "title": "部分显式指定模板参数与隐式转换",
-              "path": "cpp/ch04/26.md",
-              "order": 26,
+              "path": "cpp/ch04/22.md",
+              "order": 22,
               "wordCount": 685,
               "readTime": 2,
-              "date": "2026-07-01",
-              "updated": "2026-07-01"
+              "date": "2026-06-05",
+              "updated": "2026-11-27"
             },
             {
               "title": "数组参数退化影响函数重载",
-              "path": "cpp/ch04/27.md",
-              "order": 27,
+              "path": "cpp/ch04/23.md",
+              "order": 23,
               "wordCount": 187,
               "readTime": 1,
               "date": "2026-06-05",
@@ -1173,8 +1137,8 @@
             },
             {
               "title": "数组引用 vs 指针重载优先级",
-              "path": "cpp/ch04/28.md",
-              "order": 28,
+              "path": "cpp/ch04/24.md",
+              "order": 24,
               "wordCount": 487,
               "readTime": 1,
               "date": "2026-06-05",
