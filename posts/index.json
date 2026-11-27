@@ -834,10 +834,10 @@
               "title": "拷贝构造 vs 拷贝赋值",
               "path": "cpp/ch03/05.md",
               "order": 5,
-              "wordCount": 279,
-              "readTime": 1,
+              "wordCount": 1008,
+              "readTime": 3,
               "date": "2026-06-05",
-              "updated": "2026-11-05"
+              "updated": "2026-11-27"
             },
             {
               "title": "三/五/零法则",
