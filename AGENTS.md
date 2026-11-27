@@ -88,7 +88,7 @@ git commit -m "<内容描述>"
 python3 scripts/build_index.py
 python3 scripts/validate.py        # 必须全绿
 git add posts/index.json
-git commit -m "index: 更新索引"
+git diff --cached --quiet || git commit -m "index: 更新索引"   # 索引没变就跳过，别让空提交中断链条
 
 # 4. 推送，查 CI
 git push
@@ -96,6 +96,8 @@ curl -s "https://api.github.com/repos/weirdsnap/weirdsnap.github.io/actions/runs
 ```
 
 CI 三个工作流（Blog CI / Validate Blog Data / Deploy to GitHub Pages）要**全部 success** 才算推送完成，有一个红了就查原因修复。
+
+⚠️ 同一时间只跑一个推送任务。多个后台推送并行会互相 stash 串台，提交顺序和索引内容都可能错位（2026-11-27 踩过）。
 
 ⚠️ 顺序不能反过来：新增文章的 `date` 取自 git 首次提交；若先跑 build_index 再提交内容，索引里留下的是 mtime 兜底日期，与提交后的日期一旦跨天就漂移，CI 的 "Check index.json is up to date" 会红（2026-11-26 踩过一次）。验证要跑两遍：内容提交前跑 validate 确认文章合规，内容提交后再跑 build_index + validate 定稿索引。
 
