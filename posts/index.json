@@ -3353,6 +3353,23 @@
               "updated": "2026-11-26"
             }
           ]
+        },
+        {
+          "id": "metrics",
+          "label": "指标与监控",
+          "order": 4,
+          "type": "list",
+          "articles": [
+            {
+              "title": "读指标的几个坑：分位数、load average、内存口径、PV/UV",
+              "path": "backend/metrics/ch01.md",
+              "order": 1,
+              "wordCount": 2310,
+              "readTime": 7,
+              "date": "2026-11-27",
+              "updated": "2026-11-27"
+            }
+          ]
         }
       ]
     },
