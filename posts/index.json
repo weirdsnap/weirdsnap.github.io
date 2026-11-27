@@ -466,10 +466,10 @@
               "title": "C++ 运行时多态概述",
               "path": "cpp/ch02/01.md",
               "order": 1,
-              "wordCount": 1196,
-              "readTime": 3,
+              "wordCount": 1428,
+              "readTime": 4,
               "date": "2026-06-24",
-              "updated": "2026-11-24"
+              "updated": "2026-11-27"
             },
             {
               "title": "静态类型与动态类型",
